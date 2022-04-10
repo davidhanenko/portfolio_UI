@@ -1,11 +1,14 @@
 import type { AppProps } from 'next/app';
-import StrapiApolloProvider from '../graphql/apollo';
+import { ApolloProvider } from '@apollo/client';
+import { useApollo } from '../graphql/apollo';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const apolloClient = useApollo(pageProps);
+
   return (
-    <StrapiApolloProvider>
+    <ApolloProvider client={apolloClient}>
       <Component {...pageProps} />
-    </StrapiApolloProvider>
+    </ApolloProvider>
   );
 }
 

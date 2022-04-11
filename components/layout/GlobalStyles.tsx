@@ -11,6 +11,9 @@ const GlobalStyles = createGlobalStyle`
   :root {
     margin: 0 auto;
     --maxWidth: 1400px;
+
+    --bgDark: #000;
+    --orange: #ffa500;
   }
 
   html {
@@ -23,7 +26,8 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     font-size: 1.5rem;
     scroll-behavior: smooth;
-    background: black;
+    background: var(--bgDark);
+    overflow-x: hidden;
   }
 
   a {

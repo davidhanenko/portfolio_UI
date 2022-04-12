@@ -1,10 +1,12 @@
-import { HomeStyles } from './HomeStyles';
+import { HomeStyles, NameContainer } from './HomeStyles';
 import { Name } from './name/Name';
 
 export const Home = () => {
   return (
     <HomeStyles>
-      <Name />
+      <NameContainer>
+        <Name />
+      </NameContainer>
     </HomeStyles>
   );
 };

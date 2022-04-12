@@ -1,25 +1,30 @@
 import styled, { keyframes } from 'styled-components';
 
-const fadeInH = keyframes`
+const lastR = keyframes`
     0% {
       transform: translate(0%);
-      background: none;
+      /* background: black; */
     }
     100% {
         transform: translate(15%);
         background: #ffffff;
     } 
   `;
-const fadeInR = keyframes`
+const lastRRest = keyframes`
     0% {
-      transform: translate(50%);
+          transform: translateX(60%);
     }
+    90% {
+        transform: translate(150%); 
+         height: 100%;  
+    } 
     100% {
-        transform: translate(150%);  
+      transform: translate(150%); 
+      height: 0; 
     } 
   `;
 
-const fadeInL = keyframes`
+const firstLeft = keyframes`
     0% {
       transform: translate(120%);
     }
@@ -27,7 +32,8 @@ const fadeInL = keyframes`
         transform: translate(20%);
     } 
   `;
-const fadeInLr = keyframes`
+
+const fadeInVisibility = keyframes`
     0% {
       visibility: hidden; 
       opacity: 0;  
@@ -39,14 +45,17 @@ const fadeInLr = keyframes`
   `;
 
 const NameStyles = styled.div`
-  animation-delay: 2s;
   display: flex;
-
-  height: 100vh;
+  flex-flow: row wrap;
+  animation-delay: 2s;
+  min-width: 100%;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  transform: translateX(-7.5%);
 
   .first-name {
+    display: inline-block;
     color: var(--orange);
     font-size: 10rem;
     margin-right: 1rem;
@@ -54,49 +63,36 @@ const NameStyles = styled.div`
 
     /* position: relative; */
     z-index: 1;
-    animation: ${fadeInL} 5s;
+    animation: ${firstLeft} 5s;
     animation-delay: 2s;
     animation-fill-mode: forwards;
 
     .first-name-rest {
-      animation: ${fadeInLr} 5s;
+      animation: ${fadeInVisibility} 5s;
       /* animation-delay: 2s; */
     }
     @media (max-width: 601px) {
-      font-size: 10rem;
+      font-size: 4rem;
     }
   }
   .last-name {
-    /* position: relative; */
+    display: inline-block;
     color: var(--orange);
     font-size: 10rem;
-    /* background: white; */
-    /* transform: translateX(-15%); */
-    /* background: black; */
-    animation: ${fadeInH} 5s;
+    animation: ${lastR} 5s;
     animation-delay: 2s;
     z-index: 2;
     animation-fill-mode: forwards;
 
     .last-name-rest {
-      animation: ${fadeInLr} 5s
+      animation: ${fadeInVisibility} 5s
         cubic-bezier(1, 0.06, 0.4, 1.16);
-      /* animation-delay: 2s; */
     }
 
     @media (max-width: 601px) {
-      font-size: 10rem;
+      font-size: 4rem;
     }
   }
-
-  /* .test {
-    position: absolute;
-    left: 65%;
-    height: 100px;
-    width: 350px;
-    background: black;
-    z-index: 2;
-  } */
 
   .test-1 {
     position: absolute;
@@ -106,7 +102,7 @@ const NameStyles = styled.div`
     z-index: 2;
     transform: translateX(60%);
 
-    animation: ${fadeInR} 5s;
+    animation: ${lastRRest} 6s;
     animation-delay: 2s;
     animation-fill-mode: forwards;
     transform-origin: right;

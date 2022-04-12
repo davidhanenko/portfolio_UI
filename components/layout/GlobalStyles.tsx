@@ -20,8 +20,7 @@ const GlobalStyles = createGlobalStyle`
    box-sizing: border-box;
    font-size: 62.5%;
    scroll-behavior: smooth;
-
-    overflow-x: hidden;
+   overflow-x: hidden;
 }
 
   body {

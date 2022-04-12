@@ -6,7 +6,6 @@ export const Name = () => {
         <span className='first-name-1'>D</span>
         <span className='first-name-rest'>avid</span>
       </div>
-      <span className='test'></span>
       <div className='last-name'>
         <span className='last-name-1'>H</span>
         <span className='last-name-rest'>anenko</span>

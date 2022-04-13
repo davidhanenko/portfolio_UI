@@ -12,8 +12,9 @@ const GlobalStyles = createGlobalStyle`
     margin: 0 auto;
     --maxWidth: 1400px;
 
-    --bgDark: #000;
+    --bgDark: #252525;
     --orange: #ffa500;
+    --white: #f8f1f1;
   }
 
   html {

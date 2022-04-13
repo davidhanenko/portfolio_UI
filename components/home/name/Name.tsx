@@ -10,7 +10,7 @@ export const Name = () => {
         <span className='last-name-1'>H</span>
         <span className='last-name-rest'>anenko</span>
       </div>
-      <span className='test-1'></span>
+      <span className='last-name-overlay'></span>
     </NameStyles>
   );
 };

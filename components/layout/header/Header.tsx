@@ -1,14 +1,12 @@
 import { HeaderStyles, LogoStyles } from './HeaderStyles';
-import Hamburger from 'hamburger-react';
+import { Logo } from './logo/Logo';
+import { Nav } from './nav/Nav';
 
 export const Header = () => {
   return (
     <HeaderStyles>
-      <LogoStyles>
-        <span className='logo-1'>D</span>
-        <span className='logo-2'>H</span>
-      </LogoStyles>
-      <Hamburger />
+      <Logo />
+      <Nav />
     </HeaderStyles>
   );
 };

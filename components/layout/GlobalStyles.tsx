@@ -26,7 +26,6 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: 'Roboto', sans-serif;
-    font-size: 1.5rem;
     scroll-behavior: smooth;
     background: var(--bgDark);
   }

@@ -1,5 +1,22 @@
 import styled, { keyframes } from 'styled-components';
 
+const nameX = keyframes`
+    0% {
+      transform: translateX(-7.5%);
+    }
+    100% {
+      transform: translateX(-25%);
+    } 
+  `;
+  const nameY = keyframes`
+    0% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(-50%);
+    } 
+  `;
+
 const lastR = keyframes`
     0% {
       transform: translate(0%);
@@ -65,6 +82,8 @@ const fadeInVisibilityL = keyframes`
   `;
 
 const NameStyles = styled.div`
+  --fontSize: 12rem;
+
   display: flex;
   flex-flow: row wrap;
   min-width: 100%;
@@ -73,10 +92,16 @@ const NameStyles = styled.div`
   margin: 0 auto;
   transform: translateX(-7.5%);
 
+  animation: ${nameX} 2s;
+  animation-delay: 5s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+
   .first-name {
     display: inline-block;
     color: var(--orange);
-    font-size: 10rem;
+    font-size: var(--fontSize);
     transform: translateX(120%);
 
     z-index: 1;
@@ -95,7 +120,7 @@ const NameStyles = styled.div`
   .last-name {
     display: inline-block;
     color: var(--orange);
-    font-size: 10rem;
+    font-size: var(--fontSize);
     padding: 0 1rem;
     z-index: 2;
     animation: ${lastR} 5s;
@@ -113,19 +138,14 @@ const NameStyles = styled.div`
     }
   }
 
-  .test-1 {
+  .last-name-overlay {
     position: absolute;
     height: 100px;
-    width: 400px;
+    width: 500px;
     background: var(--bgDark);
-    /* background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(37, 37, 37, 1) 4%,
-      rgba(37, 37, 37, 1) 100%
-    ); */
     z-index: 2;
     transform: translateX(58%);
+    transform-style: preserve-3d;
 
     animation: ${lastRRest} 4s;
     animation-delay: 2s;

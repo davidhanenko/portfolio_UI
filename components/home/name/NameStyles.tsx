@@ -5,15 +5,15 @@ const nameX = keyframes`
       transform: translateX(-7.5%);
     }
     100% {
-      transform: translateX(-25%);
+      transform: translateX(-20%);;
     } 
   `;
-  const nameY = keyframes`
+const nameY = keyframes`
     0% {
       transform: translateY(0%);
-    }
+    } 
     100% {
-      transform: translateY(-50%);
+      transform: translateY(-120%);
     } 
   `;
 
@@ -82,8 +82,6 @@ const fadeInVisibilityL = keyframes`
   `;
 
 const NameStyles = styled.div`
-  --fontSize: 12rem;
-
   display: flex;
   flex-flow: row wrap;
   min-width: 100%;
@@ -91,17 +89,26 @@ const NameStyles = styled.div`
   align-items: center;
   margin: 0 auto;
   transform: translateX(-7.5%);
+  font-size: var(--fontSize);
+  color: var(--orange);
+  font-weight: 400;
 
   animation: ${nameX} 2s;
-  animation-delay: 5s;
+  animation-delay: 5.5s;
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
 
+  .name {
+    animation: ${nameY} 2s;
+    animation-delay: 5.5s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+
   .first-name {
     display: inline-block;
-    color: var(--orange);
-    font-size: var(--fontSize);
     transform: translateX(120%);
 
     z-index: 1;
@@ -119,8 +126,7 @@ const NameStyles = styled.div`
   }
   .last-name {
     display: inline-block;
-    color: var(--orange);
-    font-size: var(--fontSize);
+
     padding: 0 1rem;
     z-index: 2;
     animation: ${lastR} 5s;

@@ -9,7 +9,7 @@ const NavStyled = styled.nav<NavProps>`
   font-size: 5rem;
 
   .hamburger-react {
-    z-index: 3;
+    z-index: 5;
     margin: 2rem 2rem 0 0;
   }
 
@@ -19,6 +19,7 @@ const NavStyled = styled.nav<NavProps>`
     align-items: center;
     justify-content: center;
     height: 50vh;
+    min-height: 400px;
 
     position: absolute;
     right: 0;
@@ -27,6 +28,7 @@ const NavStyled = styled.nav<NavProps>`
     min-width: 100%;
     font-weight: 100;
     list-style: none;
+    z-index: 3;
 
     transform: translateY(-100%);
     transition: all 1s;

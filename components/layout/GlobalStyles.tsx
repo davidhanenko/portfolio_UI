@@ -11,9 +11,10 @@ const GlobalStyles = createGlobalStyle`
   :root {
     margin: 0 auto;
     --maxWidth: 1400px;
+     --fontSize: 12rem;
 
     --bgDark: #252525;
-    --orange: #ffa500;
+    --orange: #f07807;
     --white: #f8f1f1;
   }
 

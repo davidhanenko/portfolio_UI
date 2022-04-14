@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavStyled } from './NavStyles';
 import { Squash as Hamburger } from 'hamburger-react';
+import { NavLink } from './nav-link/NavLink';
 
 export const Nav: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -15,10 +16,10 @@ export const Nav: React.FC = () => {
         toggle={setIsOpen}
       />
       <ul className='nav-links'>
-        <li>Home</li>
-        <li>About</li>
-        <li>Projects</li>
-        <li>Contact</li>
+        <NavLink link={'Home'} />
+        <NavLink link={'About'} />
+        <NavLink link={'Projects'} />
+        <NavLink link={'Contact'} />
       </ul>
     </NavStyled>
   );

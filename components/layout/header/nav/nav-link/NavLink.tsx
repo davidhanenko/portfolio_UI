@@ -1,35 +1,36 @@
 import Link from 'next/link';
-import React, {
-  ForwardRefExoticComponent,
-  RefAttributes,
-} from 'react';
+import React from 'react';
 import { NavLinkStyles } from './NavLinkStyles';
 
 type Props = {
-  link: string;
-  href?: string | undefined;
+  link?: string;
+  page: string;
+  href?: string;
   // onClick: (id: string) => void;
 } & React.ComponentPropsWithoutRef<'button'>;
 
 // eslint-disable-next-line react/display-name
 const LinkBnt = React.forwardRef(
   (
-    { href, link }: Props,
+    { href, page }: Props,
     ref: React.LegacyRef<HTMLAnchorElement> | undefined
   ) => {
     return (
       <a href={href} ref={ref}>
-        {link}
+        {page}
       </a>
     );
   }
 );
 
-export const NavLink: React.FC<Props> = ({ link }) => {
+export const NavLink: React.FC<Props> = ({
+  link,
+  page,
+}) => {
   return (
     <NavLinkStyles>
       <Link href={`/${link}`} passHref>
-        <LinkBnt link={link} />
+        <LinkBnt page={page} />
       </Link>
     </NavLinkStyles>
   );

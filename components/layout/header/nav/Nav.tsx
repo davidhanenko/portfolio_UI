@@ -16,10 +16,10 @@ export const Nav: React.FC = () => {
         toggle={setIsOpen}
       />
       <ul className='nav-links'>
-        <NavLink link={'Home'} />
-        <NavLink link={'About'} />
-        <NavLink link={'Projects'} />
-        <NavLink link={'Contact'} />
+        <NavLink link={''} page={'home'} />
+        <NavLink link={'about'} page={'about'} />
+        <NavLink link={'projects'} page={'projects'} />
+        <NavLink link={'contact'} page={'contact'} />
       </ul>
     </NavStyled>
   );

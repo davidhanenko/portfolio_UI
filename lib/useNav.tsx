@@ -1,6 +1,6 @@
 import { useContext, createContext, useState } from 'react';
 
-interface IContextState {
+export interface IContextState {
   isOpen: boolean;
   setOpen: (isOpen: boolean) => void;
   toggleNav: (isOpen: boolean) => void;

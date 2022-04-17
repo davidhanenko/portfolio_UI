@@ -1,16 +1,50 @@
-import { NavStyles } from './NavStyles';
+import { useEffect, useRef } from 'react';
 import { Squash as Hamburger } from 'hamburger-react';
 
-import { useNav } from '../../../../lib/useNav';
+import {
+  IContextState,
+  useNav,
+} from '../../../../lib/useNav';
 
 import { NavLink } from './nav-link/NavLink';
+import { NavStyles } from './NavStyles';
 
-export const Nav: React.FC = () => {
-  const { isOpen, setOpen, toggleNav, closeNav } =
-    useNav();
+export const Nav: React.FC<IContextState> = () => {
+  const { isOpen, setOpen, toggleNav, closeNav } = useNav();
+
+  const navRef = useRef<HTMLDivElement>(null);
+
+  // close nav on click outside
+  useEffect(() => {
+    //  click outside nav handler
+    const handleClickOutside = (
+      event: React.ChangeEvent<HTMLInputElement>
+    ): void => {
+      if (
+        isOpen &&
+        !navRef?.current?.contains(event.target)
+      ) {
+        closeNav();
+      }
+    };
+
+    //  click outside nav listener
+    document.addEventListener(
+      'mousedown',
+      handleClickOutside
+    );
+
+    // cleanup the event listener
+    return () => {
+      document.removeEventListener(
+        'mousedown',
+        handleClickOutside
+      );
+    };
+  }, [isOpen]);
 
   return (
-    <NavStyles isOpen={isOpen}>
+    <NavStyles isOpen={isOpen} ref={navRef}>
       <Hamburger
         size={48}
         hideOutline={false}

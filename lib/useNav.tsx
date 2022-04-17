@@ -7,9 +7,9 @@ export interface IContextState {
   closeNav: (isOpen: boolean) => void;
 }
 
-const LocalStateContext = createContext<
-  IContextState | false
->(false);
+const LocalStateContext = createContext < IContextState | any>(
+  false
+);
 
 const LocalStateProvider = LocalStateContext.Provider;
 

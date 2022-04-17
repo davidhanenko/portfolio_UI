@@ -17,12 +17,10 @@ export const Nav: React.FC<IContextState> = () => {
   // close nav on click outside
   useEffect(() => {
     //  click outside nav handler
-    const handleClickOutside = (
-      event: React.ChangeEvent<HTMLInputElement>
-    ): void => {
+    const handleClickOutside = (event: Event): void => {
       if (
         isOpen &&
-        !navRef?.current?.contains(event.target)
+        !navRef?.current?.contains(event.target as Node)
       ) {
         closeNav();
       }

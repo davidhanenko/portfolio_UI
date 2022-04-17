@@ -32,6 +32,12 @@ const NavStyles = styled.nav<NavProps>`
 
     transform: translateY(-100%);
     transition: all 1s;
+    transition-timing-function: cubic-bezier(
+      0.49,
+      0.07,
+      0.51,
+      1.02
+    );
 
     ${props => props.isOpen && `transform: translateY(0%)`};
   }

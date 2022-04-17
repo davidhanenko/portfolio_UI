@@ -1,12 +1,15 @@
-import { HeaderStyles, LogoStyles } from './HeaderStyles';
+import { NavStateProvider } from '../../../lib/useNav';
+import { HeaderStyles} from './HeaderStyles';
 import { Logo } from './logo/Logo';
 import { Nav } from './nav/Nav';
 
 export const Header = () => {
   return (
-    <HeaderStyles>
-      <Logo />
-      <Nav />
-    </HeaderStyles>
+    <NavStateProvider>
+      <HeaderStyles>
+        <Logo />
+        <Nav />
+      </HeaderStyles>
+    </NavStateProvider>
   );
 };

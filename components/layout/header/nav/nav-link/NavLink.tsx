@@ -12,7 +12,7 @@ type Props = {
 // eslint-disable-next-line react/display-name
 const LinkBnt = React.forwardRef(
   (
-    { href, page }: Props,
+    { href, page, link }: Props,
     ref: React.LegacyRef<HTMLAnchorElement> | undefined
   ) => {
     return (

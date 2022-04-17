@@ -4,7 +4,7 @@ interface NavProps {
   readonly isOpen: boolean;
 }
 
-const NavStyled = styled.nav<NavProps>`
+const NavStyles = styled.nav<NavProps>`
   color: white;
   font-size: 5rem;
 
@@ -37,4 +37,4 @@ const NavStyled = styled.nav<NavProps>`
   }
 `;
 
-export { NavStyled };
+export { NavStyles };

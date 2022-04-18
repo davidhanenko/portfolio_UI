@@ -8,12 +8,13 @@ const nameX = keyframes`
       transform: translateX(-20%);;
     } 
   `;
+  
 const nameY = keyframes`
     0% {
       transform: translateY(0%);
     } 
     100% {
-      transform: translateY(-120%);
+      transform: translateY(-150%);
     } 
   `;
 

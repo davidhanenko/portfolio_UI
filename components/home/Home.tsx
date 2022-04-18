@@ -1,12 +1,17 @@
-import { HomeStyles, NameContainer } from './HomeStyles';
 import { Name } from './name/Name';
+import { About } from './about/About';
+import { Stack } from './stack/Stack';
 
-export const Home = () => {
+import { HomeStyles, HomeContainer } from './HomeStyles';
+
+export const Home: React.FC = () => {
   return (
     <HomeStyles>
-      <NameContainer>
+      <HomeContainer>
         <Name />
-      </NameContainer>
+        <Stack />
+        <About />
+      </HomeContainer>
     </HomeStyles>
   );
 };

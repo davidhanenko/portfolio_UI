@@ -42,7 +42,11 @@ export const Nav: React.FC<IContextState> = () => {
   }, [isOpen]);
 
   return (
-    <NavStyles isOpen={isOpen} ref={navRef}>
+    <NavStyles
+      isOpen={isOpen}
+      // isClicked={isClicked}
+      ref={navRef}
+    >
       <Hamburger
         size={48}
         hideOutline={false}

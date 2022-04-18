@@ -93,13 +93,13 @@ const NameStyles = styled.div`
   color: var(--orange);
   font-weight: 400;
 
-  animation: ${nameX} 2s;
+  -webkit-animation: ${nameX} 2s linear;
+  animation: ${nameX} 2s linear;
   animation-delay: 5.5s;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
   animation-fill-mode: forwards;
 
   .name {
+    -webkit-animation: ${nameY} 2s;
     animation: ${nameY} 2s;
     animation-delay: 5.5s;
     -webkit-animation-timing-function: linear;
@@ -112,11 +112,14 @@ const NameStyles = styled.div`
     transform: translateX(120%);
 
     z-index: 1;
+    -webkit-animation: ${firstLeft} 4s;
     animation: ${firstLeft} 4s;
     animation-delay: 2s;
     animation-fill-mode: forwards;
 
     .first-name-rest {
+      -webkit-animation: ${fadeInVisibilityL} 4s
+        cubic-bezier(1, 0.06, 0.4, 1.16);
       animation: ${fadeInVisibilityL} 4s
         cubic-bezier(1, 0.06, 0.4, 1.16);
     }
@@ -135,6 +138,8 @@ const NameStyles = styled.div`
 
     .last-name-rest {
       visibility: 0;
+      -webkit-animation: ${fadeInVisibilityR} 5s
+        cubic-bezier(1, 0.06, 0.4, 1.16);
       animation: ${fadeInVisibilityR} 5s
         cubic-bezier(1, 0.06, 0.4, 1.16);
     }
@@ -153,6 +158,7 @@ const NameStyles = styled.div`
     transform: translateX(58%);
     transform-style: preserve-3d;
 
+    -webkit-animation: ${lastRRest} 4s;
     animation: ${lastRRest} 4s;
     animation-delay: 2s;
     animation-fill-mode: forwards;

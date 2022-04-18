@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
-interface NavProps {
+export interface NavProps {
   readonly isOpen: boolean;
+  readonly isClicked?: boolean;
 }
 
 const NavStyles = styled.nav<NavProps>`

@@ -7,16 +7,19 @@ export interface IContextState {
   closeNav: (isOpen: boolean) => void;
 }
 
-const LocalStateContext = createContext < IContextState | any>(
-  false
-);
+const LocalStateContext = createContext<
+  IContextState | any
+>(false);
 
 const LocalStateProvider = LocalStateContext.Provider;
 
 const NavStateProvider = ({ children }: any) => {
   const [isOpen, setOpen] = useState<boolean>(false);
 
-  const toggleNav = () => setOpen(!isOpen);
+  const toggleNav = () => {
+    setOpen(!isOpen);
+  };
+
 
   const closeNav = () => setOpen(false);
 

@@ -7,6 +7,9 @@ export const Stack: React.FC = () => {
   return (
     <StackStyles>
       <Image src={js} alt={'js'} width={55} height={55} />
+      <Image src={js} alt={'js'} width={55} height={55} />
+      <Image src={js} alt={'js'} width={55} height={55} />
+      <Image src={js} alt={'js'} width={55} height={55} />
     </StackStyles>
   );
 };

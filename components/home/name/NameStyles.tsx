@@ -5,10 +5,10 @@ const nameX = keyframes`
       transform: translateX(-7.5%);
     }
     100% {
-      transform: translateX(-20%);;
+      transform: translateX(-20%);
     } 
   `;
-  
+
 const nameY = keyframes`
     0% {
       transform: translateY(0%);
@@ -48,7 +48,7 @@ const lastRRest = keyframes`
 
 const firstLeft = keyframes`
     0% {
-      transform: translateX(120%);
+      transform: translateX(116%);
     }
     100% {
       transform: translateX(20%);
@@ -62,7 +62,7 @@ const fadeInVisibilityR = keyframes`
     }
      50% {
       visibility: hidden; 
-      opacity: 0;  
+      opacity: 1;  
     }
     100% {
       visibility: visible;
@@ -92,16 +92,16 @@ const NameStyles = styled.div`
   transform: translateX(-7.5%);
   font-size: var(--fontSize);
   color: var(--orange);
-  font-weight: 400;
+  font-weight: 600;
 
-  -webkit-animation: ${nameX} 2s linear;
-  animation: ${nameX} 2s linear;
+  -webkit-animation: ${nameX} 1.5s linear;
+  animation: ${nameX} 1.5s linear;
   animation-delay: 5.5s;
   animation-fill-mode: forwards;
 
   .name {
-    -webkit-animation: ${nameY} 2s;
-    animation: ${nameY} 2s;
+    -webkit-animation: ${nameY} 1.5s;
+    animation: ${nameY} 1.5s;
     animation-delay: 5.5s;
     -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
@@ -110,7 +110,7 @@ const NameStyles = styled.div`
 
   .first-name {
     display: inline-block;
-    transform: translateX(120%);
+    transform: translateX(116%);
 
     z-index: 1;
     -webkit-animation: ${firstLeft} 4s;
@@ -124,7 +124,7 @@ const NameStyles = styled.div`
       animation: ${fadeInVisibilityL} 4s
         cubic-bezier(1, 0.06, 0.4, 1.16);
     }
-    @media (max-width: 601px) {
+    @media (max-width: 600px) {
       font-size: 4rem;
     }
   }
@@ -145,7 +145,7 @@ const NameStyles = styled.div`
         cubic-bezier(1, 0.06, 0.4, 1.16);
     }
 
-    @media (max-width: 601px) {
+    @media (max-width: 600px) {
       font-size: 4rem;
     }
   }

@@ -29,11 +29,11 @@ const lastR = keyframes`
   `;
 const lastRRest = keyframes`
     0% {
-      transform: translateX(58%);
+      transform: translateX(59%);
       height: 100%;
     }
     15% {
-      transform: translate(52%); 
+      transform: translate(54%); 
       height: 100%;  
     } 
     99% {
@@ -156,7 +156,7 @@ const NameStyles = styled.div`
     width: 500px;
     background: var(--bgDark);
     z-index: 2;
-    transform: translateX(58%);
+    transform: translateX(59%);
     transform-style: preserve-3d;
 
     -webkit-animation: ${lastRRest} 4s;

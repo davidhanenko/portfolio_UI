@@ -12,7 +12,7 @@ const about = keyframes`
 const AboutStyles = styled.section`
   color: var(--white);
   bottom: -40%;
-
+  
   position: absolute;
   right: 5%;
   width: 45%;

@@ -5,7 +5,7 @@ import js from '../../../public/img/js.png';
 import html from '../../../public/img/html.png';
 import css from '../../../public/img/css.png';
 import react from '../../../public/img/react.png';
-import nextjs from '../../../public/img/nextjs.png';
+import nextjs from '../../../public/img/next.png';
 import node from '../../../public/img/node.png';
 import express from '../../../public/img/express.png';
 

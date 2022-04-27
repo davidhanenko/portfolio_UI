@@ -9,7 +9,7 @@ export const Home: React.FC = () => {
     <HomeStyles>
       <HomeContainer>
         <Name />
-        <Stack />
+        {/* <Stack /> */}
         <About />
       </HomeContainer>
     </HomeStyles>

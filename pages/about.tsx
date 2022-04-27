@@ -9,6 +9,7 @@ import {
   initializeApollo,
 } from '../graphql/apollo';
 import GlobalStyles from '../components/layout/GlobalStyles';
+import { Bg } from '../components/home/bg/Bg';
 
 interface ProjectsDataProps {
   projects: ProjectsQuery;
@@ -17,7 +18,7 @@ interface ProjectsDataProps {
 const AboutPage: NextPage<ProjectsDataProps> = ({
   projects,
 }) => {
-  const project = projects?.data[0].attributes;
+  // const project = projects?.data[0].attributes;
 
   // const { data, loading, error } = useProjectsQuery();
 
@@ -25,12 +26,7 @@ const AboutPage: NextPage<ProjectsDataProps> = ({
   // if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <GlobalStyles>
-      <h1>Projects</h1>
-      <h3>{project?.title}</h3>
-      <h3>123</h3>
-      <p>{project?.description}</p>
-    </GlobalStyles>
+    <Bg/>
   );
 };
 

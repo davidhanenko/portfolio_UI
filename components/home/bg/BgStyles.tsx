@@ -1,25 +1,30 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-const BgStyles = styled.div`
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+export interface BgProps {
+  readonly mix: number;
+}
 
-  span {
-    /* position: absolute; */
-    top: 50%;
-    left: 50%;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      width: 300px;
-      height: 1px;
-      background: linear-gradient(90deg, #fff, transparent);
+const animation1 = keyframes`
+    0% {
+      transform: rotate(270deg) translateX(0);
+      opacity: 1;
     }
+     100% {
+    opacity: 1;
+    } 
+    100% {
+    transform: rotate(270deg) translateX(-1000px);
+    opacity: 0;
+    } 
+  `;
+
+const BgStyles = styled.div<BgProps>`
+  height: 100vh;
+  /* width: 100vw; */
+
+  .stack-img {
+    position: absolute;
+    top: ${props => props.mix};
   }
 `;
 

@@ -16,7 +16,7 @@ export const Name = () => {
   };
 
   return (
-    <NameStyles>
+    <NameStyles>d
       <div
         className='name'
         data-animation='name'

@@ -15,7 +15,7 @@ import next from '../../../public/img/next.png';
 import node from '../../../public/img/node.png';
 import express from '../../../public/img/express.png';
 
-const arr = [js, html, css];
+const arr = [js, html, css, react, next, node, express];
 
 export interface IBgProps {
   top: number;
@@ -27,7 +27,7 @@ export interface IBgProps {
   bgRef: any;
 }
 
-const BgEl: React.FC<IBgProps> = ({ i, el, bgRef }) => {
+const BgEl: React.FC<IBgProps> = ({ el, bgRef }) => {
   const [top, setTop] = useState<number>();
   const [left, setLeft] = useState<number>();
 
@@ -42,10 +42,7 @@ const BgEl: React.FC<IBgProps> = ({ i, el, bgRef }) => {
   }, []);
 
   return (
-    <BgElStyles
-      top={`${top}px`}
-      left={`${left}px`}
-    >
+    <BgElStyles top={`${top}px`} left={`${left}px`}>
       <Image
         src={el.src}
         alt={'html'}
@@ -74,12 +71,9 @@ export const Bg: React.FC<IBgProps> = () => {
 
   return (
     <BgStyles ref={bgRef}>
-      {
-        arr.map((el, i) => {
-          return (
-            <BgEl bgRef={bgRef} key={i} i={i} el={el} />
-          );
-        })}
+      {arr.map((el, i) => {
+        return <BgEl bgRef={bgRef} key={i} i={i} el={el} />;
+      })}
 
       {/*  <span className='stack-img'>
         <Image

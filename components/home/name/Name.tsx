@@ -9,14 +9,18 @@ interface AnimationEvent<T = Element>
 }
 
 export const Name = () => {
-  
-  const handleAnimationEnd = (e: AnimationEvent<HTMLDivElement>) => {
-    if (e.target instanceof HTMLElement && e.target.dataset.animation === 'name')
+  const handleAnimationEnd = (
+    e: AnimationEvent<HTMLDivElement>
+  ) => {
+    if (
+      e.target instanceof HTMLElement &&
+      e.target.dataset.animation === 'name'
+    )
       console.log('animation end');
   };
 
   return (
-    <NameStyles>d
+    <NameStyles>
       <div
         className='name'
         data-animation='name'

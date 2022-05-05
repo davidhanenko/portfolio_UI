@@ -1,7 +1,8 @@
 import styled, { keyframes } from 'styled-components';
 
 export interface BgProps {
-  readonly mix: number;
+  readonly top: number | string;
+  readonly left: number | string;
 }
 
 const animation1 = keyframes`
@@ -20,12 +21,18 @@ const animation1 = keyframes`
 
 const BgStyles = styled.div<BgProps>`
   height: 100vh;
-  /* width: 100vw; */
 
   .stack-img {
-    position: absolute;
-    top: ${props => props.mix};
+    /* position: absolute;
+    top: ${props => props.top};
+    left: ${props => props.left}; */
   }
 `;
 
-export { BgStyles };
+const BgElStyles = styled.span<BgProps>`
+  position: absolute;
+  top: ${props => props.top};
+  left: ${props => props.left};
+`;
+
+export { BgStyles, BgElStyles };

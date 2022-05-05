@@ -11,7 +11,7 @@ import { NavLogoStyles, NavStyles } from './NavStyles';
 import { Logo } from '../logo/Logo';
 
 export const Nav: React.FC<IContextState> = () => {
-  const { isOpen, setOpen, toggleNav, closeNav } = useNav();
+  const { isOpen, toggleNav, closeNav } = useNav();
 
   const navRef = useRef<HTMLDivElement>(null);
 

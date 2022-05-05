@@ -20,7 +20,6 @@ const NavStateProvider = ({ children }: any) => {
     setOpen(!isOpen);
   };
 
-
   const closeNav = () => setOpen(false);
 
   const navCtx: IContextState = {

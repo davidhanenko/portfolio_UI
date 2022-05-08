@@ -27,7 +27,7 @@ const NavStyles = styled.nav<NavProps>`
     min-height: 400px;
 
     transform: translateY(-100%);
-    transition: all 1s;
+    transition: all 600ms;
     transition-timing-function: cubic-bezier(
       0.49,
       0.07,
@@ -40,7 +40,7 @@ const NavStyles = styled.nav<NavProps>`
 
   .nav-links {
     list-style: none;
-  display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;

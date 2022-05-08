@@ -25,9 +25,7 @@ const AboutPage: NextPage<ProjectsDataProps> = ({
   // if (loading) return <h4>Loading...</h4>;
   // if (error) return <p>Error: {error.message}</p>;
 
-  return (
-    <Bg/>
-  );
+  return <Bg />;
 };
 
 export const getServerSideProps = async (

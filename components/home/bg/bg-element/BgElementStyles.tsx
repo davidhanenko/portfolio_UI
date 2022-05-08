@@ -6,7 +6,7 @@ export interface BgProps {
   readonly int: number | string;
 }
 
-const ap = (props: BgProps) => keyframes`
+const appear = (props: BgProps) => keyframes`
     0% {
       opacity: 0;
       transform: scale(0);
@@ -15,11 +15,12 @@ const ap = (props: BgProps) => keyframes`
       opacity: 1;
       transform: scale(1);
     }
+     95% {
+      transform: scale(0);
+    }
     100% {
       opacity: 0;
       transform: scale(0);
-       
-
     }
   `;
 
@@ -34,9 +35,8 @@ const BgElementStyles = styled.span.attrs(
     },
   })
 )`
-  animation: ${ap} infinite;
-  /* animation: ${props => ap(props)}
-    cubic-bezier(0, 0.88, 1, 0.64); */
+  animation: ${props => appear(props)}
+    cubic-bezier(0, 0.62, 0.62, 0.96) infinite;
   animation-duration: ${props => props.int};
   animation-fill-mode: forwards;
   opacity: 0;

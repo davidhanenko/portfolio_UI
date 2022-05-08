@@ -9,9 +9,8 @@ export const Home: React.FC = () => {
   return (
     <HomeStyles>
       <HomeContainer>
-        <Bg/>
+        <Bg intTime={0}/>
         <Name />
-        {/* <Stack /> */}
         <About />
       </HomeContainer>
     </HomeStyles>

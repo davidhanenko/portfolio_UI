@@ -1,15 +1,15 @@
 import { useContext, createContext, useState } from 'react';
 
-export interface IContextState {
+export interface INavState {
   isOpen: boolean;
   setOpen: (isOpen: boolean) => void;
   toggleNav: (isOpen: boolean) => void;
   closeNav: (isOpen: boolean) => void;
 }
 
-const LocalStateContext = createContext<
-  IContextState | any
->(false);
+const LocalStateContext = createContext<INavState | any>(
+  false
+);
 
 const LocalStateProvider = LocalStateContext.Provider;
 
@@ -22,7 +22,7 @@ const NavStateProvider = ({ children }: any) => {
 
   const closeNav = () => setOpen(false);
 
-  const navCtx: IContextState = {
+  const navCtx: INavState = {
     isOpen,
     setOpen,
     toggleNav,

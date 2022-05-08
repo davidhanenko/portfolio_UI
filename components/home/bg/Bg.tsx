@@ -27,7 +27,8 @@ export const Bg: React.FC<IBgProps> = () => {
             key={index}
             index={index + 1}
             el={el}
-            intTime={0} />
+            intTime={0}
+          />
         );
       })}
     </BgStyles>

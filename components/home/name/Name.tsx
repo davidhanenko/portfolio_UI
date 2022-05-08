@@ -1,6 +1,8 @@
 import { SyntheticEvent } from 'react';
 import { NameStyles } from './NameStyles';
 
+import { useAnimation } from '../../../lib/useAnimation';
+
 interface AnimationEvent<T = Element>
   extends SyntheticEvent<T> {
   animationName: string;
@@ -9,6 +11,8 @@ interface AnimationEvent<T = Element>
 }
 
 export const Name = () => {
+  const { setAnimateGreet } = useAnimation();
+
   const handleAnimationEnd = (
     e: AnimationEvent<HTMLDivElement>
   ) => {
@@ -16,7 +20,7 @@ export const Name = () => {
       e.target instanceof HTMLElement &&
       e.target.dataset.animation === 'name'
     )
-      console.log('animation end');
+      setAnimateGreet(true);
   };
 
   return (

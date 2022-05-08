@@ -1,5 +1,11 @@
 import Image from 'next/image';
-import { SetStateAction, useEffect, useRef, useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
+
+import {
+  useAnimation,
+  IAnimationState,
+} from '../../../../lib/useAnimation';
+
 import { BgElementStyles } from './BgElementStyles';
 
 export interface IBgProps {
@@ -16,11 +22,15 @@ export interface IBgProps {
   intTime: number;
 }
 
+type Props = IBgProps & IAnimationState;
+
 export const BgElement: React.FC<IBgProps> = ({
   el,
   bgRef,
   index,
 }) => {
+  const { animateGreet } = useAnimation();
+
   const [top, setTop] = useState<number>();
   const [left, setLeft] = useState<number>();
   const [int, setInt] = useState<number>();
@@ -45,6 +55,7 @@ export const BgElement: React.FC<IBgProps> = ({
       int={`${int}s`}
       top={`${top}px`}
       left={`${left}px`}
+      a={animateGreet}
     >
       <Image
         src={el.src}

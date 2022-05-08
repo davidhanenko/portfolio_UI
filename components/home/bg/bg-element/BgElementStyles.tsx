@@ -1,12 +1,13 @@
 import styled, { css, keyframes } from 'styled-components';
 
-export interface BgProps {
-  readonly top: number | string;
-  readonly left: number | string;
-  readonly int: number | string;
+export interface BgElementProps {
+  readonly a?: boolean;
+  readonly top?: number | string;
+  readonly left?: number | string;
+  readonly int?: number | string;
 }
 
-const appear = (props: BgProps) => keyframes`
+const appear = (props: BgElementProps) => keyframes`
     0% {
       opacity: 0;
       transform: scale(0);
@@ -25,7 +26,7 @@ const appear = (props: BgProps) => keyframes`
   `;
 
 const BgElementStyles = styled.span.attrs(
-  (props: BgProps) => ({
+  (props: BgElementProps) => ({
     top: props.top,
     left: props.left,
     int: props.int,
@@ -35,7 +36,7 @@ const BgElementStyles = styled.span.attrs(
     },
   })
 )`
-  animation: ${props => appear(props)}
+  animation: ${props => props.a && appear(props)}
     cubic-bezier(0, 0.62, 0.62, 0.96) infinite;
   animation-duration: ${props => props.int};
   animation-fill-mode: forwards;

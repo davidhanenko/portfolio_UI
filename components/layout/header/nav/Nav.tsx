@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Squash as Hamburger } from 'hamburger-react';
 
 import {
-  IContextState,
+  INavState,
   useNav,
 } from '../../../../lib/useNav';
 
@@ -10,7 +10,8 @@ import { NavLink } from './nav-link/NavLink';
 import { NavLogoStyles, NavStyles } from './NavStyles';
 import { Logo } from '../logo/Logo';
 
-export const Nav: React.FC<IContextState> = () => {
+export const Nav: React.FC<INavState> = () => {
+  
   const { isOpen, toggleNav, closeNav } = useNav();
 
   const navRef = useRef<HTMLDivElement>(null);

@@ -9,7 +9,7 @@ const about = keyframes`
     } 
   `;
 
-const AboutStyles = styled.section`
+const GreetStyles = styled.section`
   color: var(--white);
   bottom: -40%;
   
@@ -33,4 +33,4 @@ const AboutStyles = styled.section`
   animation-fill-mode: forwards;
 `;
 
-export { AboutStyles };
+export { GreetStyles };

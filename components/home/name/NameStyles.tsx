@@ -1,5 +1,9 @@
 import styled, { keyframes } from 'styled-components';
 
+export interface INameProps {
+  readonly nameAnimationDuration?: number | string;
+}
+
 const nameX = keyframes`
     0% {
       transform: translateX(-7.5%);
@@ -82,7 +86,7 @@ const fadeInVisibilityL = keyframes`
     } 
   `;
 
-const NameStyles = styled.div`
+const NameStyles = styled.div<INameProps>`
   display: flex;
   flex-flow: row wrap;
   min-width: 100%;
@@ -96,13 +100,14 @@ const NameStyles = styled.div`
 
   -webkit-animation: ${nameX} 1.5s linear;
   animation: ${nameX} 1.5s linear;
-  animation-delay: 5.5s;
+  animation-delay: ${props => props.nameAnimationDuration};
   animation-fill-mode: forwards;
 
   .name {
     -webkit-animation: ${nameY} 1.5s;
     animation: ${nameY} 1.5s;
-    animation-delay: 5.5s;
+    animation-delay: ${props =>
+      props.nameAnimationDuration};
     -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
@@ -133,14 +138,14 @@ const NameStyles = styled.div`
 
     padding: 0 1rem;
     z-index: 2;
-    animation: ${lastR} 5s;
+    animation: ${lastR} ${props =>
+  props.nameAnimationDuration};
     animation-delay: 2.3s;
     animation-fill-mode: forwards;
 
     .last-name-rest {
       visibility: 0;
-      -webkit-animation: ${fadeInVisibilityR} 5s
-        cubic-bezier(1, 0.06, 0.4, 1.16);
+      -webkit-animation: ${fadeInVisibilityR} ${props => props.nameAnimationDuration} cubic-bezier(1, 0.06, 0.4, 1.16);
       animation: ${fadeInVisibilityR} 5s
         cubic-bezier(1, 0.06, 0.4, 1.16);
     }

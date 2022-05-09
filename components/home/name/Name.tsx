@@ -2,6 +2,7 @@ import { SyntheticEvent } from 'react';
 import { NameStyles } from './NameStyles';
 
 import { useAnimation } from '../../../lib/useAnimation';
+import { NAME_ANIMATION_DURATION as nameAnimationDuration } from '../../../config';
 
 interface AnimationEvent<T = Element>
   extends SyntheticEvent<T> {
@@ -24,7 +25,9 @@ export const Name = () => {
   };
 
   return (
-    <NameStyles>
+    <NameStyles
+      nameAnimationDuration={`${nameAnimationDuration}s`}
+    >
       <div
         className='name'
         data-animation='name'

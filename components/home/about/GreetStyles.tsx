@@ -1,18 +1,22 @@
 import styled, { keyframes } from 'styled-components';
 
-const about = keyframes`
+export interface IGreetProps {
+  readonly nameAnimationDuration?: number | string;
+}
+
+const greetAnimation = keyframes`
     0% {
       bottom: -40%;
     }
     100% {
-      bottom: 20%;
+      bottom: 30%;
     } 
   `;
 
-const GreetStyles = styled.section`
+const GreetStyles = styled.section<IGreetProps>`
   color: var(--white);
   bottom: -40%;
-  
+
   position: absolute;
   right: 5%;
   width: 45%;
@@ -27,9 +31,9 @@ const GreetStyles = styled.section`
     font-weight: 300;
   }
 
-  -webkit-animation: ${about} 2s;
-  animation: ${about} 2.5s;
-  animation-delay: 5.5s;
+  -webkit-animation: ${greetAnimation} 2s;
+  animation: ${greetAnimation} 2s;
+  animation-delay: ${props => props.nameAnimationDuration};
   animation-fill-mode: forwards;
 `;
 

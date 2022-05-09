@@ -1,10 +1,10 @@
 import styled, { css, keyframes } from 'styled-components';
 
 export interface BgElementProps {
-  readonly a?: boolean;
-  readonly top?: number | string;
-  readonly left?: number | string;
-  readonly int?: number | string;
+  readonly animateGreet: boolean;
+  readonly top: number | string;
+  readonly left: number | string;
+  readonly int: number | string;
 }
 
 const appear = (props: BgElementProps) => keyframes`
@@ -15,9 +15,6 @@ const appear = (props: BgElementProps) => keyframes`
     50% {
       opacity: 1;
       transform: scale(1);
-    }
-     95% {
-      transform: scale(0);
     }
     100% {
       opacity: 0;
@@ -36,12 +33,15 @@ const BgElementStyles = styled.span.attrs(
     },
   })
 )`
-  animation: ${props => props.a && appear(props)}
-    cubic-bezier(0, 0.62, 0.62, 0.96) infinite;
-  animation-duration: ${props => props.int};
-  animation-fill-mode: forwards;
   opacity: 0;
+  transform: scale(0);
   position: absolute;
+  animation: ${(props: BgElementProps) =>
+      props.animateGreet && appear(props)}
+    cubic-bezier(0, 0.62, 0.62, 0.96);
+  animation-duration: ${props => props.int};
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
 `;
 
 export { BgElementStyles };

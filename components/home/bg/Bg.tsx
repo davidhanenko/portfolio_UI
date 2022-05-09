@@ -25,7 +25,7 @@ export const Bg: React.FC<IBgProps> = () => {
           <BgElement
             bgRef={bgRef}
             key={index}
-            index={index + 1}
+            index={index  + 1}
             el={el}
             intTime={0}
           />

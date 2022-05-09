@@ -35,27 +35,26 @@ export const BgElement: React.FC<IBgProps> = ({
   const [left, setLeft] = useState<number>();
   const [int, setInt] = useState<number>();
 
-  let intTime: SetStateAction<number | undefined>;
-
-  intTime = ((index + 1) * 1000) / 1000;
+  let intTime: SetStateAction<number | undefined> =
+    index + 1;
 
   useEffect(() => {
+    // setInt(intTime);
     const interval = setInterval(() => {
       if (bgRef.current !== null) {
         setTop(Math.random() * bgRef.current?.offsetHeight);
         setLeft(Math.random() * bgRef.current?.offsetWidth);
       }
-      setInt(intTime);
-    }, intTime * 1000);
+    }, (intTime * 1000));
     return () => clearInterval(interval);
   }, []);
 
   return (
     <BgElementStyles
-      int={`${int}s`}
+      animateGreet={animateGreet}
+      int={`${intTime}s`}
       top={`${top}px`}
       left={`${left}px`}
-      a={animateGreet}
     >
       <Image
         src={el.src}

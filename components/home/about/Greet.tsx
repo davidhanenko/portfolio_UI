@@ -1,8 +1,13 @@
-import { GreetStyles } from './GreetStyles';
+import { GreetStyles, IGreetProps } from './GreetStyles';
 
-export const Greet: React.FC = () => {
+import { NAME_ANIMATION_DURATION as nameAnimationDuration } from '../../../config';
+
+
+export const Greet: React.FC<IGreetProps> = () => {
   return (
-    <GreetStyles>
+    <GreetStyles
+      nameAnimationDuration={`${nameAnimationDuration}s`}
+    >
       <p>
         Self-taught, quick-learning JavaScript developer.
         Experienced with the whole process of building

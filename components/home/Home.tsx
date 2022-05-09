@@ -3,14 +3,23 @@ import { Greet } from './about/Greet';
 
 import { HomeStyles, HomeContainer } from './HomeStyles';
 import { Bg } from './bg/Bg';
+import { IMainPageProps } from '../../pages';
 
-export const Home: React.FC = () => {
+interface IHomeProps {
+  greetText: string;
+}
+
+export const Home: React.FC<IMainPageProps> = ({
+  main,
+}) => {
+  const greetText = main?.data?.attributes?.greeting;
+
   return (
     <HomeStyles>
       <HomeContainer>
         <Bg />
         <Name />
-        <Greet />
+        <Greet greetText={greetText} />
       </HomeContainer>
     </HomeStyles>
   );

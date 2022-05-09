@@ -17,6 +17,7 @@ export type Scalars = {
   DateTime: any;
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
+  MainTechDynamicZoneInput: any;
   /** The `Upload` scalar type represents a file upload. */
   Upload: any;
 };
@@ -44,6 +45,12 @@ export type BooleanFilterInput = {
   startsWith?: InputMaybe<Scalars['Boolean']>;
 };
 
+export type ComponentTTech = {
+  __typename?: 'ComponentTTech';
+  id: Scalars['ID'];
+  tech?: Maybe<UploadFileEntityResponse>;
+};
+
 export type DateTimeFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
@@ -65,6 +72,12 @@ export type DateTimeFilterInput = {
   null?: InputMaybe<Scalars['Boolean']>;
   or?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   startsWith?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type Error = {
+  __typename?: 'Error';
+  code: Scalars['String'];
+  message?: Maybe<Scalars['String']>;
 };
 
 export type FileInfoInput = {
@@ -96,7 +109,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = I18NLocale | Project | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = ComponentTTech | I18NLocale | Main | Project | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -203,6 +216,36 @@ export type JsonFilterInput = {
   startsWith?: InputMaybe<Scalars['JSON']>;
 };
 
+export type Main = {
+  __typename?: 'Main';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  greeting: Scalars['String'];
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  show_greeting: Scalars['Boolean'];
+  tech?: Maybe<Array<Maybe<MainTechDynamicZone>>>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type MainEntity = {
+  __typename?: 'MainEntity';
+  attributes?: Maybe<Main>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type MainEntityResponse = {
+  __typename?: 'MainEntityResponse';
+  data?: Maybe<MainEntity>;
+};
+
+export type MainInput = {
+  greeting?: InputMaybe<Scalars['String']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  show_greeting?: InputMaybe<Scalars['Boolean']>;
+  tech?: InputMaybe<Array<Scalars['MainTechDynamicZoneInput']>>;
+};
+
+export type MainTechDynamicZone = ComponentTTech | Error;
+
 export type Mutation = {
   __typename?: 'Mutation';
   createProject?: Maybe<ProjectEntityResponse>;
@@ -211,6 +254,7 @@ export type Mutation = {
   createUsersPermissionsRole?: Maybe<UsersPermissionsCreateRolePayload>;
   /** Create a new user */
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
+  deleteMain?: Maybe<MainEntityResponse>;
   deleteProject?: Maybe<ProjectEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Delete an existing role */
@@ -229,6 +273,7 @@ export type Mutation = {
   /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
   updateFileInfo: UploadFileEntityResponse;
+  updateMain?: Maybe<MainEntityResponse>;
   updateProject?: Maybe<ProjectEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Update an existing role */
@@ -322,6 +367,11 @@ export type MutationResetPasswordArgs = {
 export type MutationUpdateFileInfoArgs = {
   id: Scalars['ID'];
   info?: InputMaybe<FileInfoInput>;
+};
+
+
+export type MutationUpdateMainArgs = {
+  data: MainInput;
 };
 
 
@@ -425,6 +475,7 @@ export type Query = {
   __typename?: 'Query';
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
+  main?: Maybe<MainEntityResponse>;
   me?: Maybe<UsersPermissionsMe>;
   project?: Maybe<ProjectEntityResponse>;
   projects?: Maybe<ProjectEntityResponseCollection>;
@@ -446,6 +497,11 @@ export type QueryI18NLocalesArgs = {
   filters?: InputMaybe<I18NLocaleFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type QueryMainArgs = {
+  publicationState?: InputMaybe<PublicationState>;
 };
 
 
@@ -817,11 +873,66 @@ export type UsersPermissionsUserRelationResponseCollection = {
   data: Array<UsersPermissionsUserEntity>;
 };
 
+export type MainQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MainQuery = { __typename?: 'Query', main?: { __typename?: 'MainEntityResponse', data?: { __typename?: 'MainEntity', attributes?: { __typename?: 'Main', greeting: string, tech?: Array<{ __typename?: 'ComponentTTech', tech?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | { __typename?: 'Error' } | null> | null } | null } | null } | null };
+
 export type ProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type ProjectsQuery = { __typename?: 'Query', projects?: { __typename?: 'ProjectEntityResponseCollection', data: Array<{ __typename?: 'ProjectEntity', attributes?: { __typename?: 'Project', title?: string | null, description?: string | null } | null }> } | null };
 
+
+export const MainDocument = gql`
+    query Main {
+  main {
+    data {
+      attributes {
+        greeting
+        tech {
+          ... on ComponentTTech {
+            tech {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useMainQuery__
+ *
+ * To run a query within a React component, call `useMainQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMainQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMainQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useMainQuery(baseOptions?: Apollo.QueryHookOptions<MainQuery, MainQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MainQuery, MainQueryVariables>(MainDocument, options);
+      }
+export function useMainLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MainQuery, MainQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MainQuery, MainQueryVariables>(MainDocument, options);
+        }
+export type MainQueryHookResult = ReturnType<typeof useMainQuery>;
+export type MainLazyQueryHookResult = ReturnType<typeof useMainLazyQuery>;
+export type MainQueryResult = Apollo.QueryResult<MainQuery, MainQueryVariables>;
 
 export const ProjectsDocument = gql`
     query Projects {

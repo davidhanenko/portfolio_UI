@@ -1,0 +1,20 @@
+query Main {
+  main {
+    data {
+      attributes {
+        greeting
+        tech {
+          ... on ComponentTTech {
+            tech {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

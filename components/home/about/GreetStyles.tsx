@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-export interface IGreetProps {
+export interface GreetProps {
   readonly nameAnimationDuration?: number | string;
 }
 
@@ -13,7 +13,7 @@ const greetAnimation = keyframes`
     } 
   `;
 
-const GreetStyles = styled.section<IGreetProps>`
+const GreetStyles = styled.section<GreetProps>`
   color: var(--white);
   bottom: -40%;
 

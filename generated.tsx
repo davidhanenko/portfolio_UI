@@ -17,7 +17,7 @@ export type Scalars = {
   DateTime: any;
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
-  MainTechDynamicZoneInput: any;
+  MainTechsDynamicZoneInput: any;
   /** The `Upload` scalar type represents a file upload. */
   Upload: any;
 };
@@ -222,7 +222,7 @@ export type Main = {
   greeting: Scalars['String'];
   publishedAt?: Maybe<Scalars['DateTime']>;
   show_greeting: Scalars['Boolean'];
-  tech?: Maybe<Array<Maybe<MainTechDynamicZone>>>;
+  techs?: Maybe<Array<Maybe<MainTechsDynamicZone>>>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
@@ -241,10 +241,10 @@ export type MainInput = {
   greeting?: InputMaybe<Scalars['String']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   show_greeting?: InputMaybe<Scalars['Boolean']>;
-  tech?: InputMaybe<Array<Scalars['MainTechDynamicZoneInput']>>;
+  techs?: InputMaybe<Array<Scalars['MainTechsDynamicZoneInput']>>;
 };
 
-export type MainTechDynamicZone = ComponentTTech | Error;
+export type MainTechsDynamicZone = ComponentTTech | Error;
 
 export type Mutation = {
   __typename?: 'Mutation';
@@ -876,7 +876,7 @@ export type UsersPermissionsUserRelationResponseCollection = {
 export type MainQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MainQuery = { __typename?: 'Query', main?: { __typename?: 'MainEntityResponse', data?: { __typename?: 'MainEntity', attributes?: { __typename?: 'Main', greeting: string, tech?: Array<{ __typename?: 'ComponentTTech', tech?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | { __typename?: 'Error' } | null> | null } | null } | null } | null };
+export type MainQuery = { __typename?: 'Query', main?: { __typename?: 'MainEntityResponse', data?: { __typename?: 'MainEntity', attributes?: { __typename?: 'Main', greeting: string, techs?: Array<{ __typename?: 'ComponentTTech', tech?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | { __typename?: 'Error' } | null> | null } | null } | null } | null };
 
 export type ProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -890,7 +890,7 @@ export const MainDocument = gql`
     data {
       attributes {
         greeting
-        tech {
+        techs {
           ... on ComponentTTech {
             tech {
               data {
@@ -933,7 +933,6 @@ export function useMainLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MainQ
 export type MainQueryHookResult = ReturnType<typeof useMainQuery>;
 export type MainLazyQueryHookResult = ReturnType<typeof useMainLazyQuery>;
 export type MainQueryResult = Apollo.QueryResult<MainQuery, MainQueryVariables>;
-
 export const ProjectsDocument = gql`
     query Projects {
   projects {

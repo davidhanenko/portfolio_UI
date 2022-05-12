@@ -19,17 +19,16 @@ export interface IBgProps {
   index?: number;
   bgRef?: any;
   key?: any;
-  intTime: number;
+  intTime?: number;
+  techImages: any[];
 }
-
-type Props = IBgProps & IAnimationState;
 
 export const BgElement: React.FC<IBgProps> = ({
   el,
   bgRef,
   index,
 }) => {
-  const { animateGreet } = useAnimation();
+  const { animateBg } = useAnimation();
 
   const [top, setTop] = useState<number>();
   const [left, setLeft] = useState<number>();
@@ -38,6 +37,8 @@ export const BgElement: React.FC<IBgProps> = ({
   let intTime: SetStateAction<number | undefined> =
     index + 1;
 
+  console.log(el.url);
+
   useEffect(() => {
     // setInt(intTime);
     const interval = setInterval(() => {
@@ -45,23 +46,18 @@ export const BgElement: React.FC<IBgProps> = ({
         setTop(Math.random() * bgRef.current?.offsetHeight);
         setLeft(Math.random() * bgRef.current?.offsetWidth);
       }
-    }, (intTime * 1000));
+    }, intTime * 1000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <BgElementStyles
-      animateGreet={animateGreet}
+      animateBg={animateBg}
       int={`${intTime}s`}
       top={`${top}px`}
       left={`${left}px`}
     >
-      <Image
-        src={el.src}
-        alt={'html'}
-        width={55}
-        height={55}
-      />
+      <Image src={el.url} alt={''} width={55} height={55} />
     </BgElementStyles>
   );
 };

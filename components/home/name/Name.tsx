@@ -12,7 +12,7 @@ interface AnimationEvent<T = Element>
 }
 
 export const Name = () => {
-  const { setAnimateGreet } = useAnimation();
+  const { setAnimateBg } = useAnimation();
 
   const handleAnimationEnd = (
     e: AnimationEvent<HTMLDivElement>
@@ -21,7 +21,7 @@ export const Name = () => {
       e.target instanceof HTMLElement &&
       e.target.dataset.animation === 'name'
     )
-      setAnimateGreet(true);
+      setAnimateBg(true);
   };
 
   return (

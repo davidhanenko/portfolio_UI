@@ -1,8 +1,8 @@
 import { useContext, createContext, useState } from 'react';
 
 export interface IAnimationState {
-  animateGreet: boolean;
-  setAnimateGreet: (animateGreet: boolean) => void;
+  animateBg: boolean;
+  setAnimateBg: (animateBg: boolean) => void;
 }
 
 const LocalStateContext = createContext<
@@ -12,12 +12,12 @@ const LocalStateContext = createContext<
 const LocalStateProvider = LocalStateContext.Provider;
 
 const AnimationStateProvider = ({ children }: any) => {
-  const [animateGreet, setAnimateGreet] =
+  const [animateBg, setAnimateBg] =
     useState<boolean>(false);
 
   const animationCtx: IAnimationState = {
-    animateGreet,
-    setAnimateGreet,
+    animateBg,
+    setAnimateBg,
   };
 
   return (

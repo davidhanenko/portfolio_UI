@@ -5,19 +5,16 @@ import { HomeStyles, HomeContainer } from './HomeStyles';
 import { Bg } from './bg/Bg';
 import { IMainPageProps } from '../../pages';
 
-interface IHomeProps {
-  greetText: string;
-}
-
 export const Home: React.FC<IMainPageProps> = ({
   main,
 }) => {
   const greetText = main?.data?.attributes?.greeting;
+  const techImages = main?.data?.attributes?.techs;
 
   return (
     <HomeStyles>
       <HomeContainer>
-        <Bg />
+        <Bg techImages={techImages} />
         <Name />
         <Greet greetText={greetText} />
       </HomeContainer>

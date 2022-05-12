@@ -4,8 +4,8 @@ query Main {
       attributes {
         greeting
         tech {
-          ... on ComponentTTech {
-            tech {
+          ... on ComponentTechTech {
+            tech_logo {
               data {
                 attributes {
                   url

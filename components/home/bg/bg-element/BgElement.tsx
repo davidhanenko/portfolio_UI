@@ -1,5 +1,11 @@
 import Image from 'next/image';
-import { SetStateAction, useEffect, useState } from 'react';
+import {
+  SetStateAction,
+  SyntheticEvent,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 
 import {
   useAnimation,
@@ -21,6 +27,14 @@ export interface IBgProps {
   key?: any;
   intTime?: number;
   techImages: any[];
+  a: string;
+}
+
+interface AnimationEvent<T = Element>
+  extends SyntheticEvent<T> {
+  animationName: string;
+  elapsedTime: number;
+  pseudoElement: string;
 }
 
 export const BgElement: React.FC<IBgProps> = ({
@@ -32,15 +46,11 @@ export const BgElement: React.FC<IBgProps> = ({
 
   const [top, setTop] = useState<number>();
   const [left, setLeft] = useState<number>();
-  const [int, setInt] = useState<number>();
 
-  let intTime: SetStateAction<number | undefined> =
-    index + 1;
+  let intTime: SetStateAction<number | undefined> = index;
 
-  console.log(el.url);
-
+  
   useEffect(() => {
-    // setInt(intTime);
     const interval = setInterval(() => {
       if (bgRef.current !== null) {
         setTop(Math.random() * bgRef.current?.offsetHeight);
@@ -48,7 +58,7 @@ export const BgElement: React.FC<IBgProps> = ({
       }
     }, intTime * 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [animateBg]);
 
   return (
     <BgElementStyles
@@ -57,7 +67,16 @@ export const BgElement: React.FC<IBgProps> = ({
       top={`${top}px`}
       left={`${left}px`}
     >
-      <Image src={el.url} alt={''} width={55} height={55} />
+      <div className='tech-img' data-animation='tech-img'>
+        {el && (
+          <Image
+            src={el?.url}
+            alt={''}
+            layout='fill'
+            objectFit='scale-down'
+          />
+        )}
+      </div>
     </BgElementStyles>
   );
 };

@@ -24,9 +24,10 @@ const appear = (props: IBgElementProps) => keyframes`
 
 const BgElementStyles = styled.span.attrs(
   (props: IBgElementProps) => ({
-    top: props.top,
-    left: props.left,
+    // top: props.top,
+    // left: props.left,
     int: props.int,
+    a:props.a,
     style: {
       top: props.top,
       left: props.left,
@@ -42,6 +43,12 @@ const BgElementStyles = styled.span.attrs(
   animation-duration: ${props => props.int};
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
+
+  .tech-img {
+    position: relative;
+    height: 55px;
+    width: 100px;
+  }
 `;
 
 export { BgElementStyles };

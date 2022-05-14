@@ -17,7 +17,7 @@ export type Scalars = {
   DateTime: any;
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
-  MainTechsDynamicZoneInput: any;
+  MainTechDynamicZoneInput: any;
   /** The `Upload` scalar type represents a file upload. */
   Upload: any;
 };
@@ -45,10 +45,11 @@ export type BooleanFilterInput = {
   startsWith?: InputMaybe<Scalars['Boolean']>;
 };
 
-export type ComponentTTech = {
-  __typename?: 'ComponentTTech';
+export type ComponentTechTech = {
+  __typename?: 'ComponentTechTech';
   id: Scalars['ID'];
-  tech?: Maybe<UploadFileEntityResponse>;
+  tech_logo?: Maybe<UploadFileEntityResponse>;
+  tech_title?: Maybe<Scalars['String']>;
 };
 
 export type DateTimeFilterInput = {
@@ -109,7 +110,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = ComponentTTech | I18NLocale | Main | Project | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = ComponentTechTech | I18NLocale | Main | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -221,8 +222,7 @@ export type Main = {
   createdAt?: Maybe<Scalars['DateTime']>;
   greeting: Scalars['String'];
   publishedAt?: Maybe<Scalars['DateTime']>;
-  show_greeting: Scalars['Boolean'];
-  techs?: Maybe<Array<Maybe<MainTechsDynamicZone>>>;
+  tech?: Maybe<Array<Maybe<MainTechDynamicZone>>>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
@@ -240,22 +240,19 @@ export type MainEntityResponse = {
 export type MainInput = {
   greeting?: InputMaybe<Scalars['String']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
-  show_greeting?: InputMaybe<Scalars['Boolean']>;
-  techs?: InputMaybe<Array<Scalars['MainTechsDynamicZoneInput']>>;
+  tech?: InputMaybe<Array<Scalars['MainTechDynamicZoneInput']>>;
 };
 
-export type MainTechsDynamicZone = ComponentTTech | Error;
+export type MainTechDynamicZone = ComponentTechTech | Error;
 
 export type Mutation = {
   __typename?: 'Mutation';
-  createProject?: Maybe<ProjectEntityResponse>;
   createUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Create a new role */
   createUsersPermissionsRole?: Maybe<UsersPermissionsCreateRolePayload>;
   /** Create a new user */
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
   deleteMain?: Maybe<MainEntityResponse>;
-  deleteProject?: Maybe<ProjectEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Delete an existing role */
   deleteUsersPermissionsRole?: Maybe<UsersPermissionsDeleteRolePayload>;
@@ -274,18 +271,12 @@ export type Mutation = {
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
   updateFileInfo: UploadFileEntityResponse;
   updateMain?: Maybe<MainEntityResponse>;
-  updateProject?: Maybe<ProjectEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Update an existing role */
   updateUsersPermissionsRole?: Maybe<UsersPermissionsUpdateRolePayload>;
   /** Update an existing user */
   updateUsersPermissionsUser: UsersPermissionsUserEntityResponse;
   upload: UploadFileEntityResponse;
-};
-
-
-export type MutationCreateProjectArgs = {
-  data: ProjectInput;
 };
 
 
@@ -301,11 +292,6 @@ export type MutationCreateUsersPermissionsRoleArgs = {
 
 export type MutationCreateUsersPermissionsUserArgs = {
   data: UsersPermissionsUserInput;
-};
-
-
-export type MutationDeleteProjectArgs = {
-  id: Scalars['ID'];
 };
 
 
@@ -375,12 +361,6 @@ export type MutationUpdateMainArgs = {
 };
 
 
-export type MutationUpdateProjectArgs = {
-  data: ProjectInput;
-  id: Scalars['ID'];
-};
-
-
 export type MutationUpdateUploadFileArgs = {
   data: UploadFileInput;
   id: Scalars['ID'];
@@ -422,50 +402,6 @@ export type PaginationArg = {
   start?: InputMaybe<Scalars['Int']>;
 };
 
-export type Project = {
-  __typename?: 'Project';
-  createdAt?: Maybe<Scalars['DateTime']>;
-  description?: Maybe<Scalars['String']>;
-  publishedAt?: Maybe<Scalars['DateTime']>;
-  title?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['DateTime']>;
-};
-
-export type ProjectEntity = {
-  __typename?: 'ProjectEntity';
-  attributes?: Maybe<Project>;
-  id?: Maybe<Scalars['ID']>;
-};
-
-export type ProjectEntityResponse = {
-  __typename?: 'ProjectEntityResponse';
-  data?: Maybe<ProjectEntity>;
-};
-
-export type ProjectEntityResponseCollection = {
-  __typename?: 'ProjectEntityResponseCollection';
-  data: Array<ProjectEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type ProjectFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<ProjectFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  description?: InputMaybe<StringFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  not?: InputMaybe<ProjectFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<ProjectFiltersInput>>>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  title?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-};
-
-export type ProjectInput = {
-  description?: InputMaybe<Scalars['String']>;
-  publishedAt?: InputMaybe<Scalars['DateTime']>;
-  title?: InputMaybe<Scalars['String']>;
-};
-
 export enum PublicationState {
   Live = 'LIVE',
   Preview = 'PREVIEW'
@@ -477,8 +413,6 @@ export type Query = {
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
   main?: Maybe<MainEntityResponse>;
   me?: Maybe<UsersPermissionsMe>;
-  project?: Maybe<ProjectEntityResponse>;
-  projects?: Maybe<ProjectEntityResponseCollection>;
   uploadFile?: Maybe<UploadFileEntityResponse>;
   uploadFiles?: Maybe<UploadFileEntityResponseCollection>;
   usersPermissionsRole?: Maybe<UsersPermissionsRoleEntityResponse>;
@@ -502,19 +436,6 @@ export type QueryI18NLocalesArgs = {
 
 export type QueryMainArgs = {
   publicationState?: InputMaybe<PublicationState>;
-};
-
-
-export type QueryProjectArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-};
-
-
-export type QueryProjectsArgs = {
-  filters?: InputMaybe<ProjectFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  publicationState?: InputMaybe<PublicationState>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
@@ -876,12 +797,7 @@ export type UsersPermissionsUserRelationResponseCollection = {
 export type MainQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MainQuery = { __typename?: 'Query', main?: { __typename?: 'MainEntityResponse', data?: { __typename?: 'MainEntity', attributes?: { __typename?: 'Main', greeting: string, techs?: Array<{ __typename?: 'ComponentTTech', tech?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | { __typename?: 'Error' } | null> | null } | null } | null } | null };
-
-export type ProjectsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type ProjectsQuery = { __typename?: 'Query', projects?: { __typename?: 'ProjectEntityResponseCollection', data: Array<{ __typename?: 'ProjectEntity', attributes?: { __typename?: 'Project', title?: string | null, description?: string | null } | null }> } | null };
+export type MainQuery = { __typename?: 'Query', main?: { __typename?: 'MainEntityResponse', data?: { __typename?: 'MainEntity', attributes?: { __typename?: 'Main', greeting: string, tech?: Array<{ __typename?: 'ComponentTechTech', tech_logo?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | { __typename?: 'Error' } | null> | null } | null } | null } | null };
 
 
 export const MainDocument = gql`
@@ -890,9 +806,9 @@ export const MainDocument = gql`
     data {
       attributes {
         greeting
-        techs {
-          ... on ComponentTTech {
-            tech {
+        tech {
+          ... on ComponentTechTech {
+            tech_logo {
               data {
                 attributes {
                   url
@@ -933,42 +849,3 @@ export function useMainLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MainQ
 export type MainQueryHookResult = ReturnType<typeof useMainQuery>;
 export type MainLazyQueryHookResult = ReturnType<typeof useMainLazyQuery>;
 export type MainQueryResult = Apollo.QueryResult<MainQuery, MainQueryVariables>;
-export const ProjectsDocument = gql`
-    query Projects {
-  projects {
-    data {
-      attributes {
-        title
-        description
-      }
-    }
-  }
-}
-    `;
-
-/**
- * __useProjectsQuery__
- *
- * To run a query within a React component, call `useProjectsQuery` and pass it any options that fit your needs.
- * When your component renders, `useProjectsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useProjectsQuery({
- *   variables: {
- *   },
- * });
- */
-export function useProjectsQuery(baseOptions?: Apollo.QueryHookOptions<ProjectsQuery, ProjectsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<ProjectsQuery, ProjectsQueryVariables>(ProjectsDocument, options);
-      }
-export function useProjectsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProjectsQuery, ProjectsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<ProjectsQuery, ProjectsQueryVariables>(ProjectsDocument, options);
-        }
-export type ProjectsQueryHookResult = ReturnType<typeof useProjectsQuery>;
-export type ProjectsLazyQueryHookResult = ReturnType<typeof useProjectsLazyQuery>;
-export type ProjectsQueryResult = Apollo.QueryResult<ProjectsQuery, ProjectsQueryVariables>;

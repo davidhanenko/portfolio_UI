@@ -9,7 +9,7 @@ export const Home: React.FC<IMainPageProps> = ({
   main,
 }) => {
   const greetText = main?.data?.attributes?.greeting;
-  const techImages = main?.data?.attributes?.techs;
+  const techImages = main?.data?.attributes?.tech;
 
   return (
     <HomeStyles>

@@ -1,20 +1,15 @@
 import Image from 'next/image';
 import {
-  SetStateAction,
-  SyntheticEvent,
-  useCallback,
+  RefObject,
   useEffect,
   useState,
 } from 'react';
 
-import {
-  useAnimation,
-  IAnimationState,
-} from '../../../../lib/useAnimation';
+import { useAnimation } from '../../../../lib/useAnimation';
 
 import { BgElementStyles } from './BgElementStyles';
 
-export interface IBgProps {
+export interface IBgElProps {
   top?: number;
   setTop?: (top: number) => void;
   left?: number;
@@ -23,42 +18,30 @@ export interface IBgProps {
   setInt?: (int: number) => void;
   el?: any;
   index?: number;
-  bgRef?: any;
-  key?: any;
-  intTime?: number;
-  techImages: any[];
-  a: string;
+  bgRef?: RefObject<HTMLDivElement>;
+  key?: number;
+  intTime: number;
 }
 
-interface AnimationEvent<T = Element>
-  extends SyntheticEvent<T> {
-  animationName: string;
-  elapsedTime: number;
-  pseudoElement: string;
-}
-
-export const BgElement: React.FC<IBgProps> = ({
+export const BgElement: React.FC<IBgElProps> = ({
   el,
   bgRef,
-  index,
+  intTime,
 }) => {
   const { animateBg } = useAnimation();
 
   const [top, setTop] = useState<number>();
   const [left, setLeft] = useState<number>();
 
-  let intTime: SetStateAction<number | undefined> = index;
-
-  
   useEffect(() => {
     const interval = setInterval(() => {
-      if (bgRef.current !== null) {
+      if (bgRef && bgRef.current !== null) {
         setTop(Math.random() * bgRef.current?.offsetHeight);
         setLeft(Math.random() * bgRef.current?.offsetWidth);
       }
     }, intTime * 1000);
     return () => clearInterval(interval);
-  }, [animateBg]);
+  }, [animateBg, bgRef, intTime]);
 
   return (
     <BgElementStyles

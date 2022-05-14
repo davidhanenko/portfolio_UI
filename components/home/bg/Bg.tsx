@@ -1,12 +1,16 @@
-import { useRef } from 'react';
+import { RefObject, useRef } from 'react';
 import { BgStyles } from './BgStyles';
-import {
-  BgElement,
-  IBgProps,
-} from './bg-element/BgElement';
+import { BgElement } from './bg-element/BgElement';
+
+interface IBgProps {
+  techImages: any[];
+  bgRef: RefObject<HTMLDivElement>;
+  key: number;
+  intTime: number;
+  el: any;
+}
 
 export const Bg: React.FC<IBgProps> = ({ techImages }) => {
-
   const bgRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -16,9 +20,8 @@ export const Bg: React.FC<IBgProps> = ({ techImages }) => {
           <BgElement
             bgRef={bgRef}
             key={index}
-            index={index + 1}
+            intTime={index + 2}
             el={el?.tech_logo?.data?.attributes}
-            intTime={0}
           />
         );
       })}

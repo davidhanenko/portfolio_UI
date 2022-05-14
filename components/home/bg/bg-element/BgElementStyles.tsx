@@ -16,7 +16,11 @@ const appear = (props: IBgElementProps) => keyframes`
       opacity: 1;
       transform: scale(1);
     }
-    100% {
+    99% {
+      opacity: 0;
+      transform: scale(0);
+    }
+     100% {
       opacity: 0;
       transform: scale(0);
     }
@@ -27,7 +31,7 @@ const BgElementStyles = styled.span.attrs(
     // top: props.top,
     // left: props.left,
     int: props.int,
-    a:props.a,
+    a: props.a,
     style: {
       top: props.top,
       left: props.left,

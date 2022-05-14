@@ -5,11 +5,13 @@ import {
 } from '../graphql/apollo';
 
 import { Home } from '../components/home/Home';
+import { About } from '../components/about/About';
+
 import {
   MainDocument,
   MainQuery,
   useMainQuery,
-} from '../generated';
+} from '../graphql/main/main.generated';
 
 export interface IMainPageProps {
   main: MainQuery;
@@ -22,7 +24,12 @@ const HomePage: NextPage<IMainPageProps> = ({
 
   if (loading) return <h4>Loading...</h4>;
 
-  return <Home main={main} />;
+  return (
+    <>
+      <Home main={main} />
+      <About />
+    </>
+  );
 };
 
 export const getServerSideProps = async (

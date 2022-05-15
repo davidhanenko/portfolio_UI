@@ -28,12 +28,16 @@ const AboutStackStyles = styled.div`
 const StackStyles = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-
   align-items: center;
+  transition: all 0.3s;
+
   .stack-img {
     position: relative;
     height: 4rem;
-    /* width: 8rem; */
+  }
+
+  &:hover {
+    transform: scale(1.5);
   }
 `;
 

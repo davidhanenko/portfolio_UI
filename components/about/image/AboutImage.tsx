@@ -10,14 +10,14 @@ export const AboutImage: React.FC<IAboutImageProps> = ({
 }) => {
   return (
     <AboutImageStyles>
-      <div className='img-wrapper'>
-        <Image
-          src={imgUrl}
-          alt={''}
-          width={300}
-          height={300}
-        />
-      </div>
+      <Image
+        src={imgUrl}
+        alt={''}
+        width={300}
+        height={300}
+      />
+      <div className='img-overlay-1'></div>
+      <div className='img-overlay-2'></div>
     </AboutImageStyles>
   );
 };

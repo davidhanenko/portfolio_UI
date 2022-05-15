@@ -10,6 +10,10 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  AboutStackOngoingDynamicZoneInput: any;
+  AboutStackTier1DynamicZoneInput: any;
+  AboutStackTier2DynamicZoneInput: any;
+  AboutStackTier3DynamicZoneInput: any;
   AboutTextSectionDynamicZoneInput: any;
   /** A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
   DateTime: any;
@@ -26,6 +30,10 @@ export type About = {
   header?: Maybe<Scalars['String']>;
   img?: Maybe<UploadFileEntityResponse>;
   publishedAt?: Maybe<Scalars['DateTime']>;
+  stack_ongoing?: Maybe<Array<Maybe<AboutStackOngoingDynamicZone>>>;
+  stack_tier_1?: Maybe<Array<Maybe<AboutStackTier1DynamicZone>>>;
+  stack_tier_2?: Maybe<Array<Maybe<AboutStackTier2DynamicZone>>>;
+  stack_tier_3?: Maybe<Array<Maybe<AboutStackTier3DynamicZone>>>;
   text_section?: Maybe<Array<Maybe<AboutTextSectionDynamicZone>>>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
@@ -45,8 +53,20 @@ export type AboutInput = {
   header?: InputMaybe<Scalars['String']>;
   img?: InputMaybe<Scalars['ID']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
+  stack_ongoing?: InputMaybe<Array<Scalars['AboutStackOngoingDynamicZoneInput']>>;
+  stack_tier_1?: InputMaybe<Array<Scalars['AboutStackTier1DynamicZoneInput']>>;
+  stack_tier_2?: InputMaybe<Array<Scalars['AboutStackTier2DynamicZoneInput']>>;
+  stack_tier_3?: InputMaybe<Array<Scalars['AboutStackTier3DynamicZoneInput']>>;
   text_section?: InputMaybe<Array<Scalars['AboutTextSectionDynamicZoneInput']>>;
 };
+
+export type AboutStackOngoingDynamicZone = ComponentTechTech | Error;
+
+export type AboutStackTier1DynamicZone = ComponentTechTech | Error;
+
+export type AboutStackTier2DynamicZone = ComponentTechTech | Error;
+
+export type AboutStackTier3DynamicZone = ComponentTechTech | Error;
 
 export type AboutTextSectionDynamicZone = ComponentTextText | Error;
 

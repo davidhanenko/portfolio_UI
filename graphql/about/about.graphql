@@ -1,0 +1,61 @@
+query About {
+  about {
+    data {
+      attributes {
+        header
+        img {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        text_section {
+          ... on ComponentTextText {
+            section
+            id
+          }
+        }
+        stack_tier_1 {
+          ... on ComponentTechTech {
+            id
+            tech_title
+            tech_logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+        stack_tier_2 {
+          ... on ComponentTechTech {
+            id
+            tech_title
+            tech_logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+        stack_tier_3 {
+          ... on ComponentTechTech {
+            id
+            tech_title
+            tech_logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

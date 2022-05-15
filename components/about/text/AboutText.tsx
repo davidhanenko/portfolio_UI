@@ -1,23 +1,21 @@
+import { AboutQuery } from '../../../graphql/about/about.generated';
 import { AboutTextStyles } from './AboutTextStyles';
 
-export const AboutText: React.FC = () => {
+interface IAboutTextProps {
+  header?: string;
+  paragraphs: any[];
+}
+
+export const AboutText: React.FC<IAboutTextProps> = ({
+  header,
+  paragraphs,
+}) => {
   return (
     <AboutTextStyles>
-      <h2>About Me</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Enim nihil numquam corrupti eius, doloribus
-        temporibus soluta ipsa voluptatem ipsum rerum, ab
-        recusandae at, doloremque quod! Nobis aut totam
-        quasi laboriosam!
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Enim nihil numquam corrupti eius, doloribus
-        temporibus soluta ipsa voluptatem ipsum rerum, ab
-        recusandae at, doloremque quod! Nobis aut totam
-        quasi laboriosam!
-      </p>
+      <h2>{header}</h2>
+      {paragraphs.map(p => (
+        <p key={p.id}>{p.section}</p>
+      ))}
     </AboutTextStyles>
   );
 };

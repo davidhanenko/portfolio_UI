@@ -1,9 +1,5 @@
 import Image from 'next/image';
-import {
-  RefObject,
-  useEffect,
-  useState,
-} from 'react';
+import { RefObject, useEffect, useState } from 'react';
 
 import { useAnimation } from '../../../../lib/useAnimation';
 
@@ -50,7 +46,7 @@ export const BgElement: React.FC<IBgElProps> = ({
       top={`${top}px`}
       left={`${left}px`}
     >
-      <div className='tech-img' data-animation='tech-img'>
+      <div className='tech-img'>
         {el && (
           <Image
             src={el?.url}

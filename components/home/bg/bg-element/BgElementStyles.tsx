@@ -31,7 +31,6 @@ const BgElementStyles = styled.span.attrs(
     // top: props.top,
     // left: props.left,
     int: props.int,
-    a: props.a,
     style: {
       top: props.top,
       left: props.left,

@@ -4,6 +4,8 @@ import {
   initializeApollo,
 } from '../graphql/apollo';
 
+import { Parallax } from 'react-scroll-parallax';
+
 import { Home } from '../components/home/Home';
 import { About } from '../components/about/About';
 
@@ -27,7 +29,12 @@ const HomePage: NextPage<IMainPageProps> = ({
   return (
     <>
       <Home main={main} />
-      <About />
+      <Parallax
+        translateY={[0, -70]}
+        // scale={[0.75, 1]}
+      >
+        <About />
+      </Parallax>
     </>
   );
 };

@@ -7,8 +7,6 @@ import { AboutText } from './text/AboutText';
 export const About: React.FC = () => {
   const { data, loading, error } = useAboutQuery();
 
-  if (loading) return <h4>Loading...</h4>;
-
   const imgUrl =
     data?.about?.data?.attributes?.img?.data?.attributes
       ?.url;
@@ -21,6 +19,8 @@ export const About: React.FC = () => {
     data?.about?.data?.attributes?.stack_tier_2;
   const stack3 =
     data?.about?.data?.attributes?.stack_tier_3;
+
+  if (loading) return <h4>Loading...</h4>;
 
   return (
     <AboutStyles>

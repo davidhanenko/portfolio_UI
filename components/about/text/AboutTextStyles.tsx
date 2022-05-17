@@ -5,7 +5,7 @@ const AboutTextStyles = styled.section`
   color: var(--white);
 
   @media (max-width: 576px) {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
   h2 {
     font-size: 3em;
@@ -13,7 +13,7 @@ const AboutTextStyles = styled.section`
     padding-bottom: 2rem;
   }
   p {
-    font-size: 1.6em;
+    font-size: 1.8em;
     padding: 1rem 0;
   }
 `;

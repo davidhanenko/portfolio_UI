@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const HomeStyles = styled.div`
   scroll-snap-align: start;
   height: 100vh;
-  /* overflow: hidden; */
+  overflow: hidden;
 `;
 
 const HomeContainer = styled.div`

@@ -20,10 +20,16 @@ export interface IMainPageProps {
   main: MainQuery;
 }
 
-const MainStyles = styled.div`
+const SnapScrollWrapper = styled.div`
   scroll-snap-type: y mandatory;
-  max-height: 100vh;
   overflow-y: scroll;
+  height: 100vh;
+
+  &::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+  }
 `;
 
 const HomePage: NextPage<IMainPageProps> = ({
@@ -34,11 +40,12 @@ const HomePage: NextPage<IMainPageProps> = ({
   if (loading) return <h4>Loading...</h4>;
 
   return (
-    <MainStyles>
+    <SnapScrollWrapper>
       <Home main={main} />
+
       <About />
       <About />
-    </MainStyles>
+    </SnapScrollWrapper>
   );
 };
 

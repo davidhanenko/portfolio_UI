@@ -6,7 +6,7 @@ interface IAboutProps {
 
 const AboutStyles = styled.div<IAboutProps>`
   scroll-snap-align: start;
-  height: 100vh;
+  min-height: 100vh;
 
   padding: 10rem;
   display: grid;

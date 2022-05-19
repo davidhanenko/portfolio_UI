@@ -39,6 +39,7 @@ const BgElementStyles = styled.span.attrs(
 )`
   opacity: 0;
   transform: scale(0);
+  left: -100%;
   position: absolute;
   animation: ${(props: IBgElementProps) =>
       props.animateBg && appear(props)}

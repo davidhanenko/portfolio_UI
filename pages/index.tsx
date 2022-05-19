@@ -15,6 +15,7 @@ import {
   useMainQuery,
 } from '../graphql/main/main.generated';
 import styled from 'styled-components';
+import { Contact } from '../components/contact/Contact';
 
 export interface IMainPageProps {
   main: MainQuery;
@@ -27,8 +28,8 @@ const SnapScrollWrapper = styled.div`
 
   &::-webkit-scrollbar {
     display: none;
-    -ms-overflow-style: none; 
-    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 `;
 
@@ -42,9 +43,9 @@ const HomePage: NextPage<IMainPageProps> = ({
   return (
     <SnapScrollWrapper>
       <Home main={main} />
+      <About />
 
-      <About />
-      <About />
+      <Contact />
     </SnapScrollWrapper>
   );
 };

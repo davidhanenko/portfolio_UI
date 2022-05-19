@@ -6,7 +6,6 @@ const HeaderStyles = styled.header`
   padding: 1rem;
   color: var(--orange);
   font-size: 7rem;
-  
 `;
 
 export { HeaderStyles };

@@ -18,8 +18,8 @@ const ScrollContextProvider = ScrollContext.Provider;
 function ScrollProvider({ children }: any) {
   const scrollRef = useRef({
     scrollPos: 0,
-  });
-
+  } );
+  
   return (
     <ScrollContextProvider value={{ scrollRef }}>
       {children}

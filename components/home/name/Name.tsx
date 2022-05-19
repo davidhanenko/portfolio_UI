@@ -2,6 +2,7 @@ import { SyntheticEvent } from 'react';
 import { NameStyles } from './NameStyles';
 
 import { useAnimation } from '../../../lib/useAnimation';
+
 import { NAME_ANIMATION_DURATION as nameAnimationDuration } from '../../../config';
 
 interface AnimationEvent<T = Element>
@@ -12,6 +13,7 @@ interface AnimationEvent<T = Element>
 }
 
 export const Name = () => {
+
   const { setAnimateBg } = useAnimation();
 
   const handleAnimationEnd = (

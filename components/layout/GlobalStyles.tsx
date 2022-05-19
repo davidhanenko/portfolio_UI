@@ -22,9 +22,14 @@ const GlobalStyles = createGlobalStyle`
   html {
    box-sizing: border-box;
    font-size: 62.5%;
+
+   /* scroll-snap-type: y mandatory;
+   overflow-y: scroll;
+   height: 100vh; */
 }
 
   body {
+    
     font-family: 'Source Code Pro', monospace;
     overflow-x: hidden;
     scroll-behavior: smooth;

@@ -14,10 +14,17 @@ import {
   MainQuery,
   useMainQuery,
 } from '../graphql/main/main.generated';
+import styled from 'styled-components';
 
 export interface IMainPageProps {
   main: MainQuery;
 }
+
+const MainStyles = styled.div`
+  scroll-snap-type: y mandatory;
+  max-height: 100vh;
+  overflow-y: scroll;
+`;
 
 const HomePage: NextPage<IMainPageProps> = ({
   main,
@@ -27,15 +34,11 @@ const HomePage: NextPage<IMainPageProps> = ({
   if (loading) return <h4>Loading...</h4>;
 
   return (
-    <>
+    <MainStyles>
       <Home main={main} />
-      <Parallax
-        translateY={[0, -70]}
-        // scale={[0.75, 1]}
-      >
-        <About />
-      </Parallax>
-    </>
+      <About />
+      <About />
+    </MainStyles>
   );
 };
 

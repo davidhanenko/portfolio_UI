@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
 const HomeStyles = styled.div`
+  scroll-snap-align: start;
   height: 100vh;
-  `;
+  /* overflow: hidden; */
+`;
 
 const HomeContainer = styled.div`
-  position: absolute;
+  position: relative;
   height: 100%;
   width: 100%;
   padding: 0 5rem;

@@ -4,7 +4,7 @@ const EmailFormStyles = styled.form`
   color: white;
 
   label {
-    font-size: 2rem;
+    font-size: 1.5rem;
     display: block;
     padding: 3rem;
     input {

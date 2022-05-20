@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 type Inputs = {
   name: string;
   email: string;
-  message: string;
+  emailMessage: string;
 };
 
 export const EmailForm: React.FC = () => {
@@ -22,20 +22,45 @@ export const EmailForm: React.FC = () => {
       <label>
         Name
         <input
-          {...register('name', { required: 'required'})}
+          type='text'
+          {...register('name', {
+            required: 'Name is required',
+          })}
           placeholder='name'
         />
+        {<span>{errors?.name?.message}</span>}
       </label>
       <label>
         Email
         <input
-          {...register('email', { required: true })}
+          type='email'
+          {...register('email', {
+            required: 'Email is required',
+          })}
           placeholder='email'
         />
         {errors.email && (
           <span>This field is required</span>
         )}
-      </label>{' '}
+      </label>
+      <label>
+        Message
+        <textarea
+          rows={5}
+          cols={50}
+          {...register('emailMessage', {
+            required: 'Message is required',
+            minLength: {
+              value: 5,
+              message: 'Tell me a bit more',
+            },
+          })}
+          placeholder='Type your emailMessage...'
+        />
+        {errors.emailMessage && (
+          <span>{errors.emailMessage.message}</span>
+        )}
+      </label>
       <button type='submit'>Submit</button>
     </EmailFormStyles>
   );

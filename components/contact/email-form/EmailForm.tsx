@@ -1,10 +1,12 @@
 import { EmailFormStyles } from './EmailFormStyles';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import axios from 'axios';
 
 type Inputs = {
   name: string;
   email: string;
   emailMessage: string;
+  to: string;
 };
 
 export const EmailForm: React.FC = () => {
@@ -12,13 +14,37 @@ export const EmailForm: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = data =>
-    console.log(data);
+  const onSubmitForm: SubmitHandler<
+    Inputs
+  > = async values => {
+    let config = {
+      method: 'post',
+      url: 'http://localhost:1337/api/email',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data: {
+        to: 'd.h@gmail.com',
+        text: values.emailMessage,
+      },
+    };
+
+    try {
+      const resp = await axios(config);
+      if (resp.data.status == 200) {
+        reset();
+        console.log('success');
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
-    <EmailFormStyles onSubmit={handleSubmit(onSubmit)}>
+    <EmailFormStyles onSubmit={handleSubmit(onSubmitForm)}>
       <label>
         Name
         <input
@@ -55,7 +81,7 @@ export const EmailForm: React.FC = () => {
               message: 'Tell me a bit more',
             },
           })}
-          placeholder='Type your emailMessage...'
+          placeholder='Type your message...'
         />
         {errors.emailMessage && (
           <span>{errors.emailMessage.message}</span>

@@ -7,7 +7,11 @@ const EmailFormStyles = styled.form`
     font-size: 1.5rem;
     display: block;
     padding: 3rem;
+    textarea {
+      display: block;
+    }
     input {
+      display: block;
       width: 30rem;
       height: 3rem;
     }

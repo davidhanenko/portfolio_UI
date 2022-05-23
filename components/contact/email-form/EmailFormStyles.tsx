@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 const EmailFormStyles = styled.form`
   color: var(--white);
+  width: 100%;
+  max-width: 450px;
 
   h2 {
     text-align: center;
@@ -16,10 +18,19 @@ const EmailFormStyles = styled.form`
     label {
       font-size: 1.2rem;
       display: block;
-      padding: 3rem;
+      padding: 1.4rem;
+
+      position: relative;
+
       textarea {
         font-size: 1.5rem;
         display: block;
+        padding: 1rem;
+        width: 100%;
+
+        &::placeholder {
+          color: #bdbbbb;
+        }
       }
       input {
         font-size: 1.5rem;
@@ -27,13 +38,19 @@ const EmailFormStyles = styled.form`
         width: 100%;
         height: 3rem;
         margin: 0.4rem 0;
+        padding: 1rem;
+
+        &::placeholder {
+          color: #bdbbbb;
+        }
       }
 
       .input-error {
+        position: absolute;
         color: #ae310b;
         font-size: 1.4rem;
-        display: flex;
-        justify-content: end;
+        right: 1.4rem;
+        padding-top: 0.5rem;
       }
     }
 
@@ -42,7 +59,7 @@ const EmailFormStyles = styled.form`
       background: orange;
       padding: 1rem;
       border-radius: 0.5rem;
-      margin-left: 3rem;
+      margin: 1rem 0 0 1.4rem;
     }
   }
 `;

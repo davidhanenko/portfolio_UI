@@ -28,9 +28,9 @@ export const EmailForm: React.FC = () => {
       },
       data: {
         to: process.env.NEXT_PUBLIC_API_EMAIL_TO,
-        text: values.emailMessage,
-        subject: 'test/next',
         from: values.email,
+        subject: 'Email from DH portfolio website',
+        html: `<h2>My name is ${values.name}</h2> <h3>My email - <em>${values.email}</em></h3><p>${values.emailMessage}</p>`,
       },
     };
 
@@ -73,17 +73,16 @@ export const EmailForm: React.FC = () => {
             })}
             placeholder='email'
           />
-          {errors.email && (
+          {
             <span className='input-error'>
-              This field is required
+              {errors?.email?.message}
             </span>
-          )}
+          }
         </label>
         <label>
           Message
           <textarea
-            rows={5}
-            cols={50}
+            rows={6}
             {...register('emailMessage', {
               required: 'Message is required',
               minLength: {
@@ -91,7 +90,7 @@ export const EmailForm: React.FC = () => {
                 message: 'Tell me a bit more',
               },
             })}
-            placeholder='Type your message...'
+            placeholder='type your message...'
           />
           {errors.emailMessage && (
             <span className='input-error'>

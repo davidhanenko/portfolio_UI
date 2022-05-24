@@ -47,8 +47,8 @@ export const EmailForm: React.FC = () => {
 
   return (
     <EmailFormStyles onSubmit={handleSubmit(onSubmitForm)}>
-      <h2>Contact Me</h2>
       <div className='form'>
+      <h2>Contact Me</h2>
         <label>
           Name
           <input

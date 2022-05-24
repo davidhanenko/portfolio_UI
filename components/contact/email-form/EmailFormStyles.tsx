@@ -3,7 +3,8 @@ import styled from 'styled-components';
 const EmailFormStyles = styled.form`
   color: var(--white);
   width: 100%;
-  max-width: 450px;
+
+  position: relative;
 
   h2 {
     text-align: center;
@@ -14,6 +15,13 @@ const EmailFormStyles = styled.form`
   .form {
     border: 1px solid var(--white);
     padding: 2rem;
+    width: 100%;
+    max-width: 450px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     label {
       font-size: 1.2rem;

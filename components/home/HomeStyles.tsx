@@ -15,6 +15,8 @@ const HomeContainer = styled.div`
   justify-content: center;
   align-items: center;
   overflow-x: hidden;
+
+  margin-top: var(--headerHeight);
 `;
 
 export { HomeStyles, HomeContainer };

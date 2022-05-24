@@ -7,6 +7,7 @@ const ContactStyles = styled.div`
   display: flex;
   justify-content: center;
 
+  padding-top: var(--headerHeight);
 `;
 
-export { ContactStyles };
+export { ContactStyles }

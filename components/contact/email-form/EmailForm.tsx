@@ -1,9 +1,12 @@
+import { useForm, SubmitHandler } from 'react-hook-form';
+import axios from 'axios';
+
+import PulseLoader from 'react-spinners/PulseLoader';
+
 import {
   EmailFormStyles,
   EmailSendBtn,
 } from './EmailFormStyles';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import axios from 'axios';
 
 type Inputs = {
   name: string;
@@ -17,8 +20,16 @@ export const EmailForm: React.FC = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>();
+    reset,
+    formState: { errors, isDirty, isSubmitting },
+  } = useForm<Inputs>({
+    defaultValues: {
+      name: '',
+      email: '',
+      subject: '',
+      emailMessage: '',
+    },
+  });
 
   const onSubmitForm: SubmitHandler<
     Inputs
@@ -42,7 +53,7 @@ export const EmailForm: React.FC = () => {
     try {
       const resp = await axios(config);
       if (resp.status == 200) {
-        console.log('success');
+        reset();
       }
     } catch (err) {
       console.log(err);
@@ -122,8 +133,16 @@ export const EmailForm: React.FC = () => {
           }
         </fieldset>
 
-        <EmailSendBtn type='submit'>
-          <span>Submit</span>
+        <EmailSendBtn type='submit' disabled={isSubmitting}>
+          {isSubmitting ? (
+            <PulseLoader
+              color={'orange'}
+              loading={true}
+              size={10}
+            />
+          ) : (
+            <span>Send</span>
+          )}
         </EmailSendBtn>
       </div>
     </EmailFormStyles>

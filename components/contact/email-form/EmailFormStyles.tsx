@@ -81,7 +81,6 @@ const EmailSendBtn = styled.button`
   border: none;
   outline: none;
   background: transparent;
- 
 
   line-height: 4rem;
   height: 4rem;
@@ -96,10 +95,11 @@ const EmailSendBtn = styled.button`
   span {
     transition: all 0.3s;
     text-transform: uppercase;
+    font-size: 1.7rem;
   }
 
   &:hover span {
-    letter-spacing: 0.3rem;
+    letter-spacing: 0.4rem;
   }
 
   &:before {

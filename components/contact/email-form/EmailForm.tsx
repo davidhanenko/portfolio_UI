@@ -1,4 +1,7 @@
-import { EmailFormStyles } from './EmailFormStyles';
+import {
+  EmailFormStyles,
+  EmailSendBtn,
+} from './EmailFormStyles';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import axios from 'axios';
 
@@ -15,7 +18,6 @@ export const EmailForm: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm<Inputs>();
 
   const onSubmitForm: SubmitHandler<
@@ -30,7 +32,9 @@ export const EmailForm: React.FC = () => {
       data: {
         to: process.env.NEXT_PUBLIC_API_EMAIL_TO,
         from: values.email,
-        subject: 'Email from DH portfolio website',
+        subject: values.subject
+          ? `${values.subject} - from HD`
+          : 'Email from DH portfolio website',
         html: `<h2>My name is ${values.name}</h2> <h3>My email - <em>${values.email}</em></h3><p>${values.emailMessage}</p>`,
       },
     };
@@ -118,7 +122,9 @@ export const EmailForm: React.FC = () => {
           }
         </fieldset>
 
-        <button type='submit'>Submit</button>
+        <EmailSendBtn type='submit'>
+          <span>Submit</span>
+        </EmailSendBtn>
       </div>
     </EmailFormStyles>
   );

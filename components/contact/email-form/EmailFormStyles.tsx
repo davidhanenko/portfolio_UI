@@ -1,19 +1,10 @@
-import styled, { keyframes } from 'styled-components';
-
-const inputFocus = keyframes`
-  0% {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  100% {
-    opacity: 1; 
-    transform: translateX(100%);
-  }
-`;
+import styled from 'styled-components';
 
 const EmailFormStyles = styled.form`
-  /* color: var(--white); */
+  color: var(--white);
   width: 100%;
+
+  text-align: end;
 
   position: relative;
 
@@ -25,7 +16,6 @@ const EmailFormStyles = styled.form`
 
   .form {
     border: 1px solid var(--white);
-    background: white;
     padding: 2rem;
     width: 90%;
     max-width: 400px;
@@ -43,9 +33,9 @@ const EmailFormStyles = styled.form`
       padding: 0;
 
       &:focus-within label {
-        color: orange;
+        color: var(--orange);
         opacity: 1;
-        transform: translateY(-2rem) scale(0.5);
+        transform: translateY(-2rem) scale(0.6);
         transform-origin: left;
       }
 
@@ -56,7 +46,10 @@ const EmailFormStyles = styled.form`
         padding: 0.5rem 0.5rem 0.6rem 0;
         width: 100%;
         font-size: 1.5rem;
-        border-bottom: solid 1px #efefef;
+        border-bottom: solid 1px var(--white);
+        color: var(--white);
+        font-weight: 200;
+        background: var(--bgDark);
         transition: all 0.5s ease;
 
         &:focus {
@@ -81,15 +74,70 @@ const EmailFormStyles = styled.form`
         padding-top: 0.5rem;
       }
     }
-
-    button {
-      font-size: 2rem;
-      background: orange;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      margin: 1rem 0 0 1.4rem;
-    }
   }
 `;
 
-export { EmailFormStyles };
+const EmailSendBtn = styled.button`
+  border: none;
+  outline: none;
+  background: transparent;
+ 
+
+  line-height: 4rem;
+  height: 4rem;
+  text-align: center;
+  width: 20rem;
+  cursor: pointer;
+
+  color: var(--orange);
+  transition: all 0.3s;
+  position: relative;
+
+  span {
+    transition: all 0.3s;
+    text-transform: uppercase;
+  }
+
+  &:hover span {
+    letter-spacing: 0.3rem;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    transform: scale(0.1, 1);
+  }
+
+  &:hover::before {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.3s;
+    background-color: rgba(255, 255, 255, 0.038);
+  }
+
+  &:hover::after {
+    opacity: 0;
+    transform: scale(0.1, 1);
+  }
+`;
+
+export { EmailFormStyles, EmailSendBtn };

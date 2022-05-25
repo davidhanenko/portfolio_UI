@@ -5,6 +5,7 @@ import axios from 'axios';
 type Inputs = {
   name: string;
   email: string;
+  subject: string;
   emailMessage: string;
   to: string;
 };
@@ -36,8 +37,7 @@ export const EmailForm: React.FC = () => {
 
     try {
       const resp = await axios(config);
-      if (resp.data.status == 200) {
-        reset();
+      if (resp.status == 200) {
         console.log('success');
       }
     } catch (err) {
@@ -48,40 +48,60 @@ export const EmailForm: React.FC = () => {
   return (
     <EmailFormStyles onSubmit={handleSubmit(onSubmitForm)}>
       <div className='form'>
-      <h2>Contact Me</h2>
-        <label>
-          Name
+        <h2>Contact Me</h2>
+
+        <fieldset className='input-field'>
+          <label htmlFor='name'>Name</label>
           <input
+            id='name'
             type='text'
             {...register('name', {
               required: 'Name is required',
             })}
-            placeholder='name'
           />
           {
             <span className='input-error'>
               {errors?.name?.message}
             </span>
           }
-        </label>
-        <label>
-          Email
+        </fieldset>
+
+        <fieldset className='input-field'>
+          <label htmlFor='email'>Email</label>
           <input
+            id='email'
             type='email'
             {...register('email', {
               required: 'Email is required',
             })}
-            placeholder='email'
           />
           {
             <span className='input-error'>
               {errors?.email?.message}
             </span>
           }
-        </label>
-        <label>
-          Message
+        </fieldset>
+
+        <fieldset className='input-field'>
+          <label htmlFor='subject'>Subject</label>
+          <input
+            id='subject'
+            type='string'
+            {...register('subject', {
+              required: false,
+            })}
+          />
+          {
+            <span className='input-error'>
+              {errors?.subject?.message}
+            </span>
+          }
+        </fieldset>
+
+        <fieldset className='input-field'>
+          <label htmlFor='message'>Message</label>
           <textarea
+            id='message'
             rows={6}
             {...register('emailMessage', {
               required: 'Message is required',
@@ -90,14 +110,14 @@ export const EmailForm: React.FC = () => {
                 message: 'Tell me a bit more',
               },
             })}
-            placeholder='type your message...'
           />
-          {errors.emailMessage && (
+          {
             <span className='input-error'>
-              {errors.emailMessage.message}
+              {errors?.emailMessage?.message}
             </span>
-          )}
-        </label>
+          }
+        </fieldset>
+
         <button type='submit'>Submit</button>
       </div>
     </EmailFormStyles>

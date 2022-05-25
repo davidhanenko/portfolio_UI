@@ -1,7 +1,18 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const inputFocus = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1; 
+    transform: translateX(100%);
+  }
+`;
 
 const EmailFormStyles = styled.form`
-  color: var(--white);
+  /* color: var(--white); */
   width: 100%;
 
   position: relative;
@@ -14,43 +25,52 @@ const EmailFormStyles = styled.form`
 
   .form {
     border: 1px solid var(--white);
+    background: white;
     padding: 2rem;
-    width: 100%;
-    max-width: 450px;
+    width: 90%;
+    max-width: 400px;
 
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
-    label {
-      font-size: 1.2rem;
-      display: block;
-      padding: 1.4rem;
-
+    .input-field {
+      border: none;
+      outline: none;
       position: relative;
+      margin-bottom: 2rem;
+      padding: 0;
 
+      &:focus-within label {
+        color: orange;
+        opacity: 1;
+        transform: translateY(-2rem) scale(0.5);
+        transform-origin: left;
+      }
+
+      input,
       textarea {
-        font-size: 1.5rem;
-        display: block;
-        padding: 1rem;
+        border: none;
+        outline: none;
+        padding: 0.5rem 0.5rem 0.6rem 0;
         width: 100%;
+        font-size: 1.5rem;
+        border-bottom: solid 1px #efefef;
+        transition: all 0.5s ease;
 
-        &::placeholder {
-          color: #bdbbbb;
+        &:focus {
+          border-bottom: solid 1px orange;
         }
       }
-      input {
-        font-size: 1.5rem;
-        display: block;
-        width: 100%;
-        height: 3rem;
-        margin: 0.4rem 0;
-        padding: 1rem;
 
-        &::placeholder {
-          color: #bdbbbb;
-        }
+      label {
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 0.2s ease;
+        font-size: 1.8rem;
       }
 
       .input-error {

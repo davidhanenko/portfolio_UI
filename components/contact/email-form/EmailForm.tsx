@@ -1,6 +1,8 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import axios from 'axios';
 
+ import { ToastContainer, toast } from 'react-toastify';
+ import 'react-toastify/dist/ReactToastify.css';
 import PulseLoader from 'react-spinners/PulseLoader';
 
 import {
@@ -52,17 +54,19 @@ export const EmailForm: React.FC = () => {
 
     try {
       const resp = await axios(config);
-      if (resp.status == 200) {
+      if ( resp.status == 200 ) {
+        toast.success('Message sent successfully!')
         reset();
       }
     } catch (err) {
-      console.log(err);
+      toast.error('An unexpected error occurred, please try again');
     }
   };
 
   return (
     <EmailFormStyles onSubmit={handleSubmit(onSubmitForm)}>
       <div className='form'>
+
         <h2>Contact Me</h2>
 
         <fieldset className='input-field'>

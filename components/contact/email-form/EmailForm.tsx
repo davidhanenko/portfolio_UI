@@ -1,7 +1,7 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import axios from 'axios';
 
- import { ToastContainer, toast } from 'react-toastify';
+ import { toast } from 'react-toastify';
  import 'react-toastify/dist/ReactToastify.css';
 import PulseLoader from 'react-spinners/PulseLoader';
 

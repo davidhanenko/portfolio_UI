@@ -15,15 +15,16 @@ const EmailFormStyles = styled.form`
   }
 
   .form {
+    background: var(--bgDark);
     border: 1px solid var(--white);
     padding: 2rem;
     width: 90%;
-    max-width: 400px;
+    max-width: 350px;
 
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    bottom: 10%;
+    left: 10%;
+    /* transform: translate(-50%, 25%); */
 
     .input-field {
       border: none;

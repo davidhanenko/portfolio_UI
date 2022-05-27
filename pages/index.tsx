@@ -22,7 +22,7 @@ export interface IMainPageProps {
 }
 
 const SnapScrollWrapper = styled.div`
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
   overflow-y: scroll;
   height: 100vh;
 

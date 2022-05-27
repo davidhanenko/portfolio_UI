@@ -106,6 +106,34 @@ export type ComponentTextText = {
   section?: Maybe<Scalars['String']>;
 };
 
+export type Contact = {
+  __typename?: 'Contact';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  email?: Maybe<Scalars['String']>;
+  map?: Maybe<UploadFileEntityResponse>;
+  phone?: Maybe<Scalars['Int']>;
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type ContactEntity = {
+  __typename?: 'ContactEntity';
+  attributes?: Maybe<Contact>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type ContactEntityResponse = {
+  __typename?: 'ContactEntityResponse';
+  data?: Maybe<ContactEntity>;
+};
+
+export type ContactInput = {
+  email?: InputMaybe<Scalars['String']>;
+  map?: InputMaybe<Scalars['ID']>;
+  phone?: InputMaybe<Scalars['Int']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
 export type DateTimeFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
@@ -164,7 +192,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = About | ComponentTechTech | ComponentTextText | I18NLocale | Main | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = About | ComponentTechTech | ComponentTextText | Contact | I18NLocale | Main | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -307,6 +335,7 @@ export type Mutation = {
   /** Create a new user */
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
   deleteAbout?: Maybe<AboutEntityResponse>;
+  deleteContact?: Maybe<ContactEntityResponse>;
   deleteMain?: Maybe<MainEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Delete an existing role */
@@ -325,6 +354,7 @@ export type Mutation = {
   /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
   updateAbout?: Maybe<AboutEntityResponse>;
+  updateContact?: Maybe<ContactEntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
   updateMain?: Maybe<MainEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
@@ -411,6 +441,11 @@ export type MutationUpdateAboutArgs = {
 };
 
 
+export type MutationUpdateContactArgs = {
+  data: ContactInput;
+};
+
+
 export type MutationUpdateFileInfoArgs = {
   id: Scalars['ID'];
   info?: InputMaybe<FileInfoInput>;
@@ -471,6 +506,7 @@ export enum PublicationState {
 export type Query = {
   __typename?: 'Query';
   about?: Maybe<AboutEntityResponse>;
+  contact?: Maybe<ContactEntityResponse>;
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
   main?: Maybe<MainEntityResponse>;
@@ -485,6 +521,11 @@ export type Query = {
 
 
 export type QueryAboutArgs = {
+  publicationState?: InputMaybe<PublicationState>;
+};
+
+
+export type QueryContactArgs = {
   publicationState?: InputMaybe<PublicationState>;
 };
 

@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 const ContactStyles = styled.div`
+  position: relative;
+
   scroll-snap-align: start;
   min-height: 100vh;
 
@@ -10,4 +12,4 @@ const ContactStyles = styled.div`
   padding-top: var(--headerHeight);
 `;
 
-export { ContactStyles }
+export { ContactStyles };

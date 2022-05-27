@@ -21,7 +21,7 @@ export const EmailForm: React.FC = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isDirty, isSubmitting },
+    formState: { errors, isSubmitting, dirtyFields },
   } = useForm<Inputs>({
     defaultValues: {
       name: '',
@@ -66,7 +66,14 @@ export const EmailForm: React.FC = () => {
         <h2>Contact Me</h2>
 
         <fieldset className='input-field'>
-          <label htmlFor='name'>Name</label>
+          <label
+            className={
+              dirtyFields.name ? 'label-dirty' : ''
+            }
+            htmlFor='name'
+          >
+            Name
+          </label>
           <input
             id='name'
             type='text'
@@ -82,7 +89,14 @@ export const EmailForm: React.FC = () => {
         </fieldset>
 
         <fieldset className='input-field'>
-          <label htmlFor='email'>Email</label>
+          <label
+            className={
+              dirtyFields.email ? 'label-dirty' : ''
+            }
+            htmlFor='email'
+          >
+            Email
+          </label>
           <input
             id='email'
             type='email'
@@ -98,7 +112,14 @@ export const EmailForm: React.FC = () => {
         </fieldset>
 
         <fieldset className='input-field'>
-          <label htmlFor='subject'>Subject</label>
+          <label
+            className={
+              dirtyFields.subject ? 'label-dirty' : ''
+            }
+            htmlFor='subject'
+          >
+            Subject
+          </label>
           <input
             id='subject'
             type='string'
@@ -114,7 +135,14 @@ export const EmailForm: React.FC = () => {
         </fieldset>
 
         <fieldset className='input-field'>
-          <label htmlFor='message'>Message</label>
+          <label
+            className={
+              dirtyFields.emailMessage ? 'label-dirty' : ''
+            }
+            htmlFor='message'
+          >
+            Message
+          </label>
           <textarea
             id='message'
             rows={6}

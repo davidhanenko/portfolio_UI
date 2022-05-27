@@ -28,8 +28,6 @@ const appear = (props: IBgElementProps) => keyframes`
 
 const BgElementStyles = styled.span.attrs(
   (props: IBgElementProps) => ({
-    // top: props.top,
-    // left: props.left,
     int: props.int,
     style: {
       top: props.top,

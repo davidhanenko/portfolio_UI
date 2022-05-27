@@ -66,6 +66,13 @@ const EmailFormStyles = styled.form`
         font-size: 1.8rem;
       }
 
+      .label-dirty {
+        color: var(--orange);
+        opacity: 1;
+        transform: translateY(-2rem) scale(0.6);
+        transform-origin: left;
+      }
+
       .input-error {
         position: absolute;
         color: #ae310b;

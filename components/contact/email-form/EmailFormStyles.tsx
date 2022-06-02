@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-const EmailFormStyles = styled.form`
+type PropsTypes = {
+  isDirty: boolean;
+};
+
+const EmailFormStyles = styled.form<PropsTypes>`
   color: var(--white);
   width: 100%;
 
@@ -12,10 +16,12 @@ const EmailFormStyles = styled.form`
     text-align: center;
     font-size: 3rem;
     padding-bottom: 2rem;
+    color: var(--orange);
   }
 
   .form {
     background: var(--bgDark);
+
     border: 1px solid var(--white);
     padding: 2rem;
     width: 90%;
@@ -44,14 +50,14 @@ const EmailFormStyles = styled.form`
       textarea {
         border: none;
         outline: none;
-        padding: 0.5rem 0.5rem 0.6rem 0;
+        padding: 0.5rem 0.5rem 0.5rem 0;
         width: 100%;
         font-size: 1.5rem;
         border-bottom: solid 1px var(--white);
         color: var(--white);
         font-weight: 200;
-        background: var(--bgDark);
         transition: all 0.5s ease;
+        background: transparent;
 
         &:focus {
           border-bottom: solid 1px orange;

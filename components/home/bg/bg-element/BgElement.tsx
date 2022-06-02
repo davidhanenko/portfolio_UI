@@ -5,7 +5,7 @@ import { useAnimation } from '../../../../lib/useAnimation';
 
 import { BgElementStyles } from './BgElementStyles';
 
-export interface IBgElProps {
+export interface IBgEl {
   top?: number;
   setTop?: (top: number) => void;
   left?: number;
@@ -19,7 +19,7 @@ export interface IBgElProps {
   intTime: number;
 }
 
-export const BgElement: React.FC<IBgElProps> = ({
+export const BgElement: React.FC<IBgEl> = ({
   el,
   bgRef,
   intTime,

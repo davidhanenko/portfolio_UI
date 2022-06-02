@@ -2,7 +2,7 @@ import { RefObject, useRef } from 'react';
 import { BgStyles } from './BgStyles';
 import { BgElement } from './bg-element/BgElement';
 
-interface IBgProps {
+interface IBg {
   techImages: any[];
   bgRef: RefObject<HTMLDivElement>;
   key: number;
@@ -10,7 +10,7 @@ interface IBgProps {
   el: any;
 }
 
-export const Bg: React.FC<IBgProps> = ({ techImages }) => {
+export const Bg: React.FC<IBg> = ({ techImages }) => {
   const bgRef = useRef<HTMLDivElement>(null);
 
   return (

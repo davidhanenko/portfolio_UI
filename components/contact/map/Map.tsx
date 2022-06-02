@@ -1,17 +1,23 @@
 import Image from 'next/image';
+import { RefObject, useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 import { GoLocation } from 'react-icons/go';
 
 import { MapStyles } from './MapStyles';
 
-interface IMapProps {
+interface IMap {
   map: string;
 }
 
-export const Map: React.FC<IMapProps> = ({ map }) => {
+export const Map: React.FC<IMap> = ({ map }) => {
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+  });
+
   return (
-    <MapStyles>
-      <GoLocation className='icon'/>
+    <MapStyles inView={inView} ref={ref}>
+      <GoLocation className='icon' />
       {map && (
         <Image
           src={map}
@@ -20,7 +26,8 @@ export const Map: React.FC<IMapProps> = ({ map }) => {
           objectFit='cover'
         />
       )}
-      <div className='img-overlay'></div>
+      <div className='pin'></div>
+      <div className='pulse'></div>
     </MapStyles>
   );
 };

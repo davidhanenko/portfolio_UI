@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { RefObject, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import { GoLocation } from 'react-icons/go';
@@ -12,7 +11,7 @@ interface IMap {
 
 export const Map: React.FC<IMap> = ({ map }) => {
   const { ref, inView } = useInView({
-    threshold: 0.2,
+    threshold: 0.5,
   });
 
   return (

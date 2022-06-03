@@ -25,12 +25,16 @@ const GlobalStyles = createGlobalStyle`
   html {
    box-sizing: border-box;
    font-size: 62.5%;
+
+   background: var(--bgDark);
+
 }
 
   body {
     font-family: 'Source Code Pro', monospace;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    max-width: var(---maxWidth);
     background: var(--bgDark);
   }
 

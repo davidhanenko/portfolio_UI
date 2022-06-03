@@ -36,12 +36,14 @@ const bounce = keyframes`
   `;
 
 const MapStyles = styled.div<IMapProps>`
-  img {
     position: relative;
-    top: 0;
-    left: 0;
     width: 100vw;
     height: 100vh;
+    img {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     filter: saturate(15%);
   }
 
@@ -57,7 +59,7 @@ const MapStyles = styled.div<IMapProps>`
     margin: -20px 0 0 -20px;
     animation: ${props => props.inView && bounce};
     animation-fill-mode: both;
-    animation-duration: 1s;
+    animation-duration: 1.3s;
 
     @media (max-width: 900px) {
       left: 74%;
@@ -112,7 +114,7 @@ const MapStyles = styled.div<IMapProps>`
       width: 40px;
       position: absolute;
       margin: -13px 0 0 -13px;
-      animation: ${pulsate} 1s ease-out;
+      animation: ${props => props.inView && pulsate} 1s ease-out;
       animation-iteration-count: infinite;
       opacity: 0;
       box-shadow: 0 0 1px 2px var(--orange);

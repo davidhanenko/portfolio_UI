@@ -4,7 +4,7 @@ import {
   initializeApollo,
 } from '../graphql/apollo';
 
-import { Parallax } from 'react-scroll-parallax';
+
 
 import { Home } from '../components/home/Home';
 import { About } from '../components/about/About';
@@ -22,10 +22,13 @@ export interface IMainPageProps {
 }
 
 const SnapScrollWrapper = styled.div`
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100vh;
 
+  @media (max-width: 576px) {
+    scroll-snap-type: y proximity;
+  }
   &::-webkit-scrollbar {
     display: none;
     -ms-overflow-style: none;

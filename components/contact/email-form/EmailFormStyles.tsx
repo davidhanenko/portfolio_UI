@@ -1,21 +1,35 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 type PropsTypes = {
   isDirty: boolean;
+  inView: boolean;
 };
 
+const slideIn = keyframes`
+  0% {
+    transition: translateX(-100%);
+  }
+  100% {
+    transition: translateX(0%);
+  }
+`;
+
 const EmailFormStyles = styled.form<PropsTypes>`
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
   color: var(--white);
   width: 100%;
-
   text-align: end;
 
-  position: relative;
+  animation: ${slideIn};
+  animation-fill-mode: forwards;
+  animation-duration: 1.3s;
 
   h2 {
     text-align: center;
     font-size: 3rem;
-    padding-bottom: 2rem;
+    padding-bottom: 3rem;
     color: var(--orange);
   }
 
@@ -27,9 +41,6 @@ const EmailFormStyles = styled.form<PropsTypes>`
     width: 90%;
     max-width: 350px;
 
-    position: absolute;
-    bottom: 10%;
-    left: 10%;
     /* transform: translate(-50%, 25%); */
 
     .input-field {

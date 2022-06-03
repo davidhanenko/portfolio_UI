@@ -7,10 +7,8 @@ import { EmailForm } from './email-form/EmailForm';
 import { Map } from './map/Map';
 
 
-export const Contact: React.FC<IMap> = () => {
+export const Contact: React.FC = () => {
   const { data, loading } = useContactQuery();
-
-
 
   const map =
     data?.contact?.data?.attributes?.map?.data?.attributes
@@ -29,7 +27,7 @@ export const Contact: React.FC<IMap> = () => {
         theme='dark'
       />
       <Map map={map!}  />
-      {/* <EmailForm /> */}
+      <EmailForm />
     </ContactStyles>
   );
 };

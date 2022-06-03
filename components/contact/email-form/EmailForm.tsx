@@ -1,4 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { useInView } from 'react-intersection-observer';
+
 import axios from 'axios';
 
 import { toast } from 'react-toastify';
@@ -38,6 +40,12 @@ export const EmailForm: React.FC = () => {
     },
   });
 
+  // in-view observer
+  const { ref, inView } = useInView({
+    threshold: 0.4,
+  });
+
+  // form submit handler
   const onSubmitForm: SubmitHandler<
     Inputs
   > = async values => {
@@ -74,6 +82,8 @@ export const EmailForm: React.FC = () => {
     <EmailFormStyles
       isDirty={isDirty}
       onSubmit={handleSubmit(onSubmitForm)}
+      ref={ref}
+      inView={inView}
     >
       <div className='form'>
         <h2>Contact Me</h2>

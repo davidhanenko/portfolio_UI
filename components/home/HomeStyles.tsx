@@ -4,6 +4,10 @@ const HomeStyles = styled.div`
   scroll-snap-align: start;
   height: 100vh;
   overflow: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const HomeContainer = styled.div`

@@ -4,7 +4,7 @@ import { Footer } from './footer/Footer';
 import { Header } from './header/Header';
 
 const InnerStyles = styled.div`
-  max-width: var(--maxWidth);
+  width: 100%;
   margin: 0 auto;
 `;
 interface IPageProps {

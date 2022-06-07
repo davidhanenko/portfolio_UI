@@ -6,16 +6,9 @@ import { useAnimation } from '../../../../lib/useAnimation';
 import { BgElementStyles } from './BgElementStyles';
 
 export interface IBgEl {
-  top?: number;
-  setTop?: (top: number) => void;
-  left?: number;
-  setLeft?: (left: number) => void;
-  int?: number;
-  setInt?: (int: number) => void;
-  el?: any;
-  index?: number;
-  bgRef?: RefObject<HTMLDivElement>;
-  key?: number;
+  bgRef: RefObject<HTMLDivElement>;
+  el: any;
+  key: number;
   intTime: number;
 }
 

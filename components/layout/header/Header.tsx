@@ -1,5 +1,5 @@
 import { NavStateProvider } from '../../../lib/useNav';
-import { HeaderStyles} from './HeaderStyles';
+import { HeaderStyles } from './HeaderStyles';
 import { Logo } from './logo/Logo';
 import { Nav } from './nav/Nav';
 

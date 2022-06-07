@@ -12,6 +12,10 @@ import {
   EmailSendBtn,
 } from './EmailFormStyles';
 
+type Email = {
+  emailTo: string;
+};
+
 type Inputs = {
   name: string;
   email: string;
@@ -20,7 +24,7 @@ type Inputs = {
   to: string;
 };
 
-export const EmailForm: React.FC = () => {
+export const EmailForm: React.FC<Email> = ({ emailTo }) => {
   const {
     register,
     handleSubmit,
@@ -56,17 +60,18 @@ export const EmailForm: React.FC = () => {
         'Content-Type': 'application/json',
       },
       data: {
-        to: process.env.NEXT_PUBLIC_API_EMAIL_TO,
+        to: emailTo,
         from: values.email,
         subject: values.subject
           ? `${values.subject} - from HD`
           : 'Email from DH portfolio website',
-        html: `<h2>My name is ${values.name}</h2> <h3>My email - <em>${values.email}</em></h3><p>${values.emailMessage}</p>`,
+        text: values.emailMessage,
       },
     };
 
     try {
       const resp = await axios(config);
+
       if (resp.status == 200) {
         toast.success('Message sent successfully!');
         reset();

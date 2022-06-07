@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 import { LogoStyles } from '../logo/LogoStyles';
 
-export interface NavProps {
+export interface INavProps {
   readonly isOpen: boolean;
   readonly isClicked?: boolean;
 }
 
-const NavStyles = styled.nav<NavProps>`
+type NavLogo = {
+  isOpen: boolean;
+};
+
+const NavStyles = styled.nav<INavProps>`
   color: white;
   font-size: 5rem;
 

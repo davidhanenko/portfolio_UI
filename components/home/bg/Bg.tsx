@@ -4,10 +4,6 @@ import { BgElement } from './bg-element/BgElement';
 
 interface IBg {
   techImages: any[];
-  bgRef: RefObject<HTMLDivElement>;
-  key: number;
-  intTime: number;
-  el: any;
 }
 
 export const Bg: React.FC<IBg> = ({ techImages }) => {

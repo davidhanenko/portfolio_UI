@@ -7,10 +7,10 @@ type PropsTypes = {
 
 const slideIn = keyframes`
   0% {
-    transition: translateX(-100%);
+    transform: translateX(-100%);
   }
   100% {
-    transition: translateX(0%);
+    transform: translateX(0%);
   }
 `;
 
@@ -19,12 +19,12 @@ const EmailFormStyles = styled.form<PropsTypes>`
   bottom: 10%;
   left: 10%;
   color: var(--white);
-  width: 100%;
+  width: 400px;
   text-align: end;
 
-  animation: ${slideIn};
-  animation-fill-mode: forwards;
-  animation-duration: 1.3s;
+  @media (max-width: 576px) {
+    width: 350px;
+  }
 
   h2 {
     text-align: center;
@@ -34,14 +34,14 @@ const EmailFormStyles = styled.form<PropsTypes>`
   }
 
   .form {
+    animation: ${props => props.inView && slideIn};
+    /* animation-fill-mode: forwards; */
+    animation-duration: 1.3s;
+
     background: var(--bgDark);
 
     border: 1px solid var(--white);
     padding: 2rem;
-    width: 90%;
-    max-width: 350px;
-
-    /* transform: translate(-50%, 25%); */
 
     .input-field {
       border: none;
@@ -61,9 +61,9 @@ const EmailFormStyles = styled.form<PropsTypes>`
       textarea {
         border: none;
         outline: none;
-        padding: 0.5rem 0.5rem 0.5rem 0;
+        padding: 0.5rem 0.5rem 0.6rem 0;
         width: 100%;
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         border-bottom: solid 1px var(--white);
         color: var(--white);
         font-weight: 200;
@@ -81,7 +81,7 @@ const EmailFormStyles = styled.form<PropsTypes>`
         top: 0;
         left: 0;
         transition: all 0.2s ease;
-        font-size: 1.8rem;
+        font-size: 1.9rem;
       }
 
       .label-dirty {

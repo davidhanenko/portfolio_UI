@@ -98,17 +98,14 @@ const NameStyles = styled.div<INameProps>`
   color: var(--orange);
   font-weight: 600;
 
-  -webkit-animation: ${nameX} 1.5s linear;
   animation: ${nameX} 1.5s linear;
   animation-delay: ${props => props.nameAnimationDuration};
   animation-fill-mode: forwards;
 
   .name {
-    -webkit-animation: ${nameY} 1.5s;
     animation: ${nameY} 1.5s;
     animation-delay: ${props =>
       props.nameAnimationDuration};
-    -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
   }
@@ -118,14 +115,11 @@ const NameStyles = styled.div<INameProps>`
     transform: translateX(116%);
 
     z-index: 1;
-    -webkit-animation: ${firstLeft} 4s;
     animation: ${firstLeft} 4s;
     animation-delay: 2s;
     animation-fill-mode: forwards;
 
     .first-name-rest {
-      -webkit-animation: ${fadeInVisibilityL} 4s
-        cubic-bezier(1, 0.06, 0.4, 1.16);
       animation: ${fadeInVisibilityL} 4s
         cubic-bezier(1, 0.06, 0.4, 1.16);
     }
@@ -145,7 +139,6 @@ const NameStyles = styled.div<INameProps>`
 
     .last-name-rest {
       visibility: 0;
-      -webkit-animation: ${fadeInVisibilityR} ${props => props.nameAnimationDuration} cubic-bezier(1, 0.06, 0.4, 1.16);
       animation: ${fadeInVisibilityR} 5s
         cubic-bezier(1, 0.06, 0.4, 1.16);
     }
@@ -164,7 +157,6 @@ const NameStyles = styled.div<INameProps>`
     transform: translateX(59%);
     transform-style: preserve-3d;
 
-    -webkit-animation: ${lastRRest} 4s;
     animation: ${lastRRest} 4s;
     animation-delay: 2s;
     animation-fill-mode: forwards;

@@ -17,9 +17,6 @@ import {
 import styled from 'styled-components';
 import { Contact } from '../components/contact/Contact';
 
-export interface IMainPageProps {
-  main: MainQuery;
-}
 
 const SnapScrollWrapper = styled.div`
   scroll-snap-type: y mandatory;
@@ -36,9 +33,9 @@ const SnapScrollWrapper = styled.div`
   }
 `;
 
-const HomePage: NextPage<IMainPageProps> = ({
+const HomePage: NextPage<MainQuery> = ({
   main,
-}: IMainPageProps) => {
+}: MainQuery) => {
   const { data, loading, error } = useMainQuery();
 
   if (loading) return <h4>Loading...</h4>;

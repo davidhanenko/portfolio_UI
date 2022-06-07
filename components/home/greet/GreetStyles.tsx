@@ -28,7 +28,6 @@ const GreetStyles = styled.section<GreetProps>`
     font-size: 2.3rem;
     font-weight: 300;
   }
-  -webkit-animation: ${greetAnimation} 2s;
   animation: ${greetAnimation} 2s;
   animation-delay: ${props => props.nameAnimationDuration};
   animation-fill-mode: forwards;

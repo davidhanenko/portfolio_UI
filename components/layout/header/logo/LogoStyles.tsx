@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-const LogoStyles = styled.div`
+interface ILogoProps {
+  readonly isOpen?: boolean;
+}
+
+const LogoStyles = styled.div<ILogoProps>`
   z-index: 3;
 
   .logo-1 {

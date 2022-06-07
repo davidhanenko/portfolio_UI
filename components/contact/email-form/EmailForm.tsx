@@ -14,6 +14,7 @@ import {
 
 type Email = {
   emailTo: string;
+  inView: boolean;
 };
 
 type Inputs = {
@@ -24,7 +25,10 @@ type Inputs = {
   to: string;
 };
 
-export const EmailForm: React.FC<Email> = ({ emailTo }) => {
+export const EmailForm: React.FC<Email> = ({
+  emailTo,
+  inView,
+}) => {
   const {
     register,
     handleSubmit,
@@ -45,9 +49,9 @@ export const EmailForm: React.FC<Email> = ({ emailTo }) => {
   });
 
   // in-view observer
-  const { ref, inView } = useInView({
-    threshold: 0.4,
-  });
+  // const { ref, inView } = useInView({
+  //   threshold: 0.4,
+  // } );
 
   // form submit handler
   const onSubmitForm: SubmitHandler<
@@ -87,7 +91,7 @@ export const EmailForm: React.FC<Email> = ({ emailTo }) => {
     <EmailFormStyles
       isDirty={isDirty}
       onSubmit={handleSubmit(onSubmitForm)}
-      ref={ref}
+     
       inView={inView}
     >
       <div className='form'>

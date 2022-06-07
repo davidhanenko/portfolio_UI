@@ -1,3 +1,5 @@
+import { useInView } from 'react-intersection-observer';
+
 import { ToastContainer } from 'react-toastify';
 import { useContactQuery } from '../../graphql/contact/main.generated';
 
@@ -7,6 +9,10 @@ import { Map } from './map/Map';
 
 export const Contact: React.FC = () => {
   const { data, loading } = useContactQuery();
+
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
 
   const map =
     data?.contact?.data?.attributes?.map?.data?.attributes
@@ -25,8 +31,11 @@ export const Contact: React.FC = () => {
         draggable
         theme='dark'
       />
-      <Map map={map!} />
-      <EmailForm emailTo={email!} />
+      <Map map={map!} inView={inView} mapRef={ref} />
+      <EmailForm
+        emailTo={email!}
+        inView={inView}
+      />
     </ContactStyles>
   );
 };

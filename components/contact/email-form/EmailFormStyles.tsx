@@ -7,10 +7,13 @@ type PropsTypes = {
 
 const slideIn = keyframes`
   0% {
-    transform: translateX(-100%);
+    transform: translateX(-900px); 
+    opacity: 0;
   }
+
   100% {
-    transform: translateX(0%);
+    transform: translateX(0);
+    opacity: 1;
   }
 `;
 
@@ -21,6 +24,12 @@ const EmailFormStyles = styled.form<PropsTypes>`
   color: var(--white);
   width: 400px;
   text-align: end;
+
+  opacity: 0;
+
+  animation: ${props => props.inView && slideIn};
+  animation-fill-mode: forwards;
+  animation-duration: 1.2s;
 
   @media (max-width: 576px) {
     width: 350px;
@@ -34,14 +43,14 @@ const EmailFormStyles = styled.form<PropsTypes>`
   }
 
   .form {
-    animation: ${props => props.inView && slideIn};
-    /* animation-fill-mode: forwards; */
-    animation-duration: 1.3s;
-
     background: var(--bgDark);
 
     border: 1px solid var(--white);
     padding: 2rem;
+
+    /* animation: ${props => props.inView && slideIn};
+    animation-fill-mode: both;
+    animation-duration: 1.3s; */
 
     .input-field {
       border: none;

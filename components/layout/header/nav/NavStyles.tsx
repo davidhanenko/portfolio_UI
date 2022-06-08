@@ -11,7 +11,7 @@ type NavLogo = {
 };
 
 const NavStyles = styled.nav<INavProps>`
-  color: white;
+  color: var(--white);
   font-size: 5rem;
 
   .hamburger-react {
@@ -23,7 +23,7 @@ const NavStyles = styled.nav<INavProps>`
     position: absolute;
     right: 0;
     top: 0;
-    background: lightgray;
+    background: var(--lightGray);
     min-width: 100%;
     font-weight: 100;
     z-index: 3;
@@ -54,6 +54,7 @@ const NavStyles = styled.nav<INavProps>`
 const NavLogoStyles = styled(LogoStyles)`
   color: orange;
   font-weight: 400;
+  padding: 2rem;
 `;
 
 export { NavStyles, NavLogoStyles };

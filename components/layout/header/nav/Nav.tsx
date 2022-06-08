@@ -55,10 +55,10 @@ export const Nav: React.FC = () => {
           <Logo />
         </NavLogoStyles>
         <ul className='nav-links'>
-          <NavLink link={''} page={'home'} />
-          <NavLink link={'about'} page={'about'} />
-          <NavLink link={'projects'} page={'projects'} />
-          <NavLink link={'contact'} page={'contact'} />
+          <NavLink link={''} title={'home'} />
+          <NavLink link={'about'} title={'about'} />
+          <NavLink link={'projects'} title={'projects'} />
+          <NavLink link={'contact'} title={'contact'} />
         </ul>
       </div>
     </NavStyles>

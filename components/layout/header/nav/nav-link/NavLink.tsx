@@ -1,23 +1,37 @@
-import Link from 'next/link';
 import React from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+import { useNav } from '../../../../../lib/useNav';
 import { NavLinkStyles } from './NavLinkStyles';
 
 type Props = {
   link?: string;
-  page: string;
+  title: string;
   href?: string;
-  // onClick: (id: string) => void;
 } & React.ComponentPropsWithoutRef<'button'>;
 
 // eslint-disable-next-line react/display-name
 const LinkBnt = React.forwardRef(
   (
-    { href, page, link }: Props,
+    { href, title, link }: Props,
     ref: React.LegacyRef<HTMLAnchorElement> | undefined
   ) => {
+    const router = useRouter();
+    const { closeNav } = useNav();
+
     return (
-      <a href={href} ref={ref}>
-        {page}
+      <a
+        href={href}
+        ref={ref}
+        onClick={closeNav}
+        className={
+          router.asPath.split('/')[1] === title
+            ? 'active-link'
+            : ''
+        }
+      >
+        {title}
       </a>
     );
   }
@@ -25,12 +39,12 @@ const LinkBnt = React.forwardRef(
 
 export const NavLink: React.FC<Props> = ({
   link,
-  page,
+  title,
 }) => {
   return (
     <NavLinkStyles>
       <Link href={`/${link}`} passHref>
-        <LinkBnt page={page} />
+        <LinkBnt title={title} />
       </Link>
     </NavLinkStyles>
   );

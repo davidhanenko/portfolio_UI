@@ -48,9 +48,6 @@ const EmailFormStyles = styled.form<PropsTypes>`
     border: 1px solid var(--white);
     padding: 2rem;
 
-    /* animation: ${props => props.inView && slideIn};
-    animation-fill-mode: both;
-    animation-duration: 1.3s; */
 
     .input-field {
       border: none;

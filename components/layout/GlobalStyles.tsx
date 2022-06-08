@@ -20,6 +20,9 @@ const GlobalStyles = createGlobalStyle`
     --bgDarkOpacity: rgba(37, 37, 37, 0.7); 
     --orange: #f07807;
     --white: #f8f1f1;
+    --textDark: #1e1a1a;
+    --lightGray: #c9c9c9;
+
   }
 
   html {

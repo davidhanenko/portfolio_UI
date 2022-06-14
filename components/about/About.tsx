@@ -4,7 +4,7 @@ import { AboutImage } from './image/AboutImage';
 import { AboutStack } from './stack/AboutStack';
 import { AboutText } from './text/AboutText';
 
-export const About: React.FC = () => {
+const About: React.FC = () => {
   const { data, loading, error } = useAboutQuery();
 
   const imgUrl =
@@ -39,3 +39,5 @@ export const About: React.FC = () => {
     </AboutStyles>
   );
 };
+
+export default About;

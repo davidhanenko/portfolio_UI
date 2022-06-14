@@ -3,20 +3,18 @@ import {
   addApolloState,
   initializeApollo,
 } from '../graphql/apollo';
-
-
-
-import { Home } from '../components/home/Home';
-import { About } from '../components/about/About';
+import styled from 'styled-components';
 
 import {
   MainDocument,
   MainQuery,
   useMainQuery,
 } from '../graphql/main/main.generated';
-import styled from 'styled-components';
-import { Contact } from '../components/contact/Contact';
 
+import Home from '../components/home/Home';
+import About from '../components/about/About';
+import Projects from '../components/projects/Projects';
+import Contact from '../components/contact/Contact';
 
 const SnapScrollWrapper = styled.div`
   scroll-snap-type: y mandatory;
@@ -44,7 +42,7 @@ const HomePage: NextPage<MainQuery> = ({
     <SnapScrollWrapper>
       <Home main={main} />
       <About />
-
+      <Projects />
       <Contact />
     </SnapScrollWrapper>
   );

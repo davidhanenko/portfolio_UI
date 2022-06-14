@@ -3,17 +3,18 @@ import styled from 'styled-components';
 const AboutImageStyles = styled.section`
   display: flex;
   justify-content: center;
-  
-  
+
   @media (max-width: 576px) {
     padding: 3rem 1rem;
   }
-  
+
   .img-container {
     position: relative;
     display: block;
     overflow: hidden;
-    
+    width: 300px;
+    height: 300px;
+
     .img-overlay-1 {
       position: absolute;
       bottom: 0;
@@ -22,7 +23,7 @@ const AboutImageStyles = styled.section`
       width: 100%;
       background-color: #984b2857;
       transition: all 0.4s;
-      
+
       clip-path: polygon(100% 0, 0 100%, 100% 100%);
     }
     .img-overlay-2 {

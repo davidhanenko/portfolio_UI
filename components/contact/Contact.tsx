@@ -7,7 +7,7 @@ import { ContactStyles } from './ContactStyles';
 import { EmailForm } from './email-form/EmailForm';
 import { Map } from './map/Map';
 
-export const Contact: React.FC = () => {
+ const Contact: React.FC = () => {
   const { data, loading } = useContactQuery();
 
   const { ref, inView } = useInView({
@@ -39,3 +39,5 @@ export const Contact: React.FC = () => {
     </ContactStyles>
   );
 };
+
+export default Contact

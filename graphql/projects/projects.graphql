@@ -1,0 +1,25 @@
+query Projects {
+  projects {
+    data {
+      id
+      attributes {
+        title
+        link
+        images {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        main_image {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+}

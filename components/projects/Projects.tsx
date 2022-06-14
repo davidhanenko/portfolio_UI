@@ -9,6 +9,7 @@ const Projects: React.FC = () => {
 
   return (
     <ProjectsStyles>
+      <h2>Projects</h2>
       {projects?.map(project => (
         <Project key={project.id} project={project} />
       ))}

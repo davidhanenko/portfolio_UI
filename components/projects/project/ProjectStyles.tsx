@@ -1,7 +1,18 @@
 import styled from 'styled-components';
 
 const ProjectStyles = styled.div`
-  color: var(--white);
+  position: relative;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  /* max-width: 80%; */
+  
+  .project-img {
+    margin-left: -10rem;
+    max-width: 70vw;
+  }
 `;
 
 export { ProjectStyles };

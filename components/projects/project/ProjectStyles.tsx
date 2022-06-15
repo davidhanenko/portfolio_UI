@@ -7,8 +7,6 @@ const ProjectStyles = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   
-  /* max-width: 80%; */
-  
   .project-img {
     margin-left: -10rem;
     max-width: 70vw;

@@ -22,17 +22,27 @@ const EmailFormStyles = styled.form<PropsTypes>`
   bottom: 10%;
   left: 10%;
   color: var(--white);
-  width: 400px;
+  width: 30vw;
+  min-width: 300px;
+  max-width: 400px;
   text-align: end;
 
-  opacity: 0;
+  
+  @media (min-width: 768px) {
+    opacity: 0;
+    animation: ${props => props.inView && slideIn};
+    animation-fill-mode: forwards;
+    animation-duration: 1.2s;
 
-  animation: ${props => props.inView && slideIn};
-  animation-fill-mode: forwards;
-  animation-duration: 1.2s;
-
-  @media (max-width: 576px) {
-    width: 350px;
+    z-index: 2;
+  }
+  @media (max-width: 768px) {
+    position: static;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    min-width: 100%;
+    height: auto;
   }
 
   h2 {
@@ -47,7 +57,6 @@ const EmailFormStyles = styled.form<PropsTypes>`
 
     border: 1px solid var(--white);
     padding: 2rem;
-
 
     .input-field {
       border: none;

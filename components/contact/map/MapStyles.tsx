@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 
 interface IMapProps {
-  inView: boolean;
+  readonly inView: boolean;
 }
 
 const pulsate = keyframes`
@@ -40,12 +40,18 @@ const MapStyles = styled.div<IMapProps>`
   width: 100vw;
   height: 100vh;
 
+  @media (max-width: 768px) {
+    height: 500px;
+  }
+
   img {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     filter: saturate(15%);
+
+    object-fit: cover;
+
+    @media screen and (max-width: 1150px) and (min-height: 600px) {
+      object-fit: contain;
+    }
   }
 
   .pin {
@@ -62,7 +68,6 @@ const MapStyles = styled.div<IMapProps>`
     animation-fill-mode: both;
     animation-duration: 1.3s;
 
-
     &:after {
       content: '';
       width: 14px;
@@ -71,6 +76,17 @@ const MapStyles = styled.div<IMapProps>`
       background: #2f2f2f;
       position: absolute;
       border-radius: 50%;
+    }
+
+    @media (max-width: 768px) {
+      width: 20px;
+      height: 20px;
+      &:after {
+        width: 8px;
+        height: 8px;
+        margin: 5px 0 0 7px;
+        border-radius: 50%;
+      }
     }
   }
   .pulse {
@@ -97,6 +113,18 @@ const MapStyles = styled.div<IMapProps>`
       opacity: 0;
       box-shadow: 0 0 1px 2px var(--orange);
       animation-delay: 1.1s;
+    }
+
+    @media (max-width: 768px) {
+      height: 10px;
+      width: 10px;
+      margin: 6px 0px 0px -15px;
+      &:after {
+        height: 30px;
+        width: 30px;
+        margin: -10px 0 0 -10px;
+        box-shadow: 0 0 1px 2px var(--orange);
+      }
     }
   }
 `;

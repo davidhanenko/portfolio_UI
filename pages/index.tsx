@@ -17,12 +17,12 @@ import Projects from '../components/projects/Projects';
 import Contact from '../components/contact/Contact';
 
 const SnapScrollWrapper = styled.div`
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
   overflow-y: scroll;
   height: 100vh;
 
   @media (max-width: 576px) {
-    scroll-snap-type: y proximity;
+    scroll-snap-type: none;
   }
   &::-webkit-scrollbar {
     display: none;

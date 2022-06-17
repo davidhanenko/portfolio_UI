@@ -5,6 +5,8 @@ query Projects {
       attributes {
         title
         link
+        link_git
+        description
         images {
           data {
             attributes {

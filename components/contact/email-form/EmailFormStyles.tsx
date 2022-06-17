@@ -58,6 +58,11 @@ const EmailFormStyles = styled.form<PropsTypes>`
     border: 1px solid var(--white);
     padding: 2rem;
 
+     @media (max-width: 768px) {
+       width: 90vw;
+       margin-bottom: 5rem;
+     }
+
     .input-field {
       border: none;
       outline: none;

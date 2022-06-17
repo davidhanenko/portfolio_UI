@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const ProjectsStyles = styled.div`
   scroll-snap-align: start;
-  height: 100vh;
+  /* height: 100vh; */
 
   padding-top: var(--headerHeight);
 

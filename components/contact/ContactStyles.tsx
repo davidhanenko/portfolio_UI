@@ -3,6 +3,8 @@ import styled from 'styled-components';
 const ContactStyles = styled.div`
   scroll-snap-align: start;
 
+  margin: 20rem 0;
+
   position: relative;
   min-height: 100vh;
   overflow-y: scroll;

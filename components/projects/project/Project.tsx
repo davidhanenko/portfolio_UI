@@ -3,6 +3,12 @@ import {
   ProjectsQuery,
   ProjectsQueryVariables,
 } from '../../../graphql/projects/projects.generated';
+
+import {
+  FaExternalLinkAlt,
+  FaGithub,
+} from 'react-icons/fa';
+
 import { ProjectStyles } from './ProjectStyles';
 
 interface IProjectProps {
@@ -22,8 +28,32 @@ const Project = ({ project }: IProjectProps) => {
           width={700}
           height={500}
         />
+
+        <h3 className='project-title'>
+          {project?.attributes?.title}
+        </h3>
+
+        <div className='project-description'>
+          <p>{project?.attributes?.description}</p>
+        </div>
+
+        <div className='links'>
+          <a
+            href={project?.attributes?.link}
+            target='_blank'
+            rel='noreferrer'
+          >
+            <FaExternalLinkAlt />
+          </a>
+          <a
+            href={project?.attributes?.link_git}
+            target='_blank'
+            rel='noreferrer'
+          >
+            <FaGithub />
+          </a>
+        </div>
       </div>
-      {/* <h1>{project?.attributes?.title}</h1> */}
     </ProjectStyles>
   );
 };

@@ -521,9 +521,10 @@ export type Project = {
   __typename?: 'Project';
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
-  images?: Maybe<UploadFileRelationResponseCollection>;
+  images: UploadFileRelationResponseCollection;
   link?: Maybe<Scalars['String']>;
-  main_image?: Maybe<UploadFileEntityResponse>;
+  link_git?: Maybe<Scalars['String']>;
+  main_image: UploadFileEntityResponse;
   publishedAt?: Maybe<Scalars['DateTime']>;
   title?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -559,6 +560,7 @@ export type ProjectFiltersInput = {
   description?: InputMaybe<StringFilterInput>;
   id?: InputMaybe<IdFilterInput>;
   link?: InputMaybe<StringFilterInput>;
+  link_git?: InputMaybe<StringFilterInput>;
   not?: InputMaybe<ProjectFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ProjectFiltersInput>>>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
@@ -570,6 +572,7 @@ export type ProjectInput = {
   description?: InputMaybe<Scalars['String']>;
   images?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
   link?: InputMaybe<Scalars['String']>;
+  link_git?: InputMaybe<Scalars['String']>;
   main_image?: InputMaybe<Scalars['ID']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   title?: InputMaybe<Scalars['String']>;

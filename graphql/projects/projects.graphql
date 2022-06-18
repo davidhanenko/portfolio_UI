@@ -5,7 +5,6 @@ query Projects {
       attributes {
         title
         link
-        link_git
         description
         images {
           data {
@@ -19,6 +18,19 @@ query Projects {
             attributes {
               url
             }
+          }
+        }
+        tech_used {
+          ... on ComponentTechTech {
+            id
+            tech_logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            tech_title
           }
         }
       }

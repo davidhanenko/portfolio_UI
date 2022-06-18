@@ -15,12 +15,15 @@ const ProjectStyles = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding-bottom: 10rem;
 
   .project-img {
     margin-left: -20rem;
     max-width: 70vw;
-
     position: relative;
+    object-fit: contain;
+    height: 500px;
+    width: 700px;
   }
 
   .project-title {
@@ -29,33 +32,48 @@ const ProjectStyles = styled.div`
     right: -30%;
 
     color: var(--orange);
-    font-size: 3rem;
-  }
-
-  .project-description {
-    position: absolute;
-    top: 30%;
-    right: -30%;
-    width: 60%;
-    height: 50%;
-    padding: 2rem;
-    background: var(--white);
-    font-size: 1.4rem;
-
-    animation: ${fadeInR} 1s;
-  }
-
-  .links {
-    position: absolute;
-    right: -25%;
-    bottom: 0;
-
-    a {
-      font-size: 2rem;
-      color: var(--white);
-      padding: 1rem;
-    }
+    font-size: 2.6rem;
   }
 `;
 
-export { ProjectStyles };
+const LinksStyles = styled.div`
+  position: absolute;
+  right: -25%;
+  bottom: 0;
+
+  a {
+    font-size: 2rem;
+    color: var(--white);
+    padding: 1rem;
+  }
+`;
+
+const DescriptionStyles = styled.div`
+  position: absolute;
+  top: 30%;
+  right: -30%;
+  width: 60%;
+  height: 50%;
+  padding: 2rem;
+  background: var(--white);
+  font-size: 1.4rem;
+
+  animation: ${fadeInR} 1s;
+
+ul {
+  display: grid;
+}
+
+  li {
+    list-style-type: '▶️';
+    padding-inline-start: 1ch;
+
+    /* list-style: none;
+    &::before {
+      content: '>';
+      padding-right: 0.5rem;
+    } */
+  }
+`;
+
+export { ProjectStyles, LinksStyles, DescriptionStyles };

@@ -7,7 +7,8 @@ const ProjectsStyles = styled.div`
   padding-top: var(--headerHeight);
 
   h2 {
-    font-size: 4em;
+    padding-left: 10rem;
+    font-size: 4rem;
     color: var(--white);
     margin-bottom: 4rem;
   }

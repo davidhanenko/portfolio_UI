@@ -20,6 +20,7 @@ export type Scalars = {
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
   MainTechDynamicZoneInput: any;
+  ProjectTechUsedDynamicZoneInput: any;
   /** The `Upload` scalar type represents a file upload. */
   Upload: any;
 };
@@ -526,6 +527,7 @@ export type Project = {
   link_git?: Maybe<Scalars['String']>;
   main_image: UploadFileEntityResponse;
   publishedAt?: Maybe<Scalars['DateTime']>;
+  tech_used?: Maybe<Array<Maybe<ProjectTechUsedDynamicZone>>>;
   title?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
@@ -575,8 +577,11 @@ export type ProjectInput = {
   link_git?: InputMaybe<Scalars['String']>;
   main_image?: InputMaybe<Scalars['ID']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
+  tech_used?: InputMaybe<Array<Scalars['ProjectTechUsedDynamicZoneInput']>>;
   title?: InputMaybe<Scalars['String']>;
 };
+
+export type ProjectTechUsedDynamicZone = ComponentTechTech | Error;
 
 export enum PublicationState {
   Live = 'LIVE',

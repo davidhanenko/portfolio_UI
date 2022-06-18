@@ -6,7 +6,7 @@ const defaultOptions = {} as const;
 export type ProjectsQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type ProjectsQuery = { __typename?: 'Query', projects?: { __typename?: 'ProjectEntityResponseCollection', data: Array<{ __typename?: 'ProjectEntity', id?: string | null, attributes?: { __typename?: 'Project', title?: string | null, link?: string | null, link_git?: string | null, description?: string | null, images: { __typename?: 'UploadFileRelationResponseCollection', data: Array<{ __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null }> }, main_image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null }> } | null };
+export type ProjectsQuery = { __typename?: 'Query', projects?: { __typename?: 'ProjectEntityResponseCollection', data: Array<{ __typename?: 'ProjectEntity', id?: string | null, attributes?: { __typename?: 'Project', title?: string | null, link?: string | null, description?: string | null, images: { __typename?: 'UploadFileRelationResponseCollection', data: Array<{ __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null }> }, main_image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null }, tech_used?: Array<{ __typename?: 'ComponentTechTech', id: string, tech_title?: string | null, tech_logo?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | { __typename?: 'Error' } | null> | null } | null }> } | null };
 
 
 export const ProjectsDocument = gql`
@@ -17,7 +17,6 @@ export const ProjectsDocument = gql`
       attributes {
         title
         link
-        link_git
         description
         images {
           data {
@@ -31,6 +30,19 @@ export const ProjectsDocument = gql`
             attributes {
               url
             }
+          }
+        }
+        tech_used {
+          ... on ComponentTechTech {
+            id
+            tech_logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            tech_title
           }
         }
       }

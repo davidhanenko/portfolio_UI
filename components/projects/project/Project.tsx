@@ -9,7 +9,11 @@ import {
   FaGithub,
 } from 'react-icons/fa';
 
-import { ProjectStyles } from './ProjectStyles';
+import {
+  DescriptionStyles,
+  LinksStyles,
+  ProjectStyles,
+} from './ProjectStyles';
 
 interface IProjectProps {
   project: ProjectsQueryVariables;
@@ -25,19 +29,28 @@ const Project = ({ project }: IProjectProps) => {
               ?.attributes?.url
           }
           alt={project?.attributes?.title}
-          width={700}
-          height={500}
+          // width={600}
+          // height={450}
+          layout='fill'
+          objectFit='contain'
         />
 
         <h3 className='project-title'>
           {project?.attributes?.title}
         </h3>
 
-        <div className='project-description'>
+        <DescriptionStyles>
           <p>{project?.attributes?.description}</p>
-        </div>
+          <ul>
+            {project?.attributes?.tech_used?.map(
+              (tech: any) => (
+                <li key={tech.id}>{tech.tech_title}</li>
+              )
+            )}
+          </ul>
+        </DescriptionStyles>
 
-        <div className='links'>
+        <LinksStyles>
           <a
             href={project?.attributes?.link}
             target='_blank'
@@ -52,7 +65,7 @@ const Project = ({ project }: IProjectProps) => {
           >
             <FaGithub />
           </a>
-        </div>
+        </LinksStyles>
       </div>
     </ProjectStyles>
   );

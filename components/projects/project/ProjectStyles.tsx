@@ -55,24 +55,29 @@ const DescriptionStyles = styled.div`
   width: 60%;
   height: 50%;
   padding: 2rem;
-  background: var(--white);
+  background: var(--lightGray);
   font-size: 1.4rem;
 
   animation: ${fadeInR} 1s;
 
-ul {
-  display: grid;
-}
+  ul {
+    width: 100%;
+    padding: 2rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    position: absolute;
+    bottom: 0;
+  }
 
   li {
-    list-style-type: '▶️';
-    padding-inline-start: 1ch;
+    list-style-type: '▶';
+    padding-inline-start: 0.4rem;
 
-    /* list-style: none;
-    &::before {
-      content: '>';
-      padding-right: 0.5rem;
-    } */
+    &::marker{
+      color: var(--lightOrange);
+    }
   }
 `;
 

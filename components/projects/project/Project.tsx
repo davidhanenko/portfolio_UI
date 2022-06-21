@@ -14,15 +14,22 @@ import {
   LinksStyles,
   ProjectStyles,
 } from './ProjectStyles';
+import { useState } from 'react';
+import Modal from './modal/Modal';
 
 interface IProjectProps {
   project: ProjectsQueryVariables;
 }
 
-const Project = ({ project }: IProjectProps) => {
+const Project = ( { project }: IProjectProps ) => {
+  
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => setShowModal(prev => !prev);
+
   return (
     <ProjectStyles>
-      <div className='project-img'>
+      <div className='project-img' onClick={toggleModal}>
         <Image
           src={
             project?.attributes?.main_image?.data
@@ -67,6 +74,10 @@ const Project = ({ project }: IProjectProps) => {
           </a>
         </LinksStyles>
       </div>
+      <Modal
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
     </ProjectStyles>
   );
 };

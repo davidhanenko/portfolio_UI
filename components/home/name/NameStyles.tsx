@@ -95,7 +95,7 @@ const NameStyles = styled.div<INameProps>`
   margin: 0 auto;
   transform: translateX(-7.5%);
   font-size: var(--fontSize);
-  color: var(--orange);
+  color: var(--lightOrange);
   font-weight: 600;
 
   animation: ${nameX} 1.5s linear;
@@ -132,8 +132,8 @@ const NameStyles = styled.div<INameProps>`
 
     padding: 0 1rem;
     z-index: 2;
-    animation: ${lastR} ${props =>
-  props.nameAnimationDuration};
+    animation: ${lastR}
+      ${props => props.nameAnimationDuration};
     animation-delay: 2.3s;
     animation-fill-mode: forwards;
 

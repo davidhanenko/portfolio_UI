@@ -17,11 +17,14 @@ const GlobalStyles = createGlobalStyle`
 
 
     --bgDark: #252525;
-    --bgDarkOpacity: rgba(37, 37, 37, 0.7); 
-    --orange: #f07807;
+    --gray: #4b4b4b;
+    --lightGray: #c4c4c4;
+    --lightOrange: #ff9001;
+    --orange: #ff6600;
+    
     --white: #f8f1f1;
     --textDark: #1e1a1a;
-    --lightGray: #c9c9c9;
+    --bgDarkOpacity: rgba(37, 37, 37, 0.7); 
 
   }
 

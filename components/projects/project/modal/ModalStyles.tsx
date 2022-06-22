@@ -1,11 +1,22 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { MdClose } from 'react-icons/md';
 
 interface ModalProps {
   readonly showModal: boolean;
 }
 
-const ModalStyles = styled.div`
+const modalFadeIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+   100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
+
+const ModalBackground = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
@@ -16,16 +27,19 @@ const ModalStyles = styled.div`
 `;
 
 const ModalWrapper = styled.div<ModalProps>`
-  width: 800px;
-  height: 500px;
+  width: 70%;
+  height: 100%;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background: #fff;
-  color: #000;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  background: var(--white);
+  color: var(--dark);
   position: relative;
   z-index: 10;
   border-radius: 10px;
+  opacity: 0;
+  transform: scale(0.5);
+
+  animation: ${props => props.showModal && modalFadeIn} 0.3s;
+  animation-fill-mode: forwards;
 `;
 
 const ModalContent = styled.div`
@@ -34,31 +48,22 @@ const ModalContent = styled.div`
   justify-content: center;
   align-items: center;
   line-height: 1.8;
-  color: #141414;
-  p {
-    margin-bottom: 1rem;
-  }
-  button {
-    padding: 10px 24px;
-    background: #141414;
-    color: #fff;
-    border: none;
-  }
+  color: var(--dark);
 `;
 
 const CloseModalButton = styled(MdClose)`
   cursor: pointer;
   position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 32px;
-  height: 32px;
+  top: 2rem;
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
   padding: 0;
   z-index: 10;
 `;
 
 export {
-  ModalStyles,
+  ModalBackground,
   ModalWrapper,
   ModalContent,
   CloseModalButton,

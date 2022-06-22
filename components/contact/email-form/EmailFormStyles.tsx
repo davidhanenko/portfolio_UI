@@ -27,7 +27,6 @@ const EmailFormStyles = styled.form<PropsTypes>`
   max-width: 400px;
   text-align: end;
 
-  
   @media (min-width: 768px) {
     opacity: 0;
     animation: ${props => props.inView && slideIn};
@@ -53,15 +52,15 @@ const EmailFormStyles = styled.form<PropsTypes>`
   }
 
   .form {
-    background: var(--bgDark);
+    background: var(--dark);
 
     border: 1px solid var(--white);
     padding: 2rem;
 
-     @media (max-width: 768px) {
-       width: 90vw;
-       margin-bottom: 5rem;
-     }
+    @media (max-width: 768px) {
+      width: 90vw;
+      margin-bottom: 5rem;
+    }
 
     .input-field {
       border: none;

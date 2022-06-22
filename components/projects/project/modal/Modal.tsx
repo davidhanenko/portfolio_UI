@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef } from 'react';
 import {
   CloseModalButton,
   ModalContent,
-  ModalStyles,
+  ModalBackground,
   ModalWrapper,
 } from './ModalStyles';
 
@@ -41,21 +41,20 @@ const Modal = ({
   return (
     <>
       {showModal && (
-        <ModalStyles onClick={closeModal} ref={modalRef}>
-          {/* <animated.div style={animation}> */}
+        <ModalBackground
+          onClick={closeModal}
+          ref={modalRef}
+        >
           <ModalWrapper showModal={showModal}>
             <ModalContent>
               <h2>Image Slider</h2>
             </ModalContent>
             <CloseModalButton
               aria-label='Close modal'
-              onClick={() =>
-                setShowModal((prev: any) => !prev)
-              }
+              onClick={() => setShowModal(prev => !prev)}
             />
           </ModalWrapper>
-          {/* </animated.div> */}
-        </ModalStyles>
+        </ModalBackground>
       )}
     </>
   );

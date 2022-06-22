@@ -16,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
     --headerHeight: 10rem;
 
 
-    --bgDark: #252525;
+    --dark: #252525;
     --gray: #4b4b4b;
     --lightGray: #c4c4c4;
     --lightOrange: #ff9001;
@@ -31,7 +31,7 @@ const GlobalStyles = createGlobalStyle`
   html {
    box-sizing: border-box;
    font-size: 62.5%;
-   background: var(--bgDark);
+   background: var(--dark);
 
 }
 
@@ -39,7 +39,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Source Code Pro', monospace;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    background: var(--bgDark);
+    background: var(--dark);
   }
 
   a {

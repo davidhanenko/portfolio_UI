@@ -28,7 +28,7 @@ const lastR = keyframes`
     }
     100% {
         transform: translate(15%);
-        background: #ffffff;
+        background: var(--white);
     } 
   `;
 const lastRRest = keyframes`
@@ -132,8 +132,8 @@ const NameStyles = styled.div<INameProps>`
 
     padding: 0 1rem;
     z-index: 2;
-    animation: ${lastR}
-      ${props => props.nameAnimationDuration};
+    animation: ${lastR};
+    ${props => props.nameAnimationDuration};
     animation-delay: 2.3s;
     animation-fill-mode: forwards;
 
@@ -152,7 +152,7 @@ const NameStyles = styled.div<INameProps>`
     position: absolute;
     height: 100px;
     width: 500px;
-    background: var(--bgDark);
+    background: var(--dark);
     z-index: 2;
     transform: translateX(59%);
     transform-style: preserve-3d;

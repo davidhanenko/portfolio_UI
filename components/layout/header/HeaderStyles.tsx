@@ -16,7 +16,7 @@ const HeaderStyles = styled.header`
   font-size: 7rem;
 
   @media (max-width: 768px) {
-    background: var(--bgDark);
+    background: var(--dark);
   }
 `;
 

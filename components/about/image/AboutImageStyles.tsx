@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const AboutImageStyles = styled.section`
+const AboutImg= styled.section`
   display: flex;
   justify-content: center;
 
@@ -49,4 +49,4 @@ const AboutImageStyles = styled.section`
   }
 `;
 
-export { AboutImageStyles };
+export { AboutImg };

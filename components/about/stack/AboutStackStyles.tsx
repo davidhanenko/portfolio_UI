@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const AboutStackStyles = styled.div`
+const Stack = styled.div`
   padding-top: 5rem;
   color: var(--white);
   display: flex;
@@ -25,7 +25,7 @@ const AboutStackStyles = styled.div`
   }
 `;
 
-const StackStyles = styled.div`
+const TechItem = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -41,4 +41,4 @@ const StackStyles = styled.div`
   }
 `;
 
-export { AboutStackStyles, StackStyles };
+export { Stack, TechItem };

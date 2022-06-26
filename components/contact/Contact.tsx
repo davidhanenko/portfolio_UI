@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import { ToastContainer } from 'react-toastify';
 import { useContactQuery } from '../../graphql/contact/main.generated';
 
-import { ContactStyles } from './ContactStyles';
+import { ContactContainer } from './ContactStyles';
 import { EmailForm } from './email-form/EmailForm';
 import { Map } from './map/Map';
 
@@ -22,7 +22,7 @@ const Contact: React.FC = () => {
   if (loading) return <h3>Loading...</h3>;
 
   return (
-    <ContactStyles>
+    <ContactContainer>
       <ToastContainer
         position='bottom-left'
         autoClose={5000}
@@ -34,7 +34,7 @@ const Contact: React.FC = () => {
 
       <EmailForm emailTo={email!} inView={inView} />
       <Map map={map!} inView={inView} mapRef={ref} />
-    </ContactStyles>
+    </ContactContainer>
   );
 };
 

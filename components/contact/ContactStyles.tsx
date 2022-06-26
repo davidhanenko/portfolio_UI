@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ContactStyles = styled.div`
+const ContactContainer = styled.div`
   scroll-snap-align: start;
 
   margin: 20rem 0;
@@ -21,4 +21,4 @@ const ContactStyles = styled.div`
   }
 `;
 
-export { ContactStyles };
+export { ContactContainer };

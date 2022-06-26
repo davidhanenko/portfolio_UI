@@ -3,7 +3,7 @@ import { RefObject, useEffect, useState } from 'react';
 
 import { useAnimation } from '../../../../lib/useAnimation';
 
-import { BgElementStyles } from './BgElementStyles';
+import { Element } from './BgElementStyles';
 
 export interface IBgEl {
   bgRef: RefObject<HTMLDivElement>;
@@ -33,7 +33,7 @@ export const BgElement: React.FC<IBgEl> = ({
   }, [animateBg, bgRef, intTime]);
 
   return (
-    <BgElementStyles
+    <Element
       animateBg={animateBg}
       int={`${intTime}s`}
       top={`${top}px`}
@@ -49,6 +49,6 @@ export const BgElement: React.FC<IBgEl> = ({
           />
         )}
       </div>
-    </BgElementStyles>
+    </Element>
   );
 };

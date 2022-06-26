@@ -17,7 +17,7 @@ const slideIn = keyframes`
   }
 `;
 
-const EmailFormStyles = styled.form<PropsTypes>`
+const Form = styled.form<PropsTypes>`
   position: absolute;
   bottom: 10%;
   left: 10%;
@@ -184,4 +184,4 @@ const EmailSendBtn = styled.button`
   }
 `;
 
-export { EmailFormStyles, EmailSendBtn };
+export { Form, EmailSendBtn };

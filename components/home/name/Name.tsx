@@ -1,5 +1,5 @@
 import { SyntheticEvent } from 'react';
-import { NameStyles } from './NameStyles';
+import { NameContainer } from './NameStyles';
 
 import { useAnimation } from '../../../lib/useAnimation';
 
@@ -27,7 +27,7 @@ export const Name = () => {
   };
 
   return (
-    <NameStyles
+    <NameContainer
       nameAnimationDuration={`${nameAnimationDuration}s`}
     >
       <div
@@ -45,6 +45,6 @@ export const Name = () => {
         </div>
       </div>
       <span className='last-name-overlay'></span>
-    </NameStyles>
+    </NameContainer>
   );
 };

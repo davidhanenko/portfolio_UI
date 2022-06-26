@@ -6,13 +6,6 @@ query Projects {
         title
         link
         description
-        images {
-          data {
-            attributes {
-              url
-            }
-          }
-        }
         main_image {
           data {
             attributes {

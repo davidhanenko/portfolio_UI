@@ -1,7 +1,7 @@
 import { Name } from './name/Name';
 import { Greet } from './greet/Greet';
 
-import { HomeStyles, HomeContainer } from './HomeStyles';
+import { HomeWrapper, HomeContainer } from './HomeStyles';
 import { Bg } from './bg/Bg';
 import { MainQuery } from '../../graphql/main/main.generated';
 
@@ -10,13 +10,13 @@ const Home: React.FC<MainQuery> = ({ main }) => {
   const techImages = main?.data?.attributes?.tech;
 
   return (
-    <HomeStyles>
-      <HomeContainer>
+    <HomeContainer>
+      <HomeWrapper>
         <Bg techImages={techImages!} />
         <Name />
         <Greet greetText={greetText!} />
-      </HomeContainer>
-    </HomeStyles>
+      </HomeWrapper>
+    </HomeContainer>
   );
 };
 

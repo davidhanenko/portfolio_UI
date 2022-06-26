@@ -1,19 +1,24 @@
 import { useCallback, useEffect, useRef } from 'react';
+
+import Slider from './slider/Slider';
 import {
   CloseModalButton,
   ModalContent,
   ModalBackground,
   ModalWrapper,
+  Overlay,
 } from './ModalStyles';
 
 interface IModalProps {
   showModal: boolean;
   setShowModal: (showModal: boolean) => void;
+  slides: any;
 }
 
 const Modal = ({
   showModal,
   setShowModal,
+  slides,
 }: IModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -40,6 +45,7 @@ const Modal = ({
 
   return (
     <>
+      <Overlay />
       {showModal && (
         <ModalBackground
           onClick={closeModal}
@@ -47,7 +53,7 @@ const Modal = ({
         >
           <ModalWrapper showModal={showModal}>
             <ModalContent>
-              <h2>Image Slider</h2>
+              <Slider slides={slides?.images?.data} />
             </ModalContent>
             <CloseModalButton
               aria-label='Close modal'

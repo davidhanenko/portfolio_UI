@@ -26,7 +26,7 @@ const appear = (props: IBgElementProps) => keyframes`
     }
   `;
 
-const BgElementStyles = styled.span.attrs(
+const Element = styled.span.attrs(
   (props: IBgElementProps) => ({
     int: props.int,
     style: {
@@ -53,4 +53,4 @@ const BgElementStyles = styled.span.attrs(
   }
 `;
 
-export { BgElementStyles };
+export { Element };

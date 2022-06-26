@@ -86,7 +86,7 @@ const fadeInVisibilityL = keyframes`
     } 
   `;
 
-const NameStyles = styled.div<INameProps>`
+const NameContainer = styled.div<INameProps>`
   display: flex;
   flex-flow: row wrap;
   min-width: 100%;
@@ -163,4 +163,4 @@ const NameStyles = styled.div<INameProps>`
     transform-origin: right;
   }
 `;
-export { NameStyles };
+export { NameContainer };

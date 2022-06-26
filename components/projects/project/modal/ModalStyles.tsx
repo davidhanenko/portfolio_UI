@@ -5,7 +5,7 @@ interface ModalProps {
   readonly showModal: boolean;
 }
 
-const modalFadeIn = keyframes`
+const modal = keyframes`
   0% {
     opacity: 0;
     transform: scale(0.5);
@@ -16,11 +16,22 @@ const modalFadeIn = keyframes`
   }
 `;
 
-const ModalBackground = styled.div`
+const Overlay = styled.div`
+  position: fixed;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
+  z-index: 9;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+`;
+
+const ModalBackground = styled.div`
   position: absolute;
+  /* width: 100%;
+  height: 100%; */
+  /* background: rgba(0, 0, 0, 0.5); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,15 +41,13 @@ const ModalWrapper = styled.div<ModalProps>`
   width: 70%;
   height: 100%;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background: var(--white);
   color: var(--dark);
   position: relative;
   z-index: 10;
-  border-radius: 10px;
   opacity: 0;
   transform: scale(0.5);
 
-  animation: ${props => props.showModal && modalFadeIn} 0.3s;
+  animation: ${props => props.showModal && modal} 0.3s;
   animation-fill-mode: forwards;
 `;
 
@@ -49,6 +58,8 @@ const ModalContent = styled.div`
   align-items: center;
   line-height: 1.8;
   color: var(--dark);
+
+  position: relative;
 `;
 
 const CloseModalButton = styled(MdClose)`
@@ -67,4 +78,5 @@ export {
   ModalWrapper,
   ModalContent,
   CloseModalButton,
+  Overlay
 };

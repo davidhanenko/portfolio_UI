@@ -1,0 +1,20 @@
+query ProjectsImages($title: String!) {
+  projects(
+    filters: { title: { eq: $title } }
+  ) {
+    data {
+      id
+      attributes {
+        title
+        images {
+          data {
+            id
+            attributes {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+}

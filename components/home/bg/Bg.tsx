@@ -1,5 +1,5 @@
 import { RefObject, useRef } from 'react';
-import { BgStyles } from './BgStyles';
+import { BgContainer } from './BgStyles';
 import { BgElement } from './bg-element/BgElement';
 
 interface IBg {
@@ -10,7 +10,7 @@ export const Bg: React.FC<IBg> = ({ techImages }) => {
   const bgRef = useRef<HTMLDivElement>(null);
 
   return (
-    <BgStyles ref={bgRef}>
+    <BgContainer ref={bgRef}>
       {techImages?.map((el, index) => {
         return (
           <BgElement
@@ -21,6 +21,6 @@ export const Bg: React.FC<IBg> = ({ techImages }) => {
           />
         );
       })}
-    </BgStyles>
+    </BgContainer>
   );
 };

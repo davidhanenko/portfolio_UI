@@ -16,28 +16,41 @@ import {
 } from './ProjectStyles';
 import { useState } from 'react';
 import Modal from './modal/Modal';
+import { useProjectsImagesLazyQuery } from '../../../graphql/projects/projectImages.generated';
 
 interface IProjectProps {
   project: ProjectsQueryVariables;
 }
 
-const Project = ( { project }: IProjectProps ) => {
-  
+const Project = ({ project }: IProjectProps) => {
   const [showModal, setShowModal] = useState(false);
+
+  const [loadImages, { loading, data }] =
+    useProjectsImagesLazyQuery({
+      variables: {
+        title: project?.attributes?.title,
+      },
+    });
 
   const toggleModal = () => setShowModal(prev => !prev);
 
+  if (loading) return <h3>Loading...</h3>;
+
   return (
     <ProjectStyles>
-      <div className='project-img' onClick={toggleModal}>
+      <div
+        className='project-img'
+        onClick={() => {
+          toggleModal();
+          loadImages();
+        }}
+      >
         <Image
           src={
             project?.attributes?.main_image?.data
               ?.attributes?.url
           }
           alt={project?.attributes?.title}
-          // width={600}
-          // height={450}
           layout='fill'
           objectFit='contain'
         />
@@ -77,6 +90,7 @@ const Project = ( { project }: IProjectProps ) => {
       <Modal
         showModal={showModal}
         setShowModal={setShowModal}
+        slides={data?.projects?.data[0].attributes}
       />
     </ProjectStyles>
   );

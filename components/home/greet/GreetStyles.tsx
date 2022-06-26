@@ -13,7 +13,7 @@ const greetAnimation = keyframes`
     } 
   `;
 
-const GreetStyles = styled.section<GreetProps>`
+const GreetTxt = styled.section<GreetProps>`
   color: var(--white);
   bottom: -40%;
   position: absolute;
@@ -33,4 +33,4 @@ const GreetStyles = styled.section<GreetProps>`
   animation-fill-mode: forwards;
 `;
 
-export { GreetStyles };
+export { GreetTxt };

@@ -4,7 +4,7 @@ interface IAboutProps {
   readonly nameAnimationDuration?: number | string;
 }
 
-const AboutStyles = styled.div<IAboutProps>`
+const AboutContainer = styled.div<IAboutProps>`
   scroll-snap-align: start;
   min-height: 100vh;
 
@@ -29,4 +29,4 @@ const AboutStyles = styled.div<IAboutProps>`
   }
 `;
 
-export { AboutStyles };
+export { AboutContainer };

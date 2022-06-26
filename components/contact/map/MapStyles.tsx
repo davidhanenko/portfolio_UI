@@ -7,10 +7,10 @@ interface IMapProps {
 const pulsate = keyframes`
     0% {
       transform: scale( 0.1, 0.1 );
-      opacity: 0.0;
+      opacity: 0;
       }
     50% {
-      opacity: 1.0;
+      opacity: 1;
     }
     100% {
       transform: scale( 1.2, 1.2 );
@@ -29,13 +29,15 @@ const bounce = keyframes`
       }
       80% {
         transform: translateY(-10px) rotate(-45deg);
+          opacity: 1;
       }
       100% {
         transform: translateY(0) rotate(-45deg);
+          opacity: 1;
       }
   `;
 
-const MapStyles = styled.div<IMapProps>`
+const MapImg = styled.div<IMapProps>`
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -64,8 +66,9 @@ const MapStyles = styled.div<IMapProps>`
     left: 70%;
     top: 43%;
     margin: -20px 0 0 -20px;
+    opacity: 0;
     animation: ${props => props.inView && bounce};
-    animation-fill-mode: both;
+    animation-fill-mode: forwards;
     animation-duration: 1.3s;
 
     &:after {
@@ -129,4 +132,4 @@ const MapStyles = styled.div<IMapProps>`
   }
 `;
 
-export { MapStyles };
+export { MapImg };

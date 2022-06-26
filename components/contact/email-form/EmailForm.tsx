@@ -7,10 +7,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PulseLoader from 'react-spinners/PulseLoader';
 
-import {
-  EmailFormStyles,
-  EmailSendBtn,
-} from './EmailFormStyles';
+import { Form, EmailSendBtn } from './EmailFormStyles';
 
 type Email = {
   emailTo: string;
@@ -88,10 +85,9 @@ export const EmailForm: React.FC<Email> = ({
   };
 
   return (
-    <EmailFormStyles
+    <Form
       isDirty={isDirty}
       onSubmit={handleSubmit(onSubmitForm)}
-     
       inView={inView}
     >
       <div className='form'>
@@ -205,6 +201,6 @@ export const EmailForm: React.FC<Email> = ({
           )}
         </EmailSendBtn>
       </div>
-    </EmailFormStyles>
+    </Form>
   );
 };

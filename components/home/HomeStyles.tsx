@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const HomeStyles = styled.div`
+const HomeContainer = styled.div`
   scroll-snap-align: start;
   height: 100vh;
   overflow: hidden;
@@ -10,7 +10,7 @@ const HomeStyles = styled.div`
   }
 `;
 
-const HomeContainer = styled.div`
+const HomeWrapper= styled.div`
   position: relative;
   height: 100%;
   width: 100%;
@@ -23,4 +23,4 @@ const HomeContainer = styled.div`
   margin-top: var(--headerHeight);
 `;
 
-export { HomeStyles, HomeContainer };
+export { HomeWrapper, HomeContainer };

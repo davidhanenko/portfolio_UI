@@ -1,4 +1,4 @@
-import { GreetStyles, GreetProps } from './GreetStyles';
+import { GreetTxt, GreetProps } from './GreetStyles';
 
 import { NAME_ANIMATION_DURATION as nameAnimationDuration } from '../../../config';
 
@@ -10,10 +10,10 @@ export const Greet: React.FC<IGreetProps> = ({
   greetText,
 }) => {
   return (
-    <GreetStyles
+    <GreetTxt
       nameAnimationDuration={`${nameAnimationDuration}s`}
     >
       <p>{greetText}</p>
-    </GreetStyles>
+    </GreetTxt>
   );
 };

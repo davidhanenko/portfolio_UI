@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 
 
-import { MapStyles } from './MapStyles';
+import { MapImg } from './MapStyles';
 import { RefObject } from 'react';
 
 interface IMap {
@@ -18,7 +18,7 @@ export const Map: React.FC<IMap> = ({
 }) => {
 
   return (
-    <MapStyles inView={inView} ref={mapRef}>
+    <MapImg inView={inView} ref={mapRef}>
       {map && (
         <Image
           src={map}
@@ -28,6 +28,6 @@ export const Map: React.FC<IMap> = ({
       )}
       <div className='pin'></div>
       <div className='pulse'></div>
-    </MapStyles>
+    </MapImg>
   );
 };

@@ -1,5 +1,5 @@
 import { AboutQuery } from '../../../graphql/about/about.generated';
-import { AboutTextStyles } from './AboutTextStyles';
+import { Text } from './AboutTextStyles';
 
 interface IAboutTextProps {
   header?: string;
@@ -11,11 +11,11 @@ export const AboutText: React.FC<IAboutTextProps> = ({
   paragraphs,
 }) => {
   return (
-    <AboutTextStyles>
+    <Text>
       <h2>{header}</h2>
       {paragraphs.map(p => (
         <p key={p.id}>{p.section}</p>
       ))}
-    </AboutTextStyles>
+    </Text>
   );
 };

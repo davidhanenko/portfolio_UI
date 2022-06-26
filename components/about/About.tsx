@@ -1,5 +1,5 @@
 import { useAboutQuery } from '../../graphql/about/about.generated';
-import { AboutStyles } from './AboutStyles';
+import { AboutContainer } from './AboutStyles';
 import { AboutImage } from './image/AboutImage';
 import { AboutStack } from './stack/AboutStack';
 import { AboutText } from './text/AboutText';
@@ -23,7 +23,7 @@ const About: React.FC = () => {
   if (loading) return <h4>Loading...</h4>;
 
   return (
-    <AboutStyles>
+    <AboutContainer>
       <AboutText
         header={header!}
         paragraphs={paragraphs!}
@@ -36,7 +36,7 @@ const About: React.FC = () => {
           stack3={stack3!}
         />
       </section>
-    </AboutStyles>
+    </AboutContainer>
   );
 };
 

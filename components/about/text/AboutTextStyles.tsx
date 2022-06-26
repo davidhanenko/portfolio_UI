@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const AboutTextStyles = styled.section`
+const Text = styled.section`
   padding: 0 3rem;
   color: var(--white);
 
@@ -18,4 +18,4 @@ const AboutTextStyles = styled.section`
   }
 `;
 
-export { AboutTextStyles };
+export { Text };

@@ -4,7 +4,7 @@ const fadeInR = keyframes`
   0% {
     transform: translate(300%);
   }
-   110% {
+   100% {
     transform: translate(0%);
   }
 `;

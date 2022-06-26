@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { AboutImageStyles } from './AboutImageStyles';
+import { AboutImg } from './AboutImageStyles';
 
 interface IAboutImageProps {
   imgUrl: string;
@@ -9,7 +9,7 @@ export const AboutImage: React.FC<IAboutImageProps> = ({
   imgUrl,
 }) => {
   return (
-    <AboutImageStyles>
+    <AboutImg>
       <div className='img-container'>
         <Image
           src={imgUrl}
@@ -17,13 +17,10 @@ export const AboutImage: React.FC<IAboutImageProps> = ({
           layout='fill'
           objectFit='cover'
           objectPosition='top'
-
-          // width={300}
-          // height={300}
         />
         <div className='img-overlay-1'></div>
         <div className='img-overlay-2'></div>
       </div>
-    </AboutImageStyles>
+    </AboutImg>
   );
 };

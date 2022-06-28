@@ -24,7 +24,7 @@ const Overlay = styled.div`
   z-index: 9;
   top: 0;
   left: 0;
-  overflow: hidden;
+  overflow: scroll;
 `;
 
 const ModalBackground = styled.div`

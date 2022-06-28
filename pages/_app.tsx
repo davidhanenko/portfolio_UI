@@ -11,15 +11,15 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ApolloProvider client={apolloClient}>
-      <ParallaxProvider>
-        <ScrollProvider>
+      <ScrollProvider>
+        <ParallaxProvider>
           <AnimationStateProvider>
             <Page>
               <Component {...pageProps} />
             </Page>
           </AnimationStateProvider>
-        </ScrollProvider>
-      </ParallaxProvider>
+        </ParallaxProvider>
+      </ScrollProvider>
     </ApolloProvider>
   );
 }

@@ -11,7 +11,7 @@ import { Logo } from '../logo/Logo';
 
 export const Nav: React.FC = () => {
   const { isOpen, toggleNav, closeNav } = useNav();
-
+  
   const navRef = useRef<HTMLDivElement>(null);
 
   // close nav on click outside

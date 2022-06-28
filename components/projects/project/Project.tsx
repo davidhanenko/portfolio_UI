@@ -17,6 +17,7 @@ import {
 import { useState } from 'react';
 import Modal from './modal/Modal';
 import { useProjectsImagesLazyQuery } from '../../../graphql/projects/projectImages.generated';
+import { useScroll } from '../../../lib/useScroll';
 
 interface IProjectProps {
   project: ProjectsQueryVariables;
@@ -25,6 +26,9 @@ interface IProjectProps {
 const Project = ({ project }: IProjectProps) => {
   const [showModal, setShowModal] = useState(false);
 
+  const { scrollWithModal, setScrollWithModal } =
+    useScroll();
+
   const [loadImages, { loading, data }] =
     useProjectsImagesLazyQuery({
       variables: {
@@ -32,7 +36,11 @@ const Project = ({ project }: IProjectProps) => {
       },
     });
 
-  const toggleModal = () => setShowModal(prev => !prev);
+  const toggleModal = () => {
+    setShowModal(prev => !prev);
+    setScrollWithModal(prev => !prev);
+  };
+
 
   if (loading) return <h3>Loading...</h3>;
 

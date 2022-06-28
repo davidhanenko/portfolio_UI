@@ -8,6 +8,7 @@ import {
   ModalWrapper,
   Overlay,
 } from './ModalStyles';
+import { useScroll } from '../../../../lib/useScroll';
 
 interface IModalProps {
   showModal: boolean;
@@ -20,11 +21,15 @@ const Modal = ({
   setShowModal,
   slides,
 }: IModalProps) => {
+  const { scrollWithModal, setScrollWithModal } =
+    useScroll();
+
   const modalRef = useRef<HTMLDivElement>(null);
 
-  const closeModal = (e: Event): void => {
+  const closeModalClickOutside = (e: Event): void => {
     if (modalRef.current === e.target) {
       setShowModal(false);
+      setScrollWithModal(false);
     }
   };
 
@@ -32,6 +37,7 @@ const Modal = ({
     (e: KeyboardEvent): void => {
       if (e.key === 'Escape' && showModal) {
         setShowModal(false);
+        setScrollWithModal(false);
       }
     },
     [setShowModal, showModal]
@@ -45,12 +51,14 @@ const Modal = ({
 
   return (
     <>
-      <Overlay />
-      {showModal && (
-        <ModalBackground
-          onClick={closeModal}
+      {scrollWithModal && (
+        <Overlay
+          onClick={closeModalClickOutside}
           ref={modalRef}
-        >
+        />
+      )}
+      {showModal && (
+        <ModalBackground>
           <ModalWrapper showModal={showModal}>
             <ModalContent>
               <Slider slides={slides?.images?.data} />

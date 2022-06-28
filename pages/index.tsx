@@ -15,10 +15,17 @@ import Home from '../components/home/Home';
 import About from '../components/about/About';
 import Projects from '../components/projects/Projects';
 import Contact from '../components/contact/Contact';
+import { useScroll } from '../lib/useScroll';
+
+type SnapScrollProps = {
+  readonly scrollWithModal: boolean;
+};
 
 const SnapScrollWrapper = styled.div`
   scroll-snap-type: y proximity;
-  overflow-y: scroll;
+  ${(props: SnapScrollProps) =>
+    !props.scrollWithModal && `overflow-y: scroll`};
+  /* overflow-y: scroll; */
   height: 100vh;
 
   @media (max-width: 576px) {
@@ -36,10 +43,12 @@ const HomePage: NextPage<MainQuery> = ({
 }: MainQuery) => {
   const { data, loading, error } = useMainQuery();
 
+  const { scrollWithModal } = useScroll();
+
   if (loading) return <h4>Loading...</h4>;
 
   return (
-    <SnapScrollWrapper>
+    <SnapScrollWrapper scrollWithModal={scrollWithModal}>
       <Home main={main} />
       <About />
       <Projects />

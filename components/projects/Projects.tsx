@@ -7,6 +7,7 @@ const Projects: React.FC = () => {
 
   const projects = data?.projects?.data;
 
+
   return (
     <ProjectsStyles>
       <h2>Projects</h2>

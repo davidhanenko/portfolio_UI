@@ -1,35 +1,35 @@
-import {
-  useRef,
-  useContext,
-  createContext,
-  RefObject,
-} from 'react';
+import { useContext, createContext, useState } from 'react';
 
-export interface IScrollProps {
-  scrollRef: RefObject<HTMLDivElement>;
+interface IScrollState {
+  scrollWithModal: boolean;
+  setScrollWithModal: (scrollWithModal: boolean) => void;
 }
 
-const ScrollContext = createContext<IScrollProps | any>(
+const LocalStateContext = createContext<IScrollState | any>(
   false
 );
 
-const ScrollContextProvider = ScrollContext.Provider;
+const LocalStateProvider = LocalStateContext.Provider;
 
-function ScrollProvider({ children }: any) {
-  const scrollRef = useRef({
-    scrollPos: 0,
-  } );
-  
+const ScrollProvider = ({ children }: any) => {
+  const [scrollWithModal, setScrollWithModal] =
+    useState<boolean>(false);
+
+  const scrollCtx: IScrollState = {
+    scrollWithModal,
+    setScrollWithModal,
+  };
+
   return (
-    <ScrollContextProvider value={{ scrollRef }}>
+    <LocalStateProvider value={scrollCtx}>
       {children}
-    </ScrollContextProvider>
+    </LocalStateProvider>
   );
-}
+};
 
-function useScroll() {
-  const all = useContext(ScrollContext);
+const useScroll = () => {
+  const all = useContext(LocalStateContext);
   return all;
-}
+};
 
 export { ScrollProvider, useScroll };

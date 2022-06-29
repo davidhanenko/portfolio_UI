@@ -6,7 +6,7 @@ import {
   ModalContent,
   ModalBackground,
   ModalWrapper,
-  Overlay,
+  BackgroundOverlay,
 } from './ModalStyles';
 import { useScroll } from '../../../../lib/useScroll';
 
@@ -24,14 +24,21 @@ const Modal = ({
   const { scrollWithModal, setScrollWithModal } =
     useScroll();
 
-  const modalRef = useRef<HTMLDivElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
 
-  const closeModalClickOutside = (e: Event): void => {
-    if (modalRef.current === e.target) {
+  const handleCloseModalOnClickOutside = (
+    e: React.MouseEvent
+  ): void => {
+    if (overlayRef.current === e.target) {
       setShowModal(false);
       setScrollWithModal(false);
     }
   };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setScrollWithModal(false);
+  }
 
   const keyPress = useCallback(
     (e: KeyboardEvent): void => {
@@ -52,9 +59,9 @@ const Modal = ({
   return (
     <>
       {scrollWithModal && (
-        <Overlay
-          onClick={closeModalClickOutside}
-          ref={modalRef}
+        <BackgroundOverlay
+          onClick={handleCloseModalOnClickOutside}
+          ref={overlayRef}
         />
       )}
       {showModal && (
@@ -65,7 +72,7 @@ const Modal = ({
             </ModalContent>
             <CloseModalButton
               aria-label='Close modal'
-              onClick={() => setShowModal(prev => !prev)}
+              onClick={handleCloseModal}
             />
           </ModalWrapper>
         </ModalBackground>

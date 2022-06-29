@@ -16,7 +16,7 @@ const modal = keyframes`
   }
 `;
 
-const Overlay = styled.div`
+const BackgroundOverlay = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;
@@ -78,5 +78,5 @@ export {
   ModalWrapper,
   ModalContent,
   CloseModalButton,
-  Overlay
+  BackgroundOverlay,
 };

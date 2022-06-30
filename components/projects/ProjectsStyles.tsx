@@ -4,6 +4,7 @@ const ProjectsStyles = styled.div`
   scroll-snap-align: start;
   /* height: 100vh; */
 
+
   padding-top: var(--headerHeight);
 
   h2 {

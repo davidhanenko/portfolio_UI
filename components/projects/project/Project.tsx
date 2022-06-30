@@ -42,8 +42,6 @@ const Project = ({ project }: IProjectProps) => {
   };
 
 
-  if (loading) return <h3>Loading...</h3>;
-
   return (
     <ProjectStyles>
       <div
@@ -99,6 +97,7 @@ const Project = ({ project }: IProjectProps) => {
         showModal={showModal}
         setShowModal={setShowModal}
         slides={data?.projects?.data[0].attributes}
+        loading={loading}
       />
     </ProjectStyles>
   );

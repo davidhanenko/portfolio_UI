@@ -1,41 +1,50 @@
 import styled from 'styled-components';
 
 const SliderContainer = styled.section`
-  position: relative;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 10;
+  position: relative;
+  top: 50%;
 
   .image {
     max-width: 800px;
     height: 600px;
     width: 100%;
     height: 100%;
-    overflow: scroll;
+    position: relative;
   }
 
   .right-arrow {
     position: absolute;
-    top: 50%;
-    right: 32px;
+    top: 25%;
+    right: -15%;
     font-size: 3rem;
-    color: #000;
+    color: var(--white);
     z-index: 10;
-    cursor: pointer;
     user-select: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.6;
+    }
   }
 
   .left-arrow {
     position: absolute;
-    top: 50%;
-    left: 32px;
+    top: 25%;
+    left: -15%;
     font-size: 3rem;
-    color: #000;
+    color: var(--white);
     z-index: 10;
-    cursor: pointer;
     user-select: none;
+    cursor: pointer;
+
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.6;
+    }
   }
 
   .slide {

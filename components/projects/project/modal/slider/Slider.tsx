@@ -2,8 +2,8 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 
 import {
-  FaArrowAltCircleRight,
-  FaArrowAltCircleLeft,
+  FaChevronRight,
+  FaChevronLeft,
 } from 'react-icons/fa';
 import { SliderContainer } from './SliderStyles';
 
@@ -33,11 +33,11 @@ const Slider: React.FC<ISlidesProps> = ({ slides }) => {
 
   return (
     <SliderContainer>
-      <FaArrowAltCircleLeft
+      <FaChevronLeft
         className='left-arrow'
         onClick={prevSlide}
       />
-      <FaArrowAltCircleRight
+      <FaChevronRight
         className='right-arrow'
         onClick={nextSlide}
       />

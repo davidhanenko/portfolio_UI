@@ -11,7 +11,6 @@ const fadeInR = keyframes`
 
 const ProjectStyles = styled.div`
   position: relative;
-
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

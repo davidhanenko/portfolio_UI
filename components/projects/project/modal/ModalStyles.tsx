@@ -24,23 +24,20 @@ const BackgroundOverlay = styled.div`
   z-index: 9;
   top: 0;
   left: 0;
-  overflow: scroll;
 `;
 
 const ModalBackground = styled.div`
   position: absolute;
-  /* width: 100%;
-  height: 100%; */
-  /* background: rgba(0, 0, 0, 0.5); */
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  padding: 0 2rem;
 `;
 
 const ModalWrapper = styled.div<ModalProps>`
-  width: 70%;
+  width: 80%;
   height: 100%;
-  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   color: var(--dark);
   position: relative;
   z-index: 10;
@@ -64,13 +61,20 @@ const ModalContent = styled.div`
 
 const CloseModalButton = styled(MdClose)`
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   top: 2rem;
-  right: 2rem;
+  right: -15%;
   width: 3rem;
   height: 3rem;
   padding: 0;
   z-index: 10;
+
+  color: var(--white);
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 export {

@@ -7,11 +7,9 @@ import { NavLink } from './nav-link/NavLink';
 import { NavLogoStyles, NavStyles } from './NavStyles';
 import { Logo } from '../logo/Logo';
 
-
-
 export const Nav: React.FC = () => {
   const { isOpen, toggleNav, closeNav } = useNav();
-  
+
   const navRef = useRef<HTMLDivElement>(null);
 
   // close nav on click outside
@@ -46,7 +44,7 @@ export const Nav: React.FC = () => {
       <Hamburger
         size={48}
         hideOutline={false}
-        label='Show nav links'
+        label='Open-Close navbar'
         toggled={isOpen}
         toggle={toggleNav}
       />

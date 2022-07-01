@@ -1,8 +1,5 @@
 import Image from 'next/image';
-import {
-  ProjectsQuery,
-  ProjectsQueryVariables,
-} from '../../../graphql/projects/projects.generated';
+import { ProjectsQueryVariables } from '../../../graphql/projects/projects.generated';
 
 import {
   FaExternalLinkAlt,
@@ -14,16 +11,22 @@ import {
   LinksStyles,
   ProjectStyles,
 } from './ProjectStyles';
-import { useState } from 'react';
+import { RefObject, useState } from 'react';
 import Modal from './modal/Modal';
 import { useProjectsImagesLazyQuery } from '../../../graphql/projects/projectImages.generated';
 import { useScroll } from '../../../lib/useScroll';
 
 interface IProjectProps {
   project: ProjectsQueryVariables;
+  inView: boolean;
+  projectRef: RefObject<HTMLDivElement>;
 }
 
-const Project = ({ project }: IProjectProps) => {
+const Project = ({
+  project,
+  inView,
+  projectRef,
+}: IProjectProps) => {
   const [showModal, setShowModal] = useState(false);
 
   const { scrollWithModal, setScrollWithModal } =
@@ -41,16 +44,9 @@ const Project = ({ project }: IProjectProps) => {
     setScrollWithModal(prev => !prev);
   };
 
-
   return (
-    <ProjectStyles>
-      <div
-        className='project-img'
-        onClick={() => {
-          toggleModal();
-          loadImages();
-        }}
-      >
+    <ProjectStyles ref={projectRef}>
+      <section className='project-img'>
         <Image
           src={
             project?.attributes?.main_image?.data
@@ -59,13 +55,17 @@ const Project = ({ project }: IProjectProps) => {
           alt={project?.attributes?.title}
           layout='fill'
           objectFit='contain'
+          onClick={() => {
+            toggleModal();
+            loadImages();
+          }}
         />
 
         <h3 className='project-title'>
           {project?.attributes?.title}
         </h3>
 
-        <DescriptionStyles>
+        <DescriptionStyles inView={inView}>
           <p>{project?.attributes?.description}</p>
           <ul>
             {project?.attributes?.tech_used?.map(
@@ -92,7 +92,7 @@ const Project = ({ project }: IProjectProps) => {
             <FaGithub />
           </a>
         </LinksStyles>
-      </div>
+      </section>
       <Modal
         showModal={showModal}
         setShowModal={setShowModal}

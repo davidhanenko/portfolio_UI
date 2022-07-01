@@ -1,5 +1,9 @@
 import styled, { keyframes } from 'styled-components';
 
+interface IProjectProps {
+  readonly inView: boolean;
+}
+
 const fadeInR = keyframes`
   0% {
     transform: translate(300%);
@@ -21,13 +25,14 @@ const ProjectStyles = styled.div`
     max-width: 70vw;
     position: relative;
     object-fit: contain;
-    height: 500px;
+    height: 400px;
     width: 700px;
+    cursor: pointer;
   }
 
   .project-title {
     position: absolute;
-    top: 0;
+    top: -2rem;
     right: -30%;
 
     color: var(--orange);
@@ -35,7 +40,7 @@ const ProjectStyles = styled.div`
   }
 `;
 
-const LinksStyles = styled.div`
+const LinksStyles = styled.section`
   position: absolute;
   right: -25%;
   bottom: 0;
@@ -44,20 +49,29 @@ const LinksStyles = styled.div`
     font-size: 2rem;
     color: var(--white);
     padding: 1rem;
+    transition: all 0.25s;
+
+    &:hover svg {
+      color: var(--orange);
+      transform: scale(1.3);
+    }
   }
 `;
 
-const DescriptionStyles = styled.div`
+const DescriptionStyles = styled.section<IProjectProps>`
   position: absolute;
-  top: 30%;
+  top: 25%;
   right: -30%;
   width: 60%;
-  height: 50%;
-  padding: 2rem;
+  height: 60%;
+
   background: var(--lightGray);
   font-size: 1.4rem;
+  cursor: auto;
+  user-select: none;
+  padding: 2rem;
 
-  animation: ${fadeInR} 1s;
+  animation: ${props => props.inView && fadeInR} 1s;
 
   ul {
     width: 100%;
@@ -74,7 +88,7 @@ const DescriptionStyles = styled.div`
     list-style-type: '▶';
     padding-inline-start: 0.4rem;
 
-    &::marker{
+    &::marker {
       color: var(--lightOrange);
     }
   }

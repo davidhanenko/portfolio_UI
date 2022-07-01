@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { useInView } from 'react-intersection-observer';
 
 
 import { MapImg } from './MapStyles';

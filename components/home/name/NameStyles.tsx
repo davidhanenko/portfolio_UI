@@ -37,7 +37,7 @@ const lastRRest = keyframes`
       height: 100%;
     }
     15% {
-      transform: translate(54%); 
+      transform: translate(53%); 
       height: 100%;  
     } 
     99% {
@@ -134,7 +134,7 @@ const NameContainer = styled.div<INameProps>`
     z-index: 2;
     animation: ${lastR};
     ${props => props.nameAnimationDuration};
-    animation-delay: 2.3s;
+    animation-delay: 2.5s;
     animation-fill-mode: forwards;
 
     .last-name-rest {

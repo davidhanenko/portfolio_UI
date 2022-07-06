@@ -7,7 +7,7 @@ import { RefObject } from 'react';
 interface IMap {
   map: string;
   inView: boolean;
-  mapRef: RefObject<HTMLDivElement>;
+  mapRef: (node?: Element | null | undefined) => void;
 }
 
 export const Map: React.FC<IMap> = ({

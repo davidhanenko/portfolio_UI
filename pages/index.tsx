@@ -25,7 +25,6 @@ const SnapScrollWrapper = styled.div`
   scroll-snap-type: y proximity;
   ${(props: SnapScrollProps) =>
     !props.scrollWithModal && `overflow-y: scroll`};
-  /* overflow-y: scroll; */
   height: 100vh;
 
   @media (max-width: 576px) {

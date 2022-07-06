@@ -1,5 +1,4 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useInView } from 'react-intersection-observer';
 
 import axios from 'axios';
 
@@ -45,10 +44,6 @@ export const EmailForm: React.FC<Email> = ({
     },
   });
 
-  // in-view observer
-  // const { ref, inView } = useInView({
-  //   threshold: 0.4,
-  // } );
 
   // form submit handler
   const onSubmitForm: SubmitHandler<

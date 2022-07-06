@@ -7,9 +7,11 @@ interface IProjectProps {
 const fadeInR = keyframes`
   0% {
     transform: translate(300%);
+    opacity: 0;
   }
    100% {
     transform: translate(0%);
+    opacity: 1;
   }
 `;
 
@@ -70,8 +72,11 @@ const DescriptionStyles = styled.section<IProjectProps>`
   cursor: auto;
   user-select: none;
   padding: 2rem;
+  transform: translate(300%);
+  opacity: 0;
 
   animation: ${props => props.inView && fadeInR} 1s;
+  animation-fill-mode: forwards;
 
   ul {
     width: 100%;

@@ -1,4 +1,8 @@
+import { RefObject, useState } from 'react';
+import { useScroll } from '../../../lib/useScroll';
 import Image from 'next/image';
+import { useInView } from 'react-intersection-observer';
+
 import { ProjectsQueryVariables } from '../../../graphql/projects/projects.generated';
 
 import {
@@ -11,10 +15,8 @@ import {
   LinksStyles,
   ProjectStyles,
 } from './ProjectStyles';
-import { RefObject, useState } from 'react';
 import Modal from './modal/Modal';
 import { useProjectsImagesLazyQuery } from '../../../graphql/projects/projectImages.generated';
-import { useScroll } from '../../../lib/useScroll';
 
 interface IProjectProps {
   project: ProjectsQueryVariables;
@@ -22,15 +24,15 @@ interface IProjectProps {
   projectRef: RefObject<HTMLDivElement>;
 }
 
-const Project = ({
-  project,
-  inView,
-  projectRef,
-}: IProjectProps) => {
+const Project = ({ project }: IProjectProps) => {
   const [showModal, setShowModal] = useState(false);
 
-  const { scrollWithModal, setScrollWithModal } =
-    useScroll();
+  const { setScrollWithModal } = useScroll();
+
+  const { ref, inView } = useInView({
+    threshold: 0.51,
+    triggerOnce: true,
+  });
 
   const [loadImages, { loading, data }] =
     useProjectsImagesLazyQuery({
@@ -45,7 +47,7 @@ const Project = ({
   };
 
   return (
-    <ProjectStyles ref={projectRef}>
+    <ProjectStyles ref={ref}>
       <section className='project-img'>
         <Image
           src={

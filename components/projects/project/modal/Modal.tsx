@@ -13,7 +13,7 @@ import { useScroll } from '../../../../lib/useScroll';
 interface IModalProps {
   showModal: boolean;
   setShowModal: (showModal: boolean) => void;
-  slides: any[];
+  slides: any;
   loading: boolean;
 }
 

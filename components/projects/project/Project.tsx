@@ -31,7 +31,7 @@ const Project = ({ project }: IProjectProps) => {
 
   const { ref, inView } = useInView({
     threshold: 0.51,
-    triggerOnce: true,
+    // triggerOnce: true,
   });
 
   const [loadImages, { loading, data }] =
@@ -68,6 +68,7 @@ const Project = ({ project }: IProjectProps) => {
         </h3>
 
         <DescriptionStyles inView={inView}>
+          <p className="project-type">{project?.attributes?.project_type}</p>
           <p>{project?.attributes?.description}</p>
           <ul>
             {project?.attributes?.tech_used?.map(

@@ -7,7 +7,7 @@ import {
 import { SliderContainer } from './SliderStyles';
 
 interface ISlidesProps {
-  slides: object[];
+  slides: any;
 }
 
 const Slider: React.FC<ISlidesProps> = ({ slides }) => {

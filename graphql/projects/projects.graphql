@@ -4,6 +4,7 @@ query Projects {
       id
       attributes {
         title
+        project_type
         link
         description
         main_image {

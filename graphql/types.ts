@@ -15,13 +15,10 @@ export type Scalars = {
   AboutStackTier2DynamicZoneInput: any;
   AboutStackTier3DynamicZoneInput: any;
   AboutTextSectionDynamicZoneInput: any;
-  /** A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
   DateTime: any;
-  /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
   MainTechDynamicZoneInput: any;
   ProjectTechUsedDynamicZoneInput: any;
-  /** The `Upload` scalar type represents a file upload. */
   Upload: any;
 };
 
@@ -526,6 +523,7 @@ export type Project = {
   link?: Maybe<Scalars['String']>;
   link_git?: Maybe<Scalars['String']>;
   main_image: UploadFileEntityResponse;
+  project_type?: Maybe<Scalars['String']>;
   publishedAt?: Maybe<Scalars['DateTime']>;
   tech_used?: Maybe<Array<Maybe<ProjectTechUsedDynamicZone>>>;
   title?: Maybe<Scalars['String']>;
@@ -565,6 +563,7 @@ export type ProjectFiltersInput = {
   link_git?: InputMaybe<StringFilterInput>;
   not?: InputMaybe<ProjectFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ProjectFiltersInput>>>;
+  project_type?: InputMaybe<StringFilterInput>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
   title?: InputMaybe<StringFilterInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
@@ -576,6 +575,7 @@ export type ProjectInput = {
   link?: InputMaybe<Scalars['String']>;
   link_git?: InputMaybe<Scalars['String']>;
   main_image?: InputMaybe<Scalars['ID']>;
+  project_type?: InputMaybe<Scalars['String']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   tech_used?: InputMaybe<Array<Scalars['ProjectTechUsedDynamicZoneInput']>>;
   title?: InputMaybe<Scalars['String']>;

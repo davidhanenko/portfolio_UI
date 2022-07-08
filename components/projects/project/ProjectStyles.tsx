@@ -6,12 +6,12 @@ interface IProjectProps {
 
 const fadeInR = keyframes`
   0% {
-    transform: translate(300%);
     opacity: 0;
+    transform: translate(300%);
   }
    100% {
-    transform: translate(0%);
-    opacity: 1;
+     opacity: 1;
+     transform: translate(0%);
   }
 `;
 
@@ -20,32 +20,62 @@ const ProjectStyles = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-bottom: 10rem;
+  padding-bottom: 20rem;
 
-  .project-img {
-    margin-left: -20rem;
-    max-width: 70vw;
-    position: relative;
-    object-fit: contain;
-    height: 400px;
-    width: 700px;
-    cursor: pointer;
+  &:nth-of-type(2n + 1) {
+    .project-img {
+      margin-left: -20rem;
+      max-width: 70vw;
+      position: relative;
+      object-fit: contain;
+      height: 400px;
+      width: 700px;
+      cursor: pointer;
+    }
+
+    .project-title {
+      position: absolute;
+      top: -2rem;
+      right: -30%;
+
+      color: var(--orange);
+      font-size: 2.6rem;
+    }
   }
 
-  .project-title {
-    position: absolute;
-    top: -2rem;
-    right: -30%;
+  &:nth-of-type(2n) {
+    .project-img {
+      margin-left: 20rem;
+      max-width: 70vw;
+      position: relative;
+      object-fit: contain;
+      height: 400px;
+      width: 700px;
+      cursor: pointer;
+    }
 
-    color: var(--orange);
-    font-size: 2.6rem;
+    .project-title {
+      position: absolute;
+      top: -2rem;
+      left: -30%;
+
+      color: var(--orange);
+      font-size: 2.6rem;
+    }
   }
 `;
 
 const LinksStyles = styled.section`
   position: absolute;
-  right: -25%;
   bottom: 0;
+
+  &:nth-of-type(2n + 1) {
+    right: -25%;
+  }
+
+  &:nth-of-type(2n) {
+    left: -25%;
+  }
 
   a {
     font-size: 2rem;
@@ -68,7 +98,7 @@ const DescriptionStyles = styled.section<IProjectProps>`
   height: 60%;
 
   background: var(--lightGray);
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   cursor: auto;
   user-select: none;
   padding: 2rem;
@@ -77,6 +107,15 @@ const DescriptionStyles = styled.section<IProjectProps>`
 
   animation: ${props => props.inView && fadeInR} 1s;
   animation-fill-mode: forwards;
+
+  .project-type {
+    display: flex;
+    justify-content: end;
+    text-transform: capitalize;
+    padding-bottom: 1rem;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
 
   ul {
     width: 100%;

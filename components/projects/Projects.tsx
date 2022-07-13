@@ -7,6 +7,7 @@ const Projects: React.FC = () => {
 
   const projects = data?.projects?.data;
 
+  if (loading) return <h3>Loading...</h3>;
 
   return (
     <ProjectsStyles>

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const SliderContainer = styled.section`
   height: 100vh;
-  z-index: 10;
+  z-index: 11;
   position: relative;
   top: 50%;
 

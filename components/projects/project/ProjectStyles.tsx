@@ -68,6 +68,9 @@ const DescriptionStyles = styled.section<IProjectProps>`
 `;
 
 const LinksStyles = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: -25%;
   a {
     font-size: 2rem;
     color: var(--white);
@@ -81,7 +84,7 @@ const LinksStyles = styled.div`
   }
 `;
 
-const ProjectStyles = styled.div`
+const ProjectStyles = styled.div<IProjectProps>`
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -155,7 +158,7 @@ const ProjectStyles = styled.div`
     ${DescriptionStyles} {
       position: absolute;
       top: 25%;
-      right: -30%;
+      left: -30%;
       transform: translate(-300%);
       animation: ${props => props.inView && fadeInL} 1s;
       animation-fill-mode: forwards;

@@ -31,12 +31,20 @@ const Modal = ({
 
   // close modal on click outside
   const handleCloseModalOnClickOutside = (
-    e: React.MouseEvent
+    event: MouseEvent
   ): void => {
-    if (overlayRef.current === e.target) {
-      setShowModal(false);
+    if (
+      showModal &&
+      !modalRef?.current?.contains(event.target as Node)
+    ) {
       setScrollWithModal(false);
+      setShowModal(false);
     }
+
+    // if (overlayRef.current === e.target) {
+    //   setScrollWithModal(false);
+    //   setShowModal(false);
+    // }
   };
 
   // close on 'close' btn
@@ -47,8 +55,8 @@ const Modal = ({
 
   // close modal on esc
   const keyPress = useCallback(
-    (e: KeyboardEvent): void => {
-      if (e.key === 'Escape' && showModal) {
+    (event: KeyboardEvent): void => {
+      if (event.key === 'Escape' && showModal) {
         setShowModal(false);
         setScrollWithModal(false);
       }
@@ -58,7 +66,7 @@ const Modal = ({
 
   useEffect(() => {
     modalRef.current !== null &&
-      modalRef.current.scrollIntoView({block: 'center'});
+      modalRef.current.scrollIntoView({ block: 'center' });
   }, [showModal]);
 
   useEffect(() => {
@@ -71,7 +79,7 @@ const Modal = ({
     <>
       {scrollWithModal && (
         <BackgroundOverlay
-          onClick={handleCloseModalOnClickOutside}
+          onClick={() => handleCloseModalOnClickOutside}
           ref={overlayRef}
         />
       )}
@@ -82,7 +90,10 @@ const Modal = ({
               {loading ? (
                 <h4>Loading...</h4>
               ) : (
-                <Slider slides={slides?.images?.data} />
+                <Slider
+                  modalRef={modalRef}
+                  slides={slides?.images?.data}
+                />
               )}
             </ModalContent>
             <CloseModalButton

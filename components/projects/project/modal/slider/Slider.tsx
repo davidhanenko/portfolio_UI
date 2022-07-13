@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { RefObject, useState } from 'react';
 
 import {
   FaChevronRight,
@@ -8,9 +8,13 @@ import { SliderContainer } from './SliderStyles';
 
 interface ISlidesProps {
   slides: any;
+  modalRef: RefObject<HTMLDivElement>;
 }
 
-const Slider: React.FC<ISlidesProps> = ({ slides }) => {
+const Slider: React.FC<ISlidesProps> = ({
+  slides,
+  modalRef,
+}) => {
   const [current, setCurrent] = useState(0);
 
   const length = slides.length;
@@ -28,7 +32,7 @@ const Slider: React.FC<ISlidesProps> = ({ slides }) => {
   }
 
   return (
-    <SliderContainer>
+    <SliderContainer ref={modalRef}>
       <FaChevronLeft
         className='left-arrow'
         onClick={prevSlide}

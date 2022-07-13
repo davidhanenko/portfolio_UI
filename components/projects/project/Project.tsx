@@ -47,7 +47,7 @@ const Project = ({ project }: IProjectProps) => {
   };
 
   return (
-    <ProjectStyles ref={ref}>
+    <ProjectStyles ref={ref} inView={inView}>
       <section className='project-img'>
         <Image
           src={
@@ -68,7 +68,9 @@ const Project = ({ project }: IProjectProps) => {
         </h3>
 
         <DescriptionStyles inView={inView}>
-          <p className="project-type">{project?.attributes?.project_type}</p>
+          <p className='project-type'>
+            {project?.attributes?.project_type}
+          </p>
           <p>{project?.attributes?.description}</p>
           <ul>
             {project?.attributes?.tech_used?.map(

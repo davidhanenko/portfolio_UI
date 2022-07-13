@@ -51,7 +51,13 @@ const createApolloClient = (
         // fetch: enhancedFetch,
       }),
     ]),
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({
+      typePolicies: {
+        Project: {
+          merge: true,
+        },
+      },
+    }),
   });
 };
 

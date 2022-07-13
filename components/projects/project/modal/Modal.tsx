@@ -30,22 +30,34 @@ const Modal = ({
   const modalRef = useRef<HTMLDivElement>(null);
 
   // close modal on click outside
-  const handleCloseModalOnClickOutside = (
-    event: MouseEvent
-  ): void => {
-    if (
-      showModal &&
-      !modalRef?.current?.contains(event.target as Node)
-    ) {
-      setScrollWithModal(false);
-      setShowModal(false);
-    }
+  useEffect(() => {
+    const handleCloseModalOnClickOutside = (
+      event: MouseEvent
+    ): void => {
+      if (
+        showModal &&
+        !modalRef?.current?.contains(event.target as Node)
+      ) {
+        setScrollWithModal(false);
+        setShowModal(false);
+      }
+    };
 
-    // if (overlayRef.current === e.target) {
-    //   setScrollWithModal(false);
-    //   setShowModal(false);
-    // }
-  };
+    // click outside listener
+    document.addEventListener(
+      'mousedown',
+      handleCloseModalOnClickOutside
+    );
+
+    // cleanup the event listener
+    return () => {
+      document.removeEventListener(
+        'mousedown',
+        handleCloseModalOnClickOutside
+      );
+    };
+    
+  }, [showModal]);
 
   // close on 'close' btn
   const handleCloseModal = () => {
@@ -77,14 +89,9 @@ const Modal = ({
 
   return (
     <>
-      {scrollWithModal && (
-        <BackgroundOverlay
-          onClick={() => handleCloseModalOnClickOutside}
-          ref={overlayRef}
-        />
-      )}
+      {scrollWithModal && <BackgroundOverlay />}
       {showModal && (
-        <ModalBackground ref={modalRef}>
+        <ModalBackground>
           <ModalWrapper showModal={showModal}>
             <ModalContent>
               {loading ? (

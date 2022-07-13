@@ -49,6 +49,7 @@ const ModalWrapper = styled.div<ModalProps>`
 `;
 
 const ModalContent = styled.div`
+  /* background: black; */
   display: flex;
   flex-direction: column;
   justify-content: center;

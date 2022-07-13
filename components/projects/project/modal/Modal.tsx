@@ -26,7 +26,7 @@ const Modal = ({
   const { scrollWithModal, setScrollWithModal } =
     useScroll();
 
-  const overlayRef = useRef<HTMLDivElement>(null);
+  const slideRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
 
   // close modal on click outside
@@ -36,7 +36,7 @@ const Modal = ({
     ): void => {
       if (
         showModal &&
-        !modalRef?.current?.contains(event.target as Node)
+        !slideRef?.current?.contains(event.target as Node)
       ) {
         setScrollWithModal(false);
         setShowModal(false);
@@ -56,7 +56,6 @@ const Modal = ({
         handleCloseModalOnClickOutside
       );
     };
-    
   }, [showModal]);
 
   // close on 'close' btn
@@ -91,14 +90,14 @@ const Modal = ({
     <>
       {scrollWithModal && <BackgroundOverlay />}
       {showModal && (
-        <ModalBackground>
+        <ModalBackground ref={modalRef}>
           <ModalWrapper showModal={showModal}>
             <ModalContent>
               {loading ? (
                 <h4>Loading...</h4>
               ) : (
                 <Slider
-                  modalRef={modalRef}
+                  slideRef={slideRef}
                   slides={slides?.images?.data}
                 />
               )}

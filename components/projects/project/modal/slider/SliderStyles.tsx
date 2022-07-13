@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const SliderContainer = styled.section`
-  height: 100vh;
   z-index: 11;
   position: relative;
   top: 50%;
@@ -14,37 +13,29 @@ const SliderContainer = styled.section`
     position: relative;
   }
 
-  .right-arrow {
-    position: absolute;
-    top: 25%;
-    right: -15%;
-    font-size: 3rem;
-    color: var(--white);
+  .right-arrow,
+  .left-arrow {
+    box-sizing: content-box;
+    padding: 0.6rem;
+    position: fixed;
+    top: 35%;
     z-index: 10;
+    color: var(--white);
+    font-size: 3rem;
     user-select: none;
     cursor: pointer;
     transition: opacity 0.2s;
-
     &:hover {
       opacity: 0.6;
     }
   }
 
+  .right-arrow {
+    right: -15%;
+  }
+
   .left-arrow {
-    position: absolute;
-    top: 25%;
     left: -15%;
-    font-size: 3rem;
-    color: var(--white);
-    z-index: 10;
-    user-select: none;
-    cursor: pointer;
-
-    transition: opacity 0.2s;
-
-    &:hover {
-      opacity: 0.6;
-    }
   }
 
   .slide {

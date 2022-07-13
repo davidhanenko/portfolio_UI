@@ -8,12 +8,12 @@ import { SliderContainer } from './SliderStyles';
 
 interface ISlidesProps {
   slides: any;
-  modalRef: RefObject<HTMLDivElement>;
+  slideRef: RefObject<HTMLDivElement>;
 }
 
 const Slider: React.FC<ISlidesProps> = ({
   slides,
-  modalRef,
+  slideRef,
 }) => {
   const [current, setCurrent] = useState(0);
 
@@ -32,7 +32,7 @@ const Slider: React.FC<ISlidesProps> = ({
   }
 
   return (
-    <SliderContainer ref={modalRef}>
+    <SliderContainer ref={slideRef}>
       <FaChevronLeft
         className='left-arrow'
         onClick={prevSlide}

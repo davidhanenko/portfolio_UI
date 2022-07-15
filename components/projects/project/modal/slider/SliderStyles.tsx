@@ -11,6 +11,7 @@ const SliderContainer = styled.section`
     width: 100%;
     height: 100%;
     position: relative;
+    /* overflow-y: visible; */
   }
 
   .right-arrow,

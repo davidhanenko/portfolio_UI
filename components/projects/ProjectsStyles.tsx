@@ -8,10 +8,10 @@ const ProjectsStyles = styled.div`
   scroll-snap-align: start;
 
   ${(props: ProjectsProps) =>
-    !props.scrollWithModal && `height: 100%`};
+    !props.scrollWithModal &&
+    `height: 100%; overflow-x: hidden;`};
 
   padding-top: var(--headerHeight);
-  overflow-x: hidden;
 
   h2 {
     padding-left: 10rem;

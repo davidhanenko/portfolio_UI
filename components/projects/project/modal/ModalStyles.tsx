@@ -36,10 +36,10 @@ const ModalBackground = styled.div`
 `;
 
 const ModalWrapper = styled.div<ModalProps>`
+  position: relative;
   width: 80%;
   height: 100%;
   color: var(--dark);
-  position: relative;
   z-index: 10;
   opacity: 0;
   transform: scale(0.5);
@@ -49,21 +49,18 @@ const ModalWrapper = styled.div<ModalProps>`
 `;
 
 const ModalContent = styled.div`
-  /* background: black; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   line-height: 1.8;
   color: var(--dark);
-
-  position: relative;
 `;
 
 const CloseModalButton = styled(MdClose)`
   cursor: pointer;
   position: fixed;
-  top: 2rem;
+  top: -3rem;
   right: -15%;
   width: 3rem;
   height: 3rem;

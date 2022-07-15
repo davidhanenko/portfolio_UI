@@ -91,24 +91,34 @@ const ProjectStyles = styled.div<IProjectProps>`
   justify-content: center;
   padding-bottom: 20rem;
 
+  .project-img {
+    position: relative;
+    object-fit: contain;
+    height: 400px;
+    width: 700px;
+    max-width: 70vw;
+    cursor: pointer;
+  }
+
+  .project-title {
+    position: absolute;
+    top: -2rem;
+
+    color: var(--orange);
+    font-size: 2.6rem;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
   &:nth-of-type(2n + 1) {
     .project-img {
       margin-left: -20rem;
-      max-width: 70vw;
-      position: relative;
-      object-fit: contain;
-      height: 400px;
-      width: 700px;
-      cursor: pointer;
     }
 
     .project-title {
-      position: absolute;
-      top: -2rem;
       right: -30%;
-
-      color: var(--orange);
-      font-size: 2.6rem;
     }
 
     ${LinksStyles} {
@@ -120,7 +130,7 @@ const ProjectStyles = styled.div<IProjectProps>`
     ${DescriptionStyles} {
       position: absolute;
       top: 25%;
-      right: -30%;
+      right: -30%; 
       transform: translate(300%);
       animation: ${(props: IProjectProps) =>
           props.inView && fadeInR}
@@ -132,21 +142,10 @@ const ProjectStyles = styled.div<IProjectProps>`
   &:nth-of-type(2n) {
     .project-img {
       margin-left: 20rem;
-      max-width: 70vw;
-      position: relative;
-      object-fit: contain;
-      height: 400px;
-      width: 700px;
-      cursor: pointer;
     }
 
     .project-title {
-      position: absolute;
-      top: -2rem;
       left: -30%;
-
-      color: var(--orange);
-      font-size: 2.6rem;
     }
 
     ${LinksStyles} {

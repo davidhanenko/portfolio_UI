@@ -31,19 +31,26 @@ const DescriptionStyles = styled.section<IProjectProps>`
   height: 60%;
 
   background: var(--lightGray);
-  font-size: 1.3rem;
-  cursor: auto;
-  user-select: none;
+
   padding: 2rem;
   opacity: 0;
 
   .project-type {
     display: flex;
     justify-content: end;
-    text-transform: capitalize;
     padding-bottom: 1rem;
     font-size: 1.2em;
     font-weight: 600;
+
+    text-transform: uppercase;
+  }
+
+  .project-description {
+    font-size: 1.25rem;
+    text-indent: 2rem;
+    line-height: 1.3;
+    user-select: none;
+    cursor: auto;
   }
 
   ul {
@@ -60,6 +67,8 @@ const DescriptionStyles = styled.section<IProjectProps>`
   li {
     list-style-type: '▶';
     padding-inline-start: 0.4rem;
+    font-size: 1.3rem;
+    text-transform: capitalize;
 
     &::marker {
       color: var(--lightOrange);
@@ -130,7 +139,7 @@ const ProjectStyles = styled.div<IProjectProps>`
     ${DescriptionStyles} {
       position: absolute;
       top: 25%;
-      right: -30%; 
+      right: -30%;
       transform: translate(300%);
       animation: ${(props: IProjectProps) =>
           props.inView && fadeInR}

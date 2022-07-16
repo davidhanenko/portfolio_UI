@@ -68,10 +68,12 @@ const Project = ({ project }: IProjectProps) => {
         </h3>
 
         <DescriptionStyles inView={inView}>
-          <p className='project-type'>
+          <h4 className='project-type'>
             {project?.attributes?.project_type}
+          </h4>
+          <p className='project-description'>
+            {project?.attributes?.description}
           </p>
-          <p>{project?.attributes?.description}</p>
           <ul>
             {project?.attributes?.tech_used?.map(
               (tech: any) => (

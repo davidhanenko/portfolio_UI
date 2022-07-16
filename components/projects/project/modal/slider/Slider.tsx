@@ -1,4 +1,9 @@
-import React, { RefObject, useState } from 'react';
+import React, {
+  RefObject,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 
 import {
   FaChevronRight,
@@ -9,9 +14,11 @@ import { SliderContainer } from './SliderStyles';
 interface ISlidesProps {
   slides: any;
   slideRef: RefObject<HTMLDivElement>;
+  showModal: boolean;
 }
 
 const Slider: React.FC<ISlidesProps> = ({
+  showModal,
   slides,
   slideRef,
 }) => {
@@ -19,13 +26,35 @@ const Slider: React.FC<ISlidesProps> = ({
 
   const length = slides.length;
 
-  const nextSlide = () => {
+  // next slide
+  const nextSlide = useCallback(() => {
     setCurrent(current === length - 1 ? 0 : current + 1);
-  };
+  }, [current, length]);
 
-  const prevSlide = () => {
+  // prev slide
+  const prevSlide = useCallback(() => {
     setCurrent(current === 0 ? length - 1 : current - 1);
-  };
+  }, [current, length]);
+
+  // change slide on arrow btn click
+  const keyPress = useCallback(
+    (event: KeyboardEvent): void => {
+      console.log(event.key);
+      if (event.key === 'ArrowRight' && showModal) {
+        nextSlide();
+      }
+      if (event.key === 'ArrowLeft' && showModal) {
+        prevSlide();
+      }
+    },
+    [nextSlide, prevSlide, showModal]
+  );
+
+  useEffect(() => {
+    document.addEventListener('keydown', keyPress);
+    return () =>
+      document.removeEventListener('keydown', keyPress);
+  }, [keyPress]);
 
   if (!Array.isArray(slides) || slides.length <= 0) {
     return null;

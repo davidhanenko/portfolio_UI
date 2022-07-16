@@ -97,6 +97,7 @@ const Modal = ({
                 <h4>Loading...</h4>
               ) : (
                 <Slider
+                  showModal={showModal}
                   slideRef={slideRef}
                   slides={slides?.images?.data}
                 />

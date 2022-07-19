@@ -190,7 +190,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = About | ComponentTechTech | ComponentTextText | Contact | I18NLocale | Main | Project | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = About | ComponentTechTech | ComponentTextText | Contact | I18NLocale | Main | Project | Resume | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -337,6 +337,7 @@ export type Mutation = {
   deleteContact?: Maybe<ContactEntityResponse>;
   deleteMain?: Maybe<MainEntityResponse>;
   deleteProject?: Maybe<ProjectEntityResponse>;
+  deleteResume?: Maybe<ResumeEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Delete an existing role */
   deleteUsersPermissionsRole?: Maybe<UsersPermissionsDeleteRolePayload>;
@@ -358,6 +359,7 @@ export type Mutation = {
   updateFileInfo: UploadFileEntityResponse;
   updateMain?: Maybe<MainEntityResponse>;
   updateProject?: Maybe<ProjectEntityResponse>;
+  updateResume?: Maybe<ResumeEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Update an existing role */
   updateUsersPermissionsRole?: Maybe<UsersPermissionsUpdateRolePayload>;
@@ -471,6 +473,11 @@ export type MutationUpdateMainArgs = {
 export type MutationUpdateProjectArgs = {
   data: ProjectInput;
   id: Scalars['ID'];
+};
+
+
+export type MutationUpdateResumeArgs = {
+  data: ResumeInput;
 };
 
 
@@ -598,6 +605,7 @@ export type Query = {
   me?: Maybe<UsersPermissionsMe>;
   project?: Maybe<ProjectEntityResponse>;
   projects?: Maybe<ProjectEntityResponseCollection>;
+  resume?: Maybe<ResumeEntityResponse>;
   uploadFile?: Maybe<UploadFileEntityResponse>;
   uploadFiles?: Maybe<UploadFileEntityResponseCollection>;
   usersPermissionsRole?: Maybe<UsersPermissionsRoleEntityResponse>;
@@ -647,6 +655,11 @@ export type QueryProjectsArgs = {
 };
 
 
+export type QueryResumeArgs = {
+  publicationState?: InputMaybe<PublicationState>;
+};
+
+
 export type QueryUploadFileArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
@@ -685,6 +698,30 @@ export type QueryUsersPermissionsUsersArgs = {
 export type ResponseCollectionMeta = {
   __typename?: 'ResponseCollectionMeta';
   pagination: Pagination;
+};
+
+export type Resume = {
+  __typename?: 'Resume';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  file?: Maybe<UploadFileEntityResponse>;
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type ResumeEntity = {
+  __typename?: 'ResumeEntity';
+  attributes?: Maybe<Resume>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type ResumeEntityResponse = {
+  __typename?: 'ResumeEntityResponse';
+  data?: Maybe<ResumeEntity>;
+};
+
+export type ResumeInput = {
+  file?: InputMaybe<Scalars['ID']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
 export type StringFilterInput = {

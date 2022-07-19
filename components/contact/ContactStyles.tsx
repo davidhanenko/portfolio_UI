@@ -6,7 +6,6 @@ const ContactContainer = styled.div`
   margin: 20rem 0;
 
   position: relative;
-  min-height: 100vh;
   overflow-y: scroll;
 
   display: flex;
@@ -14,6 +13,7 @@ const ContactContainer = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     padding-top: calc(var(--headerHeight) + 5rem);
+    padding-bottom: 20rem;
   }
 
   @media (max-width: 576px) {

@@ -39,7 +39,6 @@ const Slider: React.FC<ISlidesProps> = ({
   // change slide on arrow btn click
   const keyPress = useCallback(
     (event: KeyboardEvent): void => {
-      console.log(event.key);
       if (event.key === 'ArrowRight' && showModal) {
         nextSlide();
       }

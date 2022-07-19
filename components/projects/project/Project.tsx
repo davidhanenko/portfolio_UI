@@ -48,7 +48,11 @@ const Project = ({ project }: IProjectProps) => {
 
   return (
     <ProjectStyles ref={ref} inView={inView}>
-      <section className='project-img'>
+      <h3 className='project-title'>
+        {project?.attributes?.title}
+      </h3>
+
+      <div className='project'>
         <Image
           src={
             project?.attributes?.main_image?.data
@@ -62,10 +66,6 @@ const Project = ({ project }: IProjectProps) => {
             loadImages();
           }}
         />
-
-        <h3 className='project-title'>
-          {project?.attributes?.title}
-        </h3>
 
         <DescriptionStyles inView={inView}>
           <h4 className='project-type'>
@@ -99,7 +99,7 @@ const Project = ({ project }: IProjectProps) => {
             <FaGithub />
           </a>
         </LinksStyles>
-      </section>
+      </div>
       <Modal
         showModal={showModal}
         setShowModal={setShowModal}

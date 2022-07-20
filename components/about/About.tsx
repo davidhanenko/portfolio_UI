@@ -28,14 +28,14 @@ const About: React.FC = () => {
         header={header!}
         paragraphs={paragraphs!}
       />
-      <section className='img-stack'>
+      <article className='img-stack'>
         <AboutImage imgUrl={imgUrl!} />
         <AboutStack
           stack1={stack1!}
           stack2={stack2!}
           stack3={stack3!}
         />
-      </section>
+      </article>
     </AboutContainer>
   );
 };

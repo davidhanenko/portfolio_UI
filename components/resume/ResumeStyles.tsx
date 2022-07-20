@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 
 const ResumeStyles = styled.main`
-  margin-top: var(--headerHeight);
-
-  /* width: 900px;
-  height: 100vh; */
+  margin: calc(var(--headerHeight) + 5rem) 0;
 
   .react-pdf__Page__canvas {
     margin: 0 auto;

@@ -10,7 +10,7 @@ export const AboutImage: React.FC<IAboutImageProps> = ({
 }) => {
   return (
     <AboutImg>
-      <div className='img-container'>
+      <figure className='img-container'>
         <Image
           src={imgUrl}
           alt={''}
@@ -20,7 +20,7 @@ export const AboutImage: React.FC<IAboutImageProps> = ({
         />
         <div className='img-overlay-1'></div>
         <div className='img-overlay-2'></div>
-      </div>
+      </figure>
     </AboutImg>
   );
 };

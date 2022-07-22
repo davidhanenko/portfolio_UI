@@ -2,6 +2,7 @@ import { useInView } from 'react-intersection-observer';
 
 import { ToastContainer } from 'react-toastify';
 import { useContactQuery } from '../../graphql/contact/main.generated';
+import Media from '../media/Media';
 
 import { ContactContainer } from './ContactStyles';
 import { EmailForm } from './email-form/EmailForm';
@@ -34,6 +35,8 @@ const Contact: React.FC = () => {
 
       <EmailForm emailTo={email!} inView={inView} />
       <Map map={map!} inView={inView} mapRef={ref} />
+
+      <Media inView={inView} />
     </ContactContainer>
   );
 };

@@ -5,7 +5,7 @@ import { useResumeQuery } from '../../graphql/resume/resume.generated';
 
 import { ResumeStyles } from './ResumeStyles';
 
-const Resume = () => {
+const Resume:React.FC = () => {
   const { data, loading, error } = useResumeQuery();
 
   if (loading) return <h4>Loading...</h4>;

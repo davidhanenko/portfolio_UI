@@ -3,16 +3,20 @@ import {
   FaGithub,
   FaFacebookSquare,
 } from 'react-icons/fa';
-import { GrDocument } from 'react-icons/gr';
+import { CgFileDocument } from 'react-icons/cg';
 import { MediaStyles } from './MediaStyles';
 
-const Media: React.FC = ({ inView }) => {
+interface IMediaPropsTypes {
+  inView: boolean;
+}
+
+const Media: React.FC<IMediaPropsTypes> = ({ inView }) => {
   return (
     <MediaStyles inView={inView}>
       <FaLinkedin />
       <FaGithub />
       <FaFacebookSquare />
-      <GrDocument />
+      <CgFileDocument />
     </MediaStyles>
   );
 };

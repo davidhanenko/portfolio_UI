@@ -7,6 +7,8 @@ type ProjectsProps = {
 const ProjectsStyles = styled.div`
   scroll-snap-align: start;
 
+  scroll-behavior: smooth;
+
   ${(props: ProjectsProps) =>
     !props.scrollWithModal &&
     `height: 100%; overflow-x: hidden;`};

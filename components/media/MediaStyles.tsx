@@ -1,5 +1,9 @@
 import styled, { keyframes } from 'styled-components';
 
+type PropsTypes = {
+  readonly inView: boolean;
+};
+
 const fadeIn = keyframes`
   0% {
     transform: translateY(200%);
@@ -21,7 +25,8 @@ const MediaStyles = styled.aside`
   display: flex;
   flex-direction: column;
   transform: translateY(200%);
-  animation: ${props => props.inView && fadeIn};
+  animation: ${(props: PropsTypes) =>
+    props.inView && fadeIn};
   animation-duration: 1s;
   animation-delay: 1s;
 

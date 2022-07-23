@@ -1,19 +1,19 @@
 import styled, { keyframes } from 'styled-components';
 
 type PropsTypes = {
-  isDirty: boolean;
-  inView: boolean;
+  readonly isDirty: boolean;
+  readonly inView: boolean;
 };
 
 const slideIn = keyframes`
   0% {
     transform: translateX(-900px); 
-    opacity: 0;
+
   }
 
   100% {
     transform: translateX(0);
-    opacity: 1;
+
   }
 `;
 
@@ -28,10 +28,11 @@ const Form = styled.form<PropsTypes>`
   text-align: end;
 
   @media (min-width: 768px) {
-    opacity: 0;
+    transform: translateX(-900px);
     animation: ${props => props.inView && slideIn};
     animation-fill-mode: forwards;
     animation-duration: 1.2s;
+    animation-delay: 0.5s;
 
     z-index: 2;
   }

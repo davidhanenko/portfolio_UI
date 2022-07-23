@@ -12,7 +12,7 @@ const Contact: React.FC = () => {
   const { data, loading } = useContactQuery();
 
   const { ref, inView } = useInView({
-    threshold: 0.5,
+    // threshold: 0.5,
   });
 
   const map =
@@ -34,7 +34,7 @@ const Contact: React.FC = () => {
       />
 
       <EmailForm emailTo={email!} inView={inView} />
-      <Map map={map!} inView={inView} mapRef={ref} />
+      {map && <Map map={map} inView={inView} mapRef={ref} />}
 
       <Media inView={inView} />
     </ContactContainer>

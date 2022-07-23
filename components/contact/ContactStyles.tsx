@@ -6,7 +6,8 @@ const ContactContainer = styled.div`
   margin: 20rem 0;
 
   position: relative;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
+  overflow-y: hidden;
 
   display: flex;
 

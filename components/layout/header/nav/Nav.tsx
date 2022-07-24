@@ -6,6 +6,7 @@ import { useNav } from '../../../../lib/useNav';
 import { NavLink } from './nav-link/NavLink';
 import { NavLogoStyles, NavStyles } from './NavStyles';
 import { Logo } from '../logo/Logo';
+import Media from '../../../media/Media';
 
 export const Nav: React.FC = () => {
   const { isOpen, toggleNav, closeNav } = useNav();
@@ -57,6 +58,9 @@ export const Nav: React.FC = () => {
           <NavLink link={'about'} title={'about'} />
           <NavLink link={'projects'} title={'projects'} />
           <NavLink link={'contact'} title={'contact'} />
+          <li>
+            <Media />
+          </li>
         </ul>
       </div>
     </NavStyles>

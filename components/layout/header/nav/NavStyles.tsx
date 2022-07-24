@@ -48,6 +48,16 @@ const NavStyles = styled.nav<INavProps>`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    /* media links styles adjust */
+    li:last-of-type {
+      margin-top: 1.5rem;
+      article {
+        a {
+          margin: 0 1rem;
+        }
+      }
+    }
   }
 `;
 

@@ -8,8 +8,7 @@ const Projects: React.FC = () => {
 
   const projects = data?.projects?.data;
 
-    const { scrollWithModal } =
-      useScroll();
+  const { scrollWithModal } = useScroll();
 
   if (loading) return <h3>Loading...</h3>;
 

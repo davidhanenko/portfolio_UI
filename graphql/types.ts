@@ -190,7 +190,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = About | ComponentTechTech | ComponentTextText | Contact | I18NLocale | Main | Project | Resume | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = About | ComponentTechTech | ComponentTextText | Contact | I18NLocale | Main | MediaLink | Project | Resume | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -325,6 +325,36 @@ export type MainInput = {
 
 export type MainTechDynamicZone = ComponentTechTech | Error;
 
+export type MediaLink = {
+  __typename?: 'MediaLink';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  facebook?: Maybe<Scalars['String']>;
+  github?: Maybe<Scalars['String']>;
+  linkedin?: Maybe<Scalars['String']>;
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  resume?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type MediaLinkEntity = {
+  __typename?: 'MediaLinkEntity';
+  attributes?: Maybe<MediaLink>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type MediaLinkEntityResponse = {
+  __typename?: 'MediaLinkEntityResponse';
+  data?: Maybe<MediaLinkEntity>;
+};
+
+export type MediaLinkInput = {
+  facebook?: InputMaybe<Scalars['String']>;
+  github?: InputMaybe<Scalars['String']>;
+  linkedin?: InputMaybe<Scalars['String']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  resume?: InputMaybe<Scalars['String']>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   createProject?: Maybe<ProjectEntityResponse>;
@@ -336,6 +366,7 @@ export type Mutation = {
   deleteAbout?: Maybe<AboutEntityResponse>;
   deleteContact?: Maybe<ContactEntityResponse>;
   deleteMain?: Maybe<MainEntityResponse>;
+  deleteMediaLink?: Maybe<MediaLinkEntityResponse>;
   deleteProject?: Maybe<ProjectEntityResponse>;
   deleteResume?: Maybe<ResumeEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
@@ -358,6 +389,7 @@ export type Mutation = {
   updateContact?: Maybe<ContactEntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
   updateMain?: Maybe<MainEntityResponse>;
+  updateMediaLink?: Maybe<MediaLinkEntityResponse>;
   updateProject?: Maybe<ProjectEntityResponse>;
   updateResume?: Maybe<ResumeEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
@@ -467,6 +499,11 @@ export type MutationUpdateFileInfoArgs = {
 
 export type MutationUpdateMainArgs = {
   data: MainInput;
+};
+
+
+export type MutationUpdateMediaLinkArgs = {
+  data: MediaLinkInput;
 };
 
 
@@ -603,6 +640,7 @@ export type Query = {
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
   main?: Maybe<MainEntityResponse>;
   me?: Maybe<UsersPermissionsMe>;
+  mediaLink?: Maybe<MediaLinkEntityResponse>;
   project?: Maybe<ProjectEntityResponse>;
   projects?: Maybe<ProjectEntityResponseCollection>;
   resume?: Maybe<ResumeEntityResponse>;
@@ -638,6 +676,11 @@ export type QueryI18NLocalesArgs = {
 
 
 export type QueryMainArgs = {
+  publicationState?: InputMaybe<PublicationState>;
+};
+
+
+export type QueryMediaLinkArgs = {
   publicationState?: InputMaybe<PublicationState>;
 };
 

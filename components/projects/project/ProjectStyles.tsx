@@ -41,14 +41,14 @@ const DescriptionStyles = styled.section<IProjectProps>`
     display: flex;
     justify-content: end;
     padding-bottom: 1rem;
-    font-size: 1.2em;
+    font-size: 1.7rem;
     font-weight: 600;
 
     text-transform: uppercase;
   }
 
   .project-description {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     text-indent: 2rem;
     line-height: 1.3;
     user-select: none;
@@ -73,7 +73,7 @@ const DescriptionStyles = styled.section<IProjectProps>`
   li {
     list-style-type: '▶';
     padding-inline-start: 0.4rem;
-    font-size: 1.25rem;
+    font-size: 1.6rem;
     text-transform: capitalize;
     font-weight: 600;
 
@@ -115,14 +115,14 @@ const ProjectStyles = styled.div<IProjectProps>`
     top: -2rem;
 
     color: var(--orange);
-    font-size: 2.6rem;
+    font-size: 2.8rem;
   }
 
   .project {
     position: relative;
     object-fit: contain;
-    height: 400px;
-    width: 700px;
+    height: 500px;
+    width: 750px;
     max-width: 70vw;
     cursor: pointer;
   }
@@ -133,7 +133,7 @@ const ProjectStyles = styled.div<IProjectProps>`
     }
 
     .project-title {
-      right: 10%;
+      right: 20%;
     }
 
     ${LinksStyles} {
@@ -157,7 +157,7 @@ const ProjectStyles = styled.div<IProjectProps>`
     }
 
     .project-title {
-      left: 10%;
+      left: 20%;
     }
 
     ${LinksStyles} {

@@ -30,7 +30,7 @@ const Form = styled.form<PropsTypes>`
     animation: ${props => props.inView && slideIn};
     animation-fill-mode: forwards;
     animation-duration: 1.2s;
-    animation-delay: 0.5s;
+    animation-delay: 0.6s;
 
     z-index: 2;
   }

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const MediaStyles = styled.article`
-  font-size: 2rem;
+  font-size: 2.3rem;
 
   svg {
     margin: 0.75rem 0;

@@ -8,12 +8,10 @@ type PropsTypes = {
 const slideIn = keyframes`
   0% {
     transform: translateX(-900px); 
-
   }
 
   100% {
     transform: translateX(0);
-
   }
 `;
 

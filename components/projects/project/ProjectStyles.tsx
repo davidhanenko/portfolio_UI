@@ -27,6 +27,8 @@ const fadeInL = keyframes`
 `;
 
 const DescriptionStyles = styled.section<IProjectProps>`
+  position: absolute;
+
   width: 60%;
   height: 60%;
 
@@ -88,7 +90,6 @@ const DescriptionStyles = styled.section<IProjectProps>`
 const LinksStyles = styled.div`
   position: absolute;
   bottom: 0;
-  right: -25%;
   a {
     font-size: 2rem;
     color: var(--white);
@@ -136,13 +137,10 @@ const ProjectStyles = styled.div<IProjectProps>`
     }
 
     ${LinksStyles} {
-      position: absolute;
-      bottom: 0;
       right: -25%;
     }
 
     ${DescriptionStyles} {
-      position: absolute;
       top: 25%;
       right: -30%;
       transform: translate(300%);
@@ -163,13 +161,10 @@ const ProjectStyles = styled.div<IProjectProps>`
     }
 
     ${LinksStyles} {
-      position: absolute;
-      bottom: 0;
       left: -25%;
     }
 
     ${DescriptionStyles} {
-      position: absolute;
       top: 25%;
       left: -30%;
       transform: translate(-300%);

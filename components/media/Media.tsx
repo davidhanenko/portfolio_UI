@@ -6,13 +6,10 @@ import {
 import { CgFileDocument } from 'react-icons/cg';
 import { MediaStyles } from './MediaStyles';
 
-interface IMediaPropsTypes {
-  inView: boolean;
-}
 
-const Media: React.FC<IMediaPropsTypes> = ({ inView }) => {
+const Media: React.FC = () => {
   return (
-    <MediaStyles inView={inView}>
+    <MediaStyles>
       <FaLinkedin />
       <FaGithub />
       <FaFacebookSquare />

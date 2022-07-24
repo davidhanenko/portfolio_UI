@@ -1,47 +1,7 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
-type PropsTypes = {
-  readonly inView: boolean;
-};
-
-const fadeIn = keyframes`
-  0% {
-    transform: translateY(200%);
-  }
- 100% {
-    transform: translateY(0%);
-  }
-
-`;
-
-const MediaStyles = styled.aside`
-  position: absolute;
-  bottom: 4rem;
-  right: 4rem;
-  padding-right: 1rem;
-
+const MediaStyles = styled.article`
   font-size: 2rem;
-
-  display: flex;
-  flex-direction: column;
-  transform: translateY(200%);
-  animation: ${(props: PropsTypes) =>
-    props.inView && fadeIn};
-  animation-duration: 1s;
-  animation-delay: 1s;
-
-  animation-fill-mode: forwards;
-
-  &::after {
-    content: '';
-    height: 150%;
-    width: 1px;
-    background: white;
-
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
 
   svg {
     margin: 0.75rem 0;

@@ -5,6 +5,9 @@ import {
 } from '../graphql/apollo';
 import styled from 'styled-components';
 
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+
 import {
   MainDocument,
   MainQuery,
@@ -12,9 +15,28 @@ import {
 } from '../graphql/main/main.generated';
 
 import Home from '../components/home/Home';
-import About from '../components/about/About';
-import Projects from '../components/projects/Projects';
-import Contact from '../components/contact/Contact';
+
+const About = dynamic(
+  () => import('../components/about/About'),
+  {
+    suspense: true,
+  }
+);
+
+const Projects = dynamic(
+  () => import('../components/projects/Projects'),
+  {
+    suspense: true,
+  }
+);
+
+const Contact = dynamic(
+  () => import('../components/contact/Contact'),
+  {
+    suspense: true,
+  }
+);
+
 import { useScroll } from '../lib/useScroll';
 
 type SnapScrollProps = {
@@ -49,9 +71,15 @@ const HomePage: NextPage<MainQuery> = ({
   return (
     <SnapScrollWrapper scrollWithModal={scrollWithModal}>
       <Home main={main} />
-      <About />
-      <Projects />
-      <Contact />
+      <Suspense fallback={`Loading...`}>
+        <About />
+      </Suspense>
+      <Suspense fallback={`Loading...`}>
+        <Projects />
+      </Suspense>
+      <Suspense fallback={`Loading...`}>
+        <Contact />
+      </Suspense>
     </SnapScrollWrapper>
   );
 };

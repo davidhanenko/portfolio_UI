@@ -13,7 +13,6 @@ interface AnimationEvent<T = Element>
 }
 
 export const Name = () => {
-
   const { setAnimateBg } = useAnimation();
 
   const handleAnimationEnd = (
@@ -42,9 +41,9 @@ export const Name = () => {
         <div className='last-name'>
           <span className='last-name-1'>H</span>
           <span className='last-name-rest'>anenko</span>
+          <span className='last-name-overlay'></span>
         </div>
       </div>
-      <span className='last-name-overlay'></span>
     </NameContainer>
   );
 };

@@ -6,13 +6,8 @@ export interface INavProps {
   readonly isClicked?: boolean;
 }
 
-type NavLogo = {
-  isOpen: boolean;
-};
-
 const NavStyles = styled.nav<INavProps>`
   color: var(--white);
-  font-size: 5rem;
 
   .hamburger-react {
     z-index: 5;
@@ -25,6 +20,7 @@ const NavStyles = styled.nav<INavProps>`
     top: 0;
     background: var(--lightGray);
     min-width: 100%;
+    font-size: 4rem;
     font-weight: 100;
     z-index: 3;
     height: 50vh;
@@ -32,14 +28,13 @@ const NavStyles = styled.nav<INavProps>`
 
     transform: translateY(-100%);
     transition: all 600ms;
+    ${props => props.isOpen && `transform: translateY(0%)`};
     transition-timing-function: cubic-bezier(
       0.49,
       0.07,
       0.51,
       1.02
     );
-
-    ${props => props.isOpen && `transform: translateY(0%)`};
   }
 
   .nav-links {
@@ -49,12 +44,14 @@ const NavStyles = styled.nav<INavProps>`
     align-items: center;
     justify-content: center;
 
-    /* media links styles adjust */
+    /* media-links styles adjust */
     li:last-of-type {
       margin-top: 1.5rem;
       article {
         a {
+          cursor: pointer;
           margin: 0 1rem;
+          font-size: 3rem;
         }
       }
     }

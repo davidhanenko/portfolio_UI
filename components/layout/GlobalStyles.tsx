@@ -11,7 +11,6 @@ const GlobalStyles = createGlobalStyle`
   :root {
     margin: 0 auto;
     --maxWidth: 1400px;
-    --fontSize: 11rem;
 
     --headerHeight: 10rem;
 

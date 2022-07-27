@@ -31,15 +31,17 @@ const lastR = keyframes`
         background: var(--white);
     } 
   `;
+
+// last name overlay animation
 const lastRRest = keyframes`
     0% {
-      transform: translateX(59%);
+      transform: translateX(25%);
       height: 100%;
     }
-    15% {
-      transform: translate(53%); 
+    /* 15% {
+      transform: translate(50%); 
       height: 100%;  
-    } 
+    }  */
     99% {
       transform: translate(150%); 
       height: 100%;  
@@ -94,13 +96,20 @@ const NameContainer = styled.div<INameProps>`
   align-items: center;
   margin: 0 auto;
   transform: translateX(-7.5%);
-  font-size: var(--fontSize);
+  font-size: 9vw;
   color: var(--lightOrange);
   font-weight: 600;
 
   animation: ${nameX} 1.5s linear;
   animation-delay: ${props => props.nameAnimationDuration};
   animation-fill-mode: forwards;
+
+  @media (min-width: 1400px) {
+    font-size: 11rem;
+  }
+  @media (max-width: 576px) {
+    font-size: 3.7rem;
+  }
 
   .name {
     animation: ${nameY} 1.5s;
@@ -115,26 +124,28 @@ const NameContainer = styled.div<INameProps>`
     transform: translateX(116%);
 
     z-index: 1;
-    animation: ${firstLeft} 4s;
+    animation: ${firstLeft} 3s;
     animation-delay: 2s;
     animation-fill-mode: forwards;
 
     .first-name-rest {
-      animation: ${fadeInVisibilityL} 4s
+      animation: ${fadeInVisibilityL} 3s
         cubic-bezier(1, 0.06, 0.4, 1.16);
     }
-    @media (max-width: 600px) {
+    /* @media (max-width: 600px) {
       font-size: 4rem;
-    }
+    } */
   }
   .last-name {
+    position: relative;
+
     display: inline-block;
 
     padding: 0 1rem;
     z-index: 2;
-    animation: ${lastR};
-    ${props => props.nameAnimationDuration};
-    animation-delay: 2.5s;
+    animation: ${lastR} 3s;
+    /* ${props => props.nameAnimationDuration}; */
+    animation-delay: 2s;
     animation-fill-mode: forwards;
 
     .last-name-rest {
@@ -143,21 +154,23 @@ const NameContainer = styled.div<INameProps>`
         cubic-bezier(1, 0.06, 0.4, 1.16);
     }
 
-    @media (max-width: 600px) {
+    /* @media (max-width: 600px) {
       font-size: 4rem;
-    }
+    } */
   }
 
   .last-name-overlay {
     position: absolute;
-    height: 100px;
-    width: 500px;
+    height: 100%;
+    width: 100%;
     background: var(--dark);
+    /* background: red; */
     z-index: 2;
-    transform: translateX(59%);
+    left: 0;
+    transform: translateX(25%);
     transform-style: preserve-3d;
 
-    animation: ${lastRRest} 4s;
+    animation: ${lastRRest} 3s;
     animation-delay: 2s;
     animation-fill-mode: forwards;
     transform-origin: right;

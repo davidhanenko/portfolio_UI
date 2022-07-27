@@ -6,7 +6,7 @@ const MediaStyles = styled.article`
   svg {
     margin: 0.75rem 0;
     color: var(--orange);
-    transition: all 0.25s;
+    transition: all 0.3s;
 
     &:hover {
       color: var(--white);

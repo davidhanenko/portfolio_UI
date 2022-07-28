@@ -31,7 +31,6 @@ const GlobalStyles = createGlobalStyle`
    box-sizing: border-box;
    font-size: 62.5%;
    background: var(--dark);
-
 }
 
   body {
@@ -39,6 +38,7 @@ const GlobalStyles = createGlobalStyle`
     overflow-x: hidden;
     scroll-behavior: smooth;
     background: var(--dark);
+
   }
 
   a {

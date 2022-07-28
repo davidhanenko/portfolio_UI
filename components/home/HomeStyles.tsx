@@ -10,7 +10,7 @@ const HomeContainer = styled.div`
   }
 `;
 
-const HomeWrapper= styled.div`
+const HomeWrapper = styled.div`
   position: relative;
   height: 100%;
   width: 100%;

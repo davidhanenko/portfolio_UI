@@ -9,7 +9,7 @@ const greetAnimation = keyframes`
       bottom: -40%;
     }
     100% {
-      bottom: 30%;
+      bottom: 25vh;
     } 
   `;
 
@@ -18,19 +18,32 @@ const GreetTxt = styled.section<GreetProps>`
   bottom: -40%;
   position: absolute;
   right: 5%;
-  width: 45%;
-  margin-top: 20rem;
-  h2 {
-    font-size: 5rem;
-    font-weight: 400;
-  }
-  p {
-    font-size: 2.3rem;
-    font-weight: 300;
-  }
+  width: 50%;
+
   animation: ${greetAnimation} 2s;
   animation-delay: ${props => props.nameAnimationDuration};
   animation-fill-mode: forwards;
+
+  p {
+    font-size: 2.3rem;
+    font-weight: 300;
+
+    user-select: none;
+  }
+
+  @media (max-width: 768px) {
+    width: 65%;
+    p {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    width: 85%;
+    p {
+      font-size: 1.4rem;
+    }
+  }
 `;
 
 export { GreetTxt };

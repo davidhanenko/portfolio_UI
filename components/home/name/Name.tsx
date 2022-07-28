@@ -5,6 +5,8 @@ import { useAnimation } from '../../../lib/useAnimation';
 
 import { NAME_ANIMATION_DURATION as nameAnimationDuration } from '../../../config';
 
+import disableScroll from 'disable-scroll';
+
 interface AnimationEvent<T = Element>
   extends SyntheticEvent<T> {
   animationName: string;
@@ -15,6 +17,8 @@ interface AnimationEvent<T = Element>
 export const Name = () => {
   const { setAnimateBg } = useAnimation();
 
+  disableScroll.on();
+
   const handleAnimationEnd = (
     e: AnimationEvent<HTMLDivElement>
   ) => {
@@ -22,7 +26,10 @@ export const Name = () => {
       e.target instanceof HTMLElement &&
       e.target.dataset.animation === 'name'
     )
-      setAnimateBg(true);
+      setAnimateBg( true );
+    setTimeout(() => {
+      disableScroll.off();
+    }, nameAnimationDuration * 1000);
   };
 
   return (

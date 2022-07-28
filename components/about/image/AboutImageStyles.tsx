@@ -12,8 +12,8 @@ const AboutImg= styled.section`
     position: relative;
     display: block;
     overflow: hidden;
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
 
     .img-overlay-1 {
       position: absolute;

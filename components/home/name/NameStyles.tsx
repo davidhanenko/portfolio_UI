@@ -18,7 +18,7 @@ const nameY = keyframes`
       transform: translateY(0%);
     } 
     100% {
-      transform: translateY(-150%);
+      transform: translateY(-25vh);
     } 
   `;
 
@@ -38,10 +38,6 @@ const lastRRest = keyframes`
       transform: translateX(25%);
       height: 100%;
     }
-    /* 15% {
-      transform: translate(50%); 
-      height: 100%;  
-    }  */
     99% {
       transform: translate(150%); 
       height: 100%;  
@@ -112,6 +108,8 @@ const NameContainer = styled.div<INameProps>`
   }
 
   .name {
+    user-select: none;
+
     animation: ${nameY} 1.5s;
     animation-delay: ${props =>
       props.nameAnimationDuration};
@@ -132,9 +130,6 @@ const NameContainer = styled.div<INameProps>`
       animation: ${fadeInVisibilityL} 3s
         cubic-bezier(1, 0.06, 0.4, 1.16);
     }
-    /* @media (max-width: 600px) {
-      font-size: 4rem;
-    } */
   }
   .last-name {
     position: relative;
@@ -153,10 +148,6 @@ const NameContainer = styled.div<INameProps>`
       animation: ${fadeInVisibilityR} 5s
         cubic-bezier(1, 0.06, 0.4, 1.16);
     }
-
-    /* @media (max-width: 600px) {
-      font-size: 4rem;
-    } */
   }
 
   .last-name-overlay {
@@ -164,7 +155,6 @@ const NameContainer = styled.div<INameProps>`
     height: 100%;
     width: 100%;
     background: var(--dark);
-    /* background: red; */
     z-index: 2;
     left: 0;
     transform: translateX(25%);

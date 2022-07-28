@@ -7,10 +7,11 @@ const MediaStyles = styled.article`
     margin: 0.75rem 0;
     color: var(--orange);
     transition: all 0.3s;
+    cursor: pointer;
 
     &:hover {
       color: var(--white);
-      cursor: pointer;
+      transform: scale(1.07);
     }
   }
 `;

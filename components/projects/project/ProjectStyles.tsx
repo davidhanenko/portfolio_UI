@@ -36,6 +36,8 @@ const DescriptionStyles = styled.section<IProjectProps>`
 
   padding: 2rem;
   opacity: 0;
+  user-select: none;
+  cursor: default;
 
   .project-type {
     display: flex;
@@ -43,7 +45,6 @@ const DescriptionStyles = styled.section<IProjectProps>`
     padding-bottom: 1rem;
     font-size: 1.7rem;
     font-weight: 600;
-
     text-transform: uppercase;
   }
 
@@ -51,8 +52,6 @@ const DescriptionStyles = styled.section<IProjectProps>`
     font-size: 1.5rem;
     text-indent: 2rem;
     line-height: 1.3;
-    user-select: none;
-    cursor: auto;
 
     @media (max-width: 992px) {
       font-size: 1.2rem;
@@ -76,6 +75,8 @@ const DescriptionStyles = styled.section<IProjectProps>`
     font-size: 1.6rem;
     text-transform: capitalize;
     font-weight: 600;
+    user-select: none;
+    cursor: default;
 
     &::marker {
       color: var(--lightOrange);

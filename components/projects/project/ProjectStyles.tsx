@@ -147,7 +147,7 @@ const ProjectStyles = styled.div<IProjectProps>`
       transform: translate(300%);
       animation: ${(props: IProjectProps) =>
           props.inView && fadeInR}
-        1s;
+        0.6s;
       animation-fill-mode: forwards;
     }
   }
@@ -169,7 +169,7 @@ const ProjectStyles = styled.div<IProjectProps>`
       top: 25%;
       left: -30%;
       transform: translate(-300%);
-      animation: ${props => props.inView && fadeInL} 1s;
+      animation: ${props => props.inView && fadeInL} 0.6s;
       animation-fill-mode: forwards;
     }
   }

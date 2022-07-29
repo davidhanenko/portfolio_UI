@@ -27,7 +27,7 @@ const lastR = keyframes`
       transform: translate(0%);
       background: transparent;
     }
-    1% {
+    5% {
       background: var(--dark);
     }
     100% {
@@ -81,6 +81,11 @@ const fadeInVisibilityL = keyframes`
       visibility: hidden; 
       opacity: 0;  
     }
+
+    70% {
+       visibility: hidden; 
+        opacity: 0;   
+    } 
    
     100% {
       visibility: visible;
@@ -163,7 +168,7 @@ const NameContainer = styled.div<INameProps>`
     transform-style: preserve-3d;
 
     animation: ${lastRRest} 3s;
-    animation-delay: 2s;
+    animation-delay: 2.5s;
     animation-fill-mode: forwards;
     transform-origin: right;
   }

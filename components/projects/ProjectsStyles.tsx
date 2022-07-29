@@ -10,8 +10,6 @@ const ProjectsStyles = styled.div`
   ${(props: ProjectsProps) =>
     !props.scrollWithModal &&
     `height: 100%; overflow-x: hidden;`};
-
-
   padding-top: var(--headerHeight);
 
   h2 {

@@ -25,6 +25,10 @@ const nameY = keyframes`
 const lastR = keyframes`
     0% {
       transform: translate(0%);
+      background: transparent;
+    }
+    1% {
+      background: var(--dark);
     }
     100% {
         transform: translate(15%);
@@ -135,11 +139,9 @@ const NameContainer = styled.div<INameProps>`
     position: relative;
 
     display: inline-block;
-
     padding: 0 1rem;
     z-index: 2;
     animation: ${lastR} 3s;
-    /* ${props => props.nameAnimationDuration}; */
     animation-delay: 2s;
     animation-fill-mode: forwards;
 

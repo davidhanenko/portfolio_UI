@@ -36,7 +36,7 @@ const DescriptionStyles = styled.section<IProjectProps>`
 
   padding: 2rem;
   opacity: 0;
-  user-select: none;
+
   cursor: default;
 
   .project-type {
@@ -97,9 +97,30 @@ const LinksStyles = styled.div`
     padding: 1rem;
     transition: all 0.25s;
 
+    position: relative;
+
+    &:after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: -4rem;
+      right: -3rem;
+      padding: 0.5rem 1rem;
+      font-size: 1.3rem;
+      color: var(--white);
+      background: var(--gray);
+      width: 12rem;
+
+      display: none;
+      transition: all 0.2s;
+    }
+
     &:hover svg {
       color: var(--orange);
       transform: scale(1.3);
+    }
+
+    &:hover::after {
+      display: block;
     }
   }
 `;
@@ -110,6 +131,8 @@ const ProjectStyles = styled.div<IProjectProps>`
   flex-wrap: wrap;
   justify-content: center;
   padding-bottom: 20rem;
+
+  user-select: none;
 
   .project-title {
     position: absolute;

@@ -11,6 +11,7 @@ const ProjectsStyles = styled.div`
     !props.scrollWithModal && `overflow-x: hidden;`};
 
   padding-top: var(--headerHeight);
+  padding-bottom: 20rem;
 
   h2 {
     padding-left: 10rem;

@@ -88,6 +88,7 @@ const Project = ({ project }: IProjectProps) => {
             href={project?.attributes?.link}
             target='_blank'
             rel='noreferrer'
+            data-tooltip={`Visit ${project?.attributes?.title}`}
           >
             <FaExternalLinkAlt />
           </a>
@@ -95,6 +96,7 @@ const Project = ({ project }: IProjectProps) => {
             href={project?.attributes?.link_git}
             target='_blank'
             rel='noreferrer'
+            data-tooltip='Check source code'
           >
             <FaGithub />
           </a>

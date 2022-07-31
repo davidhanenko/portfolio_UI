@@ -1,8 +1,16 @@
 import { NextPage } from "next";
+import Head from "next/head";
 import Resume from "../components/resume/Resume";
 
 const ResumePage: NextPage = () => {
-  return <Resume />;
+  return (
+    <>
+      <Head>
+        <title>David Hanenko | Resume</title>
+      </Head>
+      <Resume />;
+    </>
+  );
 };
 
 

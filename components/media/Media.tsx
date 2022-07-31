@@ -18,28 +18,27 @@ const Media: React.FC = () => {
     data?.mediaLink?.data?.attributes?.facebook;
   const resume = data?.mediaLink?.data?.attributes?.resume;
 
-
   if (loading) return <h3>Loading...</h3>;
 
   return (
     <MediaStyles>
       <Link href={linkedin!}>
-        <a target='_blank'>
+        <a target='_blank' data-tooltip='LinkedIn'>
           <FaLinkedin />
         </a>
       </Link>
       <Link href={github!}>
-        <a target='_blank'>
+        <a target='_blank' data-tooltip='GitHub'>
           <FaGithub />
         </a>
       </Link>
       <Link href={facebook!}>
-        <a target='_blank'>
+        <a target='_blank' data-tooltip='Facebook'>
           <FaFacebookSquare />
         </a>
       </Link>
       <Link href={resume!}>
-        <a target='_blank'>
+        <a target='_blank' data-tooltip='Resume'>
           <CgFileDocument />
         </a>
       </Link>

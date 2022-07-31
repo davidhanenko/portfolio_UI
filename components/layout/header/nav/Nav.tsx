@@ -57,7 +57,7 @@ export const Nav: React.FC = () => {
           <NavLink link={''} title={'home'} />
           <NavLink link={'about'} title={'about'} />
           <NavLink link={'projects'} title={'projects'} />
-          <NavLink link={'contact'} title={'contact'} />
+          <NavLink link={'contacts'} title={'contacts'} />
           <li>
             <Media />
           </li>

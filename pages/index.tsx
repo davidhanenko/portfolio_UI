@@ -38,6 +38,7 @@ const Contact = dynamic(
 );
 
 import { useScroll } from '../lib/useScroll';
+import Head from 'next/head';
 
 type SnapScrollProps = {
   readonly scrollWithModal: boolean;
@@ -69,18 +70,23 @@ const HomePage: NextPage<MainQuery> = ({
   if (loading) return <h4>Loading...</h4>;
 
   return (
-    <SnapScrollWrapper scrollWithModal={scrollWithModal}>
-      <Home main={main} />
-      <Suspense fallback={`Loading...`}>
-        <About />
-      </Suspense>
-      <Suspense fallback={`Loading...`}>
-        <Projects />
-      </Suspense>
-      <Suspense fallback={`Loading...`}>
-        <Contact />
-      </Suspense>
-    </SnapScrollWrapper>
+    <>
+      <Head>
+        <title>David Hanenko</title>
+      </Head>
+      <SnapScrollWrapper scrollWithModal={scrollWithModal}>
+        <Home main={main} />
+        <Suspense fallback={`Loading...`}>
+          <About />
+        </Suspense>
+        <Suspense fallback={`Loading...`}>
+          <Projects />
+        </Suspense>
+        <Suspense fallback={`Loading...`}>
+          <Contact />
+        </Suspense>
+      </SnapScrollWrapper>
+    </>
   );
 };
 

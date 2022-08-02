@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { MediaStyles } from '../../../../media/MediaStyles';
 
 const NavLinkStyles = styled.li`
   a {
@@ -12,8 +13,8 @@ const NavLinkStyles = styled.li`
       content: '';
       position: absolute;
       bottom: 0;
-      left: 0;
-      width: 100%;
+      left: -10%;
+      width: 120%;
       height: 100%;
       z-index: 1;
       opacity: 0;
@@ -34,4 +35,16 @@ const NavLinkStyles = styled.li`
   }
 `;
 
-export { NavLinkStyles };
+const MediaStylesWrapper = styled.li`
+  ${MediaStyles} {
+    a {
+      &::after {
+        top: 3rem;
+        right: 3rem;
+        cursor: auto;
+      }
+    }
+  }
+`;
+
+export { NavLinkStyles, MediaStylesWrapper };

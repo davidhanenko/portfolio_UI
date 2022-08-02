@@ -14,6 +14,7 @@ query Main {
             }
           }
         }
+        meta_description
       }
     }
   }

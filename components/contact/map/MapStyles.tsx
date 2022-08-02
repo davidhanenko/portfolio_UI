@@ -70,7 +70,7 @@ const MapImg = styled.div<IMapProps>`
     animation: ${props => props.inView && bounce};
     animation-fill-mode: forwards;
     animation-duration: 1s;
-    animation-delay: 0.3s;
+    animation-delay: 0.25s;
 
     &:after {
       content: '';

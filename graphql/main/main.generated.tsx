@@ -6,7 +6,7 @@ const defaultOptions = {} as const;
 export type MainQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type MainQuery = { __typename?: 'Query', main?: { __typename?: 'MainEntityResponse', data?: { __typename?: 'MainEntity', attributes?: { __typename?: 'Main', greeting: string, tech?: Array<{ __typename?: 'ComponentTechTech', tech_logo?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | { __typename?: 'Error' } | null> | null } | null } | null } | null };
+export type MainQuery = { __typename?: 'Query', main?: { __typename?: 'MainEntityResponse', data?: { __typename?: 'MainEntity', attributes?: { __typename?: 'Main', greeting: string, meta_description?: string | null, tech?: Array<{ __typename?: 'ComponentTechTech', tech_logo?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | { __typename?: 'Error' } | null> | null } | null } | null } | null };
 
 
 export const MainDocument = gql`
@@ -26,6 +26,7 @@ export const MainDocument = gql`
             }
           }
         }
+        meta_description
       }
     }
   }

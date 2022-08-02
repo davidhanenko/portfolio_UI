@@ -1,0 +1,16 @@
+query Logo {
+  logo {
+    data {
+      attributes {
+        logo {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        logo_alt
+      }
+    }
+  }
+}

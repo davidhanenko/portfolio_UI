@@ -73,6 +73,12 @@ const HomePage: NextPage<MainQuery> = ({
     <>
       <Head>
         <title>David Hanenko</title>
+        <meta
+          name='description'
+          content={
+            data?.main?.data?.attributes?.meta_description!
+          }
+        />
       </Head>
       <SnapScrollWrapper scrollWithModal={scrollWithModal}>
         <Home main={main} />

@@ -9,7 +9,7 @@ import { useMediaLinksQuery } from '../../graphql/media-links/links.generated';
 import Link from 'next/link';
 
 const Media: React.FC = () => {
-  const { data, loading, error } = useMediaLinksQuery();
+  const { data, loading } = useMediaLinksQuery();
 
   const linkedin =
     data?.mediaLink?.data?.attributes?.linkedin;
@@ -32,11 +32,13 @@ const Media: React.FC = () => {
           <FaGithub />
         </a>
       </Link>
-      <Link href={facebook!}>
-        <a target='_blank' data-tooltip='Facebook'>
-          <FaFacebookSquare />
-        </a>
-      </Link>
+      {facebook && (
+        <Link href={facebook}>
+          <a target='_blank' data-tooltip='Facebook'>
+            <FaFacebookSquare />
+          </a>
+        </Link>
+      )}
       <Link href={resume!}>
         <a target='_blank' data-tooltip='Resume'>
           <CgFileDocument />

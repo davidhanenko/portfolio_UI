@@ -61,7 +61,7 @@ const NavStyles = styled.nav<INavProps>`
 const NavLogoStyles = styled(LogoStyles)`
   color: orange;
   font-weight: 400;
-  padding: 2rem;
+  padding-top: 0;
 `;
 
 export { NavStyles, NavLogoStyles };

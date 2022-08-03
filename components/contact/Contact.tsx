@@ -33,15 +33,17 @@ const Contact: React.FC = () => {
         draggable
         theme='dark'
       />
-
-      <EmailForm emailTo={email!} inView={inView} />
       {map && (
-        <Map map={map} inView={inView} mapRef={ref} />
-      )}
+        <>
+          <EmailForm emailTo={email!} inView={inView} />
 
-      <MediaStylesWrapper inView={inView}>
-        <Media />
-      </MediaStylesWrapper>
+          <Map map={map} inView={inView} mapRef={ref} />
+
+          <MediaStylesWrapper inView={inView}>
+            <Media />
+          </MediaStylesWrapper>
+        </>
+      )}
     </ContactContainer>
   );
 };

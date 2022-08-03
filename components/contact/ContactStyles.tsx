@@ -3,11 +3,7 @@ import styled from 'styled-components';
 const ContactContainer = styled.div`
   scroll-snap-align: start;
 
-
-  /* margin: 20rem 0; */
-
   position: relative;
-  /* overflow-y: scroll; */
   overflow-y: hidden;
 
   display: flex;

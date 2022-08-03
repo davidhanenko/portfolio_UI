@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 
 export interface IBgElementProps {
-  readonly animateBg: boolean;
+  readonly nameAnimationEnd: boolean;
   readonly top: number | string;
   readonly left: number | string;
   readonly int: number | string;
@@ -41,7 +41,7 @@ const Element = styled.span.attrs(
   left: -100%;
   position: absolute;
   animation: ${(props: IBgElementProps) =>
-      props.animateBg && appear(props)}
+      props.nameAnimationEnd && appear(props)}
     cubic-bezier(0, 0.62, 0.62, 0.96);
   animation-duration: ${props => props.int};
   animation-iteration-count: infinite;

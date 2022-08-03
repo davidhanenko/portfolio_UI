@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import GlobalStyles from './GlobalStyles';
-import { Footer } from './footer/Footer';
 import { Header } from './header/Header';
 
 const InnerStyles = styled.div`
@@ -17,7 +16,6 @@ export const Page = ({ children }: IPageProps) => {
       <GlobalStyles />
       <Header />
       <InnerStyles>{children}</InnerStyles>
-      <Footer />
     </>
   );
 };

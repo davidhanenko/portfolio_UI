@@ -15,7 +15,7 @@ interface AnimationEvent<T = Element>
 }
 
 export const Name = () => {
-  const { setAnimateBg } = useAnimation();
+  const { setNameAnimationEnd } = useAnimation();
   // disable scroll during main animation
   // disableScroll.on();
 
@@ -26,7 +26,7 @@ export const Name = () => {
       e.target instanceof HTMLElement &&
       e.target.dataset.animation === 'name'
     )
-      setAnimateBg(true);
+      setNameAnimationEnd(true);
 
     // enable scroll
     setTimeout(() => {

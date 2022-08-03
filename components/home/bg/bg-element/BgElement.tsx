@@ -17,7 +17,7 @@ export const BgElement: React.FC<IBgEl> = ({
   bgRef,
   intTime,
 }) => {
-  const { animateBg } = useAnimation();
+  const { nameAnimationEnd } = useAnimation();
 
   const [top, setTop] = useState<number>();
   const [left, setLeft] = useState<number>();
@@ -30,11 +30,11 @@ export const BgElement: React.FC<IBgEl> = ({
       }
     }, intTime * 1000);
     return () => clearInterval(interval);
-  }, [animateBg, bgRef, intTime]);
+  }, [nameAnimationEnd, bgRef, intTime]);
 
   return (
     <Element
-      animateBg={animateBg}
+      nameAnimationEnd={nameAnimationEnd}
       int={`${intTime}s`}
       top={`${top}px`}
       left={`${left}px`}

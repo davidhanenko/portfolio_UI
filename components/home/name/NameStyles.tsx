@@ -22,6 +22,16 @@ const nameY = keyframes`
     } 
   `;
 
+// animation for x-small screens
+const nameYXSmall = keyframes`
+    0% {
+      transform: translateY(0%);
+    } 
+    100% {
+      transform: translateY(-35vh);
+    } 
+  `;
+
 const lastR = keyframes`
     0% {
       transform: translate(0%);
@@ -124,6 +134,14 @@ const NameContainer = styled.div<INameProps>`
       props.nameAnimationDuration};
     animation-timing-function: linear;
     animation-fill-mode: forwards;
+
+    @media (max-width: 576px) {
+      animation: ${nameYXSmall} 1.5s;
+      animation-delay: ${props =>
+        props.nameAnimationDuration};
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+    }
   }
 
   .first-name {

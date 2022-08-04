@@ -13,6 +13,16 @@ const greetAnimation = keyframes`
     } 
   `;
 
+// animation for x-small screens
+const greetAnimationXSmall = keyframes`
+    0% {
+      bottom: -40%;
+    }
+    100% {
+      bottom: 45vh;
+    } 
+  `;
+
 const GreetTxt = styled.section<GreetProps>`
   color: var(--white);
   bottom: -40%;
@@ -23,6 +33,13 @@ const GreetTxt = styled.section<GreetProps>`
   animation: ${greetAnimation} 2s;
   animation-delay: ${props => props.nameAnimationDuration};
   animation-fill-mode: forwards;
+
+  @media (max-width: 576px) {
+    animation: ${greetAnimationXSmall} 2s;
+    animation-delay: ${props =>
+      props.nameAnimationDuration};
+    animation-fill-mode: forwards;
+  }
 
   p {
     font-size: 2.3rem;

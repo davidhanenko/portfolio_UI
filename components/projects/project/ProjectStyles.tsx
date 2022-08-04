@@ -121,6 +121,11 @@ const LinksStyles = styled.div`
 
     &:hover::after {
       display: block;
+
+      /* disable tooltips on touch screens */
+      @media (pointer: coarse) {
+        display: none;
+      }
     }
   }
 `;

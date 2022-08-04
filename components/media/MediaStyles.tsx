@@ -22,6 +22,11 @@ const MediaStyles = styled.article`
 
     &:hover::after {
       display: block;
+
+      /* disable tooltips on touch screens */
+      @media (pointer: coarse) {
+        display: none;
+      }
     }
   }
 

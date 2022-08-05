@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Stack = styled.div`
+const Stack = styled.section`
   padding-top: 5rem;
   color: var(--white);
   display: flex;

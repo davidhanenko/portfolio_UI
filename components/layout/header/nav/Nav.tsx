@@ -9,7 +9,6 @@ import { Logo } from '../logo/Logo';
 import Media from '../../../media/Media';
 import { MediaStylesWrapper } from './nav-link/NavLinkStyles';
 
-
 export const Nav: React.FC = () => {
   const { isOpen, toggleNav, closeNav } = useNav();
 
@@ -45,7 +44,7 @@ export const Nav: React.FC = () => {
   return (
     <NavStyles isOpen={isOpen} ref={navRef}>
       <Hamburger
-        size={48}
+        size={36}
         hideOutline={false}
         label='Open-Close navbar'
         toggled={isOpen}

@@ -1,25 +1,30 @@
 import styled, { keyframes } from 'styled-components';
 
 export interface GreetProps {
-  readonly nameAnimationDuration?: number | string;
+  readonly nameAnimationEnd: boolean;
 }
 
 const greetAnimation = keyframes`
     0% {
-      bottom: -40%;
+      bottom: 20vh;
+      opacity: 0;
     }
     100% {
       bottom: 25vh;
+      opacity: 1;
+
     } 
   `;
 
 // animation for x-small screens
 const greetAnimationXSmall = keyframes`
     0% {
-      bottom: -40%;
+      bottom: 40vh;
+      opacity: 0;
     }
     100% {
       bottom: 45vh;
+      opacity: 1;
     } 
   `;
 
@@ -30,14 +35,17 @@ const GreetTxt = styled.section<GreetProps>`
   right: 5%;
   width: 50%;
 
-  animation: ${greetAnimation} 2s;
-  animation-delay: ${props => props.nameAnimationDuration};
+  animation: ${(props: GreetProps) =>
+    props.nameAnimationEnd && greetAnimation};
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+
   animation-fill-mode: forwards;
 
   @media (max-width: 576px) {
-    animation: ${greetAnimationXSmall} 2s;
-    animation-delay: ${props =>
-      props.nameAnimationDuration};
+    animation: ${(props: GreetProps) =>
+      props.nameAnimationEnd && greetAnimationXSmall};
+    animation-duration: 0.8s;
     animation-fill-mode: forwards;
   }
 

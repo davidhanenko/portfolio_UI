@@ -4,8 +4,8 @@ const AboutImg= styled.section`
   display: flex;
   justify-content: center;
 
-  @media (max-width: 576px) {
-    padding: 3rem 1rem;
+  @media (max-width: 768px) {
+    padding: 4rem 1rem;
   }
 
   .img-container {

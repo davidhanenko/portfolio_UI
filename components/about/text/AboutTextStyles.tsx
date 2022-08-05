@@ -6,8 +6,13 @@ const Text = styled.article`
 
   position: relative;
 
+  @media (max-width: 768px) {
+    padding-bottom: 6rem;
+  }
+
   @media (max-width: 576px) {
     font-size: 0.8rem;
+    padding-bottom: 5rem;
   }
   h2 {
     font-size: 3em;
@@ -19,6 +24,7 @@ const Text = styled.article`
     padding: 1rem 0;
   }
 
+  /* resume button */
   a {
     position: absolute;
     bottom: 0;

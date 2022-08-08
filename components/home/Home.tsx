@@ -14,7 +14,7 @@ const Home: React.FC<MainQuery> = ({ main }) => {
       <HomeWrapper>
         <Bg techImages={techImages!} />
         <Name />
-        <Greet greetText={greetText!} />
+        <Greet greetText={greetText!} nameAnimationEnd={false} />
       </HomeWrapper>
     </HomeContainer>
   );

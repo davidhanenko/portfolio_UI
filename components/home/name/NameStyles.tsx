@@ -28,7 +28,7 @@ const nameYXSmall = keyframes`
       transform: translateY(0%);
     } 
     100% {
-      transform: translateY(-35vh);
+      transform: translateY(-30vh);
     } 
   `;
 
@@ -115,7 +115,7 @@ const NameContainer = styled.div<INameProps>`
   color: var(--lightOrange);
   font-weight: 600;
 
-  animation: ${nameX} 1.5s linear;
+  animation: ${nameX} 1s linear;
   animation-delay: ${props => props.nameAnimationDuration};
   animation-fill-mode: forwards;
 
@@ -129,14 +129,14 @@ const NameContainer = styled.div<INameProps>`
   .name {
     user-select: none;
 
-    animation: ${nameY} 1.5s;
+    animation: ${nameY} 1s;
     animation-delay: ${props =>
       props.nameAnimationDuration};
     animation-timing-function: linear;
     animation-fill-mode: forwards;
 
     @media (max-width: 576px) {
-      animation: ${nameYXSmall} 1.5s;
+      animation: ${nameYXSmall} 1s;
       animation-delay: ${props =>
         props.nameAnimationDuration};
       animation-timing-function: linear;
@@ -150,11 +150,11 @@ const NameContainer = styled.div<INameProps>`
 
     z-index: 1;
     animation: ${firstLeft} 3s;
-    animation-delay: 2s;
+    animation-delay: 1s;
     animation-fill-mode: forwards;
 
     .first-name-rest {
-      animation: ${fadeInVisibilityL} 3s
+      animation: ${fadeInVisibilityL} 1.5s
         cubic-bezier(1, 0.06, 0.4, 1.16);
     }
   }
@@ -165,12 +165,12 @@ const NameContainer = styled.div<INameProps>`
     padding: 0 1rem;
     z-index: 2;
     animation: ${lastR} 3s;
-    animation-delay: 2s;
+    animation-delay: 1s;
     animation-fill-mode: forwards;
 
     .last-name-rest {
       visibility: 0;
-      animation: ${fadeInVisibilityR} 5s
+      animation: ${fadeInVisibilityR} 3s
         cubic-bezier(1, 0.06, 0.4, 1.16);
     }
   }
@@ -186,7 +186,7 @@ const NameContainer = styled.div<INameProps>`
     transform-style: preserve-3d;
 
     animation: ${lastRRest} 3s;
-    animation-delay: 2.5s;
+    animation-delay: 1.5s;
     animation-fill-mode: forwards;
     transform-origin: right;
   }

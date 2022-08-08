@@ -25,8 +25,11 @@ export const Name = () => {
     if (
       e.target instanceof HTMLElement &&
       e.target.dataset.animation === 'name'
-    )
+    ) {
       setNameAnimationEnd(true);
+
+      sessionStorage.setItem( 'animationEnd', 'true' );
+    }
 
     // enable scroll
     setTimeout(() => {

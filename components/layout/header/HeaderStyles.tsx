@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components';
 
 type HeaderProps = {
   nameAnimationEnd: boolean;
+  displayHeader?: boolean;
 };
 
 const animate = keyframes`
@@ -36,6 +37,12 @@ const HeaderStyles = styled.header`
   animation-duration: 0.5s;
   animation-delay: 0.4s;
   animation-fill-mode: forwards;
+
+  /*  display header without animation on every page beside main  */
+  ${props =>
+    props.displayHeader &&
+    !props.nameAnimationEnd &&
+    `opacity: 1`};
 
   @media (max-width: 768px) {
     background: var(--dark);

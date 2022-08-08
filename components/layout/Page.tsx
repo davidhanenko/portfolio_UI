@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Footer from './footer/Footer';
 import GlobalStyles from './GlobalStyles';
 import { Header } from './header/Header';
 
@@ -18,6 +19,7 @@ export const Page = ({ children }: IPageProps) => {
       <GlobalStyles />
       <Header />
       <InnerStyles>{children}</InnerStyles>
+      <Footer/>
     </>
   );
 };

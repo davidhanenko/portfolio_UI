@@ -1,12 +1,14 @@
+import Head from 'next/head';
 import { GetServerSidePropsContext, NextPage } from 'next';
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+import styled from 'styled-components';
+
 import {
   addApolloState,
   initializeApollo,
 } from '../graphql/apollo';
-import styled from 'styled-components';
-
-import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
+import { useScroll } from '../lib/useScroll';
 
 import {
   MainDocument,
@@ -37,8 +39,7 @@ const Contact = dynamic(
   }
 );
 
-import { useScroll } from '../lib/useScroll';
-import Head from 'next/head';
+import Footer from '../components/layout/footer/Footer';
 
 type SnapScrollProps = {
   readonly scrollWithModal: boolean;
@@ -91,6 +92,7 @@ const HomePage: NextPage<MainQuery> = ({
         <Suspense fallback={`Loading...`}>
           <Contact />
         </Suspense>
+        {/* <Footer /> */}
       </SnapScrollWrapper>
     </>
   );

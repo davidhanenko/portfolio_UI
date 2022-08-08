@@ -27,7 +27,7 @@ const NavStyles = styled.nav<INavProps>`
     min-height: 400px;
 
     transform: translateY(-100%);
-    transition: all 600ms;
+    transition: all 0.5s;
     ${props => props.isOpen && `transform: translateY(0%)`};
     transition-timing-function: cubic-bezier(
       0.49,
@@ -59,9 +59,9 @@ const NavStyles = styled.nav<INavProps>`
 `;
 
 const NavLogoStyles = styled(LogoStyles)`
-  color: orange;
-  font-weight: 400;
-  padding-top: 0;
+  padding: 0 0 0 2rem;
+  height: 75px;
+  width: 75px;
 `;
 
 export { NavStyles, NavLogoStyles };

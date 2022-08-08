@@ -32,6 +32,7 @@ const NavLinkStyles = styled.li`
   .active-link {
     border-bottom: 2px solid var(--orange);
     pointer-events: none;
+    padding: 0 1rem;
   }
 `;
 

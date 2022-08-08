@@ -5,6 +5,8 @@ import { Header } from './header/Header';
 const InnerStyles = styled.div`
   width: 100%;
   margin: 0 auto;
+
+  position:relative;
 `;
 interface IPageProps {
   children: React.ReactNode;

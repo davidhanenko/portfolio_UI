@@ -33,20 +33,19 @@ const HeaderStyles = styled.header`
   opacity: 0;
 
   animation: ${(props: HeaderProps) =>
-    props.nameAnimationEnd && animate};
+    props.nameAnimationEnd &&
+    !props.displayHeader &&
+    animate};
   animation-duration: 0.5s;
   animation-delay: 0.4s;
   animation-fill-mode: forwards;
 
   /*  display header without animation on every page beside main  */
-  ${props =>
-    props.displayHeader &&
-    !props.nameAnimationEnd &&
-    `opacity: 1`};
+  ${props => props.displayHeader && `opacity: 1;`}
 
   @media (max-width: 768px) {
     background: var(--dark);
-  }
+  } ;
 `;
 
 export { HeaderStyles };

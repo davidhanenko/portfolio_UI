@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { MediaStyles } from '../../media/MediaStyles';
 
 type PropsTypes = {
   readonly inView: boolean;
@@ -41,7 +42,7 @@ const MediaStylesWrapper = styled.aside`
     1.15
   );
 
-  article {
+  ${MediaStyles} {
     display: flex;
     flex-direction: column;
 
@@ -76,7 +77,7 @@ const MediaStylesWrapper = styled.aside`
       1.15
     );
 
-    article {
+    ${MediaStyles} {
       display: flex;
       flex-direction: row;
 
@@ -97,7 +98,7 @@ const MediaStylesWrapper = styled.aside`
   }
 
   @media (max-width: 576px) {
-    article {
+    ${MediaStyles} {
       &::after {
         width: 45%;
       }

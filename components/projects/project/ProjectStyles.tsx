@@ -4,6 +4,20 @@ interface IProjectProps {
   readonly inView: boolean;
 }
 
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  50% {
+    filter: blur(0.1rem);
+  }
+   100% {
+     opacity: 1;
+     transform: translate(0%);
+  }
+`;
+
 const fadeInR = keyframes`
   0% {
     opacity: 0;
@@ -154,6 +168,14 @@ const ProjectStyles = styled.div<IProjectProps>`
     width: 750px;
     max-width: 70vw;
     cursor: pointer;
+
+    transform: translateY(10%);
+    opacity: 0;
+
+    animation: ${(props: IProjectProps) =>
+        props.inView && fadeIn}
+      0.7s;
+    animation-fill-mode: forwards;
   }
 
   &:nth-of-type(2n + 1) {
@@ -177,6 +199,7 @@ const ProjectStyles = styled.div<IProjectProps>`
           props.inView && fadeInR}
         0.6s;
       animation-fill-mode: forwards;
+      animation-delay: 0.4s;
     }
   }
 
@@ -199,6 +222,7 @@ const ProjectStyles = styled.div<IProjectProps>`
       transform: translate(-300%);
       animation: ${props => props.inView && fadeInL} 0.6s;
       animation-fill-mode: forwards;
+      animation-delay: 0.4s;
     }
   }
 `;

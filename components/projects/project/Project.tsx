@@ -30,8 +30,8 @@ const Project = ({ project }: IProjectProps) => {
   const { setScrollWithModal } = useScroll();
 
   const { ref, inView } = useInView({
-    threshold: 0.51,
-    triggerOnce: true,
+    threshold: 0.55,
+    // triggerOnce: true,
   });
 
   const [loadImages, { loading, data }] =

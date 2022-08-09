@@ -31,7 +31,7 @@ const Project = ({ project }: IProjectProps) => {
 
   const { ref, inView } = useInView({
     threshold: 0.55,
-    // triggerOnce: true,
+    triggerOnce: true,
   });
 
   const [loadImages, { loading, data }] =

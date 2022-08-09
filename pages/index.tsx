@@ -92,7 +92,6 @@ const HomePage: NextPage<MainQuery> = ({
         <Suspense fallback={`Loading...`}>
           <Contact />
         </Suspense>
-        {/* <Footer /> */}
       </SnapScrollWrapper>
     </>
   );

@@ -55,6 +55,14 @@ const MediaStylesWrapper = styled.aside`
       right: 0;
       bottom: 0;
     }
+
+    svg {
+      /* margin: 0.75rem 0.75rem; */
+
+      &:hover {
+        transform: translateX(-0.5rem);
+      }
+    }
   }
 
   @media (max-width: 768px) {
@@ -91,8 +99,19 @@ const MediaStylesWrapper = styled.aside`
         bottom: 0;
       }
 
+      a {
+        &::after {
+          right: -3rem;
+          top: -3rem;
+        }
+      }
+
       svg {
         margin: 0.75rem 0.5rem;
+
+        &:hover {
+          transform: translateY(-0.5rem);
+        }
       }
     }
   }

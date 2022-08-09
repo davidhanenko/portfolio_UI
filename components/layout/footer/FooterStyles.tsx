@@ -1,16 +1,11 @@
 import styled from 'styled-components';
 
 const FooterStyles = styled.footer`
-  /* scroll-snap-align: start; */
-
-  /* position: relative; */
-  overflow-y: hidden;
-
   display: flex;
-  justify-content: center;
+  justify-content: end;
 
-  padding: 5rem 0;
-  
+  padding: 0.5rem 2rem 1rem 0;
+
   p {
     color: var(--white);
     font-size: 1.4rem;

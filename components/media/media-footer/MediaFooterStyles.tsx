@@ -45,11 +45,16 @@ const MediaFooterStyles = styled.footer`
     a {
       &::after {
         right: -3rem;
+        top: -3rem;
       }
     }
 
     svg {
       margin: 0.75rem 0.75rem;
+
+      &:hover {
+        transform: translateY(-0.5rem);
+      }
     }
   }
 `;

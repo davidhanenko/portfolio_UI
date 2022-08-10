@@ -28,6 +28,13 @@ const GlobalStyles = createGlobalStyle`
 
   }
 
+   @font-face {
+    font-family: 'Source Code Pro', monospace;
+    src: url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;600;800&display=swap');
+    font-weight: normal;
+    font-style: normal;
+  }
+
   html {
    box-sizing: border-box;
    font-size: 62.5%;
@@ -39,8 +46,9 @@ const GlobalStyles = createGlobalStyle`
     overflow-x: hidden;
     scroll-behavior: smooth;
     background: var(--dark);
-
   }
+
+
 
   a {
     text-decoration: none;

@@ -45,7 +45,7 @@ class MyDocument extends Document {
             content='noindex, nofollow'
           ></meta>
 
-          <link
+          {/* <link
             rel='preconnect'
             href='https://fonts.googleapis.com'
           />
@@ -57,7 +57,7 @@ class MyDocument extends Document {
           <link
             href='https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;600;800&display=swap'
             rel='stylesheet'
-          />
+          /> */}
         </Head>
         <body>
           <Main />

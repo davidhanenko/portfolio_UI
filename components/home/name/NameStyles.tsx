@@ -49,7 +49,7 @@ const lastR = keyframes`
 // last name overlay animation
 const lastRRest = keyframes`
     0% {
-      transform: translateX(25%);
+      transform: translateX(26%);
       height: 100%;
     }
     99% {
@@ -182,7 +182,7 @@ const NameContainer = styled.div<INameProps>`
     background: var(--dark);
     z-index: 2;
     left: 0;
-    transform: translateX(25%);
+    transform: translateX(26%);
     transform-style: preserve-3d;
 
     animation: ${lastRRest} 3s;

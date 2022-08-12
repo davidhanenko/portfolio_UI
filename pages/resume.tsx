@@ -1,6 +1,7 @@
-import { NextPage } from "next";
-import Head from "next/head";
-import Resume from "../components/resume/Resume";
+import { NextPage } from 'next';
+import Head from 'next/head';
+
+import Resume from '../components/resume/Resume';
 
 const ResumePage: NextPage = () => {
   return (
@@ -12,6 +13,5 @@ const ResumePage: NextPage = () => {
     </>
   );
 };
-
 
 export default ResumePage;

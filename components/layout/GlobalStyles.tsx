@@ -29,8 +29,10 @@ const GlobalStyles = createGlobalStyle`
   }
 
    @font-face {
-    font-family: 'Source Code Pro', monospace;
-    src: url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;600;800&display=swap');
+    /* font-family: 'Source Code Pro', monospace; */
+    font-family: 'Montserrat', sans-serif;
+    /* src: url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;600;800&display=swap'); */
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&display=swap');
     font-weight: normal;
     font-style: normal;
   }
@@ -42,10 +44,12 @@ const GlobalStyles = createGlobalStyle`
 }
 
   body {
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
     scroll-behavior: smooth;
     background: var(--dark);
+
+        font-stretch: ultra-expanded;
   }
 
 

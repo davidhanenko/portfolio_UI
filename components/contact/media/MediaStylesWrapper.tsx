@@ -42,6 +42,10 @@ const MediaStylesWrapper = styled.aside`
     1.15
   );
 
+  @media (max-width: 576px) {
+    bottom: 8rem;
+  }
+
   ${MediaStyles} {
     display: flex;
     flex-direction: column;
@@ -57,8 +61,6 @@ const MediaStylesWrapper = styled.aside`
     }
 
     svg {
-      /* margin: 0.75rem 0.75rem; */
-
       &:hover {
         transform: translateX(-0.5rem);
       }
@@ -68,7 +70,7 @@ const MediaStylesWrapper = styled.aside`
   @media (max-width: 768px) {
     position: absolute;
     bottom: 4rem;
-    left: 2rem;
+    left: 4rem;
     padding-right: 0;
 
     transform: translateX(-200%);
@@ -117,6 +119,8 @@ const MediaStylesWrapper = styled.aside`
   }
 
   @media (max-width: 576px) {
+
+    bottom: 12rem;
     ${MediaStyles} {
       &::after {
         width: 45%;

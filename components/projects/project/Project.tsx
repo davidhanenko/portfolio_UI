@@ -52,21 +52,24 @@ const Project = ({ project }: IProjectProps) => {
         {project?.attributes?.title}
       </h3>
 
-      <div className='project'>
-        <Image
-          src={
-            project?.attributes?.main_image?.data
-              ?.attributes?.url
-          }
-          alt={project?.attributes?.title}
-          layout='fill'
-          objectFit='contain'
-          onClick={() => {
-            toggleModal();
-            loadImages();
-          }}
-        />
-
+      <div className='project-body'>
+        <section className='project-img'>
+          <Image
+            src={
+              project?.attributes?.main_image?.data
+                ?.attributes?.url
+            }
+            alt={project?.attributes?.title}
+            // layout='fill'
+            width={750}
+            height={500}
+            objectFit='contain'
+            onClick={() => {
+              toggleModal();
+              loadImages();
+            }}
+          />
+        </section>
         <DescriptionStyles inView={inView}>
           <h4 className='project-type'>
             {project?.attributes?.project_type}
@@ -102,6 +105,7 @@ const Project = ({ project }: IProjectProps) => {
           </a>
         </LinksStyles>
       </div>
+      
       <Modal
         showModal={showModal}
         setShowModal={setShowModal}

@@ -49,13 +49,14 @@ const fadeInL = keyframes`
 const DescriptionStyles = styled.section<IProjectProps>`
   position: absolute;
 
-  width: 60%;
-  height: 60%;
+  width: 70%;
 
   background: var(--lightGray);
 
   padding: 2rem;
   opacity: 0;
+
+  letter-spacing: 0.07rem;
 
   cursor: default;
 
@@ -64,7 +65,7 @@ const DescriptionStyles = styled.section<IProjectProps>`
     justify-content: end;
     padding-bottom: 1rem;
     font-size: 1.7rem;
-    font-weight: 600;
+    font-weight: 400;
     text-transform: uppercase;
   }
 
@@ -72,6 +73,7 @@ const DescriptionStyles = styled.section<IProjectProps>`
     font-size: 1.5rem;
     text-indent: 2rem;
     line-height: 1.3;
+    font-weight: 300;
 
     @media (max-width: 992px) {
       font-size: 1.2rem;
@@ -85,16 +87,15 @@ const DescriptionStyles = styled.section<IProjectProps>`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 
-    position: absolute;
-    bottom: 0;
+    background: var(--lightGray);
   }
 
   li {
     list-style-type: '▶';
     padding-inline-start: 0.4rem;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     text-transform: capitalize;
-    font-weight: 600;
+    font-weight: 400;
     user-select: none;
     cursor: default;
 
@@ -108,7 +109,7 @@ const DescriptionStyles = styled.section<IProjectProps>`
   }
 `;
 
-const LinksStyles = styled.div`
+const LinksStyles = styled.section`
   position: absolute;
   bottom: 0;
   a {
@@ -131,7 +132,7 @@ const LinksStyles = styled.div`
       width: 12rem;
 
       display: none;
-      transition: all 0.2s;
+      transition: all 0.25s;
     }
 
     &:hover svg {
@@ -150,14 +151,18 @@ const LinksStyles = styled.div`
   }
 `;
 
-const ProjectStyles = styled.div<IProjectProps>`
+const ProjectStyles = styled.article<IProjectProps>`
   position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 25rem;
+  margin-bottom: 35rem;
 
   user-select: none;
+
+  @media (max-width: 568px) {
+    margin-bottom: 40rem;
+  }
 
   .project-title {
     position: absolute;
@@ -165,13 +170,18 @@ const ProjectStyles = styled.div<IProjectProps>`
 
     color: var(--orange);
     font-size: 2.8rem;
+
+    transform: translateY(10%);
+    opacity: 0;
+
+    animation: ${(props: IProjectProps) =>
+        props.inView && fadeIn}
+      0.4s;
+    animation-fill-mode: forwards;
   }
 
-  .project {
+  .project-body {
     position: relative;
-    object-fit: contain;
-    height: 500px;
-    width: 750px;
     max-width: 70vw;
     cursor: pointer;
 
@@ -184,6 +194,7 @@ const ProjectStyles = styled.div<IProjectProps>`
     animation-fill-mode: forwards;
   }
 
+  /* LEFT */
   &:nth-of-type(2n + 1) {
     &::before {
       content: '';
@@ -207,10 +218,17 @@ const ProjectStyles = styled.div<IProjectProps>`
       background-color: var(--white);
     }
 
-    .project {
+    @media (max-width: 576px) {
+      &::before,
+      &::after {
+        content: none;
+      }
+    }
+
+    .project-body {
       margin-left: -20rem;
-      
-      @media (max-width: 568px) {
+
+      @media (max-width: 576px) {
         margin-left: 0;
         max-width: 95vw;
       }
@@ -218,10 +236,27 @@ const ProjectStyles = styled.div<IProjectProps>`
 
     .project-title {
       right: 20%;
+
+      @media (max-width: 568px) {
+        right: auto;
+        top: -5rem;
+      }
     }
 
     ${LinksStyles} {
       right: -25%;
+
+      @media (max-width: 768px) {
+        right: auto;
+        left: 10%;
+        bottom: -5%;
+      }
+
+      @media (max-width: 576px) {
+        right: auto;
+        left: 0;
+        top: 3%;
+      }
     }
 
     ${DescriptionStyles} {
@@ -234,16 +269,19 @@ const ProjectStyles = styled.div<IProjectProps>`
       animation-fill-mode: forwards;
       animation-delay: 0.4s;
 
-      @media (max-width: 568px) {
-        position: static;
+      @media (max-width: 768px) {
+        width: 80%;
+      }
 
-        width: 100%;
-        top: 80%;
+      @media (max-width: 576px) {
+        top: 100%;
         right: 0;
+        width: 100%;
       }
     }
   }
 
+  /* RIGHT */
   &:nth-of-type(2n) {
     &::before {
       content: '';
@@ -267,16 +305,44 @@ const ProjectStyles = styled.div<IProjectProps>`
       background-color: var(--white);
     }
 
-    .project {
+    @media (max-width: 576px) {
+      &::before,
+      &::after {
+        content: none;
+      }
+    }
+
+    .project-body {
       margin-left: 20rem;
+
+      @media (max-width: 576px) {
+        margin-left: 0;
+        max-width: 95vw;
+      }
     }
 
     .project-title {
       left: 20%;
+      @media (max-width: 568px) {
+        left: auto;
+        top: -5rem;
+      }
     }
 
     ${LinksStyles} {
       left: -25%;
+
+      @media (max-width: 768px) {
+        left: auto;
+        right: 10%;
+        bottom: -5%;
+      }
+
+      @media (max-width: 576px) {
+        left: auto;
+        right: 0;
+        top: 3%;
+      }
     }
 
     ${DescriptionStyles} {
@@ -286,6 +352,16 @@ const ProjectStyles = styled.div<IProjectProps>`
       animation: ${props => props.inView && fadeInL} 0.6s;
       animation-fill-mode: forwards;
       animation-delay: 0.4s;
+
+      @media (max-width: 768px) {
+        width: 80%;
+      }
+
+      @media (max-width: 576px) {
+        top: 100%;
+        left: 0;
+        width: 100%;
+      }
     }
   }
 `;

@@ -23,6 +23,7 @@ const Slider: React.FC<ISlidesProps> = ({
   slideRef,
 }) => {
   const [current, setCurrent] = useState(0);
+  const [touchPosition, setTouchPosition] = useState(null);
 
   const length = slides.length;
 
@@ -35,6 +36,33 @@ const Slider: React.FC<ISlidesProps> = ({
   const prevSlide = useCallback(() => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   }, [current, length]);
+
+  // change slide on touch/swipe
+  const handleTouchStart = e => {
+    const touchDown = e.touches[0].clientX;
+    setTouchPosition(touchDown);
+  };
+
+  const handleTouchMove = e => {
+    const touchDown = touchPosition;
+
+    if (touchDown === null) {
+      return;
+    }
+
+    const currentTouch = e.touches[0].clientX;
+    const diff = touchDown - currentTouch;
+
+    if (diff > 10) {
+      nextSlide();
+    }
+
+    if (diff < -10) {
+      prevSlide();
+    }
+
+    setTouchPosition(null);
+  };
 
   // change slide on arrow btn click
   const keyPress = useCallback(
@@ -60,7 +88,11 @@ const Slider: React.FC<ISlidesProps> = ({
   }
 
   return (
-    <SliderContainer ref={slideRef}>
+    <SliderContainer
+      ref={slideRef}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+    >
       <FaChevronLeft
         className='left-arrow'
         onClick={prevSlide}

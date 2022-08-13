@@ -1,6 +1,13 @@
-import { NextPage } from "next";
-import Head from "next/head";
-import Contact from "../components/contact/Contact";
+import { NextPage } from 'next';
+import Head from 'next/head';
+import styled from 'styled-components';
+import Contact from '../components/contact/Contact';
+
+const ContactsWrapperStyles = styled.div`
+  @media (max-width: 768px) {
+    padding-top: calc(var(--headerHeight) + 5rem);
+  }
+`;
 
 const ContactsPage: NextPage = () => {
   return (
@@ -8,9 +15,11 @@ const ContactsPage: NextPage = () => {
       <Head>
         <title>David Hanenko | Contacts</title>
       </Head>
-      <Contact/>
+      <ContactsWrapperStyles>
+        <Contact />
+      </ContactsWrapperStyles>
     </>
-  )
-}
+  );
+};
 
 export default ContactsPage;

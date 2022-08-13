@@ -39,6 +39,16 @@ const SliderContainer = styled.section`
     left: -15%;
   }
 
+  @media (max-width: 576px) {
+    .right-arrow {
+      right: -20%;
+    }
+
+    .left-arrow {
+      left: -20%;
+    }
+  }
+
   .slide {
     opacity: 0;
     transition-duration: 1s ease;

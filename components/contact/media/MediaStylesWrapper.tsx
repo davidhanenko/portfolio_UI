@@ -119,11 +119,10 @@ const MediaStylesWrapper = styled.aside`
   }
 
   @media (max-width: 576px) {
-
     bottom: 12rem;
     ${MediaStyles} {
       &::after {
-        width: 45%;
+        width: 55%;
       }
     }
   }

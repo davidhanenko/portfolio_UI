@@ -70,6 +70,10 @@ const CloseModalButton = styled(MdClose)`
   color: var(--white);
   transition: opacity 0.2s;
 
+  @media (max-width: 576px) {
+    right: -20%;
+  }
+
   &:hover {
     opacity: 0.7;
   }

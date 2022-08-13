@@ -21,7 +21,7 @@ const fadeIn = keyframes`
 const fadeInR = keyframes`
   0% {
     opacity: 0;
-    transform: translate(300%);
+    transform: translate(20%);
   }
    50% {
     filter: blur(0.1rem);
@@ -35,7 +35,7 @@ const fadeInR = keyframes`
 const fadeInL = keyframes`
   0% {
     opacity: 0;
-    transform: translate(-300%);
+    transform: translate(-20%);
   }
    50% {
     filter: blur(0.1rem);
@@ -51,7 +51,7 @@ const DescriptionStyles = styled.section<IProjectProps>`
 
   width: 70%;
 
-  background: var(--lightGray);
+  background: var(--white);
 
   padding: 2rem;
   opacity: 0;
@@ -87,12 +87,13 @@ const DescriptionStyles = styled.section<IProjectProps>`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 
-    background: var(--lightGray);
+    background: var(--white);
   }
 
   li {
-    list-style-type: '▶';
+    list-style-type: '🛠️';
     padding-inline-start: 0.4rem;
+    padding: 0.3rem;
     font-size: 1.5rem;
     text-transform: capitalize;
     font-weight: 400;
@@ -111,7 +112,7 @@ const DescriptionStyles = styled.section<IProjectProps>`
 
 const LinksStyles = styled.section`
   position: absolute;
-  bottom: 0;
+  bottom: -3rem;
   a {
     font-size: 2rem;
     color: var(--white);
@@ -176,7 +177,7 @@ const ProjectStyles = styled.article<IProjectProps>`
 
     animation: ${(props: IProjectProps) =>
         props.inView && fadeIn}
-      0.4s;
+      0.5s;
     animation-fill-mode: forwards;
   }
 
@@ -190,11 +191,12 @@ const ProjectStyles = styled.article<IProjectProps>`
 
     animation: ${(props: IProjectProps) =>
         props.inView && fadeIn}
-      0.7s;
+      0.6s;
     animation-fill-mode: forwards;
+    animation-delay: 0.3s;
   }
 
-  /* LEFT */
+
   &:nth-of-type(2n + 1) {
     &::before {
       content: '';
@@ -262,12 +264,12 @@ const ProjectStyles = styled.article<IProjectProps>`
     ${DescriptionStyles} {
       top: 25%;
       right: -30%;
-      transform: translate(300%);
+      transform: translate(20%);
       animation: ${(props: IProjectProps) =>
           props.inView && fadeInR}
-        0.6s;
+        0.7s;
       animation-fill-mode: forwards;
-      animation-delay: 0.4s;
+      animation-delay: 0.5s;
 
       @media (max-width: 768px) {
         width: 80%;
@@ -281,7 +283,6 @@ const ProjectStyles = styled.article<IProjectProps>`
     }
   }
 
-  /* RIGHT */
   &:nth-of-type(2n) {
     &::before {
       content: '';
@@ -348,10 +349,10 @@ const ProjectStyles = styled.article<IProjectProps>`
     ${DescriptionStyles} {
       top: 25%;
       left: -30%;
-      transform: translate(-300%);
+      transform: translate(-20%);
       animation: ${props => props.inView && fadeInL} 0.6s;
       animation-fill-mode: forwards;
-      animation-delay: 0.4s;
+      animation-delay: 0.5s;
 
       @media (max-width: 768px) {
         width: 80%;

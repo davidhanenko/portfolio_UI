@@ -46,6 +46,9 @@ const Project = ({ project }: IProjectProps) => {
     setScrollWithModal(prev => !prev);
   };
 
+  const imageUrl =
+    project?.attributes?.main_image?.data?.attributes?.url;
+
   return (
     <ProjectStyles ref={ref} inView={inView}>
       <h3 className='project-title'>
@@ -55,10 +58,7 @@ const Project = ({ project }: IProjectProps) => {
       <div className='project-body'>
         <section className='project-img'>
           <Image
-            src={
-              project?.attributes?.main_image?.data
-                ?.attributes?.url
-            }
+            src={imageUrl}
             alt={project?.attributes?.title}
             // layout='fill'
             width={750}
@@ -70,22 +70,23 @@ const Project = ({ project }: IProjectProps) => {
             }}
           />
         </section>
-        <DescriptionStyles inView={inView}>
-          <h4 className='project-type'>
-            {project?.attributes?.project_type}
-          </h4>
-          <p className='project-description'>
-            {project?.attributes?.description}
-          </p>
-          <ul>
-            {project?.attributes?.tech_used?.map(
-              (tech: any) => (
-                <li key={tech.id}>{tech.tech_title}</li>
-              )
-            )}
-          </ul>
-        </DescriptionStyles>
-
+        {imageUrl && (
+          <DescriptionStyles inView={inView}>
+            <h4 className='project-type'>
+              {project?.attributes?.project_type}
+            </h4>
+            <p className='project-description'>
+              {project?.attributes?.description}
+            </p>
+            <ul>
+              {project?.attributes?.tech_used?.map(
+                (tech: any) => (
+                  <li key={tech.id}>{tech.tech_title}</li>
+                )
+              )}
+            </ul>
+          </DescriptionStyles>
+        )}
         <LinksStyles>
           <a
             href={project?.attributes?.link}
@@ -105,7 +106,7 @@ const Project = ({ project }: IProjectProps) => {
           </a>
         </LinksStyles>
       </div>
-      
+
       <Modal
         showModal={showModal}
         setShowModal={setShowModal}

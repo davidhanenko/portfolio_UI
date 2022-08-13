@@ -92,7 +92,13 @@ const MapImg = styled.div<IMapProps>`
         border-radius: 50%;
       }
     }
+
+    @media (max-width: 576px) {
+      left: 72%;
+      top: 47%;
+    }
   }
+
   .pulse {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 50%;
@@ -129,6 +135,11 @@ const MapImg = styled.div<IMapProps>`
         margin: -10px 0 0 -10px;
         box-shadow: 0 0 1px 2px var(--orange);
       }
+    }
+
+    @media (max-width: 576px) {
+      left: 72%;
+      top: 47%;
     }
   }
 `;

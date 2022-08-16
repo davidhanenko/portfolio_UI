@@ -1,12 +1,7 @@
 import { Document, Page, pdfjs } from 'react-pdf';
-// import {
-//   Document,
-//   Page,
-// } from 'react-pdf/dist/entry.webpack';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.js`;
 
-// import 'react-pdf/dist/Page/AnnotationLayer.css';
 
 import { useResumeQuery } from '../../graphql/resume/resume.generated';
 

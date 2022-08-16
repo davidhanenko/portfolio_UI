@@ -51,12 +51,12 @@ const SliderContainer = styled.section`
 
   .slide {
     opacity: 0;
-    transition-duration: 1s ease;
+    transition-duration: 0.4s ease;
   }
 
   .slide.active {
     opacity: 1;
-    transition-duration: 1s;
+    transition-duration: 0.4s;
     transform: scale(1.08);
   }
 `;

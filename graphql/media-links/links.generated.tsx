@@ -6,7 +6,7 @@ const defaultOptions = {} as const;
 export type MediaLinksQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type MediaLinksQuery = { __typename?: 'Query', mediaLink?: { __typename?: 'MediaLinkEntityResponse', data?: { __typename?: 'MediaLinkEntity', attributes?: { __typename?: 'MediaLink', facebook?: string | null, linkedin?: string | null, github?: string | null, resume?: string | null } | null } | null } | null };
+export type MediaLinksQuery = { __typename?: 'Query', mediaLink?: { __typename?: 'MediaLinkEntityResponse', data?: { __typename?: 'MediaLinkEntity', attributes?: { __typename?: 'MediaLink', facebook?: string | null, linkedin: string, github: string, resume: string } | null } | null } | null };
 
 
 export const MediaLinksDocument = gql`

@@ -12,11 +12,15 @@ const appear = (props: IBgElementProps) => keyframes`
       opacity: 0;
       transform: scale(0);
     }
+     15% {
+      opacity: 0;
+      transform: scale(0);
+    }
     50% {
       opacity: 1;
       transform: scale(1);
     }
-    99% {
+    90% {
       opacity: 0;
       transform: scale(0);
     }
@@ -41,11 +45,9 @@ const Element = styled.span.attrs(
   left: -100%;
   position: absolute;
   animation: ${(props: IBgElementProps) =>
-      props.nameAnimationEnd && appear(props)}
-    cubic-bezier(0, 0.62, 0.62, 0.96);
+      props.nameAnimationEnd && appear(props)};
   animation-duration: ${props => props.int};
   animation-iteration-count: infinite;
-  animation-fill-mode: forwards;
 
   .tech-img {
     position: relative;

@@ -357,10 +357,10 @@ export type MediaLink = {
   __typename?: 'MediaLink';
   createdAt?: Maybe<Scalars['DateTime']>;
   facebook?: Maybe<Scalars['String']>;
-  github?: Maybe<Scalars['String']>;
-  linkedin?: Maybe<Scalars['String']>;
+  github: Scalars['String'];
+  linkedin: Scalars['String'];
   publishedAt?: Maybe<Scalars['DateTime']>;
-  resume?: Maybe<Scalars['String']>;
+  resume: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 

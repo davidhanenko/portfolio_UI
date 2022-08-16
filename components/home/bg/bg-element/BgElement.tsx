@@ -1,5 +1,10 @@
 import Image from 'next/image';
-import { RefObject, useEffect, useState } from 'react';
+import {
+  RefObject,
+  SyntheticEvent,
+  useEffect,
+  useState,
+} from 'react';
 
 import { useAnimation } from '../../../../lib/useAnimation';
 
@@ -21,7 +26,7 @@ export const BgElement: React.FC<IBgEl> = ({
 
   const [top, setTop] = useState<number>();
   const [left, setLeft] = useState<number>();
-
+  
   useEffect(() => {
     const interval = setInterval(() => {
       if (bgRef && bgRef.current !== null) {
@@ -30,7 +35,7 @@ export const BgElement: React.FC<IBgEl> = ({
       }
     }, intTime * 1000);
     return () => clearInterval(interval);
-  }, [nameAnimationEnd, bgRef, intTime]);
+  }, [el, bgRef, intTime]);
 
   return (
     <Element
@@ -42,7 +47,7 @@ export const BgElement: React.FC<IBgEl> = ({
       <div className='tech-img'>
         {el && (
           <Image
-            src={el?.url}
+            src={el?.tech_logo?.data?.attributes?.url}
             alt={''}
             layout='fill'
             objectFit='scale-down'

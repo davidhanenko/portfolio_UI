@@ -1,4 +1,4 @@
-import { RefObject, useRef } from 'react';
+import { useRef } from 'react';
 import { BgContainer } from './BgStyles';
 import { BgElement } from './bg-element/BgElement';
 
@@ -16,8 +16,8 @@ export const Bg: React.FC<IBg> = ({ techImages }) => {
           <BgElement
             bgRef={bgRef}
             key={index}
-            intTime={index + 2}
-            el={el?.tech_logo?.data?.attributes}
+            intTime={index+2}
+            el={el}
           />
         );
       })}

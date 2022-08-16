@@ -53,11 +53,11 @@ const Slider: React.FC<ISlidesProps> = ({
     const currentTouch = e.touches[0].clientX;
     const diff = touchDown - currentTouch;
 
-    if (diff > 10) {
+    if (diff > 20) {
       nextSlide();
     }
 
-    if (diff < -10) {
+    if (diff < -20) {
       prevSlide();
     }
 

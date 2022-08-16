@@ -9,7 +9,7 @@ const ResumePage: NextPage = () => {
       <Head>
         <title>David Hanenko | Resume</title>
       </Head>
-      <Resume />;
+      <Resume/>;
     </>
   );
 };

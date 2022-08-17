@@ -23,7 +23,7 @@ const nameY = keyframes`
   `;
 
 // animation for x-small screens
-const nameYXSmall = keyframes`
+const nameY576 = keyframes`
     0% {
       transform: translateY(0%);
     } 
@@ -50,11 +50,26 @@ const lastR = keyframes`
 const lastRRest = keyframes`
     0% {
       transform: translateX(26%);
-      height: 100%;
+      height: 110%;
     }
     99% {
       transform: translate(150%); 
-      height: 100%;  
+      height: 110%;  
+    } 
+    100% {
+      transform: translate(150%); 
+      height: 0; 
+    } 
+  `;
+
+const lastRRest768 = keyframes`
+    0% {
+      transform: translateX(29%);
+      height: 110%;
+    }
+    99% {
+      transform: translate(150%); 
+      height: 110%;  
     } 
     100% {
       transform: translate(150%); 
@@ -126,6 +141,10 @@ const NameContainer = styled.div<INameProps>`
     font-size: 3.7rem;
   }
 
+  @media (max-width: 385px) {
+    font-size: 3rem;
+  }
+
   .name {
     user-select: none;
 
@@ -136,7 +155,7 @@ const NameContainer = styled.div<INameProps>`
     animation-fill-mode: forwards;
 
     @media (max-width: 576px) {
-      animation: ${nameYXSmall} 1s;
+      animation: ${nameY576} 1s;
       animation-delay: ${props =>
         props.nameAnimationDuration};
       animation-timing-function: linear;
@@ -152,6 +171,18 @@ const NameContainer = styled.div<INameProps>`
     animation: ${firstLeft} 3s;
     animation-delay: 1s;
     animation-fill-mode: forwards;
+
+    @media (max-width: 768px) {
+      transform: translate(120%);
+    }
+
+    @media (max-width: 576px) {
+      transform: translate(124%);
+    }
+
+    @media (max-width: 385px) {
+      transform: translate(126%);
+    }
 
     .first-name-rest {
       animation: ${fadeInVisibilityL} 1.5s
@@ -177,18 +208,26 @@ const NameContainer = styled.div<INameProps>`
 
   .last-name-overlay {
     position: absolute;
-    height: 100%;
+    height: 110%;
     width: 100%;
     background: var(--dark);
     z-index: 2;
     left: 0;
     transform: translateX(26%);
-    transform-style: preserve-3d;
 
     animation: ${lastRRest} 3s;
     animation-delay: 1.5s;
     animation-fill-mode: forwards;
     transform-origin: right;
+
+    @media (max-width: 768px) {
+      transform: translate(29%);
+      animation: ${lastRRest768} 3s;
+      animation-delay: 1.5s;
+      animation-fill-mode: forwards;
+      transform-origin: right;
+    }
+
   }
 `;
 export { NameContainer };

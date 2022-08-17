@@ -39,8 +39,6 @@ const Contact = dynamic(
   }
 );
 
-
-
 type SnapScrollProps = {
   readonly scrollWithModal: boolean;
 };
@@ -97,7 +95,7 @@ const HomePage: NextPage<MainQuery> = ({
   );
 };
 
-export const getServerSideProps = async (
+export const getStaticProps = async (
   ctx: GetServerSidePropsContext
 ) => {
   const client = initializeApollo({

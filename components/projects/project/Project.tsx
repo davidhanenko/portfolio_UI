@@ -30,7 +30,7 @@ const Project = ({ project }: IProjectProps) => {
   const { setScrollWithModal } = useScroll();
 
   const { ref, inView } = useInView({
-    threshold: 0.55,
+    threshold: 0.35,
     triggerOnce: true,
   });
 

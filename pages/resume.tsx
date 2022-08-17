@@ -1,5 +1,6 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
+import { useEffect } from 'react';
 
 import Resume from '../components/resume/Resume';
 
@@ -9,7 +10,7 @@ const ResumePage: NextPage = () => {
       <Head>
         <title>David Hanenko | Resume</title>
       </Head>
-      <Resume/>;
+      <Resume />;
     </>
   );
 };

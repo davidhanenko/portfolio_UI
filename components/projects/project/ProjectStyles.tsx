@@ -367,4 +367,10 @@ const ProjectStyles = styled.article<IProjectProps>`
   }
 `;
 
-export { ProjectStyles, LinksStyles, DescriptionStyles };
+
+export {
+  ProjectStyles,
+  LinksStyles,
+  DescriptionStyles,
+ 
+};

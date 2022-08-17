@@ -7,6 +7,7 @@ import {
   ModalBackground,
   ModalWrapper,
   BackgroundOverlay,
+  ImagePlaceholderStyles,
 } from './ModalStyles';
 import { useScroll } from '../../../../lib/useScroll';
 
@@ -16,6 +17,10 @@ interface IModalProps {
   slides: any;
   loading: boolean;
 }
+
+const ImagePlaceholder = () => {
+  return <ImagePlaceholderStyles />;
+};
 
 const Modal = ({
   showModal,
@@ -93,15 +98,11 @@ const Modal = ({
         <ModalBackground ref={modalRef}>
           <ModalWrapper showModal={showModal}>
             <ModalContent>
-              {loading ? (
-                <h4>Loading...</h4>
-              ) : (
-                <Slider
-                  showModal={showModal}
-                  slideRef={slideRef}
-                  slides={slides?.images?.data}
-                />
-              )}
+              <Slider
+                showModal={showModal}
+                slideRef={slideRef}
+                slides={slides?.images?.data}
+              />
             </ModalContent>
             <CloseModalButton
               aria-label='Close modal'

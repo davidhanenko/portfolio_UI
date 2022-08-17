@@ -1,5 +1,6 @@
 import React, {
   RefObject,
+  TouchEventHandler,
   useCallback,
   useEffect,
   useState,
@@ -23,7 +24,9 @@ const Slider: React.FC<ISlidesProps> = ({
   slideRef,
 }) => {
   const [current, setCurrent] = useState(0);
-  const [touchPosition, setTouchPosition] = useState(null);
+  const [touchPosition, setTouchPosition] = useState<
+    number | null
+  >(null);
 
   const length = slides.length;
 
@@ -38,12 +41,12 @@ const Slider: React.FC<ISlidesProps> = ({
   }, [current, length]);
 
   // change slide on touch/swipe
-  const handleTouchStart = e => {
+  const handleTouchStart = (e: TouchEvent) => {
     const touchDown = e.touches[0].clientX;
     setTouchPosition(touchDown);
   };
 
-  const handleTouchMove = e => {
+  const handleTouchMove = (e: TouchEvent) => {
     const touchDown = touchPosition;
 
     if (touchDown === null) {
@@ -53,11 +56,11 @@ const Slider: React.FC<ISlidesProps> = ({
     const currentTouch = e.touches[0].clientX;
     const diff = touchDown - currentTouch;
 
-    if (diff > 20) {
+    if (diff > 10) {
       nextSlide();
     }
 
-    if (diff < -20) {
+    if (diff < -10) {
       prevSlide();
     }
 
@@ -90,8 +93,8 @@ const Slider: React.FC<ISlidesProps> = ({
   return (
     <SliderContainer
       ref={slideRef}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
+      onTouchStart={() => handleTouchStart}
+      onTouchMove={() => handleTouchMove}
     >
       <FaChevronLeft
         className='left-arrow'

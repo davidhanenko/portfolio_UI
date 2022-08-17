@@ -5,13 +5,12 @@ const SliderContainer = styled.section`
   position: relative;
   top: 50%;
 
+
   .image {
     max-width: 800px;
-    height: 600px;
     width: 100%;
     height: 100%;
-    position: relative;
-    /* overflow-y: visible; */
+    position: relative;    
   }
 
   .right-arrow,

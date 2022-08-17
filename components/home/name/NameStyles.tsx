@@ -227,7 +227,6 @@ const NameContainer = styled.div<INameProps>`
       animation-fill-mode: forwards;
       transform-origin: right;
     }
-
   }
 `;
 export { NameContainer };

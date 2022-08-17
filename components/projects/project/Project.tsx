@@ -3,6 +3,10 @@ import { useScroll } from '../../../lib/useScroll';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 
+import {
+  useProjectsImagesLazyQuery,
+  useProjectsImagesQuery,
+} from '../../../graphql/projects/projectImages.generated';
 import { ProjectsQueryVariables } from '../../../graphql/projects/projects.generated';
 
 import {
@@ -16,7 +20,6 @@ import {
   ProjectStyles,
 } from './ProjectStyles';
 import Modal from './modal/Modal';
-import { useProjectsImagesLazyQuery } from '../../../graphql/projects/projectImages.generated';
 
 interface IProjectProps {
   project: ProjectsQueryVariables;
@@ -34,12 +37,18 @@ const Project = ({ project }: IProjectProps) => {
     triggerOnce: true,
   });
 
-  const [loadImages, { loading, data }] =
-    useProjectsImagesLazyQuery({
-      variables: {
-        title: project?.attributes?.title,
-      },
-    });
+  // const [loadImages, { loading, data }] =
+  //   useProjectsImagesLazyQuery({
+  //     variables: {
+  //       title: project?.attributes?.title,
+  //     },
+  //   } );
+
+  const { data, loading } = useProjectsImagesQuery({
+    variables: {
+      title: project?.attributes?.title,
+    },
+  });
 
   const toggleModal = () => {
     setShowModal(prev => !prev);
@@ -66,7 +75,7 @@ const Project = ({ project }: IProjectProps) => {
             objectFit='contain'
             onClick={() => {
               toggleModal();
-              loadImages();
+              // loadImages();
             }}
           />
         </section>

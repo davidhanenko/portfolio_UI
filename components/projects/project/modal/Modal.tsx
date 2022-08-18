@@ -102,6 +102,7 @@ const Modal = ({
                 showModal={showModal}
                 slideRef={slideRef}
                 slides={slides?.images?.data}
+                loading={loading}
               />
             </ModalContent>
             <CloseModalButton

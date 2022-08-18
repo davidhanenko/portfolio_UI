@@ -1,6 +1,5 @@
 import React, {
   RefObject,
-  TouchEventHandler,
   useCallback,
   useEffect,
   useState,
@@ -10,6 +9,8 @@ import {
   FaChevronRight,
   FaChevronLeft,
 } from 'react-icons/fa';
+
+
 import { SliderContainer } from './SliderStyles';
 
 interface ISlidesProps {
@@ -54,13 +55,14 @@ const Slider: React.FC<ISlidesProps> = ({
     }
 
     const currentTouch = e.touches[0].clientX;
+
     const diff = touchDown - currentTouch;
 
-    if (diff > 10) {
+    if (diff > 50) {
       nextSlide();
     }
 
-    if (diff < -10) {
+    if (diff < -50) {
       prevSlide();
     }
 
@@ -93,8 +95,8 @@ const Slider: React.FC<ISlidesProps> = ({
   return (
     <SliderContainer
       ref={slideRef}
-      onTouchStart={() => handleTouchStart}
-      onTouchMove={() => handleTouchMove}
+      onTouchStart={handleTouchStart}
+      onTouchMove={ handleTouchMove}
     >
       <FaChevronLeft
         className='left-arrow'

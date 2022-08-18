@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
-import { useEffect } from 'react';
+
 
 import Resume from '../components/resume/Resume';
 

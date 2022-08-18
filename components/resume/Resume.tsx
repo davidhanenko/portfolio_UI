@@ -2,9 +2,9 @@ import { Document, Page, pdfjs } from 'react-pdf';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.js`;
 
-
 import { useResumeQuery } from '../../graphql/resume/resume.generated';
 
+import DocumentPlaceholder from './DocumentPlaceholder';
 import { ResumeStyles } from './ResumeStyles';
 
 const Resume: React.FC = () => {
@@ -21,6 +21,7 @@ const Resume: React.FC = () => {
           data?.resume?.data?.attributes?.file?.data
             ?.attributes?.url
         }
+        loading={<DocumentPlaceholder />}
         onLoadError={console.error}
       >
         <Page pageNumber={1} />

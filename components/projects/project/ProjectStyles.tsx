@@ -196,7 +196,6 @@ const ProjectStyles = styled.article<IProjectProps>`
     animation-delay: 0.3s;
   }
 
-
   &:nth-of-type(2n + 1) {
     &::before {
       content: '';
@@ -233,6 +232,13 @@ const ProjectStyles = styled.article<IProjectProps>`
       @media (max-width: 576px) {
         margin-left: 0;
         max-width: 95vw;
+      }
+
+      .project-img {
+        transition: all 0.3s;
+        &:hover {
+          transform: translateY(-2%);
+        }
       }
     }
 
@@ -367,10 +373,4 @@ const ProjectStyles = styled.article<IProjectProps>`
   }
 `;
 
-
-export {
-  ProjectStyles,
-  LinksStyles,
-  DescriptionStyles,
- 
-};
+export { ProjectStyles, LinksStyles, DescriptionStyles };

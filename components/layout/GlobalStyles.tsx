@@ -23,6 +23,7 @@ const GlobalStyles = createGlobalStyle`
     --orange: #ff6600;
     
     --white: #f8f1f1;
+    --offWhite: #f5f5f5;
     --textDark: #1e1a1a;
     --bgDarkOpacity: rgba(37, 37, 37, 0.7); 
 

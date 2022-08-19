@@ -8,11 +8,9 @@ interface ModalProps {
 const modal = keyframes`
   0% {
     opacity: 0;
-    transform: scale(0.5);
   }
    100% {
     opacity: 1;
-    transform: scale(1);
   }
 `;
 
@@ -42,10 +40,13 @@ const ModalWrapper = styled.div<ModalProps>`
   color: var(--dark);
   z-index: 10;
   opacity: 0;
-  transform: scale(0.5);
 
   animation: ${props => props.showModal && modal} 0.3s;
   animation-fill-mode: forwards;
+
+  @media (hover: none) and (pointer: coarse) {
+    width: 100%;
+  }
 `;
 
 const ModalContent = styled.div`
@@ -60,18 +61,18 @@ const ModalContent = styled.div`
 const CloseModalButton = styled(MdClose)`
   cursor: pointer;
   position: fixed;
-  top: -3rem;
-  right: -15%;
+  top: 5%;
+  right: 5%;
   width: 3rem;
   height: 3rem;
   padding: 0;
-  z-index: 10;
+  z-index: 11;
 
   color: var(--white);
   transition: opacity 0.2s;
 
-  @media (max-width: 576px) {
-    right: -20%;
+  @media (hover: none) and (pointer: coarse) {
+    right: 3%;
   }
 
   &:hover {

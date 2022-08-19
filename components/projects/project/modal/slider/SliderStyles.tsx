@@ -5,12 +5,11 @@ const SliderContainer = styled.section`
   position: relative;
   top: 50%;
 
-
   .image {
     max-width: 800px;
     width: 100%;
     height: 100%;
-    position: relative;    
+    position: relative;
   }
 
   .right-arrow,
@@ -18,7 +17,7 @@ const SliderContainer = styled.section`
     box-sizing: content-box;
     padding: 0.6rem;
     position: fixed;
-    top: 35%;
+    top: 45%;
     z-index: 10;
     color: var(--white);
     font-size: 3rem;
@@ -31,32 +30,40 @@ const SliderContainer = styled.section`
   }
 
   .right-arrow {
-    right: -15%;
+    right: 5%;
   }
 
   .left-arrow {
-    left: -15%;
+    left: 5%;
   }
 
-  @media (max-width: 576px) {
+  @media (hover: none) and (pointer: coarse) {
     .right-arrow {
-      right: -20%;
+      right: 2%;
+      background: var(--offWhite);
+      color: var(--lightGray);
+      border-radius: 50%;
+      opacity: 0.5;
     }
 
     .left-arrow {
-      left: -20%;
+      left: 2%;
+      background: var(--offWhite);
+      color: var(--lightGray);
+      border-radius: 50%;
+      opacity: 0.5;
     }
   }
 
   .slide {
     opacity: 0;
-    transition-duration: 0.4s ease;
+    transition-duration: 0.3s ease;
   }
 
   .slide.active {
     opacity: 1;
-    transition-duration: 0.4s;
-    /* transform: scale(1.08); */
+    transition-duration: 0.3s;
+    transform: scale(1.08);
   }
 `;
 

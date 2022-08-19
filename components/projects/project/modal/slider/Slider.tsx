@@ -10,13 +10,15 @@ import {
   FaChevronLeft,
 } from 'react-icons/fa';
 
-
 import { SliderContainer } from './SliderStyles';
 
 interface ISlidesProps {
   slides: any;
   slideRef: RefObject<HTMLDivElement>;
   showModal: boolean;
+  setTouchStart: (e: TouchEvent) => void;
+  handleTouchMove: (e: TouchEvent) => void;
+  handleTouchEnd: () => void;
 }
 
 const Slider: React.FC<ISlidesProps> = ({
@@ -25,51 +27,46 @@ const Slider: React.FC<ISlidesProps> = ({
   slideRef,
 }) => {
   const [current, setCurrent] = useState(0);
-  const [touchPosition, setTouchPosition] = useState<
-    number | null
-  >(null);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   const length = slides.length;
 
   // next slide
   const nextSlide = useCallback(() => {
     setCurrent(current === length - 1 ? 0 : current + 1);
+    slideRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+    });
   }, [current, length]);
 
   // prev slide
   const prevSlide = useCallback(() => {
     setCurrent(current === 0 ? length - 1 : current - 1);
+    slideRef.current?.scrollIntoView();
   }, [current, length]);
 
   // change slide on touch/swipe
   const handleTouchStart = (e: TouchEvent) => {
-    const touchDown = e.touches[0].clientX;
-    setTouchPosition(touchDown);
+    setTouchStart(e.targetTouches[0].clientX);
   };
 
   const handleTouchMove = (e: TouchEvent) => {
-    const touchDown = touchPosition;
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
 
-    if (touchDown === null) {
-      return;
-    }
-
-    const currentTouch = e.touches[0].clientX;
-
-    const diff = touchDown - currentTouch;
-
-    if (diff > 50) {
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 100) {
       nextSlide();
     }
 
-    if (diff < -50) {
+    if (touchStart - touchEnd < -100) {
       prevSlide();
     }
-
-    setTouchPosition(null);
   };
 
-  // change slide on arrow btn click
+  // change slide on arrow buttons click
   const keyPress = useCallback(
     (event: KeyboardEvent): void => {
       if (event.key === 'ArrowRight' && showModal) {
@@ -96,7 +93,8 @@ const Slider: React.FC<ISlidesProps> = ({
     <SliderContainer
       ref={slideRef}
       onTouchStart={handleTouchStart}
-      onTouchMove={ handleTouchMove}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
     >
       <FaChevronLeft
         className='left-arrow'

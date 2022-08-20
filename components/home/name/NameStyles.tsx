@@ -146,6 +146,7 @@ const NameContainer = styled.div<INameProps>`
   }
 
   .name {
+    font-family: 'Montserrat', sans-serif;
     user-select: none;
 
     animation: ${nameY} 1s;

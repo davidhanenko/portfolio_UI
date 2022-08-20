@@ -51,11 +51,11 @@ const DescriptionStyles = styled.section<IProjectProps>`
 
   width: 70%;
 
-  background: var(--white);
+  color: var(--white);
+  background: var(--dark2);
 
   padding: 2rem;
   opacity: 0;
-
   letter-spacing: 0.07rem;
 
   cursor: default;
@@ -87,7 +87,7 @@ const DescriptionStyles = styled.section<IProjectProps>`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 
-    background: var(--white);
+    background: var(--dark2);
   }
 
   li {
@@ -99,10 +99,6 @@ const DescriptionStyles = styled.section<IProjectProps>`
     font-weight: 400;
     user-select: none;
     cursor: default;
-
-    &::marker {
-      color: var(--lightOrange);
-    }
 
     @media (max-width: 992px) {
       font-size: 1.2rem;
@@ -152,7 +148,22 @@ const LinksStyles = styled.section`
   }
 `;
 
-const ProjectStyles = styled.article<IProjectProps>`
+const ImageOverlayText = styled.p`
+  position: absolute;
+  top: 60%;
+  left: 2rem;
+  z-index: 2;
+  font-size: 3rem;
+  text-transform: uppercase;
+  /* color: var(--orange); */
+  color: var(--dark);
+  opacity: 0;
+  transform: translateY(6rem);
+
+  transition: all 0.35s;
+`;
+
+const ProjectContainer = styled.article<IProjectProps>`
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -194,6 +205,20 @@ const ProjectStyles = styled.article<IProjectProps>`
       0.6s;
     animation-fill-mode: forwards;
     animation-delay: 0.3s;
+
+    .project-img {
+      transition: all 0.3s;
+      position: relative;
+      &:hover {
+        /* filter: grayscale(65%); */
+        /* filter: blur(2px); */
+        ${ImageOverlayText} {
+          line-height: 1.3;
+          transform: translateY(0rem);
+          opacity: 1;
+        }
+      }
+    }
   }
 
   &:nth-of-type(2n + 1) {
@@ -233,59 +258,52 @@ const ProjectStyles = styled.article<IProjectProps>`
         margin-left: 0;
         max-width: 95vw;
       }
+    }
+  }
 
-      .project-img {
-        transition: all 0.3s;
-        &:hover {
-          transform: translateY(-2%);
-        }
-      }
+  .project-title {
+    right: 20%;
+
+    @media (max-width: 568px) {
+      right: auto;
+      top: -5rem;
+    }
+  }
+
+  ${LinksStyles} {
+    right: -25%;
+
+    @media (max-width: 768px) {
+      right: auto;
+      left: 10%;
+      bottom: -5%;
     }
 
-    .project-title {
-      right: 20%;
+    @media (max-width: 576px) {
+      right: auto;
+      left: 0;
+      top: 3%;
+    }
+  }
 
-      @media (max-width: 568px) {
-        right: auto;
-        top: -5rem;
-      }
+  ${DescriptionStyles} {
+    top: 25%;
+    right: -30%;
+    transform: translate(20%);
+    animation: ${(props: IProjectProps) =>
+        props.inView && fadeInR}
+      0.7s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+
+    @media (max-width: 768px) {
+      width: 80%;
     }
 
-    ${LinksStyles} {
-      right: -25%;
-
-      @media (max-width: 768px) {
-        right: auto;
-        left: 10%;
-        bottom: -5%;
-      }
-
-      @media (max-width: 576px) {
-        right: auto;
-        left: 0;
-        top: 3%;
-      }
-    }
-
-    ${DescriptionStyles} {
-      top: 25%;
-      right: -30%;
-      transform: translate(20%);
-      animation: ${(props: IProjectProps) =>
-          props.inView && fadeInR}
-        0.7s;
-      animation-fill-mode: forwards;
-      animation-delay: 0.5s;
-
-      @media (max-width: 768px) {
-        width: 80%;
-      }
-
-      @media (max-width: 576px) {
-        top: 100%;
-        right: 0;
-        width: 100%;
-      }
+    @media (max-width: 576px) {
+      top: 100%;
+      right: 0;
+      width: 100%;
     }
   }
 
@@ -373,4 +391,9 @@ const ProjectStyles = styled.article<IProjectProps>`
   }
 `;
 
-export { ProjectStyles, LinksStyles, DescriptionStyles };
+export {
+  ProjectContainer,
+  LinksStyles,
+  DescriptionStyles,
+  ImageOverlayText,
+};

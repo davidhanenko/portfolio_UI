@@ -2,6 +2,7 @@ import React, {
   RefObject,
   useCallback,
   useEffect,
+  useRef,
   useState,
 } from 'react';
 
@@ -9,6 +10,7 @@ import {
   FaChevronRight,
   FaChevronLeft,
 } from 'react-icons/fa';
+import { useInView } from 'react-intersection-observer';
 
 import { SliderContainer } from './SliderStyles';
 
@@ -30,21 +32,34 @@ const Slider: React.FC<ISlidesProps> = ({
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
 
+  const slideImgRef = useRef<HTMLDivElement>(null);
+
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
+
   const length = slides.length;
 
   // next slide
   const nextSlide = useCallback(() => {
     setCurrent(current === length - 1 ? 0 : current + 1);
-    slideRef.current?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center',
-    });
+    if (!inView) {
+      slideImgRef.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+    }
   }, [current, length]);
 
   // prev slide
   const prevSlide = useCallback(() => {
     setCurrent(current === 0 ? length - 1 : current - 1);
-    slideRef.current?.scrollIntoView();
+    if (!inView) {
+      slideImgRef.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+    }
   }, [current, length]);
 
   // change slide on touch/swipe
@@ -107,6 +122,7 @@ const Slider: React.FC<ISlidesProps> = ({
       {slides.map((slide, index) => {
         return (
           <div
+            ref={slideImgRef}
             className={
               index === current ? 'slide active' : 'slide'
             }
@@ -115,6 +131,7 @@ const Slider: React.FC<ISlidesProps> = ({
             {index === current && (
               // eslint-disable-next-line @next/next/no-img-element
               <img
+                ref={ref}
                 src={slide?.attributes?.url}
                 alt='image'
                 className='image'

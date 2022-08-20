@@ -17,9 +17,9 @@ export const AboutText: React.FC<IAboutTextProps> = ({
         <p key={p.id}>{p.section}</p>
       ))}
 
-      <Link href='/resume'>
+      {/* <Link href='/resume'>
         <a target='_blank'> Resume</a>
-      </Link>
+      </Link> */}
     </Text>
   );
 };

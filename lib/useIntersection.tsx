@@ -10,13 +10,13 @@ export const useIntersection = ({
   element,
   rootMargin,
 }: IIntersection) => {
-  const [isVisible, setState] = useState(false);
+  const [isVisible, setVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setState(entry.isIntersecting);
+          setVisible(entry.isIntersecting);
           observer.unobserve(element.current as Element );
         }
       },

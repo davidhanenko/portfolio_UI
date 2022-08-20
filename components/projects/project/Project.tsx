@@ -16,8 +16,9 @@ import {
 
 import {
   DescriptionStyles,
+  ImageOverlayText,
   LinksStyles,
-  ProjectStyles,
+  ProjectContainer,
 } from './ProjectStyles';
 import Modal from './modal/Modal';
 
@@ -59,13 +60,14 @@ const Project = ({ project }: IProjectProps) => {
     project?.attributes?.main_image?.data?.attributes?.url;
 
   return (
-    <ProjectStyles ref={ref} inView={inView}>
+    <ProjectContainer ref={ref} inView={inView}>
       <h3 className='project-title'>
         {project?.attributes?.title}
       </h3>
 
       <div className='project-body'>
         <section className='project-img'>
+          <ImageOverlayText>View slides</ImageOverlayText>
           <Image
             src={imageUrl}
             alt={project?.attributes?.title}
@@ -101,7 +103,7 @@ const Project = ({ project }: IProjectProps) => {
             href={project?.attributes?.link}
             target='_blank'
             rel='noreferrer'
-            data-tooltip={`Visit ${project?.attributes?.title}`}
+            data-tooltip={`Visit`}
           >
             <FaExternalLinkAlt />
           </a>
@@ -109,7 +111,7 @@ const Project = ({ project }: IProjectProps) => {
             href={project?.attributes?.link_git}
             target='_blank'
             rel='noreferrer'
-            data-tooltip='Check source code'
+            data-tooltip='Source code'
           >
             <FaGithub />
           </a>
@@ -122,7 +124,7 @@ const Project = ({ project }: IProjectProps) => {
         slides={data?.projects?.data[0].attributes}
         loading={loading}
       />
-    </ProjectStyles>
+    </ProjectContainer>
   );
 };
 

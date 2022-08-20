@@ -70,7 +70,7 @@ const MediaStylesWrapper = styled.aside`
   @media (max-width: 768px) {
     position: absolute;
     bottom: 4rem;
-    left: 4rem;
+    left: 2rem;
     padding-right: 0;
 
     transform: translateX(-200%);
@@ -109,7 +109,7 @@ const MediaStylesWrapper = styled.aside`
       }
 
       svg {
-        margin: 0.75rem 0.5rem;
+        margin: 0.75rem 0.75rem;
 
         &:hover {
           transform: translateY(-0.5rem);

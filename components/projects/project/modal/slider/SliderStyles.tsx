@@ -5,6 +5,10 @@ const SliderContainer = styled.section`
   position: relative;
   top: 50%;
 
+.slide {
+  height: 100%;
+}
+
   .image {
     max-width: 800px;
     width: 100%;
@@ -63,7 +67,7 @@ const SliderContainer = styled.section`
   .slide.active {
     opacity: 1;
     transition-duration: 0.3s;
-    transform: scale(1.08);
+    /* transform: scale(1.08); */
   }
 `;
 

@@ -6,7 +6,7 @@ const defaultOptions = {} as const;
 export type AboutQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type AboutQuery = { __typename?: 'Query', about?: { __typename?: 'AboutEntityResponse', data?: { __typename?: 'AboutEntity', attributes?: { __typename?: 'About', header?: string | null, img?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null, text_section?: Array<{ __typename?: 'ComponentTextText', section?: string | null, id: string } | null> | null, tech?: Array<{ __typename?: 'ComponentTechTech', id: string, tech_title?: string | null } | null> | null } | null } | null } | null };
+export type AboutQuery = { __typename?: 'Query', about?: { __typename?: 'AboutEntityResponse', data?: { __typename?: 'AboutEntity', attributes?: { __typename?: 'About', header?: string | null, img?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null, text_section?: Array<{ __typename?: 'ComponentTextText', section?: string | null, id: string } | null> | null, tech?: Array<{ __typename?: 'ComponentTechTech', id: string, tech_title?: string | null } | null> | null, tech_learning?: Array<{ __typename?: 'ComponentTechTech', id: string, tech_title?: string | null } | null> | null } | null } | null } | null };
 
 
 export const AboutDocument = gql`
@@ -29,6 +29,12 @@ export const AboutDocument = gql`
           }
         }
         tech {
+          ... on ComponentTechTech {
+            id
+            tech_title
+          }
+        }
+        tech_learning {
           ... on ComponentTechTech {
             id
             tech_title

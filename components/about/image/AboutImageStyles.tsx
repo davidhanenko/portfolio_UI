@@ -1,18 +1,16 @@
 import styled from 'styled-components';
 
 const AboutImg = styled.section`
-  display: flex;
-  justify-content: center;
-
-
-  margin: 0 auto;
-
   position: relative;
   display: block;
-  overflow: hidden;
 
   @media (max-width: 768px) {
-    padding: 4rem 1rem;
+    padding: 7rem 1rem;
+  }
+
+  @media (max-width: 576px) {
+    display: flex;
+    justify-content: center;
   }
 `;
 

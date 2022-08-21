@@ -1,4 +1,4 @@
-import Link from 'next/link';
+
 import { Text } from './AboutTextStyles';
 
 interface IAboutTextProps {
@@ -17,10 +17,6 @@ export const AboutText: React.FC<IAboutTextProps> = ({
       {paragraphs.map(p => (
         <p key={p.id}>{p.section}</p>
       ))}
-
-      {/* <Link href='/resume'>
-        <a target='_blank'> Resume</a>
-      </Link> */}
     </Text>
   );
 };

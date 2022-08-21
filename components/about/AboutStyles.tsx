@@ -27,6 +27,10 @@ const AboutWrapper = styled.div`
 
   padding-top: calc(var(--headerHeight) + 10rem);
 
+  .img-cv {
+    position: relative;
+  }
+
   @media (max-width: 992px) {
     width: 90vw;
   }

@@ -24,12 +24,20 @@ export type About = {
   img?: Maybe<UploadFileEntityResponse>;
   publishedAt?: Maybe<Scalars['DateTime']>;
   tech?: Maybe<Array<Maybe<ComponentTechTech>>>;
+  tech_learning?: Maybe<Array<Maybe<ComponentTechTech>>>;
   text_section?: Maybe<Array<Maybe<ComponentTextText>>>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
 
 export type AboutTechArgs = {
+  filters?: InputMaybe<ComponentTechTechFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type AboutTech_LearningArgs = {
   filters?: InputMaybe<ComponentTechTechFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
@@ -58,6 +66,7 @@ export type AboutInput = {
   img?: InputMaybe<Scalars['ID']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   tech?: InputMaybe<Array<InputMaybe<ComponentTechTechInput>>>;
+  tech_learning?: InputMaybe<Array<InputMaybe<ComponentTechTechInput>>>;
   text_section?: InputMaybe<Array<InputMaybe<ComponentTextTextInput>>>;
 };
 

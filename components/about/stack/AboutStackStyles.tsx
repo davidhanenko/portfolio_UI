@@ -5,19 +5,34 @@ const Stack = styled.section`
   color: var(--white);
 
   h3 {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    letter-spacing: 0.07rem;
     font-weight: 400;
-    padding-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
   }
 
-  p {
+  .tech-title,
+  .tech-l-title {
+    display: inline-block;
     font-size: 1.5rem;
     font-weight: 200;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.11rem;
+
+    &::after {
+      content: '|';
+      padding: 0 0.5rem;
+      color: var(--lightOrange);
+    }
+
+    &:last-of-type {
+      &::after {
+        content: '';
+      }
+    }
   }
 
   hr {
-    margin: 2rem 0;
+    margin: 3rem 0;
   }
 `;
 

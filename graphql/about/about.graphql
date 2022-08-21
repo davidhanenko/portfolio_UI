@@ -16,43 +16,10 @@ query About {
             id
           }
         }
-        stack_tier_1 {
+        tech {
           ... on ComponentTechTech {
             id
             tech_title
-            tech_logo {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
-          }
-        }
-        stack_tier_2 {
-          ... on ComponentTechTech {
-            id
-            tech_title
-            tech_logo {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
-          }
-        }
-        stack_tier_3 {
-          ... on ComponentTechTech {
-            id
-            tech_title
-            tech_logo {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
           }
         }
       }

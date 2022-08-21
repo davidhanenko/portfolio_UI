@@ -9,31 +9,38 @@ const AboutContainer = styled.main<IAboutProps>`
   min-height: 100vh;
 
   background: var(--dark2);
-
-  padding-left: 10rem;
-  padding-right: 10rem;
-
   padding-bottom: 20rem;
 
   @media (max-width: 768px) {
-    padding-left: 1rem;
+    /* padding-left: 1rem; */
     padding-right: 1rem;
   }
 `;
 
 const AboutWrapper = styled.div`
   max-width: var(--maxWidth);
+  width: 70vw;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 3fr 2fr;
-  grid-gap: 3rem;
+  grid-gap: 5rem;
 
   padding-top: calc(var(--headerHeight) + 10rem);
 
+  @media (max-width: 992px) {
+    width: 90vw;
+  }
+
   @media (max-width: 768px) {
+    width: 100vw;
     display: block;
-    font-size: 0.8rem;
-    padding-top: var(--headerHeight);
+    font-size: 1rem;
+    padding: calc(var(--headerHeight) + 10rem) 5rem 0 5rem;
+  }
+
+  @media (max-width: 576px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 `;
 

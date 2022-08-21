@@ -1,5 +1,8 @@
 import { useAboutQuery } from '../../graphql/about/about.generated';
-import { AboutContainer, AboutWrapper } from './AboutStyles';
+import {
+  AboutContainer,
+  AboutWrapper,
+} from './AboutStyles';
 import { AboutImage } from './image/AboutImage';
 import { AboutStack } from './stack/AboutStack';
 import { AboutText } from './text/AboutText';
@@ -13,30 +16,20 @@ const About: React.FC = () => {
   const header = data?.about?.data?.attributes?.header;
   const paragraphs =
     data?.about?.data?.attributes?.text_section;
-  const stack1 =
-    data?.about?.data?.attributes?.stack_tier_1;
-  const stack2 =
-    data?.about?.data?.attributes?.stack_tier_2;
-  const stack3 =
-    data?.about?.data?.attributes?.stack_tier_3;
-
+  
   if (loading) return <h4>Loading...</h4>;
 
   return (
     <AboutContainer>
       <AboutWrapper>
-        <AboutText
-          header={header!}
-          paragraphs={paragraphs!}
-        />
         <article className='img-stack'>
-          <AboutImage imgUrl={imgUrl!} />
-          <AboutStack
-            stack1={stack1!}
-            stack2={stack2!}
-            stack3={stack3!}
+          <AboutText
+            header={header!}
+            paragraphs={paragraphs!}
           />
+          <AboutStack />
         </article>
+        <AboutImage imgUrl={imgUrl!} />
       </AboutWrapper>
     </AboutContainer>
   );

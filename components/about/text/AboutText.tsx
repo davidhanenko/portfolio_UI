@@ -9,7 +9,8 @@ interface IAboutTextProps {
 export const AboutText: React.FC<IAboutTextProps> = ({
   header,
   paragraphs,
-}) => {
+} ) => {
+  
   return (
     <Text>
       <h2>{header}</h2>

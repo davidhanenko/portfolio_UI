@@ -30,11 +30,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
    @font-face {
-    /* font-family: 'Source Code Pro', monospace; */
-    /* font-family: 'Roboto Mono', monospace; */
     font-family: 'Montserrat', sans-serif;
-    /* src: url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;600;800&display=swap'); */
-    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto+Mono:wght@100;200;300;400;600;700&display=swap');
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Nunito:wght@200;300;400;600;700&display=swap');
     font-weight: normal;
     font-style: normal;
   }
@@ -46,16 +43,13 @@ const GlobalStyles = createGlobalStyle`
 }
 
   body {
-    /* font-family: 'Roboto Mono', monospace; */
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
     overflow-x: hidden;
     scroll-behavior: smooth;
     background: var(--dark);
 
         font-stretch: ultra-expanded;
   }
-
-
 
   a {
     text-decoration: none;

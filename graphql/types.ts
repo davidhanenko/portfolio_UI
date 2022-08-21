@@ -10,11 +10,6 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  AboutStackOngoingDynamicZoneInput: any;
-  AboutStackTier1DynamicZoneInput: any;
-  AboutStackTier2DynamicZoneInput: any;
-  AboutStackTier3DynamicZoneInput: any;
-  AboutTextSectionDynamicZoneInput: any;
   DateTime: any;
   JSON: any;
   MainTechDynamicZoneInput: any;
@@ -28,12 +23,23 @@ export type About = {
   header?: Maybe<Scalars['String']>;
   img?: Maybe<UploadFileEntityResponse>;
   publishedAt?: Maybe<Scalars['DateTime']>;
-  stack_ongoing?: Maybe<Array<Maybe<AboutStackOngoingDynamicZone>>>;
-  stack_tier_1?: Maybe<Array<Maybe<AboutStackTier1DynamicZone>>>;
-  stack_tier_2?: Maybe<Array<Maybe<AboutStackTier2DynamicZone>>>;
-  stack_tier_3?: Maybe<Array<Maybe<AboutStackTier3DynamicZone>>>;
-  text_section?: Maybe<Array<Maybe<AboutTextSectionDynamicZone>>>;
+  tech?: Maybe<Array<Maybe<ComponentTechTech>>>;
+  text_section?: Maybe<Array<Maybe<ComponentTextText>>>;
   updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+
+export type AboutTechArgs = {
+  filters?: InputMaybe<ComponentTechTechFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type AboutText_SectionArgs = {
+  filters?: InputMaybe<ComponentTextTextFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 export type AboutEntity = {
@@ -51,22 +57,9 @@ export type AboutInput = {
   header?: InputMaybe<Scalars['String']>;
   img?: InputMaybe<Scalars['ID']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
-  stack_ongoing?: InputMaybe<Array<Scalars['AboutStackOngoingDynamicZoneInput']>>;
-  stack_tier_1?: InputMaybe<Array<Scalars['AboutStackTier1DynamicZoneInput']>>;
-  stack_tier_2?: InputMaybe<Array<Scalars['AboutStackTier2DynamicZoneInput']>>;
-  stack_tier_3?: InputMaybe<Array<Scalars['AboutStackTier3DynamicZoneInput']>>;
-  text_section?: InputMaybe<Array<Scalars['AboutTextSectionDynamicZoneInput']>>;
+  tech?: InputMaybe<Array<InputMaybe<ComponentTechTechInput>>>;
+  text_section?: InputMaybe<Array<InputMaybe<ComponentTextTextInput>>>;
 };
-
-export type AboutStackOngoingDynamicZone = ComponentTechTech | Error;
-
-export type AboutStackTier1DynamicZone = ComponentTechTech | Error;
-
-export type AboutStackTier2DynamicZone = ComponentTechTech | Error;
-
-export type AboutStackTier3DynamicZone = ComponentTechTech | Error;
-
-export type AboutTextSectionDynamicZone = ComponentTextText | Error;
 
 export type BooleanFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
@@ -98,10 +91,35 @@ export type ComponentTechTech = {
   tech_title?: Maybe<Scalars['String']>;
 };
 
+export type ComponentTechTechFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentTechTechFiltersInput>>>;
+  not?: InputMaybe<ComponentTechTechFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentTechTechFiltersInput>>>;
+  tech_title?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentTechTechInput = {
+  id?: InputMaybe<Scalars['ID']>;
+  tech_logo?: InputMaybe<Scalars['ID']>;
+  tech_title?: InputMaybe<Scalars['String']>;
+};
+
 export type ComponentTextText = {
   __typename?: 'ComponentTextText';
   id: Scalars['ID'];
   section?: Maybe<Scalars['String']>;
+};
+
+export type ComponentTextTextFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentTextTextFiltersInput>>>;
+  not?: InputMaybe<ComponentTextTextFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentTextTextFiltersInput>>>;
+  section?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentTextTextInput = {
+  id?: InputMaybe<Scalars['ID']>;
+  section?: InputMaybe<Scalars['String']>;
 };
 
 export type Contact = {

@@ -1,27 +1,28 @@
 import styled from 'styled-components';
 
 const Text = styled.article`
-  padding: 0 3rem;
   color: var(--white);
 
   position: relative;
 
-  @media (max-width: 768px) {
-    padding-bottom: 6rem;
-  }
-
-  @media (max-width: 576px) {
-    font-size: 0.8rem;
-    padding-bottom: 5rem;
-  }
   h2 {
-    font-size: 3em;
+    font-size: 5em;
     color: var(--white);
     padding-bottom: 2rem;
   }
   p {
     font-size: 1.8em;
     padding: 1rem 0;
+    font-weight: 200; 
+  }
+
+  @media (max-width: 768px) {
+    padding-bottom: 6rem;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 0.9rem;
+    padding-bottom: 5rem;
   }
 
   /* resume button */

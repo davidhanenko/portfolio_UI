@@ -63,10 +63,21 @@ const DescriptionStyles = styled.section<IProjectProps>`
   .project-type {
     display: flex;
     justify-content: end;
-    padding-bottom: 1rem;
+    margin-bottom: 3rem;
     font-size: 1.7rem;
     font-weight: 400;
     text-transform: uppercase;
+
+    position: relative;
+
+    &::after {
+      position: absolute;
+      bottom: -1rem;
+      content: '';
+      width: 55%;
+      height: 1px;
+      background-color: var(--orange);
+    }
   }
 
   .project-description {
@@ -91,18 +102,14 @@ const DescriptionStyles = styled.section<IProjectProps>`
   }
 
   li {
-    list-style-type: '🛠️';
-    padding-inline-start: 0.4rem;
-    padding: 0.3rem;
-    font-size: 1.5rem;
-    text-transform: capitalize;
+    list-style: none;
+    font-size: 1.1rem;
     font-weight: 400;
     user-select: none;
     cursor: default;
 
-    @media (max-width: 992px) {
-      font-size: 1.2rem;
-    }
+    display: flex;
+    align-items: center;
   }
 `;
 
@@ -151,9 +158,9 @@ const LinksStyles = styled.section`
 const ImageOverlayText = styled.p`
   position: absolute;
   top: 60%;
-  left: 2rem;
   z-index: 2;
-  font-size: 3rem;
+  font-size: 3.5rem;
+  font-weight: 700;
   text-transform: uppercase;
   color: var(--dark);
   opacity: 0;
@@ -209,8 +216,6 @@ const ProjectContainer = styled.article<IProjectProps>`
       transition: all 0.3s;
       position: relative;
       &:hover {
-        /* filter: grayscale(65%); */
-        /* filter: blur(2px); */
         ${ImageOverlayText} {
           line-height: 1.3;
           transform: translateY(0rem);
@@ -221,7 +226,7 @@ const ProjectContainer = styled.article<IProjectProps>`
   }
 
   &:nth-of-type(2n + 1) {
-    &::before {
+    /* &::before {
       content: '';
 
       position: absolute;
@@ -241,7 +246,7 @@ const ProjectContainer = styled.article<IProjectProps>`
       height: 1px;
       width: 40%;
       background-color: var(--white);
-    }
+    } */
 
     @media (max-width: 576px) {
       &::before,
@@ -256,6 +261,10 @@ const ProjectContainer = styled.article<IProjectProps>`
       @media (max-width: 576px) {
         margin-left: 0;
         max-width: 95vw;
+      }
+
+      ${ImageOverlayText} {
+        left: 3rem;
       }
     }
   }
@@ -295,6 +304,14 @@ const ProjectContainer = styled.article<IProjectProps>`
     animation-fill-mode: forwards;
     animation-delay: 0.5s;
 
+    .hr-project-description {
+      height: 1px;
+      background-color: var(--orange);
+      margin: 2rem 0;
+      width: 55%;
+      border: none;
+    }
+
     @media (max-width: 768px) {
       width: 80%;
     }
@@ -307,7 +324,7 @@ const ProjectContainer = styled.article<IProjectProps>`
   }
 
   &:nth-of-type(2n) {
-    &::before {
+    /* &::before {
       content: '';
 
       position: absolute;
@@ -327,7 +344,7 @@ const ProjectContainer = styled.article<IProjectProps>`
       height: 1px;
       width: 40%;
       background-color: var(--white);
-    }
+    } */
 
     @media (max-width: 576px) {
       &::before,
@@ -342,6 +359,10 @@ const ProjectContainer = styled.article<IProjectProps>`
       @media (max-width: 576px) {
         margin-left: 0;
         max-width: 95vw;
+      }
+
+      ${ImageOverlayText} {
+        right: 3rem;
       }
     }
 

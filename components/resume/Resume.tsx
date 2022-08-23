@@ -1,14 +1,21 @@
+import Link from 'next/link';
 import { Document, Page, pdfjs } from 'react-pdf';
+
+import { FaFileDownload } from 'react-icons/fa';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.js`;
 
 import { useResumeQuery } from '../../graphql/resume/resume.generated';
 
 import DocumentPlaceholder from './DocumentPlaceholder';
-import { ResumeStyles } from './ResumeStyles';
+import { DownloadBtn, ResumeStyles } from './ResumeStyles';
 
 const Resume: React.FC = () => {
   const { data, loading, error } = useResumeQuery();
+
+  const fileUrl =
+    data?.resume?.data?.attributes?.file?.data?.attributes
+      ?.url;
 
   if (loading) return <h4>Loading...</h4>;
   if (error) return <p>error.message</p>;
@@ -17,10 +24,7 @@ const Resume: React.FC = () => {
     <ResumeStyles>
       <Document
         className='resume-pdf'
-        file={
-          data?.resume?.data?.attributes?.file?.data
-            ?.attributes?.url
-        }
+        file={fileUrl}
         loading={<DocumentPlaceholder />}
         onLoadError={console.error}
       >
@@ -28,6 +32,18 @@ const Resume: React.FC = () => {
         <br />
         <Page pageNumber={2} />
       </Document>
+
+      
+      {fileUrl && (
+        <DownloadBtn>
+          <Link href={fileUrl} passHref>
+            <a download>
+              <FaFileDownload />
+              &nbsp; Download
+            </a>
+          </Link>
+        </DownloadBtn>
+      )}
     </ResumeStyles>
   );
 };

@@ -67,7 +67,7 @@ const Project = ({ project }: IProjectProps) => {
 
       <div className='project-body'>
         <section className='project-img'>
-          <ImageOverlayText>View slides</ImageOverlayText>
+          <ImageOverlayText>View more</ImageOverlayText>
           <Image
             src={imageUrl}
             alt={project?.attributes?.title}
@@ -86,13 +86,28 @@ const Project = ({ project }: IProjectProps) => {
             <h4 className='project-type'>
               {project?.attributes?.project_type}
             </h4>
+
             <p className='project-description'>
               {project?.attributes?.description}
             </p>
+
+            <hr className='hr-project-description' />
+
             <ul>
               {project?.attributes?.tech_used?.map(
                 (tech: any) => (
-                  <li key={tech.id}>{tech.tech_title}</li>
+                  <li key={tech.id}>
+                    <Image
+                      src={
+                        tech.tech_logo.data.attributes.url
+                      }
+                      alt={tech.tech_title}
+                      width={35}
+                      height={25}
+                      objectFit='scale-down'
+                    />
+                    {tech.tech_title}
+                  </li>
                 )
               )}
             </ul>

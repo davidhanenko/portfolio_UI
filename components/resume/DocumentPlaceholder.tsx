@@ -25,7 +25,6 @@ const Placeholder = styled.div`
     overflow: hidden;
   }
 
-  
   .placeholder:after {
     content: '';
     position: absolute;
@@ -44,7 +43,7 @@ const Placeholder = styled.div`
 
   .title-placeholder {
     height: 3rem;
-    margin-bottom: 2rem;
+    margin: 5rem 0;
     width: 70%;
     margin: 0 auto;
   }

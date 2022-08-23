@@ -1,8 +1,35 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+type AboutStackProps = {
+  inView: boolean;
+};
+
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  50% {
+    filter: blur(0.1rem);
+  }
+   100% {
+     opacity: 1;
+     transform: translate(0%);
+  }
+`;
 
 const Stack = styled.section`
   padding-top: 5rem;
   color: var(--white);
+
+  opacity: 0;
+  transform: translateY(10%);
+
+  animation: ${(props: AboutStackProps) =>
+      props.inView && fadeIn}
+    0.5s;
+  animation-delay: 0.75s;
+  animation-fill-mode: forwards;
 
   h3 {
     font-size: 2rem;

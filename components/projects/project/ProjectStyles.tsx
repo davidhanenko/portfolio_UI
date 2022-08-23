@@ -155,7 +155,6 @@ const ImageOverlayText = styled.p`
   z-index: 2;
   font-size: 3rem;
   text-transform: uppercase;
-  /* color: var(--orange); */
   color: var(--dark);
   opacity: 0;
   transform: translateY(6rem);

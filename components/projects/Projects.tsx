@@ -15,7 +15,7 @@ const Projects: React.FC = () => {
   return (
     <ProjectsContainer scrollWithModal={scrollWithModal}>
       <h2>Projects</h2>
-      {projects?.map(project => (
+      {projects && projects?.map(project => (
         <Project key={project.id} project={project} />
       ))}
     </ProjectsContainer>

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useInView } from 'react-intersection-observer';
 import { AboutImg } from './AboutImageStyles';
 
 interface IAboutImageProps {
@@ -8,11 +9,15 @@ interface IAboutImageProps {
 export const AboutImage: React.FC<IAboutImageProps> = ({
   imgUrl,
 }) => {
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
   return (
-    <AboutImg>
+    <AboutImg ref={ref} inView={inView}>
       <Image
         src={imgUrl}
-        alt={''}
+        alt={'david hanenko image'}
         width={350}
         height={350}
         objectFit='cover'

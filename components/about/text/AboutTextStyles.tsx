@@ -1,9 +1,36 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+type AboutTextProps = {
+  inView: boolean;
+};
+
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  50% {
+    filter: blur(0.1rem);
+  }
+   100% {
+     opacity: 1;
+     transform: translate(0%);
+  }
+`;
 
 const Text = styled.article`
   color: var(--white);
 
   position: relative;
+
+  opacity: 0;
+  transform: translateY(10%);
+
+  animation: ${(props: AboutTextProps) =>
+      props.inView && fadeIn}
+    0.5s;
+    animation-delay: 0.25s;
+  animation-fill-mode: forwards;
 
   h2 {
     font-size: 5em;
@@ -13,7 +40,7 @@ const Text = styled.article`
   p {
     font-size: 1.8em;
     padding: 1rem 0;
-    font-weight: 200; 
+    font-weight: 200;
   }
 
   @media (max-width: 768px) {

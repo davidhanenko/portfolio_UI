@@ -1,4 +1,22 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+type AboutCvProps = {
+  inView: boolean;
+};
+
+const fadeInR = keyframes`
+  0% {
+    opacity: 0;
+    transform: translate(200%);
+  }
+   50% {
+    filter: blur(0.1rem);
+  }
+   100% {
+     opacity: 1;
+     transform: translate(0%) rotate(-360deg);
+  }
+`;
 
 const CvBtnStyles = styled.a`
   position: absolute;
@@ -13,8 +31,8 @@ const CvBtnStyles = styled.a`
   border-radius: 50%;
   border: none;
 
-  font-size: 2.5rem;
-  font-weight: 600;
+  font-size: 2.7rem;
+  font-weight: 700;
   color: var(--orange);
 
   display: flex;
@@ -23,14 +41,25 @@ const CvBtnStyles = styled.a`
 
   transition: all 0.35s;
 
+  opacity: 0;
+  transform: translate(200%);
+
+  animation: ${(props: AboutCvProps) =>
+      props.inView && fadeInR}
+    1s;
+  animation-delay: 1.25s;
+  animation-fill-mode: forwards;
+
   &:hover {
-    color: var(--dark);
+    color: var(--dark2);
+    border: 1px solid var(--lightOrange);
+    box-shadow: 0px 0px 29px -5px rgba(255, 102, 0, 0.98);
   }
 
   &:active {
     box-shadow: inset 0px 0px 5px 2px
       rgba(120, 120, 120, 0.95);
-    transform: translateY(4px);
+    transform: translateY(2px);
   }
 
   @media (max-width: 768px) {
@@ -40,8 +69,8 @@ const CvBtnStyles = styled.a`
 
   @media (max-width: 576px) {
     bottom: -5rem;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 40%;
+    /* transform: translateX(-50%); */
   }
 `;
 

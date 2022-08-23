@@ -1,4 +1,5 @@
 import { useAboutQuery } from '../../graphql/about/about.generated';
+
 import {
   AboutContainer,
   AboutWrapper,
@@ -27,17 +28,21 @@ const About: React.FC = () => {
     <AboutContainer>
       <AboutWrapper>
         <section className='text-stack'>
-          <AboutText
-            header={header!}
-            paragraphs={paragraphs!}
-          />
-          <AboutStack
-            techs={techs!}
-            techsLearning={techsLearning!}
-          />
+          {header && paragraphs && (
+            <AboutText
+              header={header!}
+              paragraphs={paragraphs!}
+            />
+          )}
+          {techs && (
+            <AboutStack
+              techs={techs}
+              techsLearning={techsLearning}
+            />
+          )}
         </section>
         <section className='img-cv'>
-          <AboutImage imgUrl={imgUrl!} />
+          {imgUrl && <AboutImage imgUrl={imgUrl!} />}
           <CvBtn />
         </section>
       </AboutWrapper>

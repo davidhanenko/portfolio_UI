@@ -44,7 +44,7 @@ type SnapScrollProps = {
 };
 
 const SnapScrollWrapper = styled.div`
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
   ${(props: SnapScrollProps) =>
     !props.scrollWithModal && `overflow-y: scroll`};
   height: 100vh;

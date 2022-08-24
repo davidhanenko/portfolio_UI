@@ -27,9 +27,16 @@ const Stack = styled.section`
 
   animation: ${(props: AboutStackProps) =>
       props.inView && fadeIn}
-    0.5s;
+    0.75s;
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
+
+  @media (pointer: coarse) {
+    animation: ${(props: AboutStackProps) =>
+        props.inView && fadeIn}
+      0.75s;
+    animation-fill-mode: forwards;
+  }
 
   h3 {
     font-size: 2rem;

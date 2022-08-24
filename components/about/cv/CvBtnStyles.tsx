@@ -2,12 +2,13 @@ import styled, { keyframes } from 'styled-components';
 
 type AboutCvProps = {
   inView: boolean;
+  cvInView: boolean;
 };
 
 const fadeInR = keyframes`
   0% {
     opacity: 0;
-    transform: translate(200%);
+    transform: translate(100%);
   }
    50% {
     filter: blur(0.1rem);
@@ -42,13 +43,21 @@ const CvBtnStyles = styled.a`
   transition: all 0.35s;
 
   opacity: 0;
-  transform: translate(200%);
+  transform: translate(100%);
 
   animation: ${(props: AboutCvProps) =>
       props.inView && fadeInR}
     1s;
-  animation-delay: 1.25s;
+  animation-delay: 1.5s;
   animation-fill-mode: forwards;
+
+  @media (pointer: coarse) {
+    animation: ${(props: AboutCvProps) =>
+        props.cvInView && fadeInR}
+      1s;
+    animation-delay: 0.25s;
+    animation-fill-mode: forwards;
+  }
 
   &:hover {
     color: var(--dark2);

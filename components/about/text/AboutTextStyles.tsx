@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components';
 
 type AboutTextProps = {
   inView: boolean;
+  cvInView: boolean;
 };
 
 const fadeIn = keyframes`
@@ -28,9 +29,16 @@ const Text = styled.article`
 
   animation: ${(props: AboutTextProps) =>
       props.inView && fadeIn}
-    0.5s;
-    animation-delay: 0.25s;
+    0.75s;
+  animation-delay: 0.25s;
   animation-fill-mode: forwards;
+
+  @media (pointer: coarse) {
+    animation: ${(props: AboutTextProps) =>
+        props.inView && fadeIn}
+      1s;
+    animation-fill-mode: forwards;
+  }
 
   h2 {
     font-size: 5em;

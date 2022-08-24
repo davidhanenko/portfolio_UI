@@ -1,3 +1,4 @@
+import { useInView } from 'react-intersection-observer';
 import { useAboutQuery } from '../../graphql/about/about.generated';
 
 import {
@@ -11,6 +12,11 @@ import { AboutText } from './text/AboutText';
 
 const About: React.FC = () => {
   const { data, loading, error } = useAboutQuery();
+
+ const { ref, inView } = useInView({
+   threshold: 0.1,
+   triggerOnce: true,
+ });
 
   const imgUrl =
     data?.about?.data?.attributes?.img?.data?.attributes
@@ -26,7 +32,7 @@ const About: React.FC = () => {
 
   return (
     <AboutContainer>
-      <AboutWrapper>
+      <AboutWrapper ref={ref}>
         <section className='text-stack'>
           {header && paragraphs && (
             <AboutText
@@ -43,7 +49,7 @@ const About: React.FC = () => {
         </section>
         <section className='img-cv'>
           {imgUrl && <AboutImage imgUrl={imgUrl!} />}
-          <CvBtn />
+          <CvBtn inView={inView} />
         </section>
       </AboutWrapper>
     </AboutContainer>

@@ -27,9 +27,16 @@ const AboutImg = styled.section`
 
   animation: ${(props: AboutImageProps) =>
       props.inView && fadeIn}
-    0.5s;
-  animation-delay: 1s;
+    0.75s;
+  animation-delay: 0.35s;
   animation-fill-mode: forwards;
+
+  @media (pointer: coarse) {
+    animation: ${(props: AboutImageProps) =>
+        props.inView && fadeIn}
+      0.75s;
+    animation-fill-mode: forwards;
+  }
 
   @media (max-width: 768px) {
     padding: 7rem 1rem;

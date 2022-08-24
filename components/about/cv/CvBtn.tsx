@@ -2,9 +2,8 @@ import Link from 'next/link';
 import { useInView } from 'react-intersection-observer';
 import { CvBtnStyles } from './CvBtnStyles';
 
-
-export const CvBtn: React.FC = () => {
-  const { ref, inView } = useInView({
+export const CvBtn: React.FC = ({ inView }:any) => {
+  const { ref: cvRef, inView: cvInView } = useInView({
     threshold: 0.5,
     triggerOnce: true,
   });
@@ -12,7 +11,8 @@ export const CvBtn: React.FC = () => {
   return (
     <Link href='/resume' passHref>
       <CvBtnStyles
-        ref={ref}
+        ref={cvRef}
+        cvInView={cvInView}
         inView={inView}
         target='_blank'
       >

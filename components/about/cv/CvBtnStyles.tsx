@@ -10,9 +10,6 @@ const fadeInR = keyframes`
     opacity: 0;
     transform: translate(100%);
   }
-   50% {
-    filter: blur(0.1rem);
-  }
    100% {
      opacity: 1;
      transform: translate(0%) rotate(-360deg);

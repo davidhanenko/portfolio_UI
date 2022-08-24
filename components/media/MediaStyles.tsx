@@ -35,8 +35,13 @@ const MediaStyles = styled.article`
     color: var(--orange);
     transition: all 0.25s;
     cursor: pointer;
-
-    &:hover {
+    @media (hover: hover) {
+      &:hover {
+        color: var(--white);
+        transform: scale(1.07);
+      }
+    }
+    &:active {
       color: var(--white);
       transform: scale(1.07);
     }

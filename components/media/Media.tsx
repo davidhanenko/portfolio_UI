@@ -1,12 +1,14 @@
+import Link from 'next/link';
 import {
   FaLinkedin,
   FaGithub,
   FaFacebookSquare,
 } from 'react-icons/fa';
 import { CgFileDocument } from 'react-icons/cg';
-import { MediaStyles } from './MediaStyles';
+import ClipLoader from 'react-spinners/ClipLoader';
+
 import { useMediaLinksQuery } from '../../graphql/media-links/links.generated';
-import Link from 'next/link';
+import { MediaStyles } from './MediaStyles';
 
 const Media: React.FC = () => {
   const { data, loading } = useMediaLinksQuery();
@@ -18,13 +20,45 @@ const Media: React.FC = () => {
     data?.mediaLink?.data?.attributes?.facebook;
   const resume = data?.mediaLink?.data?.attributes?.resume;
 
-  if (loading) return <h3>Loading...</h3>;
+  if (loading)
+    return (
+      <MediaStyles>
+        <ClipLoader
+          color={'orange'}
+          loading={true}
+          speedMultiplier={0.5}
+        />
+        <ClipLoader
+          color={'orange'}
+          loading={true}
+          speedMultiplier={0.5}
+        />
+        <ClipLoader
+          color={'orange'}
+          loading={true}
+          speedMultiplier={0.5}
+        />
+        <ClipLoader
+          color={'orange'}
+          loading={true}
+          speedMultiplier={0.5}
+        />
+      </MediaStyles>
+    );
 
   return (
     <MediaStyles>
       <Link href={linkedin!}>
         <a target='_blank' data-tooltip='LinkedIn'>
-          <FaLinkedin />
+          {loading ? (
+            <MoonLoader
+              color={'orange'}
+              loading={true}
+              size={10}
+            />
+          ) : (
+            <FaLinkedin />
+          )}
         </a>
       </Link>
       <Link href={github!}>

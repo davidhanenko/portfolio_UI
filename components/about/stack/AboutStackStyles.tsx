@@ -9,9 +9,6 @@ const fadeIn = keyframes`
     opacity: 0;
     transform: translateY(10%);
   }
-  50% {
-    filter: blur(0.1rem);
-  }
    100% {
      opacity: 1;
      transform: translate(0%);
@@ -27,8 +24,8 @@ const Stack = styled.section`
 
   animation: ${(props: AboutStackProps) =>
       props.inView && fadeIn}
-    0.75s;
-  animation-delay: 0.5s;
+    1s;
+  animation-delay: 0.75s;
   animation-fill-mode: forwards;
 
   @media (pointer: coarse) {

@@ -28,7 +28,7 @@ const About: React.FC = () => {
   const techsLearning =
     data?.about?.data?.attributes?.tech_learning;
 
-  if (loading) return <h4>Loading...</h4>;
+  // if (loading) return <h4>Loading...</h4>;
 
   return (
     <AboutContainer>
@@ -40,7 +40,7 @@ const About: React.FC = () => {
               paragraphs={paragraphs!}
             />
           )}
-          {techs && (
+          {techs &&  (
             <AboutStack
               techs={techs}
               techsLearning={techsLearning}

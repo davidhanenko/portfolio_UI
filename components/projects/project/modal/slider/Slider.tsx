@@ -128,7 +128,7 @@ const Slider: React.FC<ISlidesProps> = ({
             }
             key={index}
           >
-            {index === current && (
+            {index === current && slide?.attributes?.url && (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 ref={ref}

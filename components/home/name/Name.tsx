@@ -26,9 +26,10 @@ export const Name = () => {
       e.target instanceof HTMLElement &&
       e.target.dataset.animation === 'name'
     ) {
-      setNameAnimationEnd(true);
-
-      sessionStorage.setItem( 'animationEnd', 'true' );
+      setNameAnimationEnd( true );
+      
+      // show navbar during current session
+      sessionStorage.setItem('showNav', 'true');
     }
 
     // enable scroll

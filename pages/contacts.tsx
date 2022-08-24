@@ -1,5 +1,6 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import Contact from '../components/contact/Contact';
 
@@ -10,6 +11,11 @@ const ContactsWrapperStyles = styled.div`
 `;
 
 const ContactsPage: NextPage = () => {
+  // show navbar during current session
+  useEffect(() => {
+    sessionStorage.setItem('showNav', 'true');
+  }, []);
+
   return (
     <>
       <Head>

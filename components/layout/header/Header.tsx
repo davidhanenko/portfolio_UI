@@ -8,9 +8,8 @@ import { Nav } from './nav/Nav';
 export const Header = () => {
   const [displayHeader, setDisplayHeader] = useState();
   const { nameAnimationEnd } = useAnimation();
-  useEffect( () => {
-    
-    let value: any = sessionStorage.getItem('animationEnd');
+  useEffect(() => {
+    let value: any = sessionStorage.getItem('showNav');
 
     setDisplayHeader(JSON.parse(value));
   }, []);

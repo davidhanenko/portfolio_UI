@@ -1,3 +1,5 @@
+import { useInView } from 'react-intersection-observer';
+
 import { Name } from './name/Name';
 import { Greet } from './greet/Greet';
 
@@ -9,12 +11,19 @@ const Home: React.FC<MainQuery> = ({ main }) => {
   const greetText = main?.data?.attributes?.greeting;
   const techImages = main?.data?.attributes?.tech;
 
+  const { ref: inViewRef, inView: bgInView } = useInView({
+    threshold: 0.5,
+  });
+
   return (
     <HomeContainer>
-      <HomeWrapper>
-        <Bg techImages={techImages!} />
+      <HomeWrapper ref={inViewRef}>
+        <Bg techImages={techImages!} bgInView={bgInView} />
         <Name />
-        <Greet greetText={greetText!} nameAnimationEnd={false} />
+        <Greet
+          greetText={greetText!}
+          nameAnimationEnd={false}
+        />
       </HomeWrapper>
     </HomeContainer>
   );

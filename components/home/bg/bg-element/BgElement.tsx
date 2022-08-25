@@ -15,27 +15,30 @@ export interface IBgEl {
   el: any;
   key: number;
   intTime: number;
+  bgInView: boolean;
 }
 
 export const BgElement: React.FC<IBgEl> = ({
   el,
   bgRef,
   intTime,
+  bgInView,
 }) => {
   const { nameAnimationEnd } = useAnimation();
 
   const [top, setTop] = useState<number>();
   const [left, setLeft] = useState<number>();
-  
+
+
   useEffect(() => {
     const interval = setInterval(() => {
-      if (bgRef && bgRef.current !== null) {
+      if (bgRef && bgRef.current !== null && bgInView) {
         setTop(Math.random() * bgRef.current?.offsetHeight);
         setLeft(Math.random() * bgRef.current?.offsetWidth);
       }
     }, intTime * 1000);
     return () => clearInterval(interval);
-  }, [el, bgRef, intTime]);
+  }, [el, bgInView]);
 
   return (
     <Element

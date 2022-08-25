@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef } from 'react';
+import { useScroll } from '../../../../lib/useScroll';
 
 import Slider from './slider/Slider';
 import {
@@ -9,7 +10,6 @@ import {
   BackgroundOverlay,
   ImagePlaceholderStyles,
 } from './ModalStyles';
-import { useScroll } from '../../../../lib/useScroll';
 
 interface IModalProps {
   showModal: boolean;
@@ -90,6 +90,10 @@ const Modal = ({
     return () =>
       document.removeEventListener('keydown', keyPress);
   }, [keyPress]);
+
+  // const images = slides?.images?.data.map(
+  //   (el: any) => el.attributes?.url
+  // );
 
   return (
     <>

@@ -56,6 +56,7 @@ const ModalContent = styled.div`
   align-items: center;
   line-height: 1.8;
   color: var(--dark);
+
 `;
 
 const CloseModalButton = styled(MdClose)`

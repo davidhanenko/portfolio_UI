@@ -168,9 +168,19 @@ const ImageOverlayText = styled.p`
   font-size: 3.5rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--dark);
+  color: var(--dark2);
+  background: #ffffff5c;
+  box-shadow: 5px 5px 15px 5px #8484848e;
+  padding: 1.5rem;
+
   opacity: 0;
   transform: translateY(6rem);
+
+  @media (hover: none) and (pointer: coarse) {
+    font-size: 2.5rem;
+    transform: translateY(-2rem);
+    opacity: 1;
+  }
 
   transition: all 0.35s;
 `;
@@ -221,11 +231,10 @@ const ProjectContainer = styled.article<IProjectProps>`
     .project-img {
       transition: all 0.3s;
       position: relative;
+
       @media (hover: hover) {
         &:hover {
-          transform: scale(1.03);
           ${ImageOverlayText} {
-            line-height: 1.2;
             transform: translateY(0rem);
             opacity: 1;
           }

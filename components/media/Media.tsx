@@ -50,15 +50,7 @@ const Media: React.FC = () => {
     <MediaStyles>
       <Link href={linkedin!}>
         <a target='_blank' data-tooltip='LinkedIn'>
-          {loading ? (
-            <MoonLoader
-              color={'orange'}
-              loading={true}
-              size={10}
-            />
-          ) : (
-            <FaLinkedin />
-          )}
+          <FaLinkedin />
         </a>
       </Link>
       <Link href={github!}>

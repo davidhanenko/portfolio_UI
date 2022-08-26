@@ -34,7 +34,7 @@ const Slider: React.FC<ISlidesProps> = ({
   const slideImgRef = useRef<HTMLDivElement>(null);
 
   const { ref, inView } = useInView({
-    threshold: 0.1,
+    threshold: 1,
   });
 
   const length = slides.length;
@@ -50,15 +50,13 @@ const Slider: React.FC<ISlidesProps> = ({
   }, [current, length]);
 
   useEffect(() => {
-    setTimeout(() => {
       if (!inView) {
         slideImgRef.current?.scrollIntoView({
           behavior: 'smooth',
           block: 'center',
         });
       }
-    }, 100);
-  }, [inView, current]);
+  }, [current]);
 
   // change slide on arrow buttons click
   const keyPress = useCallback(

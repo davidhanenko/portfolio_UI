@@ -53,20 +53,26 @@ const Project = ({ project }: IProjectProps) => {
 
   const toggleModal = () => {
     setShowModal(prev => !prev);
-    setScrollWithModal((prev:boolean) => !prev);
+    setScrollWithModal((prev: boolean) => !prev);
   };
 
   const imageUrl =
     project?.attributes?.main_image?.data?.attributes?.url;
 
   const projectTitle = project?.attributes?.title;
-  
+
   return (
     <ProjectContainer ref={ref} inView={inView}>
       <h3 className='project-title'>{projectTitle}</h3>
 
       <div className='project-body'>
-        <section className='project-img'>
+        <section
+          onClick={() => {
+            toggleModal();
+            // loadImages();
+          }}
+          className='project-img'
+        >
           <ImageOverlayText>View more</ImageOverlayText>
           <Image
             src={imageUrl}
@@ -74,10 +80,6 @@ const Project = ({ project }: IProjectProps) => {
             width={750}
             height={500}
             objectFit='contain'
-            onClick={() => {
-              toggleModal();
-              // loadImages();
-            }}
           />
         </section>
         {imageUrl && (

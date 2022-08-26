@@ -43,7 +43,7 @@ const SliderContainer = styled.section`
 
   @media (hover: none) and (pointer: coarse) {
     .right-arrow {
-      right: 2%;
+      right: 2rem;
       background: var(--offWhite);
       color: var(--lightGray);
       border-radius: 50%;
@@ -51,7 +51,7 @@ const SliderContainer = styled.section`
     }
 
     .left-arrow {
-      left: 2%;
+      left: 2rem;
       background: var(--offWhite);
       color: var(--lightGray);
       border-radius: 50%;

@@ -43,23 +43,27 @@ const Slider: React.FC<ISlidesProps> = ({
   // next slide
   const nextSlide = useCallback(() => {
     setCurrent(current === length - 1 ? 0 : current + 1);
-    if (!inView) {
-      slideImgRef.current?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
-    }
+    setTimeout(() => {
+      if (!inView) {
+        slideImgRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
+      }
+    }, 100);
   }, [current, length]);
 
   // prev slide
   const prevSlide = useCallback(() => {
     setCurrent(current === 0 ? length - 1 : current - 1);
-    if (!inView) {
-      slideImgRef.current?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
-    }
+    setTimeout(() => {
+      if (!inView) {
+        slideImgRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
+      }
+    }, 100);
   }, [current, length]);
 
   // change slide on touch/swipe

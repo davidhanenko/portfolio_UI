@@ -47,11 +47,11 @@ const Slider: React.FC<ISlidesProps> = ({
       if (!inView) {
         slideImgRef.current?.scrollIntoView({
           behavior: 'smooth',
-          block: 'center',
+          block: 'start',
         });
       }
     }, 100);
-  }, [current, length]);
+  }, [current, inView, length]);
 
   // prev slide
   const prevSlide = useCallback(() => {
@@ -60,11 +60,11 @@ const Slider: React.FC<ISlidesProps> = ({
       if (!inView) {
         slideImgRef.current?.scrollIntoView({
           behavior: 'smooth',
-          block: 'center',
+          block: 'start',
         });
       }
     }, 100);
-  }, [current, length]);
+  }, [current, inView, length]);
 
   // change slide on touch/swipe
   const handleTouchStart = (e: TouchEvent) => {

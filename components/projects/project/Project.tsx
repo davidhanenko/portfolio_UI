@@ -53,25 +53,24 @@ const Project = ({ project }: IProjectProps) => {
 
   const toggleModal = () => {
     setShowModal(prev => !prev);
-    setScrollWithModal(prev => !prev);
+    setScrollWithModal((prev:boolean) => !prev);
   };
 
   const imageUrl =
     project?.attributes?.main_image?.data?.attributes?.url;
 
+  const projectTitle = project?.attributes?.title;
+  
   return (
     <ProjectContainer ref={ref} inView={inView}>
-      <h3 className='project-title'>
-        {project?.attributes?.title}
-      </h3>
+      <h3 className='project-title'>{projectTitle}</h3>
 
       <div className='project-body'>
         <section className='project-img'>
           <ImageOverlayText>View more</ImageOverlayText>
           <Image
             src={imageUrl}
-            alt={project?.attributes?.title}
-            // layout='fill'
+            alt={projectTitle}
             width={750}
             height={500}
             objectFit='contain'
@@ -137,7 +136,7 @@ const Project = ({ project }: IProjectProps) => {
         showModal={showModal}
         setShowModal={setShowModal}
         slides={data?.projects?.data[0].attributes}
-        loading={loading}
+        projectTitle={projectTitle}
       />
     </ProjectContainer>
   );

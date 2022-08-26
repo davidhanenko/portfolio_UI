@@ -28,7 +28,7 @@ const ModalBackground = styled.div`
   position: absolute;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
   height: 100%;
   padding: 0 2rem;
 `;
@@ -56,7 +56,6 @@ const ModalContent = styled.div`
   align-items: center;
   line-height: 1.8;
   color: var(--dark);
-
 `;
 
 const CloseModalButton = styled(MdClose)`
@@ -83,9 +82,9 @@ const CloseModalButton = styled(MdClose)`
 
 const ImagePlaceholderStyles = styled.div`
   margin: 0 auto;
-  max-width: 800px;
   width: 100%;
-  height: 500px;
+  max-width: 700px;
+  height: 400px;
   background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJ3aGl0ZSI+CiAgPHBhdGggZD0iTTAgNCBMMCAyOCBMMzIgMjggTDMyIDQgeiBNNCAyNCBMMTAgMTAgTDE1IDE4IEwxOCAxNCBMMjQgMjR6IE0yNSA3IEE0IDQgMCAwIDEgMjUgMTUgQTQgNCAwIDAgMSAyNSA3Ij48L3BhdGg+Cjwvc3ZnPg==')
     no-repeat center hsl(0, 0%, 80%);
 `;

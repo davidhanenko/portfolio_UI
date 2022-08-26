@@ -15,7 +15,7 @@ interface IModalProps {
   showModal: boolean;
   setShowModal: (showModal: boolean) => void;
   slides: any;
-  loading: boolean;
+  projectTitle: string;
 }
 
 const ImagePlaceholder = () => {
@@ -26,7 +26,7 @@ const Modal = ({
   showModal,
   setShowModal,
   slides,
-  loading,
+  projectTitle,
 }: IModalProps) => {
   const { scrollWithModal, setScrollWithModal } =
     useScroll();
@@ -106,7 +106,7 @@ const Modal = ({
                 showModal={showModal}
                 slideRef={slideRef}
                 slides={slides?.images?.data}
-                loading={loading}
+                projectTitle={projectTitle}
               />
             </ModalContent>
             <CloseModalButton

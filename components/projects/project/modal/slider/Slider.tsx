@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, {
   RefObject,
   useCallback,
@@ -11,6 +12,7 @@ import {
   FaChevronLeft,
 } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
+import { ImagePlaceholderStyles } from '../ModalStyles';
 
 import { SliderContainer } from './SliderStyles';
 
@@ -18,24 +20,21 @@ interface ISlidesProps {
   slides: any;
   slideRef: RefObject<HTMLDivElement>;
   showModal: boolean;
-  setTouchStart: (e: TouchEvent) => void;
-  handleTouchMove: (e: TouchEvent) => void;
-  handleTouchEnd: () => void;
+  projectTitle: string;
 }
 
 const Slider: React.FC<ISlidesProps> = ({
   showModal,
   slides,
   slideRef,
+  projectTitle,
 }) => {
   const [current, setCurrent] = useState(0);
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
 
   const slideImgRef = useRef<HTMLDivElement>(null);
 
   const { ref, inView } = useInView({
-    threshold: 0.5,
+    threshold: 0.1,
   });
 
   const length = slides.length;
@@ -61,25 +60,6 @@ const Slider: React.FC<ISlidesProps> = ({
     }, 100);
   }, [inView, current]);
 
-  // change slide on touch/swipe
-  const handleTouchStart = (e: TouchEvent) => {
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchMove = (e: TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStart - touchEnd > 100) {
-      nextSlide();
-    }
-
-    if (touchStart - touchEnd < -100) {
-      prevSlide();
-    }
-  };
-
   // change slide on arrow buttons click
   const keyPress = useCallback(
     (event: KeyboardEvent): void => {
@@ -104,12 +84,7 @@ const Slider: React.FC<ISlidesProps> = ({
   }
 
   return (
-    <SliderContainer
-      ref={slideRef}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-    >
+    <SliderContainer ref={slideRef}>
       <FaChevronLeft
         className='left-arrow'
         onClick={prevSlide}
@@ -119,6 +94,7 @@ const Slider: React.FC<ISlidesProps> = ({
         onClick={nextSlide}
       />
       {slides.map((slide, index) => {
+        if (!slide) return <ImagePlaceholderStyles />;
         return (
           <div
             ref={slideImgRef}
@@ -132,7 +108,7 @@ const Slider: React.FC<ISlidesProps> = ({
               <img
                 ref={ref}
                 src={slide?.attributes?.url}
-                alt='image'
+                alt={`${projectTitle} - screenshot`}
                 className='image'
               />
             )}

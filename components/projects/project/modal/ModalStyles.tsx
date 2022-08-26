@@ -28,7 +28,7 @@ const ModalBackground = styled.div`
   position: absolute;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   height: 100%;
   padding: 0 2rem;
 `;

@@ -1,11 +1,11 @@
 import { SyntheticEvent } from 'react';
 import { NameContainer } from './NameStyles';
+import disableScroll from 'disable-scroll';
 
 import { useAnimation } from '../../../lib/useAnimation';
 
 import { NAME_ANIMATION_DURATION as nameAnimationDuration } from '../../../config';
 
-import disableScroll from 'disable-scroll';
 
 interface AnimationEvent<T = Element>
   extends SyntheticEvent<T> {

@@ -1,12 +1,14 @@
 import styled, { keyframes } from 'styled-components';
 
-const gradient = keyframes`
-  0% {
-    left: 0%;
+const blick = keyframes`
+   0% {
+    opacity: 1;
   }
-  
+  50% {
+    opacity: 0.5;
+  }
   100% {
-    left: 100%;
+    opacity: 1;
   }
 `;
 
@@ -23,29 +25,14 @@ const Placeholder = styled.div`
     border-radius: 1rem;
     position: relative;
     overflow: hidden;
-  }
-
-  .placeholder:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100px;
-    background: linear-gradient(
-      90deg,
-      var(--lightGray),
-      #f4f4f4,
-      var(--lightGray)
-    );
-    animation: ${gradient} 1.5s infinite ease-in-out;
+    animation: ${blick} 1.5s infinite ease-in-out;
   }
 
   .title-placeholder {
     height: 3rem;
     margin: 5rem 0;
     width: 70%;
-    margin: 0 auto;
+    margin: 4rem auto;
   }
   .header-placeholder {
     height: 2.5rem;

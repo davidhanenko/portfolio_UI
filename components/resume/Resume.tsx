@@ -31,9 +31,10 @@ const Resume: React.FC = () => {
         <Page pageNumber={1} />
         <br />
         <Page pageNumber={2} />
+
+        <DocumentPlaceholder />
       </Document>
 
-      
       {fileUrl && (
         <DownloadBtn>
           <Link href={fileUrl} passHref>

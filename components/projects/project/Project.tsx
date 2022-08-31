@@ -16,7 +16,6 @@ import {
 
 import { ImagePlaceholderStyles } from './modal/ModalStyles';
 
-
 import Modal from './modal/Modal';
 import {
   DescriptionStyles,
@@ -24,7 +23,7 @@ import {
   LinksStyles,
   ProjectContainer,
 } from './ProjectStyles';
-
+import { IMAGE_PLACEHOLDER } from '../../../config';
 
 interface IProjectProps {
   project: ProjectsQueryVariables;
@@ -85,7 +84,7 @@ const Project = ({ project }: IProjectProps) => {
             height={500}
             objectFit='contain'
             placeholder='blur'
-            blurDataURL={<ImagePlaceholderStyles/>}
+            blurDataURL={IMAGE_PLACEHOLDER}
           />
         </section>
         {imageUrl && (

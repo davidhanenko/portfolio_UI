@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
+import { IMAGE_PLACEHOLDER } from '../../../config';
 import { AboutImg } from './AboutImageStyles';
 
 interface IAboutImageProps {
@@ -22,6 +23,8 @@ export const AboutImage: React.FC<IAboutImageProps> = ({
         height={350}
         objectFit='cover'
         objectPosition='top'
+        placeholder='blur'
+        blurDataURL={IMAGE_PLACEHOLDER}
       />
     </AboutImg>
   );

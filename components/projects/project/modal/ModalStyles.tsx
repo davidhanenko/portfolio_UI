@@ -3,6 +3,7 @@ import { MdClose } from 'react-icons/md';
 
 interface ModalProps {
   readonly showModal: boolean;
+  readonly placeholderImg: string;
 }
 
 const modal = keyframes`
@@ -80,14 +81,7 @@ const CloseModalButton = styled(MdClose)`
   }
 `;
 
-const ImagePlaceholderStyles = styled.div`
-  margin: 0 auto;
-  width: 100%;
-  max-width: 700px;
-  height: 400px;
-  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJ3aGl0ZSI+CiAgPHBhdGggZD0iTTAgNCBMMCAyOCBMMzIgMjggTDMyIDQgeiBNNCAyNCBMMTAgMTAgTDE1IDE4IEwxOCAxNCBMMjQgMjR6IE0yNSA3IEE0IDQgMCAwIDEgMjUgMTUgQTQgNCAwIDAgMSAyNSA3Ij48L3BhdGg+Cjwvc3ZnPg==')
-    no-repeat center hsl(0, 0%, 80%);
-`;
+
 
 export {
   ModalBackground,
@@ -95,5 +89,4 @@ export {
   ModalContent,
   CloseModalButton,
   BackgroundOverlay,
-  ImagePlaceholderStyles,
 };

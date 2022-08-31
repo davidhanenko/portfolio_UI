@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface ImagePlaceholderProps {
+  readonly placeholderImg: string;
+}
+
 const SliderContainer = styled.section`
   z-index: 11;
   position: relative;
@@ -71,4 +75,13 @@ const SliderContainer = styled.section`
   }
 `;
 
-export { SliderContainer };
+const ImagePlaceholderStyles = styled.div<ImagePlaceholderProps>`
+  margin: 0 auto;
+  width: 100%;
+  max-width: 700px;
+  height: 400px;
+  background: ${props => `url(${props.placeholderImg})`}
+    no-repeat center hsl(0, 0%, 80%);
+`;
+
+export { SliderContainer, ImagePlaceholderStyles };

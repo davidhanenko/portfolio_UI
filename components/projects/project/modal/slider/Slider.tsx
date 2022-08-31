@@ -1,5 +1,4 @@
-import Image from 'next/image';
-import React, {
+import {
   RefObject,
   useCallback,
   useEffect,
@@ -12,9 +11,13 @@ import {
   FaChevronLeft,
 } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
-import { ImagePlaceholderStyles } from '../ModalStyles';
 
-import { SliderContainer } from './SliderStyles';
+import {
+  ImagePlaceholderStyles,
+  SliderContainer,
+} from './SliderStyles';
+
+import { IMAGE_PLACEHOLDER as placeholderImg } from '../../../../../config';
 
 interface ISlidesProps {
   slides: any;
@@ -92,7 +95,12 @@ const Slider: React.FC<ISlidesProps> = ({
         onClick={nextSlide}
       />
       {slides.map((slide, index) => {
-        if (!slide) return <ImagePlaceholderStyles />;
+        if (!slide)
+          return (
+            <ImagePlaceholderStyles
+              placeholderImg={placeholderImg}
+            />
+          );
         return (
           <div
             ref={slideImgRef}

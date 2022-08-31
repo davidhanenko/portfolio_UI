@@ -1,5 +1,9 @@
 import Head from 'next/head';
-import { GetServerSidePropsContext, NextPage } from 'next';
+import {
+  GetServerSidePropsContext,
+  GetStaticProps,
+  NextPage,
+} from 'next';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import styled from 'styled-components';
@@ -66,8 +70,8 @@ const HomePage: NextPage<MainQuery> = ({
 
   const { scrollWithModal } = useScroll();
 
-  if (loading) return <h4>Loading...</h4>;
-
+  if ( loading ) return <h4>Loading...</h4>;
+  
   return (
     <>
       <Head>
@@ -96,10 +100,10 @@ const HomePage: NextPage<MainQuery> = ({
 };
 
 export const getStaticProps = async (
-  ctx: GetServerSidePropsContext
+  ctx: GetStaticProps
 ) => {
   const client = initializeApollo({
-    headers: ctx?.req?.headers,
+    // headers: ctx?.req?.headers,
   });
 
   const {
@@ -107,7 +111,6 @@ export const getStaticProps = async (
   } = await client.query<MainQuery>({
     query: MainDocument,
   });
-
   return addApolloState(client, {
     props: {
       main,

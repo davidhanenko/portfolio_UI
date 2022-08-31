@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-const blick = keyframes`
+const blink = keyframes`
    0% {
     opacity: 1;
   }
@@ -20,12 +20,16 @@ const Placeholder = styled.div`
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
   padding: 1rem;
 
+  @media(max-width: 768px) {
+    width: 96vw;
+  }
+
   .placeholder {
     background: var(--lightGray);
     border-radius: 1rem;
     position: relative;
     overflow: hidden;
-    animation: ${blick} 1.5s infinite ease-in-out;
+    animation: ${blink} 1.5s infinite ease-in-out;
   }
 
   .title-placeholder {

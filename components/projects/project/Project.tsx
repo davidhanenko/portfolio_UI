@@ -14,13 +14,17 @@ import {
   FaGithub,
 } from 'react-icons/fa';
 
+import { ImagePlaceholderStyles } from './modal/ModalStyles';
+
+
+import Modal from './modal/Modal';
 import {
   DescriptionStyles,
   ImageOverlayText,
   LinksStyles,
   ProjectContainer,
 } from './ProjectStyles';
-import Modal from './modal/Modal';
+
 
 interface IProjectProps {
   project: ProjectsQueryVariables;
@@ -80,6 +84,8 @@ const Project = ({ project }: IProjectProps) => {
             width={750}
             height={500}
             objectFit='contain'
+            placeholder='blur'
+            blurDataURL={<ImagePlaceholderStyles/>}
           />
         </section>
         {imageUrl && (

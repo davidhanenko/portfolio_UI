@@ -50,12 +50,12 @@ const Slider: React.FC<ISlidesProps> = ({
   }, [current, length]);
 
   useEffect(() => {
-      if (!inView) {
-        slideImgRef.current?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        });
-      }
+    if (!inView) {
+      slideImgRef.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+    }
   }, [current]);
 
   // change slide on arrow buttons click

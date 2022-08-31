@@ -17,7 +17,6 @@ const Resume: React.FC = () => {
     data?.resume?.data?.attributes?.file?.data?.attributes
       ?.url;
 
-  if (loading) return <h4>Loading...</h4>;
   if (error) return <p>error.message</p>;
 
   return (
@@ -32,7 +31,6 @@ const Resume: React.FC = () => {
         <br />
         <Page pageNumber={2} />
 
-        <DocumentPlaceholder />
       </Document>
 
       {fileUrl && (

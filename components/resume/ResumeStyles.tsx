@@ -19,7 +19,7 @@ const DownloadBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20rem;
+  width: 24rem;
   position: relative;
   margin: 8rem auto;
 

@@ -6,6 +6,7 @@ query Projects {
         title
         project_type
         link
+        link_git
         description
         main_image {
           data {

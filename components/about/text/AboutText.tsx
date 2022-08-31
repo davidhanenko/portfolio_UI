@@ -1,4 +1,7 @@
 import { useInView } from 'react-intersection-observer';
+import { HeaderPlaceholder } from '../../shared/placeholder/HeaderPlaceholder';
+import { PlaceholderWrapperStyles } from '../../shared/placeholder/PlaceholderWrapper';
+import { TextPlaceholder } from '../../shared/placeholder/TextPlaceholder';
 import { Text } from './AboutTextStyles';
 
 interface IAboutTextProps {
@@ -23,3 +26,13 @@ export const AboutText: React.FC<IAboutTextProps> = ({
     </Text>
   );
 };
+
+export const AboutTextPlaceholder = () => {
+  return (
+    <PlaceholderWrapperStyles>
+      <HeaderPlaceholder />
+      <TextPlaceholder />
+      <TextPlaceholder />
+    </PlaceholderWrapperStyles>
+  );
+}

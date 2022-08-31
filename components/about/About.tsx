@@ -8,7 +8,10 @@ import {
 import { CvBtn } from './cv/CvBtn';
 import { AboutImage } from './image/AboutImage';
 import { AboutStack } from './stack/AboutStack';
-import { AboutText } from './text/AboutText';
+import {
+  AboutText,
+  AboutTextPlaceholder,
+} from './text/AboutText';
 
 const About: React.FC = () => {
   const { data, loading, error } = useAboutQuery();
@@ -34,12 +37,15 @@ const About: React.FC = () => {
     <AboutContainer>
       <AboutWrapper ref={ref}>
         <section className='text-stack'>
-          {header && paragraphs && (
+          {loading ? (
+            <AboutTextPlaceholder />
+          ) : (
             <AboutText
               header={header!}
               paragraphs={paragraphs!}
             />
           )}
+
           {techs && (
             <AboutStack
               techs={techs}

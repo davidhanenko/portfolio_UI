@@ -5,6 +5,10 @@ const TextPlLineStyles = styled.div`
   margin: 1rem 3rem;
 `;
 
+const TextPlaceholderStyles = styled.div`
+  margin: 2rem 0;
+`;
+
 export const TextPlLine = () => {
   return (
     <TextPlLineStyles className='placeholder'></TextPlLineStyles>
@@ -13,11 +17,11 @@ export const TextPlLine = () => {
 
 export const TextPlaceholder = () => {
   return (
-    <>
+    <TextPlaceholderStyles>
       <TextPlLine />
       <TextPlLine />
       <TextPlLine />
       <TextPlLine />
-    </>
+    </TextPlaceholderStyles>
   );
 };

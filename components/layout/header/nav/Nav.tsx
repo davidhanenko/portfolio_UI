@@ -6,7 +6,7 @@ import { useNav } from '../../../../lib/useNav';
 import { NavLink } from './nav-link/NavLink';
 import { NavLogoStyles, NavStyles } from './NavStyles';
 import { Logo } from '../logo/Logo';
-import Media from '../../../media/Media';
+import Media from '../../../shared/media/Media';
 import { MediaStylesWrapper } from './nav-link/NavLinkStyles';
 
 export const Nav: React.FC = () => {

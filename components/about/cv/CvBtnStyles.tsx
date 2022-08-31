@@ -1,8 +1,8 @@
 import styled, { keyframes } from 'styled-components';
 
 type AboutCvProps = {
-  inView: boolean;
-  cvInView: boolean;
+ readonly inView: boolean;
+ readonly cvInView: boolean;
 };
 
 const fadeInR = keyframes`

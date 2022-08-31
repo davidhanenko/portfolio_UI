@@ -13,10 +13,10 @@ import { AboutText } from './text/AboutText';
 const About: React.FC = () => {
   const { data, loading, error } = useAboutQuery();
 
- const { ref, inView } = useInView({
-   threshold: 0.1,
-   triggerOnce: true,
- });
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true,
+  });
 
   const imgUrl =
     data?.about?.data?.attributes?.img?.data?.attributes
@@ -40,10 +40,11 @@ const About: React.FC = () => {
               paragraphs={paragraphs!}
             />
           )}
-          {techs &&  (
+          {techs && (
             <AboutStack
               techs={techs}
-              techsLearning={techsLearning}
+              techsLearning={techsLearning!}
+              inView={false}
             />
           )}
         </section>

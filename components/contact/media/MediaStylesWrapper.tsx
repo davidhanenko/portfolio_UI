@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { MediaStyles } from '../../media/MediaStyles';
+import { MediaStyles } from '../../shared/media/MediaStyles';
 
 type PropsTypes = {
   readonly inView: boolean;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { MediaStyles } from '../../../../media/MediaStyles';
+import { MediaStyles } from '../../../../shared/media/MediaStyles';
 
 const NavLinkStyles = styled.li`
   a {

@@ -81,7 +81,7 @@ const ImagePlaceholderStyles = styled.div<ImagePlaceholderProps>`
   max-width: 700px;
   height: 400px;
   background: ${props => `url(${props.placeholderImg})`}
-    no-repeat center hsl(0, 0%, 80%);
+    no-repeat center var(--lightGray);
 `;
 
 export { SliderContainer, ImagePlaceholderStyles };

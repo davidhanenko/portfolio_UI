@@ -2,7 +2,6 @@ import styled, { keyframes } from 'styled-components';
 
 type AboutTextProps = {
   inView: boolean;
-  cvInView: boolean;
 };
 
 const fadeIn = keyframes`

@@ -7,7 +7,7 @@ import {
 import { CgFileDocument } from 'react-icons/cg';
 import ClipLoader from 'react-spinners/ClipLoader';
 
-import { useMediaLinksQuery } from '../../graphql/media-links/links.generated';
+import { useMediaLinksQuery } from '../../../graphql/media-links/links.generated';
 import { MediaStyles } from './MediaStyles';
 
 const Media: React.FC = () => {

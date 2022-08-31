@@ -7,8 +7,31 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/l
 
 import { useResumeQuery } from '../../graphql/resume/resume.generated';
 
-import DocumentPlaceholder from './DocumentPlaceholder';
+import { TitlePlaceholder } from '../shared/placeholder/TitlePlaceholder';
+import {
+  TextPlaceholder,
+  TextPlLine,
+} from '../shared/placeholder/TextPlaceholder';
+import { PlaceholderWrapperStyles } from '../shared/placeholder/PlaceholderWrapper';
+import { HeaderPlaceholder } from '../shared/placeholder/HeaderPlaceholder';
 import { DownloadBtn, ResumeStyles } from './ResumeStyles';
+
+const DocumentPlaceholder = () => {
+  return (
+    <PlaceholderWrapperStyles>
+      <TitlePlaceholder />
+      <TextPlLine />
+      <HeaderPlaceholder />
+      <TextPlaceholder />
+      <HeaderPlaceholder />
+      <TextPlaceholder />
+      <HeaderPlaceholder />
+      <TextPlaceholder />
+      <HeaderPlaceholder />
+      <TextPlaceholder />
+    </PlaceholderWrapperStyles>
+  );
+};
 
 const Resume: React.FC = () => {
   const { data, loading, error } = useResumeQuery();
@@ -30,7 +53,6 @@ const Resume: React.FC = () => {
         <Page pageNumber={1} />
         <br />
         <Page pageNumber={2} />
-
       </Document>
 
       {fileUrl && (

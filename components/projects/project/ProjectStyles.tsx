@@ -169,7 +169,7 @@ const ImageOverlayText = styled.p`
   font-weight: 700;
   text-transform: uppercase;
   color: var(--dark2);
-  background: #ffffff5c;
+  background: #ffffffc7;
   box-shadow: 5px 5px 15px 5px #8484848e;
   padding: 1.5rem;
 

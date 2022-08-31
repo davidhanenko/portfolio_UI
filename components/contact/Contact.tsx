@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import { ToastContainer } from 'react-toastify';
 import { useContactQuery } from '../../graphql/contact/main.generated';
 
-import Media from '../media/Media';
+import Media from '../shared/media/Media';
 import { ContactContainer } from './ContactStyles';
 import { EmailForm } from './email-form/EmailForm';
 import { Map } from './map/Map';

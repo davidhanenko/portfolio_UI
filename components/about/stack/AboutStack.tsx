@@ -32,7 +32,8 @@ export const AboutStack: React.FC<IAboutStackProps> = ({
 
       <div>
         <h3>Currently learning...</h3>
-        {techsLearning &&
+        {techsLearning !== undefined &&
+          techsLearning !== null &&
           techsLearning.map(tech => (
             <p className='tech-l-title' key={tech.id}>
               {tech.tech_title}

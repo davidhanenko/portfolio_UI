@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect } from 'react';
-import MediaFooter from '../components/media/media-footer/MediaFooter';
+import MediaFooter from '../components/shared/media/media-footer/MediaFooter';
 import Projects from '../components/projects/Projects';
 
 const ProjectsPage: NextPage = () => {

@@ -70,7 +70,7 @@ const HomePage: NextPage<MainQuery> = ({
 
   const { scrollWithModal } = useScroll();
 
-  if ( loading ) return <h4>Loading...</h4>;
+  // if ( loading ) return <h4>Loading...</h4>;
   
   return (
     <>

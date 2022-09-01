@@ -21,7 +21,6 @@ const Contact: React.FC = () => {
       ?.url;
   const email = data?.contact?.data?.attributes?.email;
 
-  if (loading) return <h3>Loading...</h3>;
 
   return (
     <ContactContainer>

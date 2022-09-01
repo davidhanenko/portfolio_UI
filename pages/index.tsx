@@ -1,9 +1,5 @@
 import Head from 'next/head';
-import {
-  GetServerSidePropsContext,
-  GetStaticProps,
-  NextPage,
-} from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import styled from 'styled-components';
@@ -17,10 +13,10 @@ import { useScroll } from '../lib/useScroll';
 import {
   MainDocument,
   MainQuery,
-  useMainQuery,
 } from '../graphql/main/main.generated';
 
 import Home from '../components/home/Home';
+import { LoaderPuff } from '../components/shared/loaders/Puff';
 
 const About = dynamic(
   () => import('../components/about/About'),
@@ -66,12 +62,8 @@ const SnapScrollWrapper = styled.div`
 const HomePage: NextPage<MainQuery> = ({
   main,
 }: MainQuery) => {
-  const { data, loading, error } = useMainQuery();
-
   const { scrollWithModal } = useScroll();
 
-  // if ( loading ) return <h4>Loading...</h4>;
-  
   return (
     <>
       <Head>
@@ -79,19 +71,19 @@ const HomePage: NextPage<MainQuery> = ({
         <meta
           name='description'
           content={
-            data?.main?.data?.attributes?.meta_description!
+            main?.data?.attributes?.meta_description!
           }
         />
       </Head>
       <SnapScrollWrapper scrollWithModal={scrollWithModal}>
         <Home main={main} />
-        <Suspense fallback={`Loading...`}>
+        <Suspense fallback={<LoaderPuff />}>
           <About />
         </Suspense>
-        <Suspense fallback={`Loading...`}>
+        <Suspense fallback={<LoaderPuff />}>
           <Projects />
         </Suspense>
-        <Suspense fallback={`Loading...`}>
+        <Suspense fallback={<LoaderPuff />}>
           <Contact />
         </Suspense>
       </SnapScrollWrapper>

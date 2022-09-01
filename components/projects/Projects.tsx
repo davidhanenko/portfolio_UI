@@ -10,14 +10,13 @@ const Projects: React.FC = () => {
 
   const { scrollWithModal } = useScroll();
 
-  if (loading) return <h3>Loading...</h3>;
-
   return (
     <ProjectsContainer scrollWithModal={scrollWithModal}>
       <h2>Projects</h2>
-      {projects && projects?.map(project => (
-        <Project key={project.id} project={project} />
-      ))}
+      {projects &&
+        projects?.map(project => (
+          <Project key={project.id} project={project} />
+        ))}
     </ProjectsContainer>
   );
 };

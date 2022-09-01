@@ -34,7 +34,6 @@ const About: React.FC = () => {
   const techsLearning =
     data?.about?.data?.attributes?.tech_learning;
 
-  // if (loading) return <h4>Loading...</h4>;
 
   return (
     <AboutContainer>

@@ -27,6 +27,7 @@ export const AboutText: React.FC<IAboutTextProps> = ({
   );
 };
 
+// text section placeholder
 export const AboutTextPlaceholder = () => {
   return (
     <PlaceholderWrapperStyles>

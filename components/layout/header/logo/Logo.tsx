@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { IMAGE_PLACEHOLDER } from '../../../../config';
 import { useLogoQuery } from '../../../../graphql/logo/logo.generated';
 import { LogoStyles } from './LogoStyles';
 
@@ -22,6 +23,8 @@ export const Logo: React.FC = () => {
               alt={logoAltText!}
               width={75}
               height={75}
+              placeholder='blur'
+              blurDataURL={IMAGE_PLACEHOLDER}
             />
           </a>
         </Link>

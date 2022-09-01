@@ -7,7 +7,10 @@ import {
 } from './AboutStyles';
 import { CvBtn } from './cv/CvBtn';
 import { AboutImage } from './image/AboutImage';
-import { AboutStack } from './stack/AboutStack';
+import {
+  AboutStack,
+  AboutStackPlaceholder,
+} from './stack/AboutStack';
 import {
   AboutText,
   AboutTextPlaceholder,
@@ -45,13 +48,16 @@ const About: React.FC = () => {
               paragraphs={paragraphs!}
             />
           )}
-
-          {techs && (
-            <AboutStack
-              techs={techs}
-              techsLearning={techsLearning!}
-              inView={false}
-            />
+          {loading ? (
+            <AboutStackPlaceholder />
+          ) : (
+            techs && (
+              <AboutStack
+                techs={techs}
+                techsLearning={techsLearning!}
+                inView={false}
+              />
+            )
           )}
         </section>
         <section className='img-cv'>

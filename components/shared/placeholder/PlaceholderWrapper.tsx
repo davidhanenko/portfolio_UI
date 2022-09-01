@@ -12,7 +12,7 @@ const blink = keyframes`
   }
 `;
 
-export const PlaceholderWrapperStyles = styled.div`
+export const PlaceholderWrapper = styled.div`
   width: 80%;
   margin: 5rem auto;
   border-radius: 0.5rem;
@@ -32,5 +32,3 @@ export const PlaceholderWrapperStyles = styled.div`
     animation: ${blink} 1.5s infinite ease-in-out;
   }
 `;
-
-

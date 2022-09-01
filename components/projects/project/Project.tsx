@@ -14,22 +14,52 @@ import {
   FaGithub,
 } from 'react-icons/fa';
 
-import { ImagePlaceholderStyles } from './modal/ModalStyles';
-
+import { PlaceholderWrapper } from '../../shared/placeholder/PlaceholderWrapper';
+import { IMAGE_PLACEHOLDER } from '../../../config';
 import Modal from './modal/Modal';
 import {
-  DescriptionStyles,
+  Description,
   ImageOverlayText,
-  LinksStyles,
+  Links,
   ProjectContainer,
 } from './ProjectStyles';
-import { IMAGE_PLACEHOLDER } from '../../../config';
+import { HeaderPlaceholder } from '../../shared/placeholder/HeaderPlaceholder';
+import {
+  TextPlaceholder,
+  TextPlLine,
+} from '../../shared/placeholder/TextPlaceholder';
 
 interface IProjectProps {
   project: ProjectsQueryVariables;
   inView: boolean;
   projectRef: RefObject<HTMLDivElement>;
 }
+
+// project description section placeholder
+export const ProjectDescriptionPlaceholder = () => {
+  return (
+    <PlaceholderWrapper>
+      <HeaderPlaceholder />
+      <hr
+        style={{
+          color: 'orange',
+          width: '50%',
+          marginLeft: '5%',
+        }}
+      />
+      <TextPlaceholder />
+      <hr
+        style={{
+          color: 'orange',
+          width: '50%',
+          marginLeft: '5%',
+        }}
+      />
+      <TextPlLine />
+      <TextPlLine />
+    </PlaceholderWrapper>
+  );
+};
 
 const Project = ({ project }: IProjectProps) => {
   const [showModal, setShowModal] = useState(false);
@@ -66,7 +96,9 @@ const Project = ({ project }: IProjectProps) => {
 
   return (
     <ProjectContainer ref={ref} inView={inView}>
-      <h3 className='project-title'>{projectTitle}</h3>
+      {projectTitle && (
+        <h3 className='project-title'>{projectTitle}</h3>
+      )}
 
       <div className='project-body'>
         <section
@@ -87,39 +119,44 @@ const Project = ({ project }: IProjectProps) => {
             blurDataURL={IMAGE_PLACEHOLDER}
           />
         </section>
-        {imageUrl && (
-          <DescriptionStyles inView={inView}>
-            <h4 className='project-type'>
-              {project?.attributes?.project_type}
-            </h4>
 
-            <p className='project-description'>
-              {project?.attributes?.description}
-            </p>
+        {loading ? (
+          <ProjectDescriptionPlaceholder />
+        ) : (
+          imageUrl && (
+            <Description inView={inView}>
+              <h4 className='project-type'>
+                {project?.attributes?.project_type}
+              </h4>
 
-            <hr className='hr-project-description' />
+              <p className='project-description'>
+                {project?.attributes?.description}
+              </p>
 
-            <ul>
-              {project?.attributes?.tech_used?.map(
-                (tech: any) => (
-                  <li key={tech.id}>
-                    <Image
-                      src={
-                        tech.tech_logo.data.attributes.url
-                      }
-                      alt={tech.tech_title}
-                      width={35}
-                      height={25}
-                      objectFit='scale-down'
-                    />
-                    {tech.tech_title}
-                  </li>
-                )
-              )}
-            </ul>
-          </DescriptionStyles>
+              <hr className='hr-project-description' />
+
+              <ul>
+                {project?.attributes?.tech_used?.map(
+                  (tech: any) => (
+                    <li key={tech.id}>
+                      <Image
+                        src={
+                          tech.tech_logo.data.attributes.url
+                        }
+                        alt={tech.tech_title}
+                        width={35}
+                        height={25}
+                        objectFit='scale-down'
+                      />
+                      {tech.tech_title}
+                    </li>
+                  )
+                )}
+              </ul>
+            </Description>
+          )
         )}
-        <LinksStyles>
+        <Links>
           <a
             href={project?.attributes?.link}
             target='_blank'
@@ -136,7 +173,7 @@ const Project = ({ project }: IProjectProps) => {
           >
             <FaGithub />
           </a>
-        </LinksStyles>
+        </Links>
       </div>
 
       <Modal

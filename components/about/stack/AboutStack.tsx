@@ -1,5 +1,5 @@
 import { useInView } from 'react-intersection-observer';
-import { PlaceholderWrapperStyles } from '../../shared/placeholder/PlaceholderWrapper';
+import { PlaceholderWrapper } from '../../shared/placeholder/PlaceholderWrapper';
 import { TextPlLine } from '../../shared/placeholder/TextPlaceholder';
 import { Stack } from './AboutStackStyles';
 
@@ -49,7 +49,7 @@ export const AboutStack: React.FC<IAboutStackProps> = ({
 // tech stack section placeholder
 export const AboutStackPlaceholder = () => {
   return (
-    <PlaceholderWrapperStyles>
+    <PlaceholderWrapper>
       <TextPlLine />
       <TextPlLine />
       <hr
@@ -61,6 +61,6 @@ export const AboutStackPlaceholder = () => {
       />
       <TextPlLine />
       <TextPlLine />
-    </PlaceholderWrapperStyles>
+    </PlaceholderWrapper>
   );
 };

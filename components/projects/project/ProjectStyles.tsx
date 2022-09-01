@@ -46,7 +46,7 @@ const fadeInL = keyframes`
   }
 `;
 
-const DescriptionStyles = styled.section<IProjectProps>`
+const Description = styled.section<IProjectProps>`
   position: absolute;
 
   width: 70%;
@@ -113,7 +113,7 @@ const DescriptionStyles = styled.section<IProjectProps>`
   }
 `;
 
-const LinksStyles = styled.section`
+const Links = styled.section`
   position: absolute;
   bottom: -3rem;
   a {
@@ -274,7 +274,7 @@ const ProjectContainer = styled.article<IProjectProps>`
     }
   }
 
-  ${LinksStyles} {
+  ${Links} {
     right: -25%;
 
     @media (max-width: 768px) {
@@ -290,7 +290,7 @@ const ProjectContainer = styled.article<IProjectProps>`
     }
   }
 
-  ${DescriptionStyles} {
+  ${Description} {
     top: 25%;
     right: -30%;
     transform: translate(20%);
@@ -348,7 +348,7 @@ const ProjectContainer = styled.article<IProjectProps>`
       }
     }
 
-    ${LinksStyles} {
+    ${Links} {
       left: -25%;
 
       @media (max-width: 768px) {
@@ -364,7 +364,7 @@ const ProjectContainer = styled.article<IProjectProps>`
       }
     }
 
-    ${DescriptionStyles} {
+    ${Description} {
       top: 25%;
       left: -30%;
       transform: translate(-20%);
@@ -387,7 +387,7 @@ const ProjectContainer = styled.article<IProjectProps>`
 
 export {
   ProjectContainer,
-  LinksStyles,
-  DescriptionStyles,
+  Links,
+  Description,
   ImageOverlayText,
 };

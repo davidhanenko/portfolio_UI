@@ -1,6 +1,6 @@
 import { useInView } from 'react-intersection-observer';
 import { HeaderPlaceholder } from '../../shared/placeholder/HeaderPlaceholder';
-import { PlaceholderWrapperStyles } from '../../shared/placeholder/PlaceholderWrapper';
+import { PlaceholderWrapper } from '../../shared/placeholder/PlaceholderWrapper';
 import { TextPlaceholder } from '../../shared/placeholder/TextPlaceholder';
 import { Text } from './AboutTextStyles';
 
@@ -30,10 +30,10 @@ export const AboutText: React.FC<IAboutTextProps> = ({
 // text section placeholder
 export const AboutTextPlaceholder = () => {
   return (
-    <PlaceholderWrapperStyles>
+    <PlaceholderWrapper>
       <HeaderPlaceholder />
       <TextPlaceholder />
       <TextPlaceholder />
-    </PlaceholderWrapperStyles>
+    </PlaceholderWrapper>
   );
-}
+};

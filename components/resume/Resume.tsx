@@ -12,13 +12,13 @@ import {
   TextPlaceholder,
   TextPlLine,
 } from '../shared/placeholder/TextPlaceholder';
-import { PlaceholderWrapperStyles } from '../shared/placeholder/PlaceholderWrapper';
+import { PlaceholderWrapper } from '../shared/placeholder/PlaceholderWrapper';
 import { HeaderPlaceholder } from '../shared/placeholder/HeaderPlaceholder';
 import { DownloadBtn, ResumeStyles } from './ResumeStyles';
 
 const DocumentPlaceholder = () => {
   return (
-    <PlaceholderWrapperStyles>
+    <PlaceholderWrapper>
       <TitlePlaceholder />
       <TextPlLine />
       <HeaderPlaceholder />
@@ -29,7 +29,7 @@ const DocumentPlaceholder = () => {
       <TextPlaceholder />
       <HeaderPlaceholder />
       <TextPlaceholder />
-    </PlaceholderWrapperStyles>
+    </PlaceholderWrapper>
   );
 };
 

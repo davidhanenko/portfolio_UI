@@ -17,7 +17,7 @@ const MediaStyles = styled.article`
       background: var(--gray);
 
       display: none;
-      transition: all 0.2s;
+      transition: all 0.3s;
     }
 
     &:hover::after {
@@ -33,7 +33,7 @@ const MediaStyles = styled.article`
   svg {
     margin: 0.75rem 0;
     color: var(--orange);
-    transition: all 0.25s;
+    transition: all 0.3s;
     cursor: pointer;
     
     @media (hover: hover) {

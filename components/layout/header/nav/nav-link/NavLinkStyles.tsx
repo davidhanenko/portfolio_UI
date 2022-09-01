@@ -2,10 +2,12 @@ import styled from 'styled-components';
 import { MediaStyles } from '../../../../shared/media/MediaStyles';
 
 const NavLinkStyles = styled.li`
+  margin: 0.75rem 0;
+  max-height: 40px;
   a {
     position: relative;
     color: var(--textDark);
-    font-size: 3rem;
+    font-size: 2.3rem;
     font-weight: 400;
     text-transform: capitalize;
 
@@ -19,7 +21,7 @@ const NavLinkStyles = styled.li`
       z-index: 1;
       opacity: 0;
       transition: all 0.25s;
-      border-bottom: 2px solid var(--orange);
+      border-bottom: 1px solid var(--orange);
       transform: scale(0.1, 1);
     }
 
@@ -30,7 +32,7 @@ const NavLinkStyles = styled.li`
   }
 
   .active-link {
-    border-bottom: 2px solid var(--orange);
+    border-bottom: 1px solid var(--orange);
     pointer-events: none;
     padding: 0 1rem;
   }

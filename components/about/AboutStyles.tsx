@@ -39,7 +39,7 @@ const AboutWrapper = styled.div`
     width: 100vw;
     display: block;
     font-size: 1rem;
-    padding: calc(var(--headerHeight) + 10rem) 5rem 0 5rem;
+    padding: calc(var(--headerHeight) + 5rem) 5rem 0 5rem;
   }
 
   @media (max-width: 576px) {

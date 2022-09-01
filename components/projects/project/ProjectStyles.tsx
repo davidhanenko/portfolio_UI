@@ -82,9 +82,10 @@ const Description = styled.section<IProjectProps>`
 
   .project-description {
     font-size: 1.5rem;
-    text-indent: 2rem;
+    text-align: justify;
     line-height: 1.3;
     font-weight: 300;
+
 
     @media (max-width: 992px) {
       font-size: 1.2rem;

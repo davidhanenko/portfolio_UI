@@ -53,13 +53,14 @@ const DownloadBtn = styled.button`
     z-index: 2;
     transition: all 0.3s;
   }
-
-  &:hover {
-    &::after {
-      width: 100%;
-    }
-    a {
-      letter-spacing: 0.1rem;
+  @media (hover: hover) {
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+      a {
+        letter-spacing: 0.1rem;
+      }
     }
   }
 `;

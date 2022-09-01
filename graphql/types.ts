@@ -188,6 +188,58 @@ export type Error = {
   message?: Maybe<Scalars['String']>;
 };
 
+export type Experiment = {
+  __typename?: 'Experiment';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  description: Scalars['String'];
+  image: UploadFileEntityResponse;
+  link: Scalars['String'];
+  link_git: Scalars['String'];
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  title: Scalars['String'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type ExperimentEntity = {
+  __typename?: 'ExperimentEntity';
+  attributes?: Maybe<Experiment>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type ExperimentEntityResponse = {
+  __typename?: 'ExperimentEntityResponse';
+  data?: Maybe<ExperimentEntity>;
+};
+
+export type ExperimentEntityResponseCollection = {
+  __typename?: 'ExperimentEntityResponseCollection';
+  data: Array<ExperimentEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type ExperimentFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ExperimentFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  description?: InputMaybe<StringFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  link?: InputMaybe<StringFilterInput>;
+  link_git?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ExperimentFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ExperimentFiltersInput>>>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type ExperimentInput = {
+  description?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['ID']>;
+  link?: InputMaybe<Scalars['String']>;
+  link_git?: InputMaybe<Scalars['String']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  title?: InputMaybe<Scalars['String']>;
+};
+
 export type FileInfoInput = {
   alternativeText?: InputMaybe<Scalars['String']>;
   caption?: InputMaybe<Scalars['String']>;
@@ -217,7 +269,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = About | ComponentTechTech | ComponentTextText | Contact | I18NLocale | Logo | Main | MediaLink | Project | Resume | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = About | ComponentTechTech | ComponentTextText | Contact | Experiment | I18NLocale | Logo | Main | MediaLink | Project | Resume | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -412,6 +464,7 @@ export type MediaLinkInput = {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  createExperiment?: Maybe<ExperimentEntityResponse>;
   createProject?: Maybe<ProjectEntityResponse>;
   createUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Create a new role */
@@ -420,6 +473,7 @@ export type Mutation = {
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
   deleteAbout?: Maybe<AboutEntityResponse>;
   deleteContact?: Maybe<ContactEntityResponse>;
+  deleteExperiment?: Maybe<ExperimentEntityResponse>;
   deleteLogo?: Maybe<LogoEntityResponse>;
   deleteMain?: Maybe<MainEntityResponse>;
   deleteMediaLink?: Maybe<MediaLinkEntityResponse>;
@@ -443,6 +497,7 @@ export type Mutation = {
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
   updateAbout?: Maybe<AboutEntityResponse>;
   updateContact?: Maybe<ContactEntityResponse>;
+  updateExperiment?: Maybe<ExperimentEntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
   updateLogo?: Maybe<LogoEntityResponse>;
   updateMain?: Maybe<MainEntityResponse>;
@@ -455,6 +510,11 @@ export type Mutation = {
   /** Update an existing user */
   updateUsersPermissionsUser: UsersPermissionsUserEntityResponse;
   upload: UploadFileEntityResponse;
+};
+
+
+export type MutationCreateExperimentArgs = {
+  data: ExperimentInput;
 };
 
 
@@ -475,6 +535,11 @@ export type MutationCreateUsersPermissionsRoleArgs = {
 
 export type MutationCreateUsersPermissionsUserArgs = {
   data: UsersPermissionsUserInput;
+};
+
+
+export type MutationDeleteExperimentArgs = {
+  id: Scalars['ID'];
 };
 
 
@@ -545,6 +610,12 @@ export type MutationUpdateAboutArgs = {
 
 export type MutationUpdateContactArgs = {
   data: ContactInput;
+};
+
+
+export type MutationUpdateExperimentArgs = {
+  data: ExperimentInput;
+  id: Scalars['ID'];
 };
 
 
@@ -698,6 +769,8 @@ export type Query = {
   __typename?: 'Query';
   about?: Maybe<AboutEntityResponse>;
   contact?: Maybe<ContactEntityResponse>;
+  experiment?: Maybe<ExperimentEntityResponse>;
+  experiments?: Maybe<ExperimentEntityResponseCollection>;
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
   logo?: Maybe<LogoEntityResponse>;
@@ -723,6 +796,19 @@ export type QueryAboutArgs = {
 
 export type QueryContactArgs = {
   publicationState?: InputMaybe<PublicationState>;
+};
+
+
+export type QueryExperimentArgs = {
+  id?: InputMaybe<Scalars['ID']>;
+};
+
+
+export type QueryExperimentsArgs = {
+  filters?: InputMaybe<ExperimentFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 

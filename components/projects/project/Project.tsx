@@ -7,7 +7,10 @@ import {
   useProjectsImagesLazyQuery,
   useProjectsImagesQuery,
 } from '../../../graphql/projects/projectImages.generated';
-import { ProjectsQueryVariables } from '../../../graphql/projects/projects.generated';
+import {
+  ProjectsQuery,
+  ProjectsQueryVariables,
+} from '../../../graphql/projects/projects.generated';
 
 import {
   FaExternalLinkAlt,
@@ -30,7 +33,7 @@ import {
 } from '../../shared/placeholder/TextPlaceholder';
 
 interface IProjectProps {
-  project: ProjectsQueryVariables;
+  project: ProjectsQuery;
   inView: boolean;
   projectRef: RefObject<HTMLDivElement>;
 }
@@ -61,7 +64,9 @@ export const ProjectDescriptionPlaceholder = () => {
   );
 };
 
-const Project = ({ project }: IProjectProps) => {
+const Project: React.FC<IProjectProps> = ({
+  project
+}) => {
   const [showModal, setShowModal] = useState(false);
 
   const { setScrollWithModal } = useScroll();

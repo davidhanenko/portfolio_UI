@@ -1,4 +1,4 @@
-import { useExperimentsQuery } from '../../graphql/experiments/experiments.generated';
+import { ExperimentsQuery, useExperimentsQuery } from '../../graphql/experiments/experiments.generated';
 import {
   ProjectsQuery,
   useProjectsQuery,
@@ -9,7 +9,8 @@ import Project from './project/Project';
 import { ProjectsContainer } from './ProjectsStyles';
 
 interface IProjectsProps {
-  project: ProjectsQuery;
+  project: ProjectsQuery; 
+  experiment: ExperimentsQuery;
 }
 
 const Projects: React.FC<IProjectsProps> = () => {
@@ -33,7 +34,6 @@ const Projects: React.FC<IProjectsProps> = () => {
       <section className='experiments-wrapper'>
         {experiments &&
           experiments.map(experiment => (
-           
             <Experiment
               key={experiment.id}
               experiment={experiment}

@@ -86,7 +86,6 @@ const Description = styled.section<IProjectProps>`
     line-height: 1.3;
     font-weight: 300;
 
-
     @media (max-width: 992px) {
       font-size: 1.2rem;
     }
@@ -121,9 +120,12 @@ const Links = styled.section`
     font-size: 2rem;
     color: var(--white);
     padding: 1rem;
-    transition: all 0.25s;
 
     position: relative;
+
+    svg {
+      transition: all 0.25s;
+    }
 
     &:after {
       content: attr(data-tooltip);

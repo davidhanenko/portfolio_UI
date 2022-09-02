@@ -33,11 +33,26 @@ const ProjectsContainer = styled.div`
     display: flex;
     justify-content: end;
     color: var(--lightGray);
-    margin-right: 10rem;
+    margin:0 10rem 5rem 0;
     font-size: 4rem;
 
     @media (max-width: 768px) {
       margin-right: 2rem;
+    }
+  }
+
+  .experiments-wrapper {
+    padding: 0 3rem;
+    margin-bottom: 20rem;
+    display: grid;
+    grid-gap: 3rem;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 576px) {
+      grid-template-columns: none;
     }
   }
 `;

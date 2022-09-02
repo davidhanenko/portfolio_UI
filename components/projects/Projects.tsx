@@ -30,13 +30,16 @@ const Projects: React.FC<IProjectsProps> = () => {
         ))}
 
       <h3>Experiments</h3>
-      {experiments &&
-        experiments.map(experiment => (
-          <Experiment
-            key={experiment.id}
-            experiment={experiment}
-          />
-        ))}
+      <section className='experiments-wrapper'>
+        {experiments &&
+          experiments.map(experiment => (
+           
+            <Experiment
+              key={experiment.id}
+              experiment={experiment}
+            />
+          ))}
+      </section>
     </ProjectsContainer>
   );
 };

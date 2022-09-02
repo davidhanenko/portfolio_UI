@@ -116,7 +116,7 @@ const Description = styled.section<IProjectProps>`
 
 const Links = styled.section`
   position: absolute;
-  bottom: -3rem;
+  bottom: -6rem;
   a {
     font-size: 2rem;
     color: var(--white);
@@ -281,7 +281,7 @@ const ProjectContainer = styled.article<IProjectProps>`
     @media (max-width: 768px) {
       right: auto;
       left: 10%;
-      bottom: -5%;
+      bottom: -5rem;
     }
 
     @media (max-width: 576px) {
@@ -355,7 +355,7 @@ const ProjectContainer = styled.article<IProjectProps>`
       @media (max-width: 768px) {
         left: auto;
         right: 10%;
-        bottom: -5%;
+        bottom: -5rem;
       }
 
       @media (max-width: 576px) {

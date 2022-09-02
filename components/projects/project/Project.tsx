@@ -7,18 +7,14 @@ import {
   useProjectsImagesLazyQuery,
   useProjectsImagesQuery,
 } from '../../../graphql/projects/projectImages.generated';
-import {
-  ProjectsQuery,
-  ProjectsQueryVariables,
-} from '../../../graphql/projects/projects.generated';
+import { ProjectsQuery } from '../../../graphql/projects/projects.generated';
 
 import {
   FaExternalLinkAlt,
   FaGithub,
 } from 'react-icons/fa';
 
-import { PlaceholderWrapper } from '../../shared/placeholder/PlaceholderWrapper';
-import { IMAGE_PLACEHOLDER } from '../../../config';
+
 import Modal from './modal/Modal';
 import {
   Description,
@@ -26,6 +22,9 @@ import {
   Links,
   ProjectContainer,
 } from './ProjectStyles';
+
+import { PlaceholderWrapper } from '../../shared/placeholder/PlaceholderWrapper';
+import { IMAGE_PLACEHOLDER } from '../../../config';
 import { HeaderPlaceholder } from '../../shared/placeholder/HeaderPlaceholder';
 import {
   TextPlaceholder,
@@ -64,9 +63,7 @@ export const ProjectDescriptionPlaceholder = () => {
   );
 };
 
-const Project: React.FC<IProjectProps> = ({
-  project
-}) => {
+const Project: React.FC<IProjectProps> = ({ project }) => {
   const [showModal, setShowModal] = useState(false);
 
   const { setScrollWithModal } = useScroll();
@@ -117,8 +114,8 @@ const Project: React.FC<IProjectProps> = ({
           <Image
             src={imageUrl}
             alt={projectTitle}
-            width={750}
-            height={500}
+            width={700}
+            height={400}
             objectFit='contain'
             placeholder='blur'
             blurDataURL={IMAGE_PLACEHOLDER}

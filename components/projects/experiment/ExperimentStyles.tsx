@@ -4,7 +4,6 @@ type ExperimentProps = {
   inView: boolean;
 };
 
-
 const fadeIn = keyframes`
   0% {
     opacity: 0;
@@ -167,6 +166,11 @@ const ExperimentContainer = styled.div`
   .image-wrapper {
     position: relative;
     overflow: hidden;
+    background-color: var(--dark);
+
+    span {
+      min-height: 100%;
+    }
   }
 `;
 

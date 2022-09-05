@@ -1,4 +1,7 @@
-import { ExperimentsQuery, useExperimentsQuery } from '../../graphql/experiments/experiments.generated';
+import {
+  ExperimentsQuery,
+  useExperimentsQuery,
+} from '../../graphql/experiments/experiments.generated';
 import {
   ProjectsQuery,
   useProjectsQuery,
@@ -9,7 +12,7 @@ import Project from './project/Project';
 import { ProjectsContainer } from './ProjectsStyles';
 
 interface IProjectsProps {
-  project: ProjectsQuery; 
+  project: ProjectsQuery;
   experiment: ExperimentsQuery;
 }
 

@@ -33,7 +33,7 @@ const ProjectsContainer = styled.div`
     display: flex;
     justify-content: end;
     color: var(--lightGray);
-    margin:0 10rem 5rem 0;
+    margin: 0 10rem 5rem 0;
     font-size: 4rem;
 
     @media (max-width: 768px) {

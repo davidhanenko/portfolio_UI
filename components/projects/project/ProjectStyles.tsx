@@ -99,6 +99,10 @@ const Description = styled.section<IProjectProps>`
     grid-template-columns: 1fr 1fr 1fr;
 
     background: var(--dark2);
+
+    @media (max-width: 768px) {
+      padding: 0;
+    }
   }
 
   li {
@@ -110,6 +114,10 @@ const Description = styled.section<IProjectProps>`
 
     display: flex;
     align-items: center;
+
+    @media (max-width: 281px) {
+     font-size: 0.8rem;
+    }
   }
 `;
 
@@ -215,6 +223,10 @@ const ProjectContainer = styled.article<IProjectProps>`
         props.inView && fadeIn}
       0.75s;
     animation-fill-mode: forwards;
+
+    @media (max-width: 281px) {
+      font-size: 2.2rem;
+    }
   }
 
   .project-body {
@@ -289,7 +301,7 @@ const ProjectContainer = styled.article<IProjectProps>`
     @media (max-width: 576px) {
       right: auto;
       left: 0;
-      top: 0;
+      top: -1rem;
     }
   }
 
@@ -363,7 +375,7 @@ const ProjectContainer = styled.article<IProjectProps>`
       @media (max-width: 576px) {
         left: auto;
         right: 0;
-        top: 0;
+        top: -1rem;
       }
     }
 

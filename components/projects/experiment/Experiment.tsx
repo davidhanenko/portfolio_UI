@@ -20,7 +20,7 @@ const Experiment: React.FC<IExperimentProps> = ({
   experiment,
 }) => {
   const { ref, inView } = useInView({
-    threshold: 0.5,
+    threshold: 0.3,
     // triggerOnce: true,
   });
 

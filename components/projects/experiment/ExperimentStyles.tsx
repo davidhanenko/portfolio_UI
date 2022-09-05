@@ -116,7 +116,7 @@ const ExperimentContainer = styled.div`
   opacity: 0;
   transform: translateY(10%);
 
-  &:nth-child(1) {
+  &:nth-child(1n) {
     animation: ${(props: ExperimentProps) =>
         props.inView && fadeIn}
       0.75s;
@@ -124,7 +124,7 @@ const ExperimentContainer = styled.div`
     animation-fill-mode: forwards;
   }
 
-  &:nth-child(2) {
+  &:nth-child(2n) {
     animation: ${(props: ExperimentProps) =>
         props.inView && fadeIn}
       0.75s;
@@ -132,7 +132,7 @@ const ExperimentContainer = styled.div`
     animation-fill-mode: forwards;
   }
 
-  &:nth-child(3) {
+  &:nth-child(3n) {
     animation: ${(props: ExperimentProps) =>
         props.inView && fadeIn}
       0.75s;
@@ -140,13 +140,6 @@ const ExperimentContainer = styled.div`
     animation-fill-mode: forwards;
   }
 
-  &:nth-child(4) {
-    animation: ${(props: ExperimentProps) =>
-        props.inView && fadeIn}
-      0.75s;
-    animation-delay: 0.9s;
-    animation-fill-mode: forwards;
-  }
 
   animation: ${(props: ExperimentProps) =>
       props.inView && fadeIn}

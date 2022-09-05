@@ -45,6 +45,7 @@ const Text = styled.article`
     font-size: 1.8em;
     padding: 1rem 0;
     font-weight: 200;
+    text-align: justify;
   }
 
   @media (max-width: 768px) {

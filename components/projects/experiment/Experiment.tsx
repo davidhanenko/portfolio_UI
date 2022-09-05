@@ -20,8 +20,8 @@ const Experiment: React.FC<IExperimentProps> = ({
   experiment,
 }) => {
   const { ref, inView } = useInView({
-    threshold: 0.3,
-    triggerOnce: true,
+    threshold: 0.9,
+    // triggerOnce: true,
   });
 
   const imageUrl =

@@ -80,6 +80,7 @@ const Overlay = styled.div`
 
   p {
     padding-bottom: 3rem;
+    user-select: none;
 
     color: black;
     font-size: 1.5rem;
@@ -92,7 +93,7 @@ const Overlay = styled.div`
 const Title = styled.h4`
   font-size: 2.2rem;
   position: absolute;
-  bottom: 0;
+  bottom: -1%;
   left: 0;
   color: var(--dark);
 
@@ -130,6 +131,21 @@ const ExperimentContainer = styled.div`
       0.75s;
     animation-delay: 0.3s;
     animation-fill-mode: forwards;
+
+    @media (max-width: 992px) {
+      animation: ${(props: ExperimentProps) =>
+          props.inView && fadeIn}
+        0.75s;
+      animation-delay: 0.3s;
+      animation-fill-mode: forwards;
+    }
+    @media (max-width: 576px) {
+      animation: ${(props: ExperimentProps) =>
+          props.inView && fadeIn}
+        0.75s;
+      animation-delay: 0s;
+      animation-fill-mode: forwards;
+    }
   }
 
   &:nth-child(3n) {
@@ -138,14 +154,23 @@ const ExperimentContainer = styled.div`
       0.75s;
     animation-delay: 0.6s;
     animation-fill-mode: forwards;
+
+    @media (max-width: 992px) {
+      animation: ${(props: ExperimentProps) =>
+          props.inView && fadeIn}
+        0.75s;
+      animation-delay: 0s;
+      animation-fill-mode: forwards;
+    }
+
+    @media (max-width: 576px) {
+      animation: ${(props: ExperimentProps) =>
+          props.inView && fadeIn}
+        0.75s;
+      animation-delay: 0s;
+      animation-fill-mode: forwards;
+    }
   }
-
-
-  animation: ${(props: ExperimentProps) =>
-      props.inView && fadeIn}
-    1s;
-  animation-delay: 0.5s;
-  animation-fill-mode: forwards;
 
   &:hover {
     ${Overlay} {

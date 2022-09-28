@@ -7,13 +7,11 @@ import {
   useProjectsImagesLazyQuery,
   useProjectsImagesQuery,
 } from '../../../graphql/projects/projectImages.generated';
-import { ProjectsQuery } from '../../../graphql/projects/projects.generated';
 
 import {
   FaExternalLinkAlt,
   FaGithub,
 } from 'react-icons/fa';
-
 
 import Modal from './modal/Modal';
 import {
@@ -32,9 +30,48 @@ import {
 } from '../../shared/placeholder/TextPlaceholder';
 
 interface IProjectProps {
-  project: ProjectsQuery;
   inView: boolean;
-  projectRef: RefObject<HTMLDivElement>;
+  projectRef: RefObject<HTMLDivElement> | undefined;
+  project: {
+    id?: string | null;
+    attributes?: {
+      __typename?: 'Project';
+      title?: string | null;
+      project_type?: string | null;
+      link?: string | null;
+      link_git?: string | null;
+      description?: string | null;
+      main_image: {
+        __typename?: 'UploadFileEntityResponse';
+        data?: {
+          __typename?: 'UploadFileEntity';
+          attributes?: {
+            __typename?: 'UploadFile';
+            url: string;
+          } | null;
+        } | null;
+      };
+      tech_used?: Array<
+        | {
+            __typename?: 'ComponentTechTech';
+            id: string;
+            tech_title?: string | null;
+            tech_logo?: {
+              __typename?: 'UploadFileEntityResponse';
+              data?: {
+                __typename?: 'UploadFileEntity';
+                attributes?: {
+                  __typename?: 'UploadFile';
+                  url: string;
+                } | null;
+              } | null;
+            } | null;
+          }
+        | { __typename?: 'Error' }
+        | null
+      > | null;
+    } | null;
+  };
 }
 
 // project description section placeholder

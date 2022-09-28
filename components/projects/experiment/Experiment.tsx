@@ -13,7 +13,26 @@ import {
 import { ExperimentsQuery } from '../../../graphql/experiments/experiments.generated';
 
 interface IExperimentProps {
-  experiment: ExperimentsQuery;
+  experiment: {
+    id?: string | null;
+    attributes?: {
+      __typename?: 'Experiment';
+      title: string;
+      link: string;
+      link_git: string;
+      description: string;
+      image: {
+        __typename?: 'UploadFileEntityResponse';
+        data?: {
+          __typename?: 'UploadFileEntity';
+          attributes?: {
+            __typename?: 'UploadFile';
+            url: string;
+          } | null;
+        } | null;
+      };
+    } | null;
+  };
 }
 
 const Experiment: React.FC<IExperimentProps> = ({

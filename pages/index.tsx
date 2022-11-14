@@ -81,7 +81,16 @@ const HomePage: NextPage<MainQuery> = ({
           <About />
         </Suspense>
         <Suspense fallback={<LoaderPuff />}>
-          <Projects />
+          <Projects
+            project={{
+              attributes: undefined,
+              projects: undefined,
+            }}
+            experiment={{
+              attributes: undefined,
+              experiments: undefined,
+            }}
+          />
         </Suspense>
         <Suspense fallback={<LoaderPuff />}>
           <Contact />

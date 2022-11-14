@@ -33,35 +33,27 @@ interface IProjectProps {
   inView: boolean;
   projectRef: RefObject<HTMLDivElement> | undefined;
   project: {
-    id?: string | null;
+    id?: string;
     attributes?: {
-      __typename?: 'Project';
-      title?: string | null;
-      project_type?: string | null;
-      link?: string | null;
-      link_git?: string | null;
-      description?: string | null;
+      title?: string;
+      project_type?: string;
+      link?: string;
+      link_git?: string;
+      description?: string;
       main_image: {
-        __typename?: 'UploadFileEntityResponse';
         data?: {
-          __typename?: 'UploadFileEntity';
           attributes?: {
-            __typename?: 'UploadFile';
             url: string;
-          } | null;
-        } | null;
+          };
+        };
       };
       tech_used?: Array<
         | {
-            __typename?: 'ComponentTechTech';
             id: string;
             tech_title?: string | null;
             tech_logo?: {
-              __typename?: 'UploadFileEntityResponse';
               data?: {
-                __typename?: 'UploadFileEntity';
                 attributes?: {
-                  __typename?: 'UploadFile';
                   url: string;
                 } | null;
               } | null;
@@ -119,7 +111,7 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
 
   const { data, loading } = useProjectsImagesQuery({
     variables: {
-      title: project?.attributes?.title,
+      title: project?.attributes?.title!,
     },
   });
 
@@ -149,8 +141,8 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
         >
           <ImageOverlayText>View more</ImageOverlayText>
           <Image
-            src={imageUrl}
-            alt={projectTitle}
+            src={imageUrl!}
+            alt={projectTitle!}
             width={700}
             height={400}
             objectFit='contain'
@@ -219,7 +211,7 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
         showModal={showModal}
         setShowModal={setShowModal}
         slides={data?.projects?.data[0].attributes}
-        projectTitle={projectTitle}
+        projectTitle={projectTitle!}
       />
     </ProjectContainer>
   );

@@ -30,7 +30,12 @@ const Projects: React.FC<IProjectsProps> = () => {
       <h2>Projects</h2>
       {projects &&
         projects.map(project => (
-          <Project key={project.id} project={project} inView={false} projectRef={undefined} />
+          <Project
+            key={project.id}
+            project={project}
+            inView={false}
+            projectRef={undefined}
+          />
         ))}
 
       <h3>Experiments</h3>

@@ -72,7 +72,7 @@ const Experiment: React.FC<IExperimentProps> = ({
           <p>{experiment?.attributes?.description}</p>
         </Overlay>
         <Image
-          src={imageUrl}
+          src={imageUrl!}
           alt={title}
           width={450}
           height={250}

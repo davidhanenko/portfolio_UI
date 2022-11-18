@@ -56,7 +56,8 @@ const Overlay = styled.div`
         font-size: 1.3rem;
         color: var(--white);
         background: var(--gray);
-        width: 8rem;
+        width: 5rem;
+        text-align: center;
 
         display: none;
         transition: all 0.25s;
@@ -113,6 +114,7 @@ const Title = styled.h4`
 const ExperimentContainer = styled.div`
   display: flex;
   justify-content: center;
+  margin: 2rem;
 
   opacity: 0;
   transform: translateY(10%);

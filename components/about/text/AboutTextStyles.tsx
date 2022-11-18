@@ -25,8 +25,8 @@ const Text = styled.article`
 
   animation: ${(props: AboutTextProps) =>
       props.inView && fadeIn}
-    1s;
-  animation-delay: 0.5s;
+    0.6s;
+  animation-delay: 0.2s;
   animation-fill-mode: forwards;
 
   @media (pointer: coarse) {

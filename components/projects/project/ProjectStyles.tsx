@@ -116,7 +116,7 @@ const Description = styled.section<IProjectProps>`
     align-items: center;
 
     @media (max-width: 281px) {
-     font-size: 0.8rem;
+      font-size: 0.8rem;
     }
   }
 `;
@@ -144,7 +144,8 @@ const Links = styled.section`
       font-size: 1.3rem;
       color: var(--white);
       background: var(--gray);
-      width: 12rem;
+      width: 5rem;
+      text-align: center;
 
       display: none;
       transition: all 0.25s;

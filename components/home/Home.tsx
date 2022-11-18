@@ -12,7 +12,7 @@ const Home: React.FC<MainQuery> = ({ main }) => {
   const techImages = main?.data?.attributes?.tech;
 
   const { ref: inViewRef, inView: bgInView } = useInView({
-    threshold: 0.5,
+    threshold: 0.3,
   });
 
   return (

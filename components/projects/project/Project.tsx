@@ -170,15 +170,19 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
                 {project?.attributes?.tech_used?.map(
                   (tech: any) => (
                     <li key={tech.id}>
-                      <Image
-                        src={
-                          tech.tech_logo.data.attributes.url
-                        }
-                        alt={tech.tech_title}
-                        width={35}
-                        height={25}
-                        objectFit='scale-down'
-                      />
+                      {tech.tech_logo.data.attributes
+                        .url && (
+                        <Image
+                          src={
+                            tech.tech_logo.data.attributes
+                              .url
+                          }
+                          alt={tech.tech_title}
+                          width={35}
+                          height={25}
+                          objectFit='scale-down'
+                        />
+                      )}
                       {tech.tech_title}
                     </li>
                   )
@@ -192,7 +196,7 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
             href={project?.attributes?.link}
             target='_blank'
             rel='noreferrer'
-            data-tooltip={`Visit`}
+            data-tooltip='Visit'
           >
             <FaExternalLinkAlt />
           </a>
@@ -200,7 +204,7 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
             href={project?.attributes?.link_git}
             target='_blank'
             rel='noreferrer'
-            data-tooltip='Source code'
+            data-tooltip='Code'
           >
             <FaGithub />
           </a>

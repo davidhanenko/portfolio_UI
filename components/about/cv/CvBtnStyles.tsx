@@ -44,8 +44,8 @@ const CvBtnStyles = styled.a`
 
   animation: ${(props: AboutCvProps) =>
       props.inView && fadeInR}
-    1s;
-  animation-delay: 1.5s;
+    0.6s;
+  animation-delay: 1s;
   animation-fill-mode: forwards;
 
   @media (pointer: coarse) {

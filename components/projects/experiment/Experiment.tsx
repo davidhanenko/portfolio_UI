@@ -64,7 +64,7 @@ const Experiment: React.FC<IExperimentProps> = ({
               href={experiment?.attributes?.link_git}
               target='_blank'
               rel='noreferrer'
-              data-tooltip='Source code'
+              data-tooltip='Code'
             >
               <FaGithub />
             </a>

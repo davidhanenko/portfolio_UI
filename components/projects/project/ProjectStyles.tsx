@@ -95,9 +95,6 @@ const Description = styled.section<IProjectProps>`
     width: 100%;
     padding: 2rem;
 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-
     background: var(--dark2);
 
     @media (max-width: 768px) {
@@ -107,13 +104,25 @@ const Description = styled.section<IProjectProps>`
 
   li {
     list-style: none;
-    font-size: 1.1rem;
-    font-weight: 400;
     user-select: none;
     cursor: default;
 
-    display: flex;
-    align-items: center;
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 200;
+    letter-spacing: 0.11rem;
+
+    &::after {
+      content: '|';
+      padding: 0 0.75rem;
+      color: var(--lightOrange);
+    }
+
+    &:last-of-type {
+      &::after {
+        content: '';
+      }
+    }
 
     @media (max-width: 281px) {
       font-size: 0.8rem;

@@ -32,38 +32,7 @@ import {
 interface IProjectProps {
   inView: boolean;
   projectRef: RefObject<HTMLDivElement> | undefined;
-  project: {
-    id?: string;
-    attributes?: {
-      title?: string;
-      project_type?: string;
-      link?: string;
-      link_git?: string;
-      description?: string;
-      main_image: {
-        data?: {
-          attributes?: {
-            url: string;
-          };
-        };
-      };
-      tech_used?: Array<
-        | {
-            id: string;
-            tech_title?: string | null;
-            tech_logo?: {
-              data?: {
-                attributes?: {
-                  url: string;
-                } | null;
-              } | null;
-            } | null;
-          }
-        | { __typename?: 'Error' }
-        | null
-      > | null;
-    } | null;
-  };
+  project: any;
 }
 
 // project description section placeholder
@@ -170,19 +139,6 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
                 {project?.attributes?.tech_used?.map(
                   (tech: any) => (
                     <li key={tech.id}>
-                      {tech.tech_logo.data.attributes
-                        .url && (
-                        <Image
-                          src={
-                            tech.tech_logo.data.attributes
-                              .url
-                          }
-                          alt={tech.tech_title}
-                          width={35}
-                          height={25}
-                          objectFit='scale-down'
-                        />
-                      )}
                       {tech.tech_title}
                     </li>
                   )

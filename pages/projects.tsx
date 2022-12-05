@@ -16,7 +16,15 @@ const ProjectsPage: NextPage = () => {
       <Head>
         <title>David Hanenko | Projects</title>
       </Head>
-      <Projects />
+      <Projects projects={{
+        attributes: undefined,
+        __typename: undefined,
+        projects: undefined
+      }} experiments={{
+        attributes: undefined,
+        __typename: undefined,
+        experiments: undefined
+      }} />
       <MediaFooter />
     </>
   );

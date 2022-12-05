@@ -12,8 +12,8 @@ import Project from './project/Project';
 import { ProjectsContainer } from './ProjectsStyles';
 
 interface IProjectsProps {
-  project: ProjectsQuery;
-  experiment: ExperimentsQuery;
+  projects: ProjectsQuery;
+  experiments: ExperimentsQuery;
 }
 
 const Projects: React.FC<IProjectsProps> = () => {
@@ -28,7 +28,7 @@ const Projects: React.FC<IProjectsProps> = () => {
   return (
     <ProjectsContainer scrollWithModal={scrollWithModal}>
       <h2>Projects</h2>
-      {projects &&
+      {projects !== undefined &&
         projects.map(project => (
           <Project
             key={project.id}

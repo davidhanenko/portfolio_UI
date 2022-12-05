@@ -1,57 +1,24 @@
-import { GetServerSidePropsContext, NextPage } from 'next';
-import {
-  useProjectsQuery,
-  ProjectsQuery,
-  ProjectsDocument,
-} from '../generated';
-import {
-  addApolloState,
-  initializeApollo,
-} from '../graphql/apollo';
-import GlobalStyles from '../components/layout/GlobalStyles';
+import { NextPage } from 'next';
+import Head from 'next/head';
+import { useEffect } from 'react';
+import About from '../components/about/About';
+import MediaFooter from '../components/shared/media/media-footer/MediaFooter';
 
-interface ProjectsDataProps {
-  projects: ProjectsQuery;
-}
-
-const AboutPage: NextPage<ProjectsDataProps> = ({
-  projects,
-}) => {
-  const project = projects?.data[0].attributes;
-
-  // const { data, loading, error } = useProjectsQuery();
-
-  // if (loading) return <h4>Loading...</h4>;
-  // if (error) return <p>Error: {error.message}</p>;
+const AboutPage: NextPage = () => {
+  // show navbar during current session
+  useEffect(() => {
+    sessionStorage.setItem('showNav', 'true');
+  }, []);
 
   return (
-    <GlobalStyles>
-      <h1>Projects</h1>
-      <h3>{project?.title}</h3>
-      <h3>123</h3>
-      <p>{project?.description}</p>
-    </GlobalStyles>
+    <>
+      <Head>
+        <title>David Hanenko | About</title>
+      </Head>
+      <About />
+      <MediaFooter />
+    </>
   );
-};
-
-export const getServerSideProps = async (
-  ctx: GetServerSidePropsContext
-) => {
-  const client = initializeApollo({
-    headers: ctx?.req?.headers,
-  });
-
-  const {
-    data: { projects },
-  } = await client.query<ProjectsQuery>({
-    query: ProjectsDocument,
-  });
-
-  return addApolloState(client, {
-    props: {
-      projects,
-    },
-  });
 };
 
 export default AboutPage;

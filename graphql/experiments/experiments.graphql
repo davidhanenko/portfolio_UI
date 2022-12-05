@@ -1,0 +1,20 @@
+query Experiments {
+  experiments {
+    data {
+      id
+      attributes {
+        title
+        link
+        link_git
+        description
+        image {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,11 +1,13 @@
 import styled from 'styled-components';
+import Footer from './footer/Footer';
 import GlobalStyles from './GlobalStyles';
-import { Footer } from './footer/Footer';
 import { Header } from './header/Header';
 
 const InnerStyles = styled.div`
-  max-width: var(--maxWidth);
+  width: 100%;
   margin: 0 auto;
+
+  position:relative;
 `;
 interface IPageProps {
   children: React.ReactNode;
@@ -17,7 +19,7 @@ export const Page = ({ children }: IPageProps) => {
       <GlobalStyles />
       <Header />
       <InnerStyles>{children}</InnerStyles>
-      <Footer />
+      <Footer/>
     </>
   );
 };

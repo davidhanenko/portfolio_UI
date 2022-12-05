@@ -6,7 +6,7 @@ import {
   NormalizedCacheObject,
 } from '@apollo/client';
 import { onError } from '@apollo/link-error';
-import { createUploadLink } from 'apollo-upload-client';
+// import { createUploadLink } from 'apollo-upload-client';
 import merge from 'deepmerge';
 import { IncomingHttpHeaders } from 'http';
 import fetch from 'isomorphic-unfetch';
@@ -25,20 +25,6 @@ let apolloClient:
 const createApolloClient = (
   headers: IncomingHttpHeaders | null = null
 ) => {
-  // const enhancedFetch = (
-  //   url: RequestInfo,
-  //   init: RequestInit
-  // ) => {
-  //   return fetch(url, {
-  //     ...init,
-  //     headers: {
-  //       ...init.headers,
-  //       'Access-Control-Allow-Origin': '*',
-  //       Cookie: headers?.cookie ?? '',
-  //     },
-  //   }).then(response => response);
-  // };
-
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',
     link: ApolloLink.from([
@@ -55,18 +41,7 @@ const createApolloClient = (
             `[Network error]: ${networkError}. Backend is unreachable. Is it running?`
           );
       }),
-      // this uses apollo-link-http under the hood, so all the options here come from that package
-      // createUploadLink({
-      //   uri:
-      //     process.env.NODE_ENV === 'development'
-      //       ? DEV_ENDPOINT
-      //       : PROD_ENDPOINT,
-      //   fetchOptions: {
-      //     mode: 'cors',
-      //   },
-      //   credentials: 'include',
-      //   fetch: enhancedFetch,
-      // }),
+
       new HttpLink({
         uri:
           process.env.NODE_ENV === 'development'
@@ -76,7 +51,13 @@ const createApolloClient = (
         // fetch: enhancedFetch,
       }),
     ]),
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({
+      typePolicies: {
+        Project: {
+          merge: true,
+        },
+      },
+    }),
   });
 };
 

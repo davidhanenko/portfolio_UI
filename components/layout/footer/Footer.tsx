@@ -1,9 +1,11 @@
 import { FooterStyles } from './FooterStyles';
 
-export const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <FooterStyles>
-      <h1>Footer</h1>
+      <p>Created by David Hanenko &copy;</p>
     </FooterStyles>
   );
 };
+
+export default Footer;

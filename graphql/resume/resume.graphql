@@ -1,0 +1,15 @@
+query Resume {
+  resume {
+    data {
+      attributes {
+        file {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+}

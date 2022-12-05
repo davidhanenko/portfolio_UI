@@ -1,11 +1,8 @@
-import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -13,12 +10,64 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  /** A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
   DateTime: any;
-  /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
-  /** The `Upload` scalar type represents a file upload. */
+  MainTechDynamicZoneInput: any;
+  ProjectTechUsedDynamicZoneInput: any;
   Upload: any;
+};
+
+export type About = {
+  __typename?: 'About';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  header?: Maybe<Scalars['String']>;
+  img?: Maybe<UploadFileEntityResponse>;
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  tech?: Maybe<Array<Maybe<ComponentTechTech>>>;
+  tech_learning?: Maybe<Array<Maybe<ComponentTechTech>>>;
+  text_section?: Maybe<Array<Maybe<ComponentTextText>>>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+
+export type AboutTechArgs = {
+  filters?: InputMaybe<ComponentTechTechFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type AboutTech_LearningArgs = {
+  filters?: InputMaybe<ComponentTechTechFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type AboutText_SectionArgs = {
+  filters?: InputMaybe<ComponentTextTextFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type AboutEntity = {
+  __typename?: 'AboutEntity';
+  attributes?: Maybe<About>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type AboutEntityResponse = {
+  __typename?: 'AboutEntityResponse';
+  data?: Maybe<AboutEntity>;
+};
+
+export type AboutInput = {
+  header?: InputMaybe<Scalars['String']>;
+  img?: InputMaybe<Scalars['ID']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  tech?: InputMaybe<Array<InputMaybe<ComponentTechTechInput>>>;
+  tech_learning?: InputMaybe<Array<InputMaybe<ComponentTechTechInput>>>;
+  text_section?: InputMaybe<Array<InputMaybe<ComponentTextTextInput>>>;
 };
 
 export type BooleanFilterInput = {
@@ -44,6 +93,72 @@ export type BooleanFilterInput = {
   startsWith?: InputMaybe<Scalars['Boolean']>;
 };
 
+export type ComponentTechTech = {
+  __typename?: 'ComponentTechTech';
+  id: Scalars['ID'];
+  tech_logo?: Maybe<UploadFileEntityResponse>;
+  tech_title?: Maybe<Scalars['String']>;
+};
+
+export type ComponentTechTechFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentTechTechFiltersInput>>>;
+  not?: InputMaybe<ComponentTechTechFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentTechTechFiltersInput>>>;
+  tech_title?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentTechTechInput = {
+  id?: InputMaybe<Scalars['ID']>;
+  tech_logo?: InputMaybe<Scalars['ID']>;
+  tech_title?: InputMaybe<Scalars['String']>;
+};
+
+export type ComponentTextText = {
+  __typename?: 'ComponentTextText';
+  id: Scalars['ID'];
+  section?: Maybe<Scalars['String']>;
+};
+
+export type ComponentTextTextFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentTextTextFiltersInput>>>;
+  not?: InputMaybe<ComponentTextTextFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentTextTextFiltersInput>>>;
+  section?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentTextTextInput = {
+  id?: InputMaybe<Scalars['ID']>;
+  section?: InputMaybe<Scalars['String']>;
+};
+
+export type Contact = {
+  __typename?: 'Contact';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  email?: Maybe<Scalars['String']>;
+  map?: Maybe<UploadFileEntityResponse>;
+  phone?: Maybe<Scalars['Int']>;
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type ContactEntity = {
+  __typename?: 'ContactEntity';
+  attributes?: Maybe<Contact>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type ContactEntityResponse = {
+  __typename?: 'ContactEntityResponse';
+  data?: Maybe<ContactEntity>;
+};
+
+export type ContactInput = {
+  email?: InputMaybe<Scalars['String']>;
+  map?: InputMaybe<Scalars['ID']>;
+  phone?: InputMaybe<Scalars['Int']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
 export type DateTimeFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
@@ -65,6 +180,64 @@ export type DateTimeFilterInput = {
   null?: InputMaybe<Scalars['Boolean']>;
   or?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   startsWith?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type Error = {
+  __typename?: 'Error';
+  code: Scalars['String'];
+  message?: Maybe<Scalars['String']>;
+};
+
+export type Experiment = {
+  __typename?: 'Experiment';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  description: Scalars['String'];
+  image: UploadFileEntityResponse;
+  link: Scalars['String'];
+  link_git: Scalars['String'];
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  title: Scalars['String'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type ExperimentEntity = {
+  __typename?: 'ExperimentEntity';
+  attributes?: Maybe<Experiment>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type ExperimentEntityResponse = {
+  __typename?: 'ExperimentEntityResponse';
+  data?: Maybe<ExperimentEntity>;
+};
+
+export type ExperimentEntityResponseCollection = {
+  __typename?: 'ExperimentEntityResponseCollection';
+  data: Array<ExperimentEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type ExperimentFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ExperimentFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  description?: InputMaybe<StringFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  link?: InputMaybe<StringFilterInput>;
+  link_git?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ExperimentFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ExperimentFiltersInput>>>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type ExperimentInput = {
+  description?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['ID']>;
+  link?: InputMaybe<Scalars['String']>;
+  link_git?: InputMaybe<Scalars['String']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  title?: InputMaybe<Scalars['String']>;
 };
 
 export type FileInfoInput = {
@@ -96,7 +269,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = I18NLocale | Project | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = About | ComponentTechTech | ComponentTextText | Contact | Experiment | I18NLocale | Logo | Main | MediaLink | Project | Resume | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -203,15 +376,109 @@ export type JsonFilterInput = {
   startsWith?: InputMaybe<Scalars['JSON']>;
 };
 
+export type Logo = {
+  __typename?: 'Logo';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  logo?: Maybe<UploadFileEntityResponse>;
+  logo_alt?: Maybe<Scalars['String']>;
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type LogoEntity = {
+  __typename?: 'LogoEntity';
+  attributes?: Maybe<Logo>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type LogoEntityResponse = {
+  __typename?: 'LogoEntityResponse';
+  data?: Maybe<LogoEntity>;
+};
+
+export type LogoInput = {
+  logo?: InputMaybe<Scalars['ID']>;
+  logo_alt?: InputMaybe<Scalars['String']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type Main = {
+  __typename?: 'Main';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  greeting: Scalars['String'];
+  meta_description?: Maybe<Scalars['String']>;
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  tech?: Maybe<Array<Maybe<MainTechDynamicZone>>>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type MainEntity = {
+  __typename?: 'MainEntity';
+  attributes?: Maybe<Main>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type MainEntityResponse = {
+  __typename?: 'MainEntityResponse';
+  data?: Maybe<MainEntity>;
+};
+
+export type MainInput = {
+  greeting?: InputMaybe<Scalars['String']>;
+  meta_description?: InputMaybe<Scalars['String']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  tech?: InputMaybe<Array<Scalars['MainTechDynamicZoneInput']>>;
+};
+
+export type MainTechDynamicZone = ComponentTechTech | Error;
+
+export type MediaLink = {
+  __typename?: 'MediaLink';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  facebook?: Maybe<Scalars['String']>;
+  github: Scalars['String'];
+  linkedin: Scalars['String'];
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  resume: Scalars['String'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type MediaLinkEntity = {
+  __typename?: 'MediaLinkEntity';
+  attributes?: Maybe<MediaLink>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type MediaLinkEntityResponse = {
+  __typename?: 'MediaLinkEntityResponse';
+  data?: Maybe<MediaLinkEntity>;
+};
+
+export type MediaLinkInput = {
+  facebook?: InputMaybe<Scalars['String']>;
+  github?: InputMaybe<Scalars['String']>;
+  linkedin?: InputMaybe<Scalars['String']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  resume?: InputMaybe<Scalars['String']>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
+  createExperiment?: Maybe<ExperimentEntityResponse>;
   createProject?: Maybe<ProjectEntityResponse>;
   createUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Create a new role */
   createUsersPermissionsRole?: Maybe<UsersPermissionsCreateRolePayload>;
   /** Create a new user */
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
+  deleteAbout?: Maybe<AboutEntityResponse>;
+  deleteContact?: Maybe<ContactEntityResponse>;
+  deleteExperiment?: Maybe<ExperimentEntityResponse>;
+  deleteLogo?: Maybe<LogoEntityResponse>;
+  deleteMain?: Maybe<MainEntityResponse>;
+  deleteMediaLink?: Maybe<MediaLinkEntityResponse>;
   deleteProject?: Maybe<ProjectEntityResponse>;
+  deleteResume?: Maybe<ResumeEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Delete an existing role */
   deleteUsersPermissionsRole?: Maybe<UsersPermissionsDeleteRolePayload>;
@@ -228,14 +495,26 @@ export type Mutation = {
   removeFile?: Maybe<UploadFileEntityResponse>;
   /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
+  updateAbout?: Maybe<AboutEntityResponse>;
+  updateContact?: Maybe<ContactEntityResponse>;
+  updateExperiment?: Maybe<ExperimentEntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
+  updateLogo?: Maybe<LogoEntityResponse>;
+  updateMain?: Maybe<MainEntityResponse>;
+  updateMediaLink?: Maybe<MediaLinkEntityResponse>;
   updateProject?: Maybe<ProjectEntityResponse>;
+  updateResume?: Maybe<ResumeEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Update an existing role */
   updateUsersPermissionsRole?: Maybe<UsersPermissionsUpdateRolePayload>;
   /** Update an existing user */
   updateUsersPermissionsUser: UsersPermissionsUserEntityResponse;
   upload: UploadFileEntityResponse;
+};
+
+
+export type MutationCreateExperimentArgs = {
+  data: ExperimentInput;
 };
 
 
@@ -256,6 +535,11 @@ export type MutationCreateUsersPermissionsRoleArgs = {
 
 export type MutationCreateUsersPermissionsUserArgs = {
   data: UsersPermissionsUserInput;
+};
+
+
+export type MutationDeleteExperimentArgs = {
+  id: Scalars['ID'];
 };
 
 
@@ -319,15 +603,51 @@ export type MutationResetPasswordArgs = {
 };
 
 
+export type MutationUpdateAboutArgs = {
+  data: AboutInput;
+};
+
+
+export type MutationUpdateContactArgs = {
+  data: ContactInput;
+};
+
+
+export type MutationUpdateExperimentArgs = {
+  data: ExperimentInput;
+  id: Scalars['ID'];
+};
+
+
 export type MutationUpdateFileInfoArgs = {
   id: Scalars['ID'];
   info?: InputMaybe<FileInfoInput>;
 };
 
 
+export type MutationUpdateLogoArgs = {
+  data: LogoInput;
+};
+
+
+export type MutationUpdateMainArgs = {
+  data: MainInput;
+};
+
+
+export type MutationUpdateMediaLinkArgs = {
+  data: MediaLinkInput;
+};
+
+
 export type MutationUpdateProjectArgs = {
   data: ProjectInput;
   id: Scalars['ID'];
+};
+
+
+export type MutationUpdateResumeArgs = {
+  data: ResumeInput;
 };
 
 
@@ -376,9 +696,22 @@ export type Project = {
   __typename?: 'Project';
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
+  images: UploadFileRelationResponseCollection;
+  link?: Maybe<Scalars['String']>;
+  link_git?: Maybe<Scalars['String']>;
+  main_image: UploadFileEntityResponse;
+  project_type?: Maybe<Scalars['String']>;
   publishedAt?: Maybe<Scalars['DateTime']>;
+  tech_used?: Maybe<Array<Maybe<ProjectTechUsedDynamicZone>>>;
   title?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+
+export type ProjectImagesArgs = {
+  filters?: InputMaybe<UploadFileFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 export type ProjectEntity = {
@@ -403,8 +736,11 @@ export type ProjectFiltersInput = {
   createdAt?: InputMaybe<DateTimeFilterInput>;
   description?: InputMaybe<StringFilterInput>;
   id?: InputMaybe<IdFilterInput>;
+  link?: InputMaybe<StringFilterInput>;
+  link_git?: InputMaybe<StringFilterInput>;
   not?: InputMaybe<ProjectFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ProjectFiltersInput>>>;
+  project_type?: InputMaybe<StringFilterInput>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
   title?: InputMaybe<StringFilterInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
@@ -412,9 +748,17 @@ export type ProjectFiltersInput = {
 
 export type ProjectInput = {
   description?: InputMaybe<Scalars['String']>;
+  images?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  link?: InputMaybe<Scalars['String']>;
+  link_git?: InputMaybe<Scalars['String']>;
+  main_image?: InputMaybe<Scalars['ID']>;
+  project_type?: InputMaybe<Scalars['String']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
+  tech_used?: InputMaybe<Array<Scalars['ProjectTechUsedDynamicZoneInput']>>;
   title?: InputMaybe<Scalars['String']>;
 };
+
+export type ProjectTechUsedDynamicZone = ComponentTechTech | Error;
 
 export enum PublicationState {
   Live = 'LIVE',
@@ -423,17 +767,48 @@ export enum PublicationState {
 
 export type Query = {
   __typename?: 'Query';
+  about?: Maybe<AboutEntityResponse>;
+  contact?: Maybe<ContactEntityResponse>;
+  experiment?: Maybe<ExperimentEntityResponse>;
+  experiments?: Maybe<ExperimentEntityResponseCollection>;
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
+  logo?: Maybe<LogoEntityResponse>;
+  main?: Maybe<MainEntityResponse>;
   me?: Maybe<UsersPermissionsMe>;
+  mediaLink?: Maybe<MediaLinkEntityResponse>;
   project?: Maybe<ProjectEntityResponse>;
   projects?: Maybe<ProjectEntityResponseCollection>;
+  resume?: Maybe<ResumeEntityResponse>;
   uploadFile?: Maybe<UploadFileEntityResponse>;
   uploadFiles?: Maybe<UploadFileEntityResponseCollection>;
   usersPermissionsRole?: Maybe<UsersPermissionsRoleEntityResponse>;
   usersPermissionsRoles?: Maybe<UsersPermissionsRoleEntityResponseCollection>;
   usersPermissionsUser?: Maybe<UsersPermissionsUserEntityResponse>;
   usersPermissionsUsers?: Maybe<UsersPermissionsUserEntityResponseCollection>;
+};
+
+
+export type QueryAboutArgs = {
+  publicationState?: InputMaybe<PublicationState>;
+};
+
+
+export type QueryContactArgs = {
+  publicationState?: InputMaybe<PublicationState>;
+};
+
+
+export type QueryExperimentArgs = {
+  id?: InputMaybe<Scalars['ID']>;
+};
+
+
+export type QueryExperimentsArgs = {
+  filters?: InputMaybe<ExperimentFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
@@ -449,6 +824,21 @@ export type QueryI18NLocalesArgs = {
 };
 
 
+export type QueryLogoArgs = {
+  publicationState?: InputMaybe<PublicationState>;
+};
+
+
+export type QueryMainArgs = {
+  publicationState?: InputMaybe<PublicationState>;
+};
+
+
+export type QueryMediaLinkArgs = {
+  publicationState?: InputMaybe<PublicationState>;
+};
+
+
 export type QueryProjectArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
@@ -459,6 +849,11 @@ export type QueryProjectsArgs = {
   pagination?: InputMaybe<PaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type QueryResumeArgs = {
+  publicationState?: InputMaybe<PublicationState>;
 };
 
 
@@ -500,6 +895,30 @@ export type QueryUsersPermissionsUsersArgs = {
 export type ResponseCollectionMeta = {
   __typename?: 'ResponseCollectionMeta';
   pagination: Pagination;
+};
+
+export type Resume = {
+  __typename?: 'Resume';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  file?: Maybe<UploadFileEntityResponse>;
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type ResumeEntity = {
+  __typename?: 'ResumeEntity';
+  attributes?: Maybe<Resume>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type ResumeEntityResponse = {
+  __typename?: 'ResumeEntityResponse';
+  data?: Maybe<ResumeEntity>;
+};
+
+export type ResumeInput = {
+  file?: InputMaybe<Scalars['ID']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
 export type StringFilterInput = {
@@ -601,6 +1020,11 @@ export type UploadFileInput = {
   size?: InputMaybe<Scalars['Float']>;
   url?: InputMaybe<Scalars['String']>;
   width?: InputMaybe<Scalars['Int']>;
+};
+
+export type UploadFileRelationResponseCollection = {
+  __typename?: 'UploadFileRelationResponseCollection';
+  data: Array<UploadFileEntity>;
 };
 
 export type UsersPermissionsCreateRolePayload = {
@@ -816,49 +1240,3 @@ export type UsersPermissionsUserRelationResponseCollection = {
   __typename?: 'UsersPermissionsUserRelationResponseCollection';
   data: Array<UsersPermissionsUserEntity>;
 };
-
-export type ProjectsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type ProjectsQuery = { __typename?: 'Query', projects?: { __typename?: 'ProjectEntityResponseCollection', data: Array<{ __typename?: 'ProjectEntity', attributes?: { __typename?: 'Project', title?: string | null, description?: string | null } | null }> } | null };
-
-
-export const ProjectsDocument = gql`
-    query Projects {
-  projects {
-    data {
-      attributes {
-        title
-        description
-      }
-    }
-  }
-}
-    `;
-
-/**
- * __useProjectsQuery__
- *
- * To run a query within a React component, call `useProjectsQuery` and pass it any options that fit your needs.
- * When your component renders, `useProjectsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useProjectsQuery({
- *   variables: {
- *   },
- * });
- */
-export function useProjectsQuery(baseOptions?: Apollo.QueryHookOptions<ProjectsQuery, ProjectsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<ProjectsQuery, ProjectsQueryVariables>(ProjectsDocument, options);
-      }
-export function useProjectsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProjectsQuery, ProjectsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<ProjectsQuery, ProjectsQueryVariables>(ProjectsDocument, options);
-        }
-export type ProjectsQueryHookResult = ReturnType<typeof useProjectsQuery>;
-export type ProjectsLazyQueryHookResult = ReturnType<typeof useProjectsLazyQuery>;
-export type ProjectsQueryResult = Apollo.QueryResult<ProjectsQuery, ProjectsQueryVariables>;

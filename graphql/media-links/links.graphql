@@ -1,0 +1,12 @@
+query MediaLinks {
+  mediaLink {
+    data {
+      attributes {
+        facebook
+        linkedin
+        github
+        resume
+      }
+    }
+  }
+}

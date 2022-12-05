@@ -1,0 +1,34 @@
+query About {
+  about {
+    data {
+      attributes {
+        header
+        img {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        text_section {
+          ... on ComponentTextText {
+            section
+            id
+          }
+        }
+        tech {
+          ... on ComponentTechTech {
+            id
+            tech_title
+          }
+        }
+        tech_learning {
+          ... on ComponentTechTech {
+            id
+            tech_title
+          }
+        }
+      }
+    }
+  }
+}

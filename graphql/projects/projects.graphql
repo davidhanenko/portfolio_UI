@@ -1,9 +1,33 @@
 query Projects {
   projects {
     data {
+      id
       attributes {
         title
+        project_type
+        link
+        link_git
         description
+        main_image {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        tech_used {
+          ... on ComponentTechTech {
+            id
+            tech_logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            tech_title
+          }
+        }
       }
     }
   }

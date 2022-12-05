@@ -1,36 +1,99 @@
 import styled, { keyframes } from 'styled-components';
 
-const fadeInH = keyframes`
+export interface INameProps {
+  readonly nameAnimationDuration?: number | string;
+}
+
+const nameX = keyframes`
     0% {
-      transform: translate(0%);
-      background: none;
+      transform: translateX(-7.5%);
     }
     100% {
-        transform: translate(15%);
-        background: #ffffff;
-    } 
-  `;
-const fadeInR = keyframes`
-    0% {
-      transform: translate(50%);
-    }
-    100% {
-        transform: translate(150%);  
+      transform: translateX(-20%);
     } 
   `;
 
-const fadeInL = keyframes`
+const nameY = keyframes`
     0% {
-      transform: translate(120%);
-    }
+      transform: translateY(0%);
+    } 
     100% {
-        transform: translate(20%);
+      transform: translateY(-25vh);
     } 
   `;
-const fadeInLr = keyframes`
+
+// animation for x-small screens
+const nameY576 = keyframes`
+    0% {
+      transform: translateY(0%);
+    } 
+    100% {
+      transform: translateY(-30vh);
+    } 
+  `;
+
+const lastR = keyframes`
+    0% {
+      transform: translate(0%);
+      background: transparent;
+    }
+    5% {
+      background: var(--dark);
+    }
+    100% {
+        transform: translate(15%);
+        background: var(--white);
+    } 
+  `;
+
+// last name overlay animation
+const lastRRest = keyframes`
+    0% {
+      transform: translateX(26%);
+      height: 110%;
+    }
+    99% {
+      transform: translate(150%); 
+      height: 110%;  
+    } 
+    100% {
+      transform: translate(150%); 
+      height: 0; 
+    } 
+  `;
+
+const lastRRest768 = keyframes`
+    0% {
+      transform: translateX(29%);
+      height: 110%;
+    }
+    99% {
+      transform: translate(150%); 
+      height: 110%;  
+    } 
+    100% {
+      transform: translate(150%); 
+      height: 0; 
+    } 
+  `;
+
+const firstLeft = keyframes`
+    0% {
+      transform: translateX(116%);
+    }
+    100% {
+      transform: translateX(20%);
+    } 
+  `;
+
+const fadeInVisibilityR = keyframes`
     0% {
       visibility: hidden; 
       opacity: 0;  
+    }
+     50% {
+      visibility: hidden; 
+      opacity: 1;  
     }
     100% {
       visibility: visible;
@@ -38,78 +101,133 @@ const fadeInLr = keyframes`
     } 
   `;
 
-const NameStyles = styled.div`
-  animation-delay: 2s;
-  display: flex;
+const fadeInVisibilityL = keyframes`
+    0% {
+      visibility: hidden; 
+      opacity: 0;  
+    }
 
-  height: 100vh;
+    70% {
+       visibility: hidden; 
+        opacity: 0;   
+    } 
+   
+    100% {
+      visibility: visible;
+      opacity: 1;  
+    } 
+  `;
+
+const NameContainer = styled.div<INameProps>`
+  display: flex;
+  flex-flow: row wrap;
+  min-width: 100%;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  transform: translateX(-7.5%);
+  font-size: 9vw;
+  color: var(--lightOrange);
+  font-weight: 600;
 
-  .first-name {
-    color: var(--orange);
-    font-size: 10rem;
-    margin-right: 1rem;
-    transform: translateX(120%);
+  animation: ${nameX} 1s linear;
+  animation-delay: ${props => props.nameAnimationDuration};
+  animation-fill-mode: forwards;
 
-    /* position: relative; */
-    z-index: 1;
-    animation: ${fadeInL} 5s;
-    animation-delay: 2s;
+  @media (min-width: 1400px) {
+    font-size: 11rem;
+  }
+  @media (max-width: 576px) {
+    font-size: 3.7rem;
+  }
+
+  @media (max-width: 385px) {
+    font-size: 3rem;
+  }
+
+  .name {
+    font-family: 'Montserrat', sans-serif;
+    user-select: none;
+
+    animation: ${nameY} 1s;
+    animation-delay: ${props =>
+      props.nameAnimationDuration};
+    animation-timing-function: linear;
     animation-fill-mode: forwards;
 
-    .first-name-rest {
-      animation: ${fadeInLr} 5s;
-      /* animation-delay: 2s; */
+    @media (max-width: 576px) {
+      animation: ${nameY576} 1s;
+      animation-delay: ${props =>
+        props.nameAnimationDuration};
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
     }
-    @media (max-width: 601px) {
-      font-size: 10rem;
+  }
+
+  .first-name {
+    display: inline-block;
+    transform: translateX(116%);
+
+    z-index: 1;
+    animation: ${firstLeft} 3s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+
+    @media (max-width: 768px) {
+      transform: translate(120%);
+    }
+
+    @media (max-width: 576px) {
+      transform: translate(124%);
+    }
+
+    @media (max-width: 385px) {
+      transform: translate(126%);
+    }
+
+    .first-name-rest {
+      animation: ${fadeInVisibilityL} 1.5s
+        cubic-bezier(1, 0.06, 0.4, 1.16);
     }
   }
   .last-name {
-    /* position: relative; */
-    color: var(--orange);
-    font-size: 10rem;
-    /* background: white; */
-    /* transform: translateX(-15%); */
-    /* background: black; */
-    animation: ${fadeInH} 5s;
-    animation-delay: 2s;
+    position: relative;
+
+    display: inline-block;
+    padding: 0 1rem;
     z-index: 2;
+    animation: ${lastR} 3s;
+    animation-delay: 1s;
     animation-fill-mode: forwards;
 
     .last-name-rest {
-      animation: ${fadeInLr} 5s
+      visibility: 0;
+      animation: ${fadeInVisibilityR} 3s
         cubic-bezier(1, 0.06, 0.4, 1.16);
-      /* animation-delay: 2s; */
-    }
-
-    @media (max-width: 601px) {
-      font-size: 10rem;
     }
   }
 
-  /* .test {
+  .last-name-overlay {
     position: absolute;
-    left: 65%;
-    height: 100px;
-    width: 350px;
-    background: black;
+    height: 110%;
+    width: 100%;
+    background: var(--dark);
     z-index: 2;
-  } */
+    left: 0;
+    transform: translateX(26%);
 
-  .test-1 {
-    position: absolute;
-    height: 100px;
-    width: 400px;
-    background: black;
-    z-index: 2;
-    transform: translateX(60%);
-
-    animation: ${fadeInR} 5s;
-    animation-delay: 2s;
+    animation: ${lastRRest} 3s;
+    animation-delay: 1.5s;
     animation-fill-mode: forwards;
     transform-origin: right;
+
+    @media (max-width: 768px) {
+      transform: translate(29%);
+      animation: ${lastRRest768} 3s;
+      animation-delay: 1.5s;
+      animation-fill-mode: forwards;
+      transform-origin: right;
+    }
   }
 `;
-export { NameStyles };
+export { NameContainer };

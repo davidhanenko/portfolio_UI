@@ -10,13 +10,14 @@ import {
   BackgroundOverlay,
 } from './ModalStyles';
 import { ImagePlaceholderStyles } from './slider/SliderStyles';
-import { IMAGE_PLACEHOLDER as placeholderImg } from '../../../../../config';
+import { IMAGE_PLACEHOLDER as placeholderImg } from '../../../../config';
 
 interface IModalProps {
   showModal: boolean;
   setShowModal: (showModal: boolean) => void;
   slides: any;
   projectTitle: string;
+  placeholderImg: string;
 }
 
 const ImagePlaceholder = () => {

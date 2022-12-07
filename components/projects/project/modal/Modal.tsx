@@ -8,8 +8,9 @@ import {
   ModalBackground,
   ModalWrapper,
   BackgroundOverlay,
-  ImagePlaceholderStyles,
 } from './ModalStyles';
+import { ImagePlaceholderStyles } from './slider/SliderStyles';
+import { IMAGE_PLACEHOLDER as placeholderImg } from '../../../../../config';
 
 interface IModalProps {
   showModal: boolean;
@@ -19,7 +20,11 @@ interface IModalProps {
 }
 
 const ImagePlaceholder = () => {
-  return <ImagePlaceholderStyles />;
+  return (
+    <ImagePlaceholderStyles
+      placeholderImg={placeholderImg}
+    />
+  );
 };
 
 const Modal = ({

@@ -3,7 +3,7 @@ import { MdClose } from 'react-icons/md';
 
 interface ModalProps {
   readonly showModal: boolean;
-  readonly placeholderImg: string;
+  readonly placeholderImg?: string;
 }
 
 const modal = keyframes`

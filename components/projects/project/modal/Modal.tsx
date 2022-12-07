@@ -17,16 +17,15 @@ interface IModalProps {
   setShowModal: (showModal: boolean) => void;
   slides: any;
   projectTitle: string;
-  placeholderImg: string;
 }
 
 const ImagePlaceholder = () => {
   return (
     <ImagePlaceholderStyles
-      placeholderImg={placeholderImg}
+    placeholderImg={placeholderImg}
     />
-  );
-};
+    );
+  };
 
 const Modal = ({
   showModal,

@@ -42,7 +42,7 @@ class MyDocument extends Document {
         <Head>
           <meta
             name='robots'
-            content='noindex, nofollow'
+            content='all'
           ></meta>
         </Head>
         <body>

@@ -6,7 +6,7 @@ const defaultOptions = {} as const;
 export type MediaLinksQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type MediaLinksQuery = { __typename?: 'Query', mediaLink?: { __typename?: 'MediaLinkEntityResponse', data?: { __typename?: 'MediaLinkEntity', attributes?: { __typename?: 'MediaLink', facebook?: string | null, linkedin: string, github: string, resume: string } | null } | null } | null };
+export type MediaLinksQuery = { __typename?: 'Query', mediaLink?: { __typename?: 'MediaLinkEntityResponse', data?: { __typename?: 'MediaLinkEntity', attributes?: { __typename?: 'MediaLink', facebook?: string | null, linkedin: string, github: string, resume?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null } | null } | null };
 
 
 export const MediaLinksDocument = gql`
@@ -17,7 +17,13 @@ export const MediaLinksDocument = gql`
         facebook
         linkedin
         github
-        resume
+        resume {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
       }
     }
   }

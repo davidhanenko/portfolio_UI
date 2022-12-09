@@ -1,8 +1,8 @@
 query Resume {
-  resume {
+  mediaLink {
     data {
       attributes {
-        file {
+        resume {
           data {
             attributes {
               url

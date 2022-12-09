@@ -5,7 +5,13 @@ query MediaLinks {
         facebook
         linkedin
         github
-        resume
+        resume {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
       }
     }
   }

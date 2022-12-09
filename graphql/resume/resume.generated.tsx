@@ -6,15 +6,15 @@ const defaultOptions = {} as const;
 export type ResumeQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type ResumeQuery = { __typename?: 'Query', resume?: { __typename?: 'ResumeEntityResponse', data?: { __typename?: 'ResumeEntity', attributes?: { __typename?: 'Resume', file?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null } | null } | null };
+export type ResumeQuery = { __typename?: 'Query', mediaLink?: { __typename?: 'MediaLinkEntityResponse', data?: { __typename?: 'MediaLinkEntity', attributes?: { __typename?: 'MediaLink', resume?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null } | null } | null };
 
 
 export const ResumeDocument = gql`
     query Resume {
-  resume {
+  mediaLink {
     data {
       attributes {
-        file {
+        resume {
           data {
             attributes {
               url

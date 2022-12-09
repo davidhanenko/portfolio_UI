@@ -21,8 +21,8 @@ export const Map: React.FC<IMap> = ({
           src={map}
           alt='New York area map'
           layout='fill'
-          placeholder='blur'
-          blurDataURL={IMAGE_PLACEHOLDER}
+          // placeholder='blur'
+          // blurDataURL={IMAGE_PLACEHOLDER}
         />
       )}
       <div className='pin'></div>

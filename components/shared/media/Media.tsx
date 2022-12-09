@@ -9,6 +9,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 
 import { useMediaLinksQuery } from '../../../graphql/media-links/links.generated';
 import { MediaStyles } from './MediaStyles';
+import { useResumeQuery } from '../../../graphql/resume/resume.generated';
 
 const Media: React.FC = () => {
   const { data, loading } = useMediaLinksQuery();
@@ -18,7 +19,9 @@ const Media: React.FC = () => {
   const github = data?.mediaLink?.data?.attributes?.github;
   const facebook =
     data?.mediaLink?.data?.attributes?.facebook;
-  const resume = data?.mediaLink?.data?.attributes?.resume;
+  const resume =
+    data?.mediaLink?.data?.attributes?.resume?.data
+      ?.attributes?.url;
 
   if (loading)
     return (
@@ -48,16 +51,20 @@ const Media: React.FC = () => {
 
   return (
     <MediaStyles>
-      <Link href={linkedin!}>
-        <a target='_blank' data-tooltip='LinkedIn'>
-          <FaLinkedin />
-        </a>
-      </Link>
-      <Link href={github!}>
-        <a target='_blank' data-tooltip='GitHub'>
-          <FaGithub />
-        </a>
-      </Link>
+      {linkedin && (
+        <Link href={linkedin}>
+          <a target='_blank' data-tooltip='LinkedIn'>
+            <FaLinkedin />
+          </a>
+        </Link>
+      )}
+      {github && (
+        <Link href={github}>
+          <a target='_blank' data-tooltip='GitHub'>
+            <FaGithub />
+          </a>
+        </Link>
+      )}
       {facebook && (
         <Link href={facebook}>
           <a target='_blank' data-tooltip='Facebook'>
@@ -65,11 +72,13 @@ const Media: React.FC = () => {
           </a>
         </Link>
       )}
-      <Link href={resume!}>
-        <a target='_blank' data-tooltip='Resume'>
-          <CgFileDocument />
-        </a>
-      </Link>
+      {resume && (
+        <Link href={resume}>
+          <a download target='_blank' data-tooltip='Resume'>
+            <CgFileDocument />
+          </a>
+        </Link>
+      )}
     </MediaStyles>
   );
 };

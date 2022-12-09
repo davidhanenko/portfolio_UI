@@ -70,7 +70,6 @@ const CvBtnStyles = styled.a`
     }
   }
 
-  
   @media (max-width: 768px) {
     bottom: 50%;
     transform: translateY(50%);

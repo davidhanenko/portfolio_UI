@@ -16,6 +16,17 @@ const fadeInR = keyframes`
   }
 `;
 
+const fadeInB = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+   100% {
+     opacity: 1;
+     transform: translate(0%);
+  }
+`;
+
 const CvBtnStyles = styled.a`
   position: absolute;
   right: 0;
@@ -49,9 +60,12 @@ const CvBtnStyles = styled.a`
   animation-fill-mode: forwards;
 
   @media (pointer: coarse) {
+    opacity: 0;
+    transform: translateY(20%);
+
     animation: ${(props: AboutCvProps) =>
-        props.cvInView && fadeInR}
-      1s;
+        props.cvInView && fadeInB}
+      0.6s;
     animation-delay: 0.25s;
     animation-fill-mode: forwards;
   }
@@ -78,7 +92,6 @@ const CvBtnStyles = styled.a`
   @media (max-width: 576px) {
     bottom: -5rem;
     left: 40%;
-    /* transform: translateX(-50%); */
   }
 `;
 

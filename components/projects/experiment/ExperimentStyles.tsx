@@ -116,6 +116,8 @@ const ExperimentContainer = styled.div`
   justify-content: center;
   margin: 2rem;
 
+  max-width: var(--maxWidth);
+
   opacity: 0;
   transform: translateY(10%);
 

@@ -36,7 +36,7 @@ export const CvBtn: React.FC<ICvBtnProps> = ({
   inView,
 }) => {
   const { ref: cvRef, inView: cvInView } = useInView({
-    threshold: 0.5,
+    threshold: 0.3,
     triggerOnce: true,
   });
 

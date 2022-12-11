@@ -97,7 +97,7 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
   return (
     <ProjectContainer ref={ref} inView={inView}>
       {projectTitle && (
-        <h3 className='project-title'>{projectTitle}</h3>
+        <h4 className='project-title'>{projectTitle}</h4>
       )}
 
       <div className='project-body'>
@@ -125,9 +125,9 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
         ) : (
           imageUrl && (
             <Description inView={inView}>
-              <h4 className='project-type'>
+              <h5 className='project-type'>
                 {project?.attributes?.project_type}
-              </h4>
+              </h5>
 
               <p className='project-description'>
                 {project?.attributes?.description}

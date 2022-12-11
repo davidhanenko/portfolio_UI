@@ -5,6 +5,9 @@ const HomeContainer = styled.div`
   height: 100vh;
   overflow: hidden;
 
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+
   &::-webkit-scrollbar {
     display: none;
   }

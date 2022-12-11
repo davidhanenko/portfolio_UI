@@ -6,7 +6,6 @@ import { useAnimation } from '../../../lib/useAnimation';
 
 import { NAME_ANIMATION_DURATION as nameAnimationDuration } from '../../../config';
 
-
 interface AnimationEvent<T = Element>
   extends SyntheticEvent<T> {
   animationName: string;
@@ -15,7 +14,9 @@ interface AnimationEvent<T = Element>
 }
 
 export const Name = () => {
-  const { setNameAnimationEnd } = useAnimation();
+  const { nameAnimationEnd, setNameAnimationEnd } =
+    useAnimation();
+
   // disable scroll during main animation
   // disableScroll.on();
 
@@ -26,8 +27,8 @@ export const Name = () => {
       e.target instanceof HTMLElement &&
       e.target.dataset.animation === 'name'
     ) {
-      setNameAnimationEnd( true );
-      
+      setNameAnimationEnd(true);
+
       // show navbar during current session
       sessionStorage.setItem('showNav', 'true');
     }
@@ -41,6 +42,7 @@ export const Name = () => {
   return (
     <NameContainer
       nameAnimationDuration={`${nameAnimationDuration}s`}
+      nameAnimationEnd={nameAnimationEnd}
     >
       <div
         className='name'

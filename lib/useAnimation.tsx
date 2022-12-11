@@ -11,7 +11,8 @@ const LocalStateContext = createContext<
 
 const LocalStateProvider = LocalStateContext.Provider;
 
-const AnimationStateProvider = ({ children }: any) => {
+const AnimationStateProvider = ( { children }: any ) => {
+  
   const [nameAnimationEnd, setNameAnimationEnd] =
     useState<boolean>(false);
 

@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components';
 
 export interface INameProps {
   readonly nameAnimationDuration?: number | string;
+  readonly nameAnimationEnd?: boolean;
 }
 
 const nameX = keyframes`
@@ -149,14 +150,28 @@ const NameContainer = styled.div<INameProps>`
     font-family: 'Montserrat', sans-serif;
     user-select: none;
 
-    animation: ${nameY} 1s;
+    transform: ${(props: INameProps) =>
+      !props.nameAnimationEnd
+        ? `translateY(0%)`
+        : 'translateY(-25vh)'};
+
+    animation: ${(props: INameProps) =>
+        !props.nameAnimationEnd && nameY}
+      1s;
+
     animation-delay: ${props =>
       props.nameAnimationDuration};
     animation-timing-function: linear;
     animation-fill-mode: forwards;
 
     @media (max-width: 576px) {
-      animation: ${nameY576} 1s;
+      transform: ${(props: INameProps) =>
+        !props.nameAnimationEnd
+          ? `translateY(0%)`
+          : 'translateY(-30vh)'};
+      animation: ${(props: INameProps) =>
+          !props.nameAnimationEnd && nameY576}
+        1s;
       animation-delay: ${props =>
         props.nameAnimationDuration};
       animation-timing-function: linear;
@@ -216,14 +231,24 @@ const NameContainer = styled.div<INameProps>`
     left: 0;
     transform: translateX(26%);
 
-    animation: ${lastRRest} 3s;
+    transform: ${(props: INameProps) =>
+      props.nameAnimationEnd && 'translate(150%)'};
+
+    animation: ${(props: INameProps) =>
+        !props.nameAnimationEnd && lastRRest}
+      3s;
     animation-delay: 1.5s;
     animation-fill-mode: forwards;
     transform-origin: right;
 
     @media (max-width: 768px) {
-      transform: translate(29%);
-      animation: ${lastRRest768} 3s;
+      transform: ${(props: INameProps) =>
+        !props.nameAnimationEnd
+          ? `translate(29%)`
+          : 'translate(150%)'};
+      animation: ${(props: INameProps) =>
+          !props.nameAnimationEnd && lastRRest768}
+        3s;
       animation-delay: 1.5s;
       animation-fill-mode: forwards;
       transform-origin: right;

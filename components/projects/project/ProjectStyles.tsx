@@ -64,10 +64,9 @@ const Description = styled.section<IProjectProps>`
     display: flex;
     justify-content: end;
     margin-bottom: 3rem;
-    font-size: 1.7rem;
-    font-weight: 400;
+    font-size: 1.6rem;
+    font-weight: 300;
     text-transform: uppercase;
-
     position: relative;
 
     &::after {
@@ -85,10 +84,6 @@ const Description = styled.section<IProjectProps>`
     text-align: justify;
     line-height: 1.3;
     font-weight: 300;
-
-    @media (max-width: 992px) {
-      font-size: 1.2rem;
-    }
   }
 
   ul {
@@ -134,7 +129,7 @@ const Links = styled.section`
   position: absolute;
   bottom: -6rem;
   a {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--white);
     padding: 1rem;
 
@@ -224,7 +219,8 @@ const ProjectContainer = styled.article<IProjectProps>`
     top: -2rem;
 
     color: var(--orange);
-    font-size: 2.8rem;
+    font-size: 3.3rem;
+    font-weight: 400;
 
     transform: translateY(10%);
     opacity: 0;
@@ -233,6 +229,10 @@ const ProjectContainer = styled.article<IProjectProps>`
         props.inView && fadeIn}
       0.75s;
     animation-fill-mode: forwards;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
 
     @media (max-width: 281px) {
       font-size: 2.2rem;

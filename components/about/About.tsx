@@ -34,7 +34,6 @@ const About: React.FC = () => {
   const techsLearning =
     data?.about?.data?.attributes?.tech_learning;
 
-
   return (
     <AboutContainer>
       <AboutWrapper ref={ref}>

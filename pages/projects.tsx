@@ -5,8 +5,7 @@ import MediaFooter from '../components/shared/media/media-footer/MediaFooter';
 import Projects from '../components/projects/Projects';
 
 const ProjectsPage: NextPage = () => {
-
-  // show navbar during current session 
+  // show navbar during current session
   useEffect(() => {
     sessionStorage.setItem('showNav', 'true');
   }, []);
@@ -17,11 +16,9 @@ const ProjectsPage: NextPage = () => {
         <title>David Hanenko | Projects</title>
       </Head>
       <Projects projects={{
-        attributes: undefined,
         __typename: undefined,
         projects: undefined
       }} experiments={{
-        attributes: undefined,
         __typename: undefined,
         experiments: undefined
       }} />

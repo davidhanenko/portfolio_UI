@@ -10,14 +10,18 @@ const SliderContainer = styled.section`
   top: 50%;
 
   .slide {
-    height: 100%;
+    /* height: 100%; */
+    /* max-width: 800px; */
+    min-width: 50vw;
+    min-height: 100vh;
+    position: relative;
   }
 
   .image {
-    max-width: 800px;
-    width: 100%;
+    /* max-width: 800px;
+    min-width: 100%;
     height: 100%;
-    position: relative;
+    position: relative; */
   }
 
   .right-arrow,

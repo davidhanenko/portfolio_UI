@@ -81,16 +81,13 @@ const HomePage: NextPage<MainQuery> = ({
           <About />
         </Suspense>
         <Suspense fallback={<LoaderPuff />}>
-          <Projects
-            project={{
-              attributes: undefined,
-              projects: undefined,
-            }}
-            experiment={{
-              attributes: undefined,
-              experiments: undefined,
-            }}
-          />
+          <Projects projects={{
+            __typename: undefined,
+            projects: undefined
+          }} experiments={{
+            __typename: undefined,
+            experiments: undefined
+          }} />
         </Suspense>
         <Suspense fallback={<LoaderPuff />}>
           <Contact />
@@ -104,7 +101,6 @@ export const getStaticProps = async (
   ctx: GetStaticProps
 ) => {
   const client = initializeApollo({
-    // headers: ctx?.req?.headers,
   });
 
   const {

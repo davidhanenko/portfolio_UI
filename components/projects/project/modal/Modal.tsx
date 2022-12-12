@@ -66,7 +66,7 @@ const Modal = ({
         handleCloseModalOnClickOutside
       );
     };
-  }, [showModal]);
+  }, [setScrollWithModal, setShowModal, showModal]);
 
   // close on 'close' btn
   const handleCloseModal = () => {
@@ -82,7 +82,7 @@ const Modal = ({
         setScrollWithModal(false);
       }
     },
-    [setShowModal, showModal]
+    [setScrollWithModal, setShowModal, showModal]
   );
 
   useEffect(() => {
@@ -95,10 +95,6 @@ const Modal = ({
     return () =>
       document.removeEventListener('keydown', keyPress);
   }, [keyPress]);
-
-  // const images = slides?.images?.data.map(
-  //   (el: any) => el.attributes?.url
-  // );
 
   return (
     <>

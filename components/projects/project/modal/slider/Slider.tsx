@@ -18,6 +18,7 @@ import {
 } from './SliderStyles';
 
 import { IMAGE_PLACEHOLDER as placeholderImg } from '../../../../../config';
+import Image from 'next/image';
 
 interface ISlidesProps {
   slides: any;
@@ -59,7 +60,7 @@ const Slider: React.FC<ISlidesProps> = ({
         block: 'center',
       });
     }
-  }, [current]);
+  }, [current, inView]);
 
   // change slide on arrow buttons click
   const keyPress = useCallback(
@@ -109,15 +110,26 @@ const Slider: React.FC<ISlidesProps> = ({
             }
             key={index}
           >
-            {index === current && slide?.attributes?.url && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                ref={ref}
-                src={slide?.attributes?.url}
-                alt={`${projectTitle} - screenshot`}
-                className='image'
-              />
-            )}
+            {index === current &&
+              slide?.attributes?.url && (
+                // eslint-disable-next-line @next/next/no-img-element
+
+                <Image
+                  // ref={ref}
+                  src={slide?.attributes?.url}
+                  alt={`${projectTitle} - screenshot`}
+                  className='image'
+                  layout='fill'
+                  objectFit='contain'
+                />
+
+                // <img
+                //   ref={ref}
+                //   src={slide?.attributes?.url}
+                //   alt={`${projectTitle} - screenshot`}
+                //   className='image'
+                // />
+              )}
           </div>
         );
       })}

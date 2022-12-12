@@ -15,13 +15,13 @@ const HomeContainer = styled.div`
 
 const HomeWrapper = styled.div`
   position: relative;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   padding: 0 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-x: hidden;
+  overflow: hidden;
 
   margin-top: var(--headerHeight);
 `;

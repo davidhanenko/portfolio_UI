@@ -1,10 +1,5 @@
 import Image from 'next/image';
-import {
-  RefObject,
-  SyntheticEvent,
-  useEffect,
-  useState,
-} from 'react';
+import { RefObject, useEffect, useState } from 'react';
 
 import { useAnimation } from '../../../../lib/useAnimation';
 
@@ -29,7 +24,6 @@ export const BgElement: React.FC<IBgEl> = ({
   const [top, setTop] = useState<number>();
   const [left, setLeft] = useState<number>();
 
-
   useEffect(() => {
     const interval = setInterval(() => {
       if (bgRef && bgRef.current !== null && bgInView) {
@@ -38,7 +32,7 @@ export const BgElement: React.FC<IBgEl> = ({
       }
     }, intTime * 1000);
     return () => clearInterval(interval);
-  }, [el, bgInView]);
+  }, [el, bgInView, intTime, bgRef]);
 
   return (
     <Element

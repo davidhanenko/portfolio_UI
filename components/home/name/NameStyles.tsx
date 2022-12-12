@@ -59,7 +59,6 @@ const lastRRest = keyframes`
     } 
     100% {
       transform: translate(150%); 
-      height: 0; 
     } 
   `;
 
@@ -73,8 +72,7 @@ const lastRRest768 = keyframes`
       height: 110%;  
     } 
     100% {
-      transform: translate(150%); 
-      height: 0; 
+      transform: translate(150%);  
     } 
   `;
 
@@ -232,7 +230,8 @@ const NameContainer = styled.div<INameProps>`
     transform: translateX(26%);
 
     transform: ${(props: INameProps) =>
-      props.nameAnimationEnd && 'translate(150%)'};
+      props.nameAnimationEnd &&
+      'translate(150%); display: none'};
 
     animation: ${(props: INameProps) =>
         !props.nameAnimationEnd && lastRRest}

@@ -18,7 +18,6 @@ import {
 } from './SliderStyles';
 
 import { IMAGE_PLACEHOLDER as placeholderImg } from '../../../../../config';
-import Image from 'next/image';
 
 interface ISlidesProps {
   slides: any;
@@ -57,7 +56,7 @@ const Slider: React.FC<ISlidesProps> = ({
     if (!inView) {
       slideImgRef.current?.scrollIntoView({
         behavior: 'smooth',
-        block: 'center',
+        block: 'start',
       });
     }
   }, [current, inView]);
@@ -110,26 +109,15 @@ const Slider: React.FC<ISlidesProps> = ({
             }
             key={index}
           >
-            {index === current &&
-              slide?.attributes?.url && (
-                // eslint-disable-next-line @next/next/no-img-element
-
-                <Image
-                  // ref={ref}
-                  src={slide?.attributes?.url}
-                  alt={`${projectTitle} - screenshot`}
-                  className='image'
-                  layout='fill'
-                  objectFit='contain'
-                />
-
-                // <img
-                //   ref={ref}
-                //   src={slide?.attributes?.url}
-                //   alt={`${projectTitle} - screenshot`}
-                //   className='image'
-                // />
-              )}
+            {index === current && slide?.attributes?.url && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                ref={ref}
+                src={slide?.attributes?.url}
+                alt={`${projectTitle} - screenshot`}
+                className='image'
+              />
+            )}
           </div>
         );
       })}

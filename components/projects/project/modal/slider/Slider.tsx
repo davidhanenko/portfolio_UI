@@ -56,7 +56,7 @@ const Slider: React.FC<ISlidesProps> = ({
     if (!inView) {
       slideImgRef.current?.scrollIntoView({
         behavior: 'smooth',
-        block: 'start',
+        block: 'center',
       });
     }
   }, [current, inView]);

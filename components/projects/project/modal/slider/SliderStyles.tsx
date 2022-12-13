@@ -11,6 +11,18 @@ const SliderContainer = styled.section`
 
   .slide {
     height: 100%;
+    opacity: 0;
+    transition: all 0.3s;
+    transform: scale(1);
+  }
+  
+  .slide.active {
+    opacity: 1;
+    transform: scale(1.08);
+
+    @media (hover: none) and (pointer: coarse) {
+      transform: none;
+    }
   }
 
   .image {
@@ -61,17 +73,6 @@ const SliderContainer = styled.section`
       border-radius: 50%;
       opacity: 0.5;
     }
-  }
-
-  .slide {
-    opacity: 0;
-    transition-duration: 0.3s ease;
-  }
-
-  .slide.active {
-    opacity: 1;
-    transition-duration: 0.3s;
-    transform: scale(1.08);
   }
 `;
 

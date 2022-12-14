@@ -13,13 +13,13 @@ import {
 import { ExperimentsQuery } from '../../../graphql/experiments/experiments.generated';
 
 interface IExperimentProps {
-  experiment: {
+  experiment?: {
     id?: string | null;
     attributes?: {
       __typename?: 'Experiment';
       title: string;
-      link: string;
-      link_git: string;
+      link?: string;
+      link_git?: string;
       description: string;
       image: {
         __typename?: 'UploadFileEntityResponse';
@@ -52,22 +52,26 @@ const Experiment: React.FC<IExperimentProps> = ({
       <div className='image-wrapper'>
         <Overlay>
           <div className='links'>
-            <a
-              href={experiment?.attributes?.link}
-              target='_blank'
-              rel='noreferrer'
-              data-tooltip={`Visit`}
-            >
-              <FaExternalLinkAlt />
-            </a>
-            <a
-              href={experiment?.attributes?.link_git}
-              target='_blank'
-              rel='noreferrer'
-              data-tooltip='Code'
-            >
-              <FaGithub />
-            </a>
+            {experiment?.attributes?.link && (
+              <a
+                href={experiment?.attributes?.link}
+                target='_blank'
+                rel='noreferrer'
+                data-tooltip={`Visit`}
+              >
+                <FaExternalLinkAlt />
+              </a>
+            )}
+            {experiment?.attributes?.link_git && (
+              <a
+                href={experiment?.attributes?.link_git}
+                target='_blank'
+                rel='noreferrer'
+                data-tooltip='Code'
+              >
+                <FaGithub />
+              </a>
+            )}
           </div>
           <p>{experiment?.attributes?.description}</p>
         </Overlay>

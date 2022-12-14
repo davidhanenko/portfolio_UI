@@ -138,9 +138,7 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
               <ul>
                 {project?.attributes?.tech_used?.map(
                   (tech: any) => (
-                    <li key={tech.id}>
-                      {tech.tech_title}
-                    </li>
+                    <li key={tech.id}>{tech.tech_title}</li>
                   )
                 )}
               </ul>
@@ -148,22 +146,26 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
           )
         )}
         <Links>
-          <a
-            href={project?.attributes?.link}
-            target='_blank'
-            rel='noreferrer'
-            data-tooltip='Visit'
-          >
-            <FaExternalLinkAlt />
-          </a>
-          <a
-            href={project?.attributes?.link_git}
-            target='_blank'
-            rel='noreferrer'
-            data-tooltip='Code'
-          >
-            <FaGithub />
-          </a>
+          {project?.attributes?.link && (
+            <a
+              href={project?.attributes?.link}
+              target='_blank'
+              rel='noreferrer'
+              data-tooltip='Visit'
+            >
+              <FaExternalLinkAlt />
+            </a>
+          )}
+          {project?.attributes?.link_git && (
+            <a
+              href={project?.attributes?.link_git}
+              target='_blank'
+              rel='noreferrer'
+              data-tooltip='Code'
+            >
+              <FaGithub />
+            </a>
+          )}
         </Links>
       </div>
 

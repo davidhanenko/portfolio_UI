@@ -56,24 +56,6 @@ const Text = styled.article`
     font-size: 0.9rem;
     padding-bottom: 5rem;
   }
-
-  /* resume button */
-  a {
-    position: absolute;
-    bottom: 0;
-
-    color: var(--white);
-    background: var(--gray);
-    font-size: 2rem;
-    text-transform: uppercase;
-    padding: 0.75rem 1.5rem;
-
-    transition: all 0.25s;
-
-    &:hover {
-      color: var(--orange);
-    }
-  }
 `;
 
 export { Text };

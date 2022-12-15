@@ -61,8 +61,10 @@ const MediaStylesWrapper = styled.aside`
     }
 
     svg {
-      &:hover {
-        transform: translateX(-0.5rem);
+      @media (hover: hover) {
+        &:hover {
+          transform: translateX(-0.5rem);
+        }
       }
     }
   }
@@ -110,9 +112,10 @@ const MediaStylesWrapper = styled.aside`
 
       svg {
         margin: 0.75rem 0.75rem;
-
-        &:hover {
-          transform: translateY(-0.5rem);
+        @media (hover: hover) {
+          &:hover {
+            transform: translateY(-0.5rem);
+          }
         }
       }
     }

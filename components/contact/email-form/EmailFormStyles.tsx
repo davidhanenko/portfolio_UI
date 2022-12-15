@@ -141,8 +141,10 @@ const EmailSendBtn = styled.button`
     font-size: 1.7rem;
   }
 
-  &:hover span {
-    letter-spacing: 0.4rem;
+  @media (hover: hover) {
+    &:hover span {
+      letter-spacing: 0.4rem;
+    }
   }
 
   &:before {
@@ -159,10 +161,11 @@ const EmailSendBtn = styled.button`
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     transform: scale(0.1, 1);
   }
-
-  &:hover::before {
-    opacity: 1;
-    transform: scale(1, 1);
+  @media (hover: hover) {
+    &:hover::before {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
   }
 
   &:after {
@@ -177,9 +180,11 @@ const EmailSendBtn = styled.button`
     background-color: rgba(255, 255, 255, 0.038);
   }
 
-  &:hover::after {
-    opacity: 0;
-    transform: scale(0.1, 1);
+  @media (hover: hover) {
+    &:hover::after {
+      opacity: 0;
+      transform: scale(0.1, 1);
+    }
   }
 `;
 

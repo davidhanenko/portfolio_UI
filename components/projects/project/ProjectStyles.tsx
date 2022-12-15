@@ -143,7 +143,7 @@ const Links = styled.section`
       content: attr(data-tooltip);
       position: absolute;
       bottom: -4rem;
-      right: -3rem;
+      right: 1rem;
       padding: 0.5rem 1rem;
       font-size: 1.3rem;
       color: var(--white);
@@ -159,20 +159,15 @@ const Links = styled.section`
         color: var(--orange);
         transform: scale(1.3);
       }
+
+      &:hover::after {
+        display: block;
+      }
     }
 
     &:active svg {
       color: var(--orange);
       transform: scale(1.3);
-    }
-
-    &:hover::after {
-      display: block;
-
-      /* disable tooltips on touch screens */
-      @media (pointer: coarse) {
-        display: none;
-      }
     }
   }
 `;

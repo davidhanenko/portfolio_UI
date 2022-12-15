@@ -76,12 +76,12 @@ const CloseModalButton = styled(MdClose)`
     right: 3%;
   }
 
-  &:hover {
-    opacity: 0.7;
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.7;
+    }
   }
 `;
-
-
 
 export {
   ModalBackground,

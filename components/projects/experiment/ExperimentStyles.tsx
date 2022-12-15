@@ -51,7 +51,7 @@ const Overlay = styled.div`
         content: attr(data-tooltip);
         position: absolute;
         bottom: -2rem;
-        right: -3rem;
+        right: 1rem;
         padding: 0.5rem 1rem;
         font-size: 1.3rem;
         color: var(--white);
@@ -67,13 +67,8 @@ const Overlay = styled.div`
           color: var(--dark);
           transform: scale(1.3);
         }
-      }
-      &:hover::after {
-        display: block;
-
-        /* disable tooltips on touch screens */
-        @media (pointer: coarse) {
-          display: none;
+        &:hover::after {
+          display: block;
         }
       }
     }

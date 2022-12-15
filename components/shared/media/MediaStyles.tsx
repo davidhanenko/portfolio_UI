@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const MediaStyles = styled.article`
-  font-size: 2.3rem;
+  font-size: 3rem;
 
   a {
     position: relative;
@@ -20,26 +20,24 @@ const MediaStyles = styled.article`
       transition: all 0.3s;
     }
 
-    &:hover::after {
-      display: block;
-
-      /* disable tooltips on touch screens */
-      @media (pointer: coarse) {
-        display: none;
+    @media (hover: hover) {
+      &:hover::after {
+        display: block;
       }
     }
   }
 
   svg {
-    margin: 0.75rem 0;
+    margin: 0.5rem 0;
+    padding: 0.25rem;
     color: var(--orange);
-    transition: all 0.3s;
+    transition: all 0.35s;
     cursor: pointer;
-    
+
     @media (hover: hover) {
       &:hover {
         color: var(--white);
-        transform: scale(1.07);
+        transform: scale(1.07) translateY(0.35rem);
       }
       &:active {
         color: var(--white);

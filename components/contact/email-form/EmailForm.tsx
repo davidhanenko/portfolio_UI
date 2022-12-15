@@ -44,7 +44,6 @@ export const EmailForm: React.FC<Email> = ({
     },
   });
 
-
   // form submit handler
   const onSubmitForm: SubmitHandler<
     Inputs
@@ -61,7 +60,15 @@ export const EmailForm: React.FC<Email> = ({
         subject: values.subject
           ? `${values.subject} - from HD`
           : 'Email from DH portfolio website',
-        text: values.emailMessage,
+        text: `from: ${values.name} - ${values.email} 
+        ${values.emailMessage}`,
+        html: `<div>
+            <h2>from: ${values.name}</h2>
+            <h3>email: ${values.email}</h3>
+
+            <strong>Message:</strong>
+            <p>${values.emailMessage}</p>
+          </div>`,
       },
     };
 
@@ -199,4 +206,3 @@ export const EmailForm: React.FC<Email> = ({
     </Form>
   );
 };
-

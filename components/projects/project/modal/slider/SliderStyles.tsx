@@ -12,10 +12,9 @@ const SliderContainer = styled.section`
   .slide {
     height: 100%;
     opacity: 0;
-    transition: all 0.3s;
-    transform: scale(1);
+    transition: all 0.4s;
   }
-  
+
   .slide.active {
     opacity: 1;
     transform: scale(1.08);
@@ -30,6 +29,10 @@ const SliderContainer = styled.section`
     width: 100%;
     height: 100%;
     position: relative;
+
+    @media (max-with: 576px) {
+      max-width: 550px;
+    }
   }
 
   .right-arrow,
@@ -44,8 +47,11 @@ const SliderContainer = styled.section`
     user-select: none;
     cursor: pointer;
     transition: opacity 0.2s;
-    &:hover {
-      opacity: 0.6;
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 0.6;
+      }
     }
   }
 
@@ -59,6 +65,8 @@ const SliderContainer = styled.section`
 
   @media (hover: none) and (pointer: coarse) {
     .right-arrow {
+      font-size: 4rem;
+      padding: 1rem;
       right: 2rem;
       background: var(--offWhite);
       color: var(--lightGray);
@@ -67,6 +75,8 @@ const SliderContainer = styled.section`
     }
 
     .left-arrow {
+      font-size: 4rem;
+      padding: 1rem;
       left: 2rem;
       background: var(--offWhite);
       color: var(--lightGray);

@@ -16,11 +16,13 @@ const SliderContainer = styled.section`
   }
 
   .slide.active {
-    opacity: 1;
-    transform: scale(1.08);
+    @media (hover: hover) {
+      opacity: 1;
+      transform: scale(1.08);
+    }
 
     @media (hover: none) and (pointer: coarse) {
-      transform: none;
+      opacity: 1;
     }
   }
 
@@ -49,6 +51,15 @@ const SliderContainer = styled.section`
     transition: opacity 0.2s;
 
     @media (hover: hover) {
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  @media (hover: hover) {
+    .right-arrow,
+    .left-arrow {
       &:hover {
         opacity: 0.6;
       }

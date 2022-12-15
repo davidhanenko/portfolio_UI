@@ -60,32 +60,15 @@ export const EmailForm: React.FC<Email> = ({
         subject: values.subject
           ? `${values.subject} - from HD`
           : 'Email from DH portfolio website',
-        text: values.emailMessage,
-        // html: `<div>
-        //     <h2>from: ${values.name}</h2>
-        //     <h3>email: ${values.email}</h3>
+        text: `from: ${values.name} - ${values.email} 
+        ${values.emailMessage}`,
+        html: `<div>
+            <h2>from: ${values.name}</h2>
+            <h3>email: ${values.email}</h3>
 
-        //     <strong>Message:</strong>
-        //     <p>${values.emailMessage}</p>
-        //   </div>`,
-        html: `<!doctype html>
-    <html ⚡4email>
-      <head>
-        <meta charset="utf-8">
-        <style>
-          body: {
-            color: red;
-          }
-        </style>
-      </head>
-      <body>
-              <h2>from: ${values.name}</h2>
-              <h3>email: ${values.email}</h3>
-
-             <strong>Message:</strong>
-              <p>${values.emailMessage}</p>
-      </body>
-    </html>`,
+            <strong>Message:</strong>
+            <p>${values.emailMessage}</p>
+          </div>`,
       },
     };
 

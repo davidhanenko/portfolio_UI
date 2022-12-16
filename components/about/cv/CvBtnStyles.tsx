@@ -27,6 +27,10 @@ const fadeInB = keyframes`
   }
 `;
 
+const CvBtnWrapper = styled.div`
+  
+`
+
 const CvBtnStyles = styled.a`
   position: absolute;
   right: 0;
@@ -95,4 +99,4 @@ const CvBtnStyles = styled.a`
   }
 `;
 
-export { CvBtnStyles };
+export { CvBtnStyles, CvBtnWrapper };

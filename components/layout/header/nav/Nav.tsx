@@ -39,7 +39,7 @@ export const Nav: React.FC = () => {
         handleClickOutside
       );
     };
-  }, [isOpen]);
+  }, [closeNav, isOpen]);
 
   return (
     <NavStyles isOpen={isOpen} ref={navRef}>

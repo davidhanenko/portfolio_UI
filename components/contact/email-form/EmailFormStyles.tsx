@@ -64,6 +64,7 @@ const Form = styled.form<PropsTypes>`
     .input-field {
       border: none;
       outline: none;
+      box-shadow: none;
       position: relative;
       margin-bottom: 2rem;
       padding: 0;
@@ -79,10 +80,13 @@ const Form = styled.form<PropsTypes>`
       textarea {
         border: none;
         outline: none;
+        box-shadow: none;
         padding: 0.5rem 0.5rem 0.6rem 0;
         width: 100%;
         font-size: 1.6rem;
+        line-height: 1.6rem;
         border-bottom: solid 1px var(--white);
+        border-radius: none;
         color: var(--white);
         font-weight: 200;
         transition: all 0.5s ease;
@@ -90,6 +94,9 @@ const Form = styled.form<PropsTypes>`
 
         &:focus {
           border-bottom: solid 1px orange;
+          outline: none;
+          box-shadow: none;
+          border-radius: none;
         }
       }
 

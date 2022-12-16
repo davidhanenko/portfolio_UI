@@ -31,6 +31,10 @@ const ProjectsContainer = styled.div`
     }
   }
 
+  .projects-wrapper {
+    min-height: 100vh;
+  }
+  
   h3 {
     display: flex;
     justify-content: end;

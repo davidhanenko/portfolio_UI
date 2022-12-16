@@ -24,6 +24,10 @@ const HomeWrapper = styled.div`
   overflow: hidden;
 
   margin-top: var(--headerHeight);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export { HomeWrapper, HomeContainer };

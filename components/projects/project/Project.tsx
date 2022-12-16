@@ -71,13 +71,6 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
     triggerOnce: true,
   });
 
-  // const [loadImages, { loading, data }] =
-  //   useProjectsImagesLazyQuery({
-  //     variables: {
-  //       title: project?.attributes?.title,
-  //     },
-  //   } );
-
   const { data, loading } = useProjectsImagesQuery({
     variables: {
       title: project?.attributes?.title!,
@@ -104,7 +97,6 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
         <section
           onClick={() => {
             toggleModal();
-            // loadImages();
           }}
           className='project-img'
         >

@@ -10,7 +10,7 @@ const GlobalStyles = createGlobalStyle`
 
   :root {
     margin: 0 auto;
-    --maxWidth: 1400px;
+    --maxWidth: 1600px;
 
     --headerHeight: 10rem;
 

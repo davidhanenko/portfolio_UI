@@ -28,15 +28,17 @@ const Projects: React.FC<IProjectsProps> = () => {
   return (
     <ProjectsContainer scrollWithModal={scrollWithModal}>
       <h2>Projects</h2>
-      {projects !== undefined &&
-        projects.map(project => (
-          <Project
-            key={project.id}
-            project={project}
-            inView={false}
-            projectRef={undefined}
-          />
-        ))}
+      <section className='projects-wrapper'>
+        {projects !== undefined &&
+          projects.map(project => (
+            <Project
+              key={project.id}
+              project={project}
+              inView={false}
+              projectRef={undefined}
+            />
+          ))}
+      </section>
 
       <h3>Experiments</h3>
       <section className='experiments-wrapper'>

@@ -12,6 +12,7 @@ const SliderContainer = styled.section`
   .slide {
     height: 100%;
     opacity: 0;
+    margin: 0 auto;
     transition: all 0.4s;
   }
 
@@ -27,7 +28,7 @@ const SliderContainer = styled.section`
   }
 
   .image {
-    max-width: 800px;
+    max-width: 900px;
     width: 100%;
     height: 100%;
     position: relative;

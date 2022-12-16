@@ -1,7 +1,4 @@
 import { useInView } from 'react-intersection-observer';
-import { HeaderPlaceholder } from '../../shared/placeholder/HeaderPlaceholder';
-import { PlaceholderWrapper } from '../../shared/placeholder/PlaceholderWrapper';
-import { TextPlaceholder } from '../../shared/placeholder/TextPlaceholder';
 import { Text } from './AboutTextStyles';
 
 interface IAboutTextProps {
@@ -24,16 +21,5 @@ export const AboutText: React.FC<IAboutTextProps> = ({
       {paragraphs &&
         paragraphs.map(p => <p key={p.id}>{p.section}</p>)}
     </Text>
-  );
-};
-
-// text section placeholder
-export const AboutTextPlaceholder = () => {
-  return (
-    <PlaceholderWrapper>
-      <HeaderPlaceholder />
-      <TextPlaceholder />
-      <TextPlaceholder />
-    </PlaceholderWrapper>
   );
 };

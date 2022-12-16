@@ -8,7 +8,7 @@ import {
   TextPlLine,
 } from '../../shared/placeholder/TextPlaceholder';
 import { TitlePlaceholder } from '../../shared/placeholder/TitlePlaceholder';
-import { CvBtnStyles } from './CvBtnStyles';
+import { CvBtnStyles, CvBtnWrapper } from './CvBtnStyles';
 
 interface ICvBtnProps {
   inView: boolean;
@@ -47,7 +47,7 @@ export const CvBtn: React.FC<ICvBtnProps> = ({
     data?.mediaLink?.data?.attributes?.resume?.data
       ?.attributes?.url;
 
-  if (loading) return <DocumentPlaceholder />;
+  if (loading) return <CvBtnWrapper />;
 
   return (
     <Link href={fileUrl || ''} passHref>

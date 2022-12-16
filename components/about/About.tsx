@@ -7,14 +7,8 @@ import {
 } from './AboutStyles';
 import { CvBtn } from './cv/CvBtn';
 import { AboutImage } from './image/AboutImage';
-import {
-  AboutStack,
-  AboutStackPlaceholder,
-} from './stack/AboutStack';
-import {
-  AboutText,
-  AboutTextPlaceholder,
-} from './text/AboutText';
+import { AboutStack } from './stack/AboutStack';
+import { AboutText } from './text/AboutText';
 
 const About: React.FC = () => {
   const { data, loading, error } = useAboutQuery();
@@ -38,24 +32,18 @@ const About: React.FC = () => {
     <AboutContainer>
       <AboutWrapper ref={ref}>
         <section className='text-stack'>
-          {loading ? (
-            <AboutTextPlaceholder />
-          ) : (
+          {!loading && (
             <AboutText
               header={header!}
               paragraphs={paragraphs!}
             />
           )}
-          {loading ? (
-            <AboutStackPlaceholder />
-          ) : (
-            techs && (
-              <AboutStack
-                techs={techs}
-                techsLearning={techsLearning!}
-                inView={false}
-              />
-            )
+          {techs && (
+            <AboutStack
+              techs={techs}
+              techsLearning={techsLearning!}
+              inView={false}
+            />
           )}
         </section>
         <section className='img-cv'>

@@ -1,0 +1,7 @@
+mutation AddIp($data: IpInput!) {
+  createIp(data: $data) {
+    data {
+      id
+    }
+  }
+}

@@ -51,9 +51,10 @@ const MediaFooterStyles = styled.footer`
 
     svg {
       margin: 0.75rem 0.75rem;
-
-      &:hover {
-        transform: translateY(-0.5rem);
+      @media (hover: hover) {
+        &:hover {
+          transform: translateY(-0.5rem);
+        }
       }
     }
   }

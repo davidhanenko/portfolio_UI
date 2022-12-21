@@ -27,9 +27,7 @@ const fadeInB = keyframes`
   }
 `;
 
-const CvBtnWrapper = styled.div`
-  
-`
+const CvBtnWrapper = styled.div``;
 
 const CvBtnStyles = styled.a`
   position: absolute;
@@ -93,7 +91,7 @@ const CvBtnStyles = styled.a`
     transform: translateY(50%);
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 600px) {
     bottom: -5rem;
     left: 40%;
   }

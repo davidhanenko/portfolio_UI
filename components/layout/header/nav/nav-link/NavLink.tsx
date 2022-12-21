@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 import { useNav } from '../../../../../lib/useNav';
 import { NavLinkStyles } from './NavLinkStyles';
@@ -17,19 +16,29 @@ const LinkBnt = React.forwardRef(
     { href, title, link }: Props,
     ref: React.LegacyRef<HTMLAnchorElement> | undefined
   ) => {
-    const router = useRouter();
-    const { closeNav } = useNav();
+    const {closeNav } = useNav();
+
+    const handleClick = (
+      e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    ) => {
+      e.preventDefault();
+
+      const href = e.currentTarget.href;
+      const targetId = href.replace(/.*\#/, '');
+
+      const elem = document.getElementById(targetId);
+      elem?.scrollIntoView({
+        behavior: 'smooth',
+      });
+
+      closeNav();
+    };
 
     return (
       <a
         href={href}
         ref={ref}
-        onClick={closeNav}
-        className={
-          router.asPath.split('/')[1] === title
-            ? 'active-link'
-            : ''
-        }
+        onClick={handleClick}
       >
         {title}
       </a>
@@ -43,7 +52,7 @@ export const NavLink: React.FC<Props> = ({
 }) => {
   return (
     <NavLinkStyles>
-      <Link href={`/${link}`} passHref>
+      <Link href={`#${link}`} passHref>
         <LinkBnt title={title} />
       </Link>
     </NavLinkStyles>

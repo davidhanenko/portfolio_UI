@@ -6,10 +6,8 @@ import {
   NormalizedCacheObject,
 } from '@apollo/client';
 import { onError } from '@apollo/link-error';
-// import { createUploadLink } from 'apollo-upload-client';
 import merge from 'deepmerge';
 import { IncomingHttpHeaders } from 'http';
-import fetch from 'isomorphic-unfetch';
 import isEqual from 'lodash/isEqual';
 import type { AppProps } from 'next/app';
 import { useMemo } from 'react';
@@ -48,7 +46,6 @@ const createApolloClient = (
             ? DEV_ENDPOINT
             : PROD_ENDPOINT,
         credentials: 'include',
-        // fetch: enhancedFetch,
       }),
     ]),
     cache: new InMemoryCache({

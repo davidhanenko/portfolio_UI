@@ -13,33 +13,14 @@ import {
 import { ExperimentsQuery } from '../../../graphql/experiments/experiments.generated';
 
 interface IExperimentProps {
-  experiment?: {
-    id?: string | null;
-    attributes?: {
-      __typename?: 'Experiment';
-      title: string;
-      link?: string;
-      link_git?: string;
-      description: string;
-      image: {
-        __typename?: 'UploadFileEntityResponse';
-        data?: {
-          __typename?: 'UploadFileEntity';
-          attributes?: {
-            __typename?: 'UploadFile';
-            url: string;
-          } | null;
-        } | null;
-      };
-    } | null;
-  };
+  experiment: ExperimentsQuery | any;
 }
 
 const Experiment: React.FC<IExperimentProps> = ({
   experiment,
 }) => {
   const { ref, inView } = useInView({
-    threshold: 0.9,
+    threshold: 0.8,
     triggerOnce: true,
   });
 

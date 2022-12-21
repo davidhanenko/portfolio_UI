@@ -13,7 +13,7 @@ const Contact: React.FC = () => {
   const { data, loading } = useContactQuery();
 
   const { ref, inView } = useInView({
-    threshold: 0.5,
+    threshold: 0.8,
   });
 
   const map =
@@ -21,9 +21,8 @@ const Contact: React.FC = () => {
       ?.url;
   const email = data?.contact?.data?.attributes?.email;
 
-
   return (
-    <ContactContainer>
+    <ContactContainer id='contacts'>
       <ToastContainer
         position='bottom-left'
         autoClose={5000}

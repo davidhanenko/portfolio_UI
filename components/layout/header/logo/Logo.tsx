@@ -1,34 +1,27 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import { IMAGE_PLACEHOLDER } from '../../../../config';
-import { useLogoQuery } from '../../../../graphql/logo/logo.generated';
+import { useRouter } from 'next/router';
 import { LogoStyles } from './LogoStyles';
+import logo from '../../../../public/HD.png';
 
 export const Logo: React.FC = () => {
-  const { data, loading, error } = useLogoQuery();
+  const router = useRouter();
 
-  const logoImgUrl =
-    data?.logo?.data?.attributes?.logo?.data?.attributes
-      ?.url;
-  const logoAltText =
-    data?.logo?.data?.attributes?.logo_alt;
-
+  const handleLogoClick = () => {
+    router.push('/');
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
   return (
-    <LogoStyles>
-      {data && (
-        <Link href='/'>
-          <a>
-            <Image
-              src={logoImgUrl!}
-              alt={logoAltText!}
-              width={75}
-              height={75}
-              placeholder='blur'
-              blurDataURL={IMAGE_PLACEHOLDER}
-            />
-          </a>
-        </Link>
-      )}
+    <LogoStyles onClick={handleLogoClick}>
+      <Image
+        src={logo!}
+        alt='logo'
+        width={100}
+        height={55}
+        objectFit='scale-down'
+      />
     </LogoStyles>
   );
 };

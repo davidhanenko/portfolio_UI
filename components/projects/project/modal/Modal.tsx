@@ -22,10 +22,10 @@ interface IModalProps {
 const ImagePlaceholder = () => {
   return (
     <ImagePlaceholderStyles
-    placeholderImg={placeholderImg}
+      placeholderImg={placeholderImg}
     />
-    );
-  };
+  );
+};
 
 const Modal = ({
   showModal,
@@ -33,11 +33,11 @@ const Modal = ({
   slides,
   projectTitle,
 }: IModalProps) => {
-  const { scrollWithModal, setScrollWithModal } =
-    useScroll();
-
   const slideRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
+
+  const { scrollWithModal, setScrollWithModal } =
+    useScroll();
 
   // close modal on click outside
   useEffect(() => {
@@ -48,8 +48,8 @@ const Modal = ({
         showModal &&
         !slideRef?.current?.contains(event.target as Node)
       ) {
-        setScrollWithModal(false);
         setShowModal(false);
+        setScrollWithModal(false);
       }
     };
 
@@ -66,7 +66,7 @@ const Modal = ({
         handleCloseModalOnClickOutside
       );
     };
-  }, [setScrollWithModal, setShowModal, showModal]);
+  }, [setShowModal, showModal]);
 
   // close on 'close' btn
   const handleCloseModal = () => {
@@ -82,7 +82,7 @@ const Modal = ({
         setScrollWithModal(false);
       }
     },
-    [setScrollWithModal, setShowModal, showModal]
+    [setShowModal, showModal]
   );
 
   useEffect(() => {

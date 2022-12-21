@@ -1,34 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# About
+My personal portfolio [website](https://davidhanenko.com) which includes some of my projects and technical skills. It's a single page, fully responsive, and styled with Styled Components.
 
-## Getting Started
+### Built with
 
-First, run the development server:
+- Next.js(React.js framework)
+- TypeScript
+- Styled Components
+- Apollo & GraphQL
+- Strapi CMS
+- Vercel
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+# Getting Started
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To get a local copy up and running follow these steps.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Prerequisites
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- yarn
+- node
+- git
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Installation
 
-## Learn More
+1. Clone the repo
 
-To learn more about Next.js, take a look at the following resources:
+     ```git clone https://github.com/davidhanenko/portfolio_ui.git```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Install NPM packages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+     ```yarn install```
 
-## Deploy on Vercel
+3. Create configuration file .env with following variables
+    
+     `NEXT_PUBLIC_API_URL=http://localhost:1337` - Stpapi CMS URI in dev mode. Should be set as ENV variable with actual URI at deployment.
+  
+## Usage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+``` yarn dev ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Go to http://localhost:8888 for the Next.js frontend application.
+
+The app uses Strapi CMS as a backend, there you will be able to create the content needed for the application. It's located in a [separate repository](https://github.com/davidhanenko/portfolio_cms).
+After starting backend will be available at http://localhost:1337/admin.
+

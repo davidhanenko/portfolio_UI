@@ -17,7 +17,7 @@ const MediaStyles = styled.article`
       background: var(--gray);
 
       display: none;
-      transition: all 0.3s;
+      transition: all 0.25s;
     }
 
     @media (hover: hover) {
@@ -37,7 +37,8 @@ const MediaStyles = styled.article`
     @media (hover: hover) {
       &:hover {
         color: var(--white);
-        transform: scale(1.07) translateY(0.35rem);
+        transform: scale(1.2);
+        padding-top: .5rem;
       }
       &:active {
         color: var(--white);

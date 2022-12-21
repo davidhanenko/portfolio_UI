@@ -1,4 +1,4 @@
-import { SyntheticEvent } from 'react';
+import { SyntheticEvent, useEffect } from 'react';
 import { NameContainer } from './NameStyles';
 import disableScroll from 'disable-scroll';
 
@@ -17,8 +17,10 @@ export const Name = () => {
   const { nameAnimationEnd, setNameAnimationEnd } =
     useAnimation();
 
-  // disable scroll during main animation
-  // disableScroll.on();
+  useEffect(() => {
+    // disable scroll during main animation
+    disableScroll.on();
+  }, []);
 
   const handleAnimationEnd = (
     e: AnimationEvent<HTMLDivElement>
@@ -31,14 +33,11 @@ export const Name = () => {
 
       // show navbar during current session
       sessionStorage.setItem('showNav', 'true');
-    }
 
-    // enable scroll
-    setTimeout(() => {
+      // enable scroll
       disableScroll.off();
-    }, nameAnimationDuration * 1000);
+    }
   };
-
   return (
     <NameContainer
       nameAnimationDuration={`${nameAnimationDuration}s`}

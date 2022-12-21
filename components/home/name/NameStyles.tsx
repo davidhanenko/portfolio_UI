@@ -136,7 +136,7 @@ const NameContainer = styled.div<INameProps>`
   @media (min-width: 1400px) {
     font-size: 11rem;
   }
-  @media (max-width: 576px) {
+  @media (max-width: 600px) {
     font-size: 3.7rem;
   }
 
@@ -146,7 +146,6 @@ const NameContainer = styled.div<INameProps>`
 
   .name {
     font-family: 'Montserrat', sans-serif;
-    user-select: none;
 
     transform: ${(props: INameProps) =>
       !props.nameAnimationEnd
@@ -162,7 +161,7 @@ const NameContainer = styled.div<INameProps>`
     animation-timing-function: linear;
     animation-fill-mode: forwards;
 
-    @media (max-width: 576px) {
+    @media (max-width: 600px) {
       transform: ${(props: INameProps) =>
         !props.nameAnimationEnd
           ? `translateY(0%)`
@@ -190,7 +189,7 @@ const NameContainer = styled.div<INameProps>`
       transform: translate(120%);
     }
 
-    @media (max-width: 576px) {
+    @media (max-width: 600px) {
       transform: translate(124%);
     }
 

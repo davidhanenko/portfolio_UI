@@ -12,20 +12,35 @@ const GlobalStyles = createGlobalStyle`
     margin: 0 auto;
     --maxWidth: 1600px;
 
-    --headerHeight: 10rem;
+    --headerHeight: 8rem;
 
 
-    --dark: #252525;
-    --dark2: #373737;
-    --gray: #4b4b4b;
-    --lightGray: #c4c4c4;
+    --dark: #221F1E;
+    --darkOp: #221f1eea;
+    --dark2: #343230;
+    --gray: #7a7979;
+    --grayOp: #7a797987;
+    --lightGray: #bcbcbc;
+    --lightGrayOp: #bcbcbcf1;
     --lightOrange: #ff9001;
-    --orange: #ff6600;
+    --orange: #fe6601;
+    --paleOrange:#ed9e67;
+    --paleOrangeOp:#ed9f6792;
+    --brown:#86370e;
+    --blue:#1d5191;
     
     --white: #f8f1f1;
     --offWhite: #f5f5f5;
     --textDark: #1e1a1a;
     --bgDarkOpacity: rgba(37, 37, 37, 0.7); 
+
+    --gradient-gray1: linear-gradient(
+    333deg,
+    var(--gray) 0%,
+    var(--dark2) 90%
+    );
+
+     --gradient-gray2: linear-gradient(169deg, var(--grayOp) 60%, var(--paleOrangeOp) 40%);
 
   }
 
@@ -47,13 +62,15 @@ const GlobalStyles = createGlobalStyle`
     overflow-x: hidden;
     scroll-behavior: smooth;
     background: var(--dark);
-
-        font-stretch: ultra-expanded;
   }
 
   a {
     text-decoration: none;
-  } 
+  } input, button {
+    border-radius: 0;
+    appearance: none;
+  }
+  
 `;
 
 export default GlobalStyles;

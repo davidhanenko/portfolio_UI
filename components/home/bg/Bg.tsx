@@ -20,7 +20,7 @@ export const Bg: React.FC<IBg> = ({
         return (
           <BgElement
             bgRef={bgRef}
-            key={index}
+            key={el.id}
             intTime={index + 2} //add 2 seconds to animation based on array indexes
             el={el}
             bgInView={bgInView}

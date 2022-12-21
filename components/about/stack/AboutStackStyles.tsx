@@ -42,8 +42,12 @@ const Stack = styled.section`
     padding-bottom: 0.5rem;
   }
 
+  .learning {
+    color: var(--lightGray);
+  }
+
   .tech-title,
-  .tech-l-title {
+  .tech-title-learn {
     display: inline-block;
     font-size: 1.5rem;
     font-weight: 200;
@@ -64,6 +68,9 @@ const Stack = styled.section`
 
   hr {
     margin: 3rem 0;
+    height: 1px;
+    border: none;
+    background: var(--lightOrange);
   }
 `;
 

@@ -16,7 +16,7 @@ const Home: React.FC<MainQuery> = ({ main }) => {
   });
 
   return (
-    <HomeContainer>
+    <HomeContainer id='home'>
       <HomeWrapper ref={inViewRef}>
         <Bg techImages={techImages!} bgInView={bgInView} />
         <Name />

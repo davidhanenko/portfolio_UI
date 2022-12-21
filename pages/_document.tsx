@@ -40,10 +40,7 @@ class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head>
-          <meta
-            name='robots'
-            content='all'
-          ></meta>
+          <meta name='robots' content='all'></meta>
         </Head>
         <body>
           <Main />

@@ -11,7 +11,7 @@ export const AboutImage: React.FC<IAboutImageProps> = ({
   imgUrl,
 }) => {
   const { ref, inView } = useInView({
-    threshold: 0.5,
+    threshold: 0.3,
     triggerOnce: true,
   });
   return (
@@ -19,8 +19,8 @@ export const AboutImage: React.FC<IAboutImageProps> = ({
       <Image
         src={imgUrl}
         alt={'david hanenko image'}
-        width={350}
-        height={350}
+        layout='fill'
+        quality={100}
         objectFit='cover'
         objectPosition='top'
         placeholder='blur'

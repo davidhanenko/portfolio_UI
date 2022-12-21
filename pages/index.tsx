@@ -1,14 +1,15 @@
 import Head from 'next/head';
+import styled from 'styled-components';
 import { GetStaticProps, NextPage } from 'next';
 import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
-import styled from 'styled-components';
+import { Suspense, useEffect } from 'react';
+
+import { useScroll } from '../lib/useScroll';
 
 import {
   addApolloState,
   initializeApollo,
 } from '../graphql/apollo';
-import { useScroll } from '../lib/useScroll';
 
 import {
   MainDocument,
@@ -39,19 +40,15 @@ const Contact = dynamic(
   }
 );
 
-type SnapScrollProps = {
+type ScrollProps = {
   readonly scrollWithModal: boolean;
 };
 
-const SnapScrollWrapper = styled.div`
-  scroll-snap-type: y proximity;
-  ${(props: SnapScrollProps) =>
+const HomeWrapperStyles = styled.div`
+  ${(props: ScrollProps) =>
     !props.scrollWithModal && `overflow-y: scroll`};
-  height: 100vh;
+  min-height: 100vh;
 
-  @media (max-width: 576px) {
-    scroll-snap-type: none;
-  }
   &::-webkit-scrollbar {
     display: none;
     -ms-overflow-style: none;
@@ -62,37 +59,50 @@ const SnapScrollWrapper = styled.div`
 const HomePage: NextPage<MainQuery> = ({
   main,
 }: MainQuery) => {
-  const { scrollWithModal } = useScroll();
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual';
 
+    const countViews = async () => {
+      await fetch('/api/views');
+    };
+
+    countViews();
+  }, []);
+
+  const { scrollWithModal } = useScroll();
   return (
     <>
       <Head>
-        <title>David Hanenko</title>
+        <title>
+          {main?.data?.attributes?.meta_title! ||
+            'David Hanenko'}
+        </title>
         <meta
           name='description'
           content={
             main?.data?.attributes?.meta_description!
           }
         />
+        <meta
+          property='og:image'
+          content={
+            main?.data?.attributes?.og_image?.data
+              ?.attributes?.url
+          }
+        />
       </Head>
-      <SnapScrollWrapper scrollWithModal={scrollWithModal}>
+      <HomeWrapperStyles scrollWithModal={scrollWithModal}>
         <Home main={main} />
         <Suspense fallback={<LoaderPuff />}>
           <About />
         </Suspense>
         <Suspense fallback={<LoaderPuff />}>
-          <Projects projects={{
-            __typename: undefined,
-            projects: undefined
-          }} experiments={{
-            __typename: undefined,
-            experiments: undefined
-          }} />
+          <Projects />
         </Suspense>
         <Suspense fallback={<LoaderPuff />}>
           <Contact />
         </Suspense>
-      </SnapScrollWrapper>
+      </HomeWrapperStyles>
     </>
   );
 };
@@ -100,8 +110,7 @@ const HomePage: NextPage<MainQuery> = ({
 export const getStaticProps = async (
   ctx: GetStaticProps
 ) => {
-  const client = initializeApollo({
-  });
+  const client = initializeApollo({});
 
   const {
     data: { main },

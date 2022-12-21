@@ -1,27 +1,20 @@
 import styled from 'styled-components';
 
-type ProjectsProps = {
-  readonly scrollWithModal: boolean;
-};
-
 const ProjectsContainer = styled.div`
-  scroll-snap-align: start;
   min-height: 100vh;
   max-width: var(--maxWidth);
   margin: 0 auto;
 
-  ${(props: ProjectsProps) =>
-    !props.scrollWithModal && `overflow-x: hidden;`};
+  overflow-x: hidden;
 
   padding-top: var(--headerHeight);
-  margin-bottom: 5rem;
 
   @media (max-width: 768px) {
     padding: 0 1rem;
   }
 
   h2 {
-    margin: 4rem 0 15rem 10rem;
+    margin: 4rem 0 10rem 10rem;
     font-size: 5rem;
     color: var(--white);
 
@@ -34,31 +27,38 @@ const ProjectsContainer = styled.div`
   .projects-wrapper {
     min-height: 100vh;
   }
-  
-  h3 {
-    display: flex;
-    justify-content: end;
-    color: var(--lightGray);
-    margin: 0 10rem 5rem 0;
-    font-size: 4rem;
+
+  .experiments-container {
+    background: var(--offWhite);
+    padding: 5rem 3rem 25rem 3rem;
+    margin-bottom: 8rem;
+
+    h3 {
+      display: flex;
+      justify-content: end;
+      color: var(--gray);
+      margin: 0 10rem 10rem 0;
+      font-size: 4rem;
+    }
 
     @media (max-width: 768px) {
-      margin-right: 2rem;
+      padding: 5rem 1rem 15rem 1rem;
+      h3 {
+        margin-right: 2rem;
+      }
     }
-  }
 
-  .experiments-wrapper {
-    padding: 0 3rem;
-    margin-bottom: 20rem;
-    display: grid;
-    grid-gap: 3rem;
-    grid-template-columns: 1fr 1fr 1fr;
+    .experiments-wrapper {
+      display: grid;
+      grid-gap: 3rem;
+      grid-template-columns: 1fr 1fr 1fr;
 
-    @media (max-width: 992px) {
-      grid-template-columns: 1fr 1fr;
-    }
-    @media (max-width: 576px) {
-      grid-template-columns: none;
+      @media (max-width: 992px) {
+        grid-template-columns: 1fr 1fr;
+      }
+      @media (max-width: 600px) {
+        grid-template-columns: none;
+      }
     }
   }
 `;

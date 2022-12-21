@@ -2,47 +2,39 @@ import styled from 'styled-components';
 import { MediaStyles } from '../../../../shared/media/MediaStyles';
 
 const NavLinkStyles = styled.li`
-  margin: 0.75rem 0;
+  margin: 2rem 0;
   max-height: 40px;
+
   a {
     position: relative;
-    color: var(--textDark);
-    font-size: 2.3rem;
-    font-weight: 400;
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: 300;
     text-transform: capitalize;
+    transition: color 0.25s;
 
-    &:after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: -10%;
-      width: 120%;
-      height: 100%;
-      z-index: 1;
-      opacity: 0;
-      transition: all 0.35s;
-      border-bottom: 1px solid var(--orange);
-      transform: scale(0.1, 1);
-    }
-
-    @media (hover: hover) {
-      &:hover::after {
-        opacity: 1;
-        transform: scale(1, 1);
+    @media (pointer: fine) {
+      &:hover {
+        color: var(--gray);
       }
     }
   }
 
-  .active-link {
-    border-bottom: 1px solid var(--orange);
-    pointer-events: none;
-    padding: 0 1rem;
+
+  @media (max-width: 768px) {
+    margin: 0.75rem 0;
+    a {
+      color: var(--textDark);
+      font-size: 2.3rem;
+      font-weight: 400;
+    }
   }
 `;
 
 const MediaStylesWrapper = styled.li`
   ${MediaStyles} {
     a {
+      margin: 0 0.75rem;
       &::after {
         top: 3rem;
         right: 3rem;

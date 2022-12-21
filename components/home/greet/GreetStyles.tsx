@@ -42,7 +42,7 @@ const GreetTxt = styled.section<GreetProps>`
 
   animation-fill-mode: forwards;
 
-  @media (max-width: 576px) {
+  @media (max-width: 600px) {
     animation: ${(props: GreetProps) =>
       props.nameAnimationEnd && greetAnimationXSmall};
     animation-duration: 0.8s;
@@ -52,8 +52,6 @@ const GreetTxt = styled.section<GreetProps>`
   p {
     font-size: 2.3rem;
     font-weight: 300;
-
-    user-select: none;
   }
 
   @media (max-width: 768px) {
@@ -63,7 +61,7 @@ const GreetTxt = styled.section<GreetProps>`
     }
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 600px) {
     width: 85%;
     p {
       font-size: 1.4rem;

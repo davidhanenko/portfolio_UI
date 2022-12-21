@@ -38,7 +38,7 @@ const Text = styled.article`
 
   h2 {
     font-size: 5em;
-    color: var(--white);
+    color: var(--lightOrange);
     padding-bottom: 2rem;
   }
   p {
@@ -46,13 +46,17 @@ const Text = styled.article`
     padding: 1rem 0;
     font-weight: 200;
     text-align: justify;
+
+    &:last-child {
+      color: var(--lightGray);
+    }
   }
 
   @media (max-width: 768px) {
     padding-bottom: 6rem;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 600px) {
     font-size: 0.9rem;
     padding-bottom: 5rem;
   }

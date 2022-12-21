@@ -21,7 +21,7 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: #f47d28e9;
+  background: var(--darkOp);
   z-index: 2;
 
   padding: 0 2rem;
@@ -44,7 +44,7 @@ const Overlay = styled.div`
       position: relative;
 
       svg {
-        transition: all 0.3s;
+        transition: all 0.25s;
       }
 
       &:after {
@@ -64,8 +64,7 @@ const Overlay = styled.div`
       }
       @media (hover: hover) {
         &:hover svg {
-          color: var(--dark);
-          transform: scale(1.3);
+          transform: scale(1.1);
         }
         &:hover::after {
           display: block;
@@ -76,9 +75,7 @@ const Overlay = styled.div`
 
   p {
     padding-bottom: 3rem;
-    user-select: none;
-
-    color: black;
+    color: var(--white);
     font-size: 1.5rem;
     text-align: justify;
     line-height: 1.6rem;
@@ -116,6 +113,10 @@ const ExperimentContainer = styled.div`
   opacity: 0;
   transform: translateY(10%);
 
+  @media (max-width: 600px) {
+    margin: 0 2rem;
+  }
+
   &:nth-child(1n) {
     animation: ${(props: ExperimentProps) =>
         props.inView && fadeIn}
@@ -138,7 +139,7 @@ const ExperimentContainer = styled.div`
       animation-delay: 0.3s;
       animation-fill-mode: forwards;
     }
-    @media (max-width: 576px) {
+    @media (max-width: 600px) {
       animation: ${(props: ExperimentProps) =>
           props.inView && fadeIn}
         0.75s;
@@ -162,7 +163,7 @@ const ExperimentContainer = styled.div`
       animation-fill-mode: forwards;
     }
 
-    @media (max-width: 576px) {
+    @media (max-width: 600px) {
       animation: ${(props: ExperimentProps) =>
           props.inView && fadeIn}
         0.75s;
@@ -184,6 +185,9 @@ const ExperimentContainer = styled.div`
     position: relative;
     overflow: hidden;
     background-color: var(--dark);
+
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 12px -3px var(--lightGrayOp);
 
     span {
       min-height: 100%;

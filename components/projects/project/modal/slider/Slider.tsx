@@ -99,6 +99,7 @@ const Slider: React.FC<ISlidesProps> = ({
           return (
             <ImagePlaceholderStyles
               placeholderImg={placeholderImg}
+              key={index}
             />
           );
         return (

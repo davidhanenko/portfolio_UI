@@ -11,7 +11,7 @@ export const AboutText: React.FC<IAboutTextProps> = ({
   paragraphs,
 }) => {
   const { ref, inView } = useInView({
-    threshold: 0.5,
+    threshold: 0.3,
     triggerOnce: true,
   });
 

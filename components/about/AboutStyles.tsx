@@ -5,14 +5,13 @@ interface IAboutProps {
 }
 
 const AboutContainer = styled.main<IAboutProps>`
-  scroll-snap-align: start;
   min-height: 100vh;
 
   background: var(--dark2);
-  padding-bottom: 20rem;
+  background: var(--gradient-gray1);
+  padding: 5rem 0 20rem 0;
 
   @media (max-width: 768px) {
-    /* padding-left: 1rem; */
     padding-right: 1rem;
   }
 `;
@@ -29,6 +28,8 @@ const AboutWrapper = styled.div`
 
   .img-cv {
     position: relative;
+    display: flex;
+    justify-content: center;
   }
 
   @media (max-width: 992px) {
@@ -42,7 +43,7 @@ const AboutWrapper = styled.div`
     padding: calc(var(--headerHeight) + 5rem) 5rem 0 5rem;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 600px) {
     padding-left: 2rem;
     padding-right: 2rem;
   }

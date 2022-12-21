@@ -39,7 +39,7 @@ const Element = styled.span.attrs(
     },
   })
 )`
-  user-select: none;
+
   opacity: 0;
   transform: scale(0);
   left: -100%;

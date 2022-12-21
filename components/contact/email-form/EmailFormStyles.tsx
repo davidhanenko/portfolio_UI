@@ -30,9 +30,15 @@ const Form = styled.form<PropsTypes>`
     animation: ${props => props.inView && slideIn};
     animation-fill-mode: forwards;
     animation-duration: 1.2s;
-    animation-delay: 0.6s;
+    animation-delay: 0.5s;
+    animation-timing-function: cubic-bezier(
+      0.17,
+      0.48,
+      0.45,
+      1.05
+    );
 
-    z-index: 2;
+    z-index: 1;
   }
   @media (max-width: 768px) {
     position: static;
@@ -51,10 +57,9 @@ const Form = styled.form<PropsTypes>`
   }
 
   .form {
-    background: var(--dark);
-
-    border: 1px solid var(--white);
+    background: var(--darkOp);
     padding: 2rem;
+    box-shadow: 3px 10px 15px -3px var(--darkOp);
 
     @media (max-width: 768px) {
       width: 90vw;

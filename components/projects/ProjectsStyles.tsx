@@ -49,7 +49,7 @@ const ProjectsContainer = styled.div`
 
   .experiments-wrapper {
     padding: 0 3rem;
-    margin-bottom: 20rem;
+    margin-bottom: 25rem;
     display: grid;
     grid-gap: 3rem;
     grid-template-columns: 1fr 1fr 1fr;

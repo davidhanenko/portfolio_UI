@@ -67,7 +67,7 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
   const { setScrollWithModal } = useScroll();
 
   const { ref, inView } = useInView({
-    threshold: 0.35,
+    threshold: 0.3,
     triggerOnce: true,
   });
 

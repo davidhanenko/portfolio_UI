@@ -47,8 +47,6 @@ const GlobalStyles = createGlobalStyle`
     overflow-x: hidden;
     scroll-behavior: smooth;
     background: var(--dark);
-
-        font-stretch: ultra-expanded;
   }
 
   a {

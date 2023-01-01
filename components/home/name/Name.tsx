@@ -18,7 +18,7 @@ export const Name = () => {
     useAnimation();
 
   // disable scroll during main animation
-  // disableScroll.on();
+  disableScroll.on();
 
   const handleAnimationEnd = (
     e: AnimationEvent<HTMLDivElement>

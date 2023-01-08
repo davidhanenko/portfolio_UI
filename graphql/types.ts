@@ -193,8 +193,8 @@ export type Experiment = {
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
   image: UploadFileEntityResponse;
-  link: Scalars['String'];
-  link_git: Scalars['String'];
+  link?: Maybe<Scalars['String']>;
+  link_git?: Maybe<Scalars['String']>;
   publishedAt?: Maybe<Scalars['DateTime']>;
   title: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;

@@ -5,6 +5,7 @@ query Main {
         greeting
         tech {
           ... on ComponentTechTech {
+            id
             tech_logo {
               data {
                 attributes {

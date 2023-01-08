@@ -7,7 +7,8 @@ const InnerStyles = styled.div`
   width: 100%;
   margin: 0 auto;
 
-  position:relative;
+  position: relative;
+  user-select: none;
 `;
 interface IPageProps {
   children: React.ReactNode;
@@ -19,7 +20,7 @@ export const Page = ({ children }: IPageProps) => {
       <GlobalStyles />
       <Header />
       <InnerStyles>{children}</InnerStyles>
-      <Footer/>
+      <Footer />
     </>
   );
 };

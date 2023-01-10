@@ -16,6 +16,14 @@ query Main {
           }
         }
         meta_description
+        meta_title
+        og_image {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
       }
     }
   }

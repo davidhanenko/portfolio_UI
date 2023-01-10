@@ -407,6 +407,8 @@ export type Main = {
   createdAt?: Maybe<Scalars['DateTime']>;
   greeting: Scalars['String'];
   meta_description?: Maybe<Scalars['String']>;
+  meta_title?: Maybe<Scalars['String']>;
+  og_image: UploadFileEntityResponse;
   publishedAt?: Maybe<Scalars['DateTime']>;
   tech?: Maybe<Array<Maybe<MainTechDynamicZone>>>;
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -426,6 +428,8 @@ export type MainEntityResponse = {
 export type MainInput = {
   greeting?: InputMaybe<Scalars['String']>;
   meta_description?: InputMaybe<Scalars['String']>;
+  meta_title?: InputMaybe<Scalars['String']>;
+  og_image?: InputMaybe<Scalars['ID']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   tech?: InputMaybe<Array<Scalars['MainTechDynamicZoneInput']>>;
 };

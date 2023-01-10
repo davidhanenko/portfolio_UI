@@ -67,11 +67,21 @@ const HomePage: NextPage<MainQuery> = ({
   return (
     <>
       <Head>
-        <title>David Hanenko</title>
+        <title>
+          {main?.data?.attributes?.meta_title! ||
+            'David Hanenko'}
+        </title>
         <meta
           name='description'
           content={
             main?.data?.attributes?.meta_description!
+          }
+        />
+        <meta
+          property='og:image'
+          content={
+            main?.data?.attributes?.og_image?.data
+              ?.attributes?.url
           }
         />
       </Head>
@@ -81,13 +91,16 @@ const HomePage: NextPage<MainQuery> = ({
           <About />
         </Suspense>
         <Suspense fallback={<LoaderPuff />}>
-          <Projects projects={{
-            __typename: undefined,
-            projects: undefined
-          }} experiments={{
-            __typename: undefined,
-            experiments: undefined
-          }} />
+          <Projects
+            projects={{
+              __typename: undefined,
+              projects: undefined,
+            }}
+            experiments={{
+              __typename: undefined,
+              experiments: undefined,
+            }}
+          />
         </Suspense>
         <Suspense fallback={<LoaderPuff />}>
           <Contact />
@@ -100,8 +113,7 @@ const HomePage: NextPage<MainQuery> = ({
 export const getStaticProps = async (
   ctx: GetStaticProps
 ) => {
-  const client = initializeApollo({
-  });
+  const client = initializeApollo({});
 
   const {
     data: { main },

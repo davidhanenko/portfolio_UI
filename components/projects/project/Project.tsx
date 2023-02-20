@@ -61,7 +61,8 @@ export const ProjectDescriptionPlaceholder = () => {
   );
 };
 
-const Project: React.FC<IProjectProps> = ({ project }) => {
+const Project: React.FC<IProjectProps> = ( { project } ) => {
+  
   const [showModal, setShowModal] = useState(false);
 
   const { setScrollWithModal } = useScroll();

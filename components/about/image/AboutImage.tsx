@@ -19,8 +19,8 @@ export const AboutImage: React.FC<IAboutImageProps> = ({
       <Image
         src={imgUrl}
         alt={'david hanenko image'}
-        width={350}
-        height={350}
+        width={300}
+        height={450}
         objectFit='cover'
         objectPosition='top'
         placeholder='blur'

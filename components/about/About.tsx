@@ -48,7 +48,7 @@ const About: React.FC = () => {
         </section>
         <section className='img-cv'>
           {imgUrl && <AboutImage imgUrl={imgUrl!} />}
-          <CvBtn inView={inView} />
+          {/* <CvBtn inView={inView} /> */}
         </section>
       </AboutWrapper>
     </AboutContainer>

@@ -5,7 +5,6 @@ interface IAboutProps {
 }
 
 const AboutContainer = styled.main<IAboutProps>`
-  scroll-snap-align: start;
   min-height: 100vh;
 
   background: var(--dark2);

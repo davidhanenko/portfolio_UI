@@ -65,7 +65,7 @@ const Project: React.FC<IProjectProps> = ( { project } ) => {
   
   const [showModal, setShowModal] = useState(false);
 
-  const { setScrollWithModal } = useScroll();
+  
 
   const { ref, inView } = useInView({
     threshold: 0.3,
@@ -80,7 +80,6 @@ const Project: React.FC<IProjectProps> = ( { project } ) => {
 
   const toggleModal = () => {
     setShowModal(prev => !prev);
-    setScrollWithModal((prev: boolean) => !prev);
   };
 
   const imageUrl =

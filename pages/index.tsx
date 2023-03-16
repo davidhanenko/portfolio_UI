@@ -39,12 +39,11 @@ const Contact = dynamic(
   }
 );
 
-type SnapScrollProps = {
-  readonly scrollWithModal: boolean;
-};
+const HomeWrapperStyles = styled.div`
+  overflow-y: scroll;
+  height: 100vh;
 
-const SnapScrollWrapper = styled.div`
-  scroll-snap-type: y proximity;
+  /* scroll-snap-type: y proximity;
   ${(props: SnapScrollProps) =>
     !props.scrollWithModal && `overflow-y: scroll`};
   height: 100vh;
@@ -56,13 +55,13 @@ const SnapScrollWrapper = styled.div`
     display: none;
     -ms-overflow-style: none;
     scrollbar-width: none;
-  }
+  } */
 `;
 
 const HomePage: NextPage<MainQuery> = ({
   main,
 }: MainQuery) => {
-  const { scrollWithModal } = useScroll();
+  // const { scrollWithModal } = useScroll();
 
   return (
     <>
@@ -85,7 +84,7 @@ const HomePage: NextPage<MainQuery> = ({
           }
         />
       </Head>
-      <SnapScrollWrapper scrollWithModal={scrollWithModal}>
+      <HomeWrapperStyles>
         <Home main={main} />
         <Suspense fallback={<LoaderPuff />}>
           <About />
@@ -105,7 +104,7 @@ const HomePage: NextPage<MainQuery> = ({
         <Suspense fallback={<LoaderPuff />}>
           <Contact />
         </Suspense>
-      </SnapScrollWrapper>
+      </HomeWrapperStyles>
     </>
   );
 };

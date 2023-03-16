@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const ContactContainer = styled.div`
-  scroll-snap-align: start;
 
   position: relative;
   overflow-y: hidden;

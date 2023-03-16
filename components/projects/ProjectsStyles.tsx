@@ -1,17 +1,11 @@
 import styled from 'styled-components';
 
-type ProjectsProps = {
-  readonly scrollWithModal: boolean;
-};
-
 const ProjectsContainer = styled.div`
-  scroll-snap-align: start;
   min-height: 100vh;
   max-width: var(--maxWidth);
   margin: 0 auto;
 
-  ${(props: ProjectsProps) =>
-    !props.scrollWithModal && `overflow-x: hidden;`};
+  overflow-x: hidden;
 
   padding-top: var(--headerHeight);
   margin-bottom: 5rem;

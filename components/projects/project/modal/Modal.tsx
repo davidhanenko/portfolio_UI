@@ -22,10 +22,10 @@ interface IModalProps {
 const ImagePlaceholder = () => {
   return (
     <ImagePlaceholderStyles
-    placeholderImg={placeholderImg}
+      placeholderImg={placeholderImg}
     />
-    );
-  };
+  );
+};
 
 const Modal = ({
   showModal,
@@ -33,9 +33,6 @@ const Modal = ({
   slides,
   projectTitle,
 }: IModalProps) => {
-  const { scrollWithModal, setScrollWithModal } =
-    useScroll();
-
   const slideRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -48,7 +45,6 @@ const Modal = ({
         showModal &&
         !slideRef?.current?.contains(event.target as Node)
       ) {
-        setScrollWithModal(false);
         setShowModal(false);
       }
     };
@@ -66,12 +62,11 @@ const Modal = ({
         handleCloseModalOnClickOutside
       );
     };
-  }, [setScrollWithModal, setShowModal, showModal]);
+  }, [setShowModal, showModal]);
 
   // close on 'close' btn
   const handleCloseModal = () => {
     setShowModal(false);
-    setScrollWithModal(false);
   };
 
   // close modal on esc
@@ -79,10 +74,9 @@ const Modal = ({
     (event: KeyboardEvent): void => {
       if (event.key === 'Escape' && showModal) {
         setShowModal(false);
-        setScrollWithModal(false);
       }
     },
-    [setScrollWithModal, setShowModal, showModal]
+    [setShowModal, showModal]
   );
 
   useEffect(() => {
@@ -98,7 +92,7 @@ const Modal = ({
 
   return (
     <>
-      {scrollWithModal && <BackgroundOverlay />}
+      {showModal && <BackgroundOverlay />}
       {showModal && (
         <ModalBackground ref={modalRef}>
           <ModalWrapper showModal={showModal}>

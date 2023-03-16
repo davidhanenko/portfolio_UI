@@ -23,10 +23,9 @@ const Projects: React.FC<IProjectsProps> = () => {
   const projects = projectsData?.projects?.data;
   const experiments = experimentsData?.experiments?.data;
 
-  const { scrollWithModal } = useScroll();
 
   return (
-    <ProjectsContainer scrollWithModal={scrollWithModal}>
+    <ProjectsContainer>
       <h2>Projects</h2>
       <section className='projects-wrapper'>
         {projects !== undefined &&

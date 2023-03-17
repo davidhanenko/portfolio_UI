@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef } from 'react';
-import { useScroll } from '../../../../lib/useScroll';
 
 import Slider from './slider/Slider';
 import {

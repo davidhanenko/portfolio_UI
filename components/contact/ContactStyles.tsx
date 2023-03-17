@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
 const ContactContainer = styled.div`
-
   position: relative;
   overflow-y: hidden;
-
 
   display: flex;
 
@@ -12,7 +10,7 @@ const ContactContainer = styled.div`
     flex-direction: column;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 600px) {
     scroll-snap-align: center;
   }
 `;

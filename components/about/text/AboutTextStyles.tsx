@@ -52,7 +52,7 @@ const Text = styled.article`
     padding-bottom: 6rem;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 600px) {
     font-size: 0.9rem;
     padding-bottom: 5rem;
   }

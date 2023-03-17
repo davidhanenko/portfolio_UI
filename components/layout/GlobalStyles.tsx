@@ -12,11 +12,11 @@ const GlobalStyles = createGlobalStyle`
     margin: 0 auto;
     --maxWidth: 1600px;
 
-    --headerHeight: 10rem;
+    --headerHeight: 8rem;
 
 
-    --dark: #252525;
-    --dark2: #373737;
+    --dark: #221F1E;
+    --dark2: #343230;
     --gray: #4b4b4b;
     --lightGray: #c4c4c4;
     --lightOrange: #ff9001;

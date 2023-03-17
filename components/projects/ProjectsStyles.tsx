@@ -33,7 +33,7 @@ const ProjectsContainer = styled.div`
     display: flex;
     justify-content: end;
     color: var(--lightGray);
-    margin: 0 10rem 5rem 0;
+    margin: 25rem 10rem 5rem 0;
     font-size: 4rem;
 
     @media (max-width: 768px) {
@@ -51,7 +51,7 @@ const ProjectsContainer = styled.div`
     @media (max-width: 992px) {
       grid-template-columns: 1fr 1fr;
     }
-    @media (max-width: 576px) {
+    @media (max-width: 600px) {
       grid-template-columns: none;
     }
   }

@@ -1,5 +1,4 @@
 import { RefObject, useState } from 'react';
-import { useScroll } from '../../../lib/useScroll';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 

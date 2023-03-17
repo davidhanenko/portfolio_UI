@@ -6,7 +6,6 @@ import {
   ProjectsQuery,
   useProjectsQuery,
 } from '../../graphql/projects/projects.generated';
-import { useScroll } from '../../lib/useScroll';
 import Experiment from './experiment/Experiment';
 import Project from './project/Project';
 import { ProjectsContainer } from './ProjectsStyles';

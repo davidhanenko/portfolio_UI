@@ -39,7 +39,7 @@ const AboutImg = styled.section`
     padding: 7rem 1rem;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 600px) {
     display: flex;
     justify-content: center;
   }

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavStateProvider } from '../../lib/useNav';
 import Footer from './footer/Footer';
 import GlobalStyles from './GlobalStyles';
 import { Header } from './header/Header';
@@ -18,7 +19,9 @@ export const Page = ({ children }: IPageProps) => {
   return (
     <>
       <GlobalStyles />
-      <Header />
+      <NavStateProvider>
+        <Header />
+      </NavStateProvider>
       <InnerStyles>{children}</InnerStyles>
       <Footer />
     </>

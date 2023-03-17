@@ -11,7 +11,7 @@ const NavStyles = styled.nav<INavProps>`
 
   .hamburger-react {
     z-index: 5;
-    margin: 2rem 2rem 0 0;
+    margin-right: 2rem;
   }
 
   .nav-container {
@@ -19,6 +19,7 @@ const NavStyles = styled.nav<INavProps>`
     right: 0;
     top: 0;
     background: var(--lightGray);
+    opacity: 0.97;
     min-width: 100%;
     font-size: 4rem;
     font-weight: 100;
@@ -59,7 +60,7 @@ const NavStyles = styled.nav<INavProps>`
 `;
 
 const NavLogoStyles = styled(LogoStyles)`
-  padding: 0 0 0 2rem;
+  margin: 2rem 0 0 1rem;
   height: 75px;
   width: 75px;
 `;

@@ -33,7 +33,7 @@ const SliderContainer = styled.section`
     height: 100%;
     position: relative;
 
-    @media (max-with: 576px) {
+    @media (max-with: 600px) {
       max-width: 550px;
     }
   }

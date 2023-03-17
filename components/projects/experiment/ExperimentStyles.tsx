@@ -116,6 +116,8 @@ const ExperimentContainer = styled.div`
   opacity: 0;
   transform: translateY(10%);
 
+  box-shadow: 0px 0px 2px 1px var(--white);
+
   &:nth-child(1n) {
     animation: ${(props: ExperimentProps) =>
         props.inView && fadeIn}
@@ -138,7 +140,7 @@ const ExperimentContainer = styled.div`
       animation-delay: 0.3s;
       animation-fill-mode: forwards;
     }
-    @media (max-width: 576px) {
+    @media (max-width: 600px) {
       animation: ${(props: ExperimentProps) =>
           props.inView && fadeIn}
         0.75s;
@@ -162,7 +164,7 @@ const ExperimentContainer = styled.div`
       animation-fill-mode: forwards;
     }
 
-    @media (max-width: 576px) {
+    @media (max-width: 600px) {
       animation: ${(props: ExperimentProps) =>
           props.inView && fadeIn}
         0.75s;

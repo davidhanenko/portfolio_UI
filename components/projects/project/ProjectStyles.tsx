@@ -154,12 +154,11 @@ const Links = styled.section`
       display: none;
       transition: all 0.25s;
     }
+    &:hover svg {
+      color: var(--orange);
+      transform: scale(1.3);
+    }
     @media (hover: hover) {
-      &:hover svg {
-        color: var(--orange);
-        transform: scale(1.3);
-      }
-
       &:hover::after {
         display: block;
       }
@@ -205,7 +204,7 @@ const ProjectContainer = styled.article<IProjectProps>`
 
   user-select: none;
 
-  @media (max-width: 576px) {
+  @media (max-width: 600px) {
     margin-bottom: 45rem;
   }
 
@@ -264,7 +263,7 @@ const ProjectContainer = styled.article<IProjectProps>`
   }
 
   &:nth-of-type(2n + 1) {
-    @media (max-width: 576px) {
+    @media (max-width: 600px) {
       &::before,
       &::after {
         content: none;
@@ -274,7 +273,7 @@ const ProjectContainer = styled.article<IProjectProps>`
     .project-body {
       margin-left: -20rem;
 
-      @media (max-width: 576px) {
+      @media (max-width: 600px) {
         margin-left: 0;
         max-width: 95vw;
       }
@@ -288,7 +287,7 @@ const ProjectContainer = styled.article<IProjectProps>`
   .project-title {
     right: 20%;
 
-    @media (max-width: 576px) {
+    @media (max-width: 600px) {
       right: auto;
       top: -7rem;
     }
@@ -297,13 +296,13 @@ const ProjectContainer = styled.article<IProjectProps>`
   ${Links} {
     right: -25%;
 
-    @media (max-width: 768px) {
+    @media (max-width: 950px) {
       right: auto;
       left: 10%;
       bottom: -5rem;
     }
 
-    @media (max-width: 576px) {
+    @media (max-width: 600px) {
       right: auto;
       left: 0;
       top: -1rem;
@@ -332,7 +331,7 @@ const ProjectContainer = styled.article<IProjectProps>`
       width: 80%;
     }
 
-    @media (max-width: 576px) {
+    @media (max-width: 600px) {
       top: 100%;
       right: 0;
       width: 100%;
@@ -340,7 +339,7 @@ const ProjectContainer = styled.article<IProjectProps>`
   }
 
   &:nth-of-type(2n) {
-    @media (max-width: 576px) {
+    @media (max-width: 600px) {
       &::before,
       &::after {
         content: none;
@@ -350,7 +349,7 @@ const ProjectContainer = styled.article<IProjectProps>`
     .project-body {
       margin-left: 20rem;
 
-      @media (max-width: 576px) {
+      @media (max-width: 600px) {
         margin-left: 0;
         max-width: 95vw;
       }
@@ -362,7 +361,7 @@ const ProjectContainer = styled.article<IProjectProps>`
 
     .project-title {
       left: 20%;
-      @media (max-width: 576px) {
+      @media (max-width: 600px) {
         left: auto;
         top: -7rem;
       }
@@ -371,13 +370,13 @@ const ProjectContainer = styled.article<IProjectProps>`
     ${Links} {
       left: -25%;
 
-      @media (max-width: 768px) {
+      @media (max-width: 950px) {
         left: auto;
         right: 10%;
         bottom: -5rem;
       }
 
-      @media (max-width: 576px) {
+      @media (max-width: 600px) {
         left: auto;
         right: 0;
         top: -1rem;
@@ -396,7 +395,7 @@ const ProjectContainer = styled.article<IProjectProps>`
         width: 80%;
       }
 
-      @media (max-width: 576px) {
+      @media (max-width: 600px) {
         top: 100%;
         left: 0;
         width: 100%;

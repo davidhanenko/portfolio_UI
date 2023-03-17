@@ -8,7 +8,6 @@ import {
   addApolloState,
   initializeApollo,
 } from '../graphql/apollo';
-import { useScroll } from '../lib/useScroll';
 
 import {
   MainDocument,
@@ -40,15 +39,14 @@ const Contact = dynamic(
 );
 
 const HomeWrapperStyles = styled.div`
-  overflow-y: scroll;
-  height: 100vh;
+  min-height: 100vh;
 
   /* scroll-snap-type: y proximity;
   ${(props: SnapScrollProps) =>
     !props.scrollWithModal && `overflow-y: scroll`};
   height: 100vh;
 
-  @media (max-width: 576px) {
+  @media (max-width: 600px) {
     scroll-snap-type: none;
   }
   &::-webkit-scrollbar {
@@ -61,8 +59,6 @@ const HomeWrapperStyles = styled.div`
 const HomePage: NextPage<MainQuery> = ({
   main,
 }: MainQuery) => {
-  // const { scrollWithModal } = useScroll();
-
   return (
     <>
       <Head>

@@ -93,7 +93,7 @@ const MapImg = styled.div<IMapProps>`
       }
     }
 
-    @media (max-width: 576px) {
+    @media (max-width: 600px) {
       left: 72%;
       top: 47%;
     }
@@ -137,7 +137,7 @@ const MapImg = styled.div<IMapProps>`
       }
     }
 
-    @media (max-width: 576px) {
+    @media (max-width: 600px) {
       left: 72%;
       top: 47%;
     }

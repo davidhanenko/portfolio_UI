@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components';
 type HeaderProps = {
   nameAnimationEnd: boolean;
   displayHeader?: boolean;
+  isScroll?: boolean;
 };
 
 const animate = keyframes`
@@ -12,7 +13,18 @@ const animate = keyframes`
   }
    100% {
     top: 0rem;
-    opacity: 1;
+    opacity: 0.8;
+  }
+`;
+
+const animateBorder = keyframes`
+  0% {
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+   100% {
+     box-shadow: 0px 0.2px 3px 0.3px var(--orange);
+    backdrop-filter: saturate(180%) blur(7px);
   }
 `;
 
@@ -20,18 +32,17 @@ const HeaderStyles = styled.header`
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 5;
+  z-index: 2;
 
   height: var(--headerHeight);
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  color: var(--orange);
-  font-size: 7rem;
+  padding: 1.5rem 1rem 1rem 1rem;
+
   opacity: 0;
 
+  /* header appear animation */
   animation: ${(props: HeaderProps) =>
     props.nameAnimationEnd &&
     !props.displayHeader &&
@@ -40,12 +51,13 @@ const HeaderStyles = styled.header`
   animation-delay: 0.4s;
   animation-fill-mode: forwards;
 
-  /*  display header without animation on every page beside main  */
-  ${props => props.displayHeader && `opacity: 1;`}
+  /* header bottom border/shadow */
+  animation: ${(props: HeaderProps) =>
+      props.isScroll && animateBorder}
+    0.5s forwards;
 
-  @media (max-width: 768px) {
-    background: var(--dark);
-  } ;
+  /*  display header without animation on every page beside main  */
+  ${props => props.displayHeader && `opacity: 1;`};
 `;
 
 export { HeaderStyles };

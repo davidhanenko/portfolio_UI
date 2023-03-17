@@ -41,7 +41,7 @@ const AboutWrapper = styled.div`
     padding: calc(var(--headerHeight) + 5rem) 5rem 0 5rem;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 600px) {
     padding-left: 2rem;
     padding-right: 2rem;
   }

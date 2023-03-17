@@ -42,7 +42,7 @@ const MediaStylesWrapper = styled.aside`
     1.15
   );
 
-  @media (max-width: 576px) {
+  @media (max-width: 600px) {
     bottom: 8rem;
   }
 
@@ -121,7 +121,7 @@ const MediaStylesWrapper = styled.aside`
     }
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 600px) {
     bottom: 12rem;
     ${MediaStyles} {
       &::after {

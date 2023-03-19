@@ -1,6 +1,7 @@
 import { RefObject, useState } from 'react';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
+import { useScroll } from '../../../lib/useScroll';
 
 import {
   useProjectsImagesLazyQuery,
@@ -27,11 +28,12 @@ import {
   TextPlaceholder,
   TextPlLine,
 } from '../../shared/placeholder/TextPlaceholder';
+import { ProjectsQuery } from '../../../graphql/projects/projects.generated';
 
 interface IProjectProps {
   inView: boolean;
   projectRef: RefObject<HTMLDivElement> | undefined;
-  project: any;
+  project: ProjectsQuery | any;
 }
 
 // project description section placeholder
@@ -60,11 +62,9 @@ export const ProjectDescriptionPlaceholder = () => {
   );
 };
 
-const Project: React.FC<IProjectProps> = ( { project } ) => {
-  
+const Project: React.FC<IProjectProps> = ({ project }) => {
   const [showModal, setShowModal] = useState(false);
-
-  
+  const { setScrollWithModal } = useScroll();
 
   const { ref, inView } = useInView({
     threshold: 0.3,
@@ -79,6 +79,7 @@ const Project: React.FC<IProjectProps> = ( { project } ) => {
 
   const toggleModal = () => {
     setShowModal(prev => !prev);
+    setScrollWithModal((prev: boolean) => !prev);
   };
 
   const imageUrl =

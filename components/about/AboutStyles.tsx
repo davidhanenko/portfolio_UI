@@ -8,7 +8,7 @@ const AboutContainer = styled.main<IAboutProps>`
   min-height: 100vh;
 
   background: var(--dark2);
-  padding-bottom: 20rem;
+  padding: 5rem 0 20rem 0;
 
   @media (max-width: 768px) {
     /* padding-left: 1rem; */

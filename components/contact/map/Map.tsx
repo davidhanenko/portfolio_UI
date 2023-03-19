@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { IMAGE_PLACEHOLDER } from '../../../config';
 
 import { MapImg } from './MapStyles';
 
@@ -21,8 +20,6 @@ export const Map: React.FC<IMap> = ({
           src={map}
           alt='New York area map'
           layout='fill'
-          // placeholder='blur'
-          // blurDataURL={IMAGE_PLACEHOLDER}
         />
       )}
       <div className='pin'></div>

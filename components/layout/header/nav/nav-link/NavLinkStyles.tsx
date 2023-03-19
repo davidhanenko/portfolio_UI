@@ -25,11 +25,9 @@ const NavLinkStyles = styled.li`
       transform: scale(0.1, 1);
     }
 
-    @media (hover: hover) {
-      &:hover::after {
-        opacity: 1;
-        transform: scale(1, 1);
-      }
+    &:hover::after {
+      opacity: 1;
+      transform: scale(1, 1);
     }
   }
 

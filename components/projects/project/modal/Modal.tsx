@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef } from 'react';
+import { useScroll } from '../../../../lib/useScroll';
 
 import Slider from './slider/Slider';
 import {
@@ -35,6 +36,9 @@ const Modal = ({
   const slideRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
 
+  const { scrollWithModal, setScrollWithModal } =
+    useScroll();
+
   // close modal on click outside
   useEffect(() => {
     const handleCloseModalOnClickOutside = (
@@ -45,6 +49,7 @@ const Modal = ({
         !slideRef?.current?.contains(event.target as Node)
       ) {
         setShowModal(false);
+        setScrollWithModal(false);
       }
     };
 
@@ -66,6 +71,7 @@ const Modal = ({
   // close on 'close' btn
   const handleCloseModal = () => {
     setShowModal(false);
+    setScrollWithModal(false);
   };
 
   // close modal on esc
@@ -73,6 +79,7 @@ const Modal = ({
     (event: KeyboardEvent): void => {
       if (event.key === 'Escape' && showModal) {
         setShowModal(false);
+        setScrollWithModal(false);
       }
     },
     [setShowModal, showModal]
@@ -91,7 +98,7 @@ const Modal = ({
 
   return (
     <>
-      {showModal && <BackgroundOverlay />}
+      {scrollWithModal && <BackgroundOverlay />}
       {showModal && (
         <ModalBackground ref={modalRef}>
           <ModalWrapper showModal={showModal}>

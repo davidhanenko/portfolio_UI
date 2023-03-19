@@ -4,6 +4,7 @@ import { useApollo } from '../graphql/apollo';
 import smoothscroll from 'smoothscroll-polyfill';
 import { Page } from '../components/layout/Page';
 import { AnimationStateProvider } from '../lib/useAnimation';
+import { ScrollProvider } from '../lib/useScroll';
 
 // smoothscroll polyfill - safari
 if (typeof window !== 'undefined') {
@@ -16,11 +17,13 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ApolloProvider client={apolloClient}>
-      <AnimationStateProvider>
-        <Page>
-          <Component {...pageProps} />
-        </Page>
-      </AnimationStateProvider>
+      <ScrollProvider>
+        <AnimationStateProvider>
+          <Page>
+            <Component {...pageProps} />
+          </Page>
+        </AnimationStateProvider>
+      </ScrollProvider>
     </ApolloProvider>
   );
 }

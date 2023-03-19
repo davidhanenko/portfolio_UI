@@ -1,21 +1,16 @@
 import {
-  ExperimentsQuery,
   useExperimentsQuery,
 } from '../../graphql/experiments/experiments.generated';
 import {
-  ProjectsQuery,
   useProjectsQuery,
 } from '../../graphql/projects/projects.generated';
 import Experiment from './experiment/Experiment';
 import Project from './project/Project';
 import { ProjectsContainer } from './ProjectsStyles';
 
-interface IProjectsProps {
-  projects: ProjectsQuery;
-  experiments: ExperimentsQuery;
-}
 
-const Projects: React.FC<IProjectsProps> = () => {
+
+const Projects: React.FC = () => {
   const { data: projectsData } = useProjectsQuery();
   const { data: experimentsData } = useExperimentsQuery();
 

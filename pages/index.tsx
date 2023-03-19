@@ -1,8 +1,10 @@
 import Head from 'next/head';
+import styled from 'styled-components';
 import { GetStaticProps, NextPage } from 'next';
 import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
-import styled from 'styled-components';
+import { Suspense, useEffect } from 'react';
+
+import { useScroll } from '../lib/useScroll';
 
 import {
   addApolloState,
@@ -38,27 +40,31 @@ const Contact = dynamic(
   }
 );
 
+type ScrollProps = {
+  readonly scrollWithModal: boolean;
+};
+
 const HomeWrapperStyles = styled.div`
+  ${(props: ScrollProps) =>
+    !props.scrollWithModal && `overflow-y: scroll`};
   min-height: 100vh;
 
-  /* scroll-snap-type: y proximity;
-  ${(props: SnapScrollProps) =>
-    !props.scrollWithModal && `overflow-y: scroll`};
-  height: 100vh;
-
-  @media (max-width: 600px) {
-    scroll-snap-type: none;
-  }
   &::-webkit-scrollbar {
     display: none;
     -ms-overflow-style: none;
     scrollbar-width: none;
-  } */
+  }
 `;
 
 const HomePage: NextPage<MainQuery> = ({
   main,
-}: MainQuery) => {
+}: MainQuery ) => {
+  
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual';
+  }, []);
+
+  const { scrollWithModal } = useScroll();
   return (
     <>
       <Head>
@@ -80,22 +86,13 @@ const HomePage: NextPage<MainQuery> = ({
           }
         />
       </Head>
-      <HomeWrapperStyles>
+      <HomeWrapperStyles scrollWithModal={scrollWithModal}>
         <Home main={main} />
         <Suspense fallback={<LoaderPuff />}>
           <About />
         </Suspense>
         <Suspense fallback={<LoaderPuff />}>
-          <Projects
-            projects={{
-              __typename: undefined,
-              projects: undefined,
-            }}
-            experiments={{
-              __typename: undefined,
-              experiments: undefined,
-            }}
-          />
+          <Projects />
         </Suspense>
         <Suspense fallback={<LoaderPuff />}>
           <Contact />

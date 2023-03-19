@@ -116,7 +116,6 @@ const ExperimentContainer = styled.div`
   opacity: 0;
   transform: translateY(10%);
 
-  box-shadow: 0px 0px 2px 1px var(--white);
 
   &:nth-child(1n) {
     animation: ${(props: ExperimentProps) =>

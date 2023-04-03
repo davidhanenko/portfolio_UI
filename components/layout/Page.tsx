@@ -23,7 +23,7 @@ export const Page = ({ children }: IPageProps) => {
         <Header />
       </NavStateProvider>
       <InnerStyles>{children}</InnerStyles>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

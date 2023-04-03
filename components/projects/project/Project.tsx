@@ -1,4 +1,4 @@
-import { RefObject, useState } from 'react';
+import { RefObject, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { useScroll } from '../../../lib/useScroll';
@@ -32,6 +32,7 @@ import { ProjectsQuery } from '../../../graphql/projects/projects.generated';
 
 interface IProjectProps {
   inView: boolean;
+  isSlide: boolean;
   projectRef: RefObject<HTMLDivElement> | undefined;
   project: ProjectsQuery | any;
 }
@@ -64,10 +65,11 @@ export const ProjectDescriptionPlaceholder = () => {
 
 const Project: React.FC<IProjectProps> = ({ project }) => {
   const [showModal, setShowModal] = useState(false);
+  const [isSlide, setIsSlide] = useState(false);
   const { setScrollWithModal } = useScroll();
 
   const { ref, inView } = useInView({
-    threshold: 0.3,
+    threshold: 0.2,
     triggerOnce: true,
   });
 
@@ -76,6 +78,15 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
       title: project?.attributes?.title!,
     },
   });
+
+  useEffect(() => {
+    setIsSlide(
+      data?.projects?.data[0]?.attributes?.images?.data
+        ?.length > 0
+        ? true
+        : false
+    );
+  }, [data]);
 
   const toggleModal = () => {
     setShowModal(prev => !prev);
@@ -88,7 +99,11 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
   const projectTitle = project?.attributes?.title;
 
   return (
-    <ProjectContainer ref={ref} inView={inView}>
+    <ProjectContainer
+      ref={ref}
+      inView={inView}
+      isSlide={isSlide}
+    >
       {projectTitle && (
         <h4 className='project-title'>{projectTitle}</h4>
       )}
@@ -96,7 +111,7 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
       <div className='project-body'>
         <section
           onClick={() => {
-            toggleModal();
+            isSlide && toggleModal();
           }}
           className='project-img'
         >
@@ -113,7 +128,9 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
         </section>
 
         {loading ? (
-          <ProjectDescriptionPlaceholder />
+          <Description inView={inView}>
+            <ProjectDescriptionPlaceholder />
+          </Description>
         ) : (
           imageUrl && (
             <Description inView={inView}>

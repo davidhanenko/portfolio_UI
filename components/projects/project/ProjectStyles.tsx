@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components';
 
 interface IProjectProps {
   readonly inView: boolean;
+  readonly isSlide?: boolean;
 }
 
 const fadeIn = keyframes`
@@ -180,7 +181,7 @@ const ImageOverlayText = styled.p`
   text-transform: uppercase;
   color: var(--dark2);
   background: #ffffffc7;
-  box-shadow: 5px 5px 15px 5px #8484848e;
+  box-shadow: 0 0 10px 3px #8484848e;
   padding: 1.5rem;
 
   opacity: 0;
@@ -192,7 +193,7 @@ const ImageOverlayText = styled.p`
     opacity: 1;
   }
 
-  transition: all 0.35s;
+  transition: all 0.3s;
 `;
 
 const ProjectContainer = styled.article<IProjectProps>`
@@ -210,7 +211,7 @@ const ProjectContainer = styled.article<IProjectProps>`
 
   .project-title {
     position: absolute;
-    top: -2rem;
+    top: -3rem;
 
     color: var(--orange);
     font-size: 3.3rem;
@@ -236,7 +237,9 @@ const ProjectContainer = styled.article<IProjectProps>`
   .project-body {
     position: relative;
     max-width: 70vw;
-    cursor: pointer;
+
+    ${(props: IProjectProps) =>
+      props.isSlide && `cursor: pointer;`};
 
     transform: translateY(10%);
     opacity: 0;
@@ -256,6 +259,9 @@ const ProjectContainer = styled.article<IProjectProps>`
           ${ImageOverlayText} {
             transform: translateY(0rem);
             opacity: 1;
+
+            ${(props: IProjectProps) =>
+              !props.isSlide && `display: none;`};
           }
         }
       }

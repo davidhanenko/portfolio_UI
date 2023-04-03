@@ -12,7 +12,7 @@ export const AboutStack: React.FC<IAboutStackProps> = ({
   techsLearning,
 }) => {
   const { ref, inView } = useInView({
-    threshold: 0.45,
+    threshold: 0.3,
     triggerOnce: true,
   });
 

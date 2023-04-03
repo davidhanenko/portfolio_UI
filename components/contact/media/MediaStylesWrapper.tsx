@@ -33,7 +33,7 @@ const MediaStylesWrapper = styled.aside`
   animation: ${(props: PropsTypes) =>
     props.inView && fadeIn};
   animation-duration: 1s;
-  animation-delay: 1.2s;
+  animation-delay: 1s;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(
     0.17,

@@ -30,9 +30,9 @@ const Form = styled.form<PropsTypes>`
     animation: ${props => props.inView && slideIn};
     animation-fill-mode: forwards;
     animation-duration: 1.2s;
-    animation-delay: 0.6s;
+    animation-delay: 0.5s;
 
-    z-index: 2;
+    z-index: 1;
   }
   @media (max-width: 768px) {
     position: static;

@@ -13,7 +13,7 @@ const animate = keyframes`
   }
    100% {
     top: 0rem;
-    opacity: 0.8;
+    opacity: 0.97;
   }
 `;
 

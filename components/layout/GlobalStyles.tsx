@@ -51,7 +51,11 @@ const GlobalStyles = createGlobalStyle`
 
   a {
     text-decoration: none;
-  } 
+  } input, button {
+    border-radius: 0;
+    appearance: none;
+  }
+  
 `;
 
 export default GlobalStyles;

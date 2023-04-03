@@ -9,17 +9,18 @@ export interface INavProps {
 const NavStyles = styled.nav<INavProps>`
   color: var(--white);
 
+  
   .hamburger-react {
     z-index: 5;
     margin-right: 2rem;
   }
-
+  
   .nav-container {
     position: absolute;
     right: 0;
     top: 0;
     background: var(--lightGray);
-    opacity: 0.97;
+    opacity: 0.98;
     min-width: 100%;
     font-size: 4rem;
     font-weight: 100;
@@ -28,7 +29,7 @@ const NavStyles = styled.nav<INavProps>`
     min-height: 400px;
 
     transform: translateY(-100%);
-    transition: all 0.5s;
+    transition: all 0.4s;
     ${props => props.isOpen && `transform: translateY(0%)`};
     transition-timing-function: cubic-bezier(
       0.49,

@@ -311,7 +311,7 @@ const ProjectContainer = styled.article<IProjectProps>`
     @media (max-width: 600px) {
       right: auto;
       left: 0;
-      top: -2rem;
+      top: -3rem;
     }
   }
 

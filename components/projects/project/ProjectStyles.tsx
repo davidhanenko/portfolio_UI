@@ -206,12 +206,12 @@ const ProjectContainer = styled.article<IProjectProps>`
   user-select: none;
 
   @media (max-width: 600px) {
-    margin-bottom: 45rem;
+    margin-bottom: 50rem;
   }
 
   .project-title {
     position: absolute;
-    top: -3rem;
+    top: -5rem;
 
     color: var(--orange);
     font-size: 3.3rem;
@@ -295,7 +295,7 @@ const ProjectContainer = styled.article<IProjectProps>`
 
     @media (max-width: 600px) {
       right: auto;
-      top: -7rem;
+      top: -8rem;
     }
   }
 
@@ -311,7 +311,7 @@ const ProjectContainer = styled.article<IProjectProps>`
     @media (max-width: 600px) {
       right: auto;
       left: 0;
-      top: -1rem;
+      top: -2rem;
     }
   }
 
@@ -369,7 +369,7 @@ const ProjectContainer = styled.article<IProjectProps>`
       left: 20%;
       @media (max-width: 600px) {
         left: auto;
-        top: -7rem;
+        top: -10rem;
       }
     }
 
@@ -385,7 +385,7 @@ const ProjectContainer = styled.article<IProjectProps>`
       @media (max-width: 600px) {
         left: auto;
         right: 0;
-        top: -1rem;
+        top: -3rem;
       }
     }
 

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { LogoStyles } from './LogoStyles';
-import logo from '../../../../public/logo.svg';
+import logo from '../../../../public/HD.png';
 
 export const Logo: React.FC = () => {
   return (

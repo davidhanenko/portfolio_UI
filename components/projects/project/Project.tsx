@@ -75,14 +75,14 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
 
   const { data, loading } = useProjectsImagesQuery({
     variables: {
-      title: project?.attributes?.title!,
+      title: project.attributes.title,
     },
   });
 
   useEffect(() => {
     setIsSlide(
-      data?.projects?.data[0]?.attributes?.images?.data
-        ?.length > 0
+      data?.projects.data[0]?.attributes.images?.data
+        .length > 0
         ? true
         : false
     );
@@ -104,86 +104,90 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
       inView={inView}
       isSlide={isSlide}
     >
-      {projectTitle && (
-        <h4 className='project-title'>{projectTitle}</h4>
-      )}
-
-      <div className='project-body'>
-        <section
-          onClick={() => {
-            isSlide && toggleModal();
-          }}
-          className='project-img'
-        >
-          <ImageOverlayText>View more</ImageOverlayText>
-          <Image
-            src={imageUrl!}
-            alt={projectTitle!}
-            width={700}
-            height={400}
-            objectFit='contain'
-            placeholder='blur'
-            blurDataURL={IMAGE_PLACEHOLDER}
-          />
-        </section>
-
-        {loading ? (
-          <Description inView={inView}>
-            <ProjectDescriptionPlaceholder />
-          </Description>
-        ) : (
-          imageUrl && (
-            <Description inView={inView}>
-              <h5 className='project-type'>
-                {project?.attributes?.project_type}
-              </h5>
-
-              <p className='project-description'>
-                {project?.attributes?.description}
-              </p>
-
-              <hr className='hr-project-description' />
-
-              <ul>
-                {project?.attributes?.tech_used?.map(
-                  (tech: any) => (
-                    <li key={tech.id}>{tech.tech_title}</li>
-                  )
-                )}
-              </ul>
-            </Description>
-          )
+      <div className='project-wrapper'>
+        {projectTitle && (
+          <h4 className='project-title'>{projectTitle}</h4>
         )}
-        <Links>
-          {project?.attributes?.link && (
-            <a
-              href={project?.attributes?.link}
-              target='_blank'
-              rel='noreferrer'
-              data-tooltip='Visit'
-            >
-              <FaExternalLinkAlt />
-            </a>
-          )}
-          {project?.attributes?.link_git && (
-            <a
-              href={project?.attributes?.link_git}
-              target='_blank'
-              rel='noreferrer'
-              data-tooltip='Code'
-            >
-              <FaGithub />
-            </a>
-          )}
-        </Links>
-      </div>
 
-      <Modal
-        showModal={showModal}
-        setShowModal={setShowModal}
-        slides={data?.projects?.data[0].attributes}
-        projectTitle={projectTitle!}
-      />
+        <div className='project-body'>
+          <section
+            onClick={() => {
+              isSlide && toggleModal();
+            }}
+            className='project-img'
+          >
+            <ImageOverlayText>View more</ImageOverlayText>
+            <Image
+              src={imageUrl!}
+              alt={projectTitle!}
+              width={700}
+              height={400}
+              objectFit='contain'
+              placeholder='blur'
+              blurDataURL={IMAGE_PLACEHOLDER}
+            />
+          </section>
+
+          {loading ? (
+            <Description inView={inView}>
+              <ProjectDescriptionPlaceholder />
+            </Description>
+          ) : (
+            imageUrl && (
+              <Description inView={inView}>
+                <h5 className='project-type'>
+                  {project?.attributes?.project_type}
+                </h5>
+
+                <p className='project-description'>
+                  {project?.attributes?.description}
+                </p>
+
+                <hr className='hr-project-description' />
+
+                <ul>
+                  {project?.attributes?.tech_used?.map(
+                    (tech: any) => (
+                      <li key={tech.id}>
+                        {tech.tech_title}
+                      </li>
+                    )
+                  )}
+                </ul>
+              </Description>
+            )
+          )}
+          <Links>
+            {project?.attributes?.link && (
+              <a
+                href={project?.attributes?.link}
+                target='_blank'
+                rel='noreferrer'
+                data-tooltip='Visit'
+              >
+                <FaExternalLinkAlt />
+              </a>
+            )}
+            {project?.attributes?.link_git && (
+              <a
+                href={project?.attributes?.link_git}
+                target='_blank'
+                rel='noreferrer'
+                data-tooltip='Code'
+              >
+                <FaGithub />
+              </a>
+            )}
+          </Links>
+        </div>
+
+        <Modal
+          showModal={showModal}
+          setShowModal={setShowModal}
+          slides={data?.projects?.data[0].attributes}
+          projectTitle={projectTitle!}
+        />
+      </div>
     </ProjectContainer>
   );
 };

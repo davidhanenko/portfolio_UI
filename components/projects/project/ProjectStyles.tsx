@@ -54,6 +54,8 @@ const Description = styled.section<IProjectProps>`
 
   color: var(--white);
   background: var(--dark2);
+  background: var(--gradient-gray1);
+  box-shadow: 0 10px 15px -3px var(--bgDarkOpacity);
 
   padding: 2rem;
   opacity: 0;
@@ -89,9 +91,7 @@ const Description = styled.section<IProjectProps>`
 
   ul {
     width: 100%;
-    padding: 2rem;
-
-    background: var(--dark2);
+    padding: 2rem 0;
 
     @media (max-width: 768px) {
       padding: 0;
@@ -181,7 +181,7 @@ const ImageOverlayText = styled.p`
   text-transform: uppercase;
   color: var(--dark2);
   background: #ffffffc7;
-  box-shadow: 0 0 10px 3px #8484848e;
+  box-shadow: 0 10px 15px -3px var(--bgDarkOpacity);
   padding: 1.5rem;
 
   opacity: 0;
@@ -197,78 +197,92 @@ const ImageOverlayText = styled.p`
 `;
 
 const ProjectContainer = styled.article<IProjectProps>`
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 25rem;
-
-  user-select: none;
+  background: var(--gradient-gray2);
+  padding: 10rem 0;
+  margin: 8rem auto;
+  box-shadow: 0 -2px 25px -8px #000;
+  width: 94%;
 
   @media (max-width: 600px) {
-    margin-bottom: 50rem;
+    padding: 15rem 0;
+    width: 100%;
   }
 
-  .project-title {
-    position: absolute;
-    top: -5rem;
-
-    color: var(--orange);
-    font-size: 3.3rem;
-    font-weight: 400;
-
-    transform: translateY(10%);
-    opacity: 0;
-
-    animation: ${(props: IProjectProps) =>
-        props.inView && fadeIn}
-      0.75s;
-    animation-fill-mode: forwards;
-
-    &::first-letter {
-      text-transform: uppercase;
-    }
-
-    @media (max-width: 281px) {
-      font-size: 2.2rem;
-    }
-  }
-
-  .project-body {
+  .project-wrapper {
     position: relative;
-    max-width: 70vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
 
-    ${(props: IProjectProps) =>
-      props.isSlide && `cursor: pointer;`};
+    user-select: none;
 
-    transform: translateY(10%);
-    opacity: 0;
+    @media (max-width: 600px) {
+      margin-bottom: 25rem;
+      padding: 0 1rem;
+    }
 
-    animation: ${(props: IProjectProps) =>
-        props.inView && fadeIn}
-      0.6s;
-    animation-fill-mode: forwards;
-    animation-delay: 0.3s;
+    .project-title {
+      position: absolute;
+      top: -5rem;
 
-    .project-img {
-      transition: all 0.3s;
+      color: var(--orange);
+      font-size: 3.3rem;
+      font-weight: 400;
+
+      transform: translateY(10%);
+      opacity: 0;
+
+      animation: ${(props: IProjectProps) =>
+          props.inView && fadeIn}
+        0.75s;
+      animation-fill-mode: forwards;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 281px) {
+        font-size: 2.2rem;
+      }
+    }
+
+    .project-body {
       position: relative;
+      max-width: 70vw;
 
-      @media (hover: hover) {
-        &:hover {
-          ${ImageOverlayText} {
-            transform: translateY(0rem);
-            opacity: 1;
+      ${(props: IProjectProps) =>
+        props.isSlide && `cursor: pointer;`};
 
-            ${(props: IProjectProps) =>
-              !props.isSlide && `display: none;`};
+      transform: translateY(10%);
+      opacity: 0;
+
+      animation: ${(props: IProjectProps) =>
+          props.inView && fadeIn}
+        0.6s;
+      animation-fill-mode: forwards;
+      animation-delay: 0.3s;
+
+      .project-img {
+        transition: all 0.3s;
+        position: relative;
+
+        @media (hover: hover) {
+          &:hover {
+            ${ImageOverlayText} {
+              transform: translateY(0rem);
+              opacity: 1;
+
+              ${(props: IProjectProps) =>
+                !props.isSlide && `display: none;`};
+            }
           }
         }
       }
     }
   }
 
-  &:nth-of-type(2n + 1) {
+  &:nth-of-type(odd) {
     @media (max-width: 600px) {
       &::before,
       &::after {
@@ -288,63 +302,63 @@ const ProjectContainer = styled.article<IProjectProps>`
         left: 3rem;
       }
     }
-  }
 
-  .project-title {
-    right: 20%;
+    .project-title {
+      right: 20%;
 
-    @media (max-width: 600px) {
-      right: auto;
-      top: -10rem;
+      @media (max-width: 600px) {
+        right: auto;
+        top: -10rem;
+      }
+    }
+
+    ${Links} {
+      right: -25%;
+
+      @media (max-width: 950px) {
+        right: auto;
+        left: 10%;
+        bottom: -5rem;
+      }
+
+      @media (max-width: 600px) {
+        right: auto;
+        left: 0;
+        top: -3rem;
+      }
+    }
+
+    ${Description} {
+      top: 25%;
+      right: -30%;
+      transform: translate(20%);
+      animation: ${(props: IProjectProps) =>
+          props.inView && fadeInR}
+        0.7s;
+      animation-fill-mode: forwards;
+      animation-delay: 0.5s;
+
+      .hr-project-description {
+        height: 1px;
+        background-color: var(--orange);
+        margin: 2rem 0;
+        width: 55%;
+        border: none;
+      }
+
+      @media (max-width: 768px) {
+        width: 80%;
+      }
+
+      @media (max-width: 600px) {
+        top: 100%;
+        right: 0;
+        width: 100%;
+      }
     }
   }
 
-  ${Links} {
-    right: -25%;
-
-    @media (max-width: 950px) {
-      right: auto;
-      left: 10%;
-      bottom: -5rem;
-    }
-
-    @media (max-width: 600px) {
-      right: auto;
-      left: 0;
-      top: -3rem;
-    }
-  }
-
-  ${Description} {
-    top: 25%;
-    right: -30%;
-    transform: translate(20%);
-    animation: ${(props: IProjectProps) =>
-        props.inView && fadeInR}
-      0.7s;
-    animation-fill-mode: forwards;
-    animation-delay: 0.5s;
-
-    .hr-project-description {
-      height: 1px;
-      background-color: var(--orange);
-      margin: 2rem 0;
-      width: 55%;
-      border: none;
-    }
-
-    @media (max-width: 768px) {
-      width: 80%;
-    }
-
-    @media (max-width: 600px) {
-      top: 100%;
-      right: 0;
-      width: 100%;
-    }
-  }
-
-  &:nth-of-type(2n) {
+  &:nth-of-type(even) {
     @media (max-width: 600px) {
       &::before,
       &::after {
@@ -396,6 +410,14 @@ const ProjectContainer = styled.article<IProjectProps>`
       animation: ${props => props.inView && fadeInL} 0.6s;
       animation-fill-mode: forwards;
       animation-delay: 0.5s;
+
+      .hr-project-description {
+        height: 1px;
+        background-color: var(--orange);
+        margin: 2rem 0;
+        width: 55%;
+        border: none;
+      }
 
       @media (max-width: 768px) {
         width: 80%;

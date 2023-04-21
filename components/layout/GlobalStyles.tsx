@@ -27,6 +27,14 @@ const GlobalStyles = createGlobalStyle`
     --textDark: #1e1a1a;
     --bgDarkOpacity: rgba(37, 37, 37, 0.7); 
 
+    --gradient-gray1: linear-gradient(
+    333deg,
+    var(--gray) 0%,
+    var(--dark2) 90%
+    );
+
+     --gradient-gray2: linear-gradient(169deg, rgba(52,50,48,1) 48%, rgba(255,102,0,1) 100%);
+
   }
 
    @font-face {

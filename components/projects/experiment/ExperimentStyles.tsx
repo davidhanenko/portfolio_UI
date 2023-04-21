@@ -116,7 +116,6 @@ const ExperimentContainer = styled.div`
   opacity: 0;
   transform: translateY(10%);
 
-
   &:nth-child(1n) {
     animation: ${(props: ExperimentProps) =>
         props.inView && fadeIn}

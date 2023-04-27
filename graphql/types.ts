@@ -15,7 +15,6 @@ export type Scalars = {
   MainTechDynamicZoneInput: any;
   ProjectTechUsedDynamicZoneInput: any;
   Upload: any;
-  ViewsCounterIpDynamicZoneInput: any;
 };
 
 export type About = {
@@ -98,6 +97,7 @@ export type ComponentIpIp = {
   __typename?: 'ComponentIpIp';
   id: Scalars['ID'];
   ip_address?: Maybe<Scalars['String']>;
+  visited?: Maybe<Scalars['DateTime']>;
 };
 
 export type ComponentTechTech = {
@@ -276,7 +276,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = About | ComponentIpIp | ComponentTechTech | ComponentTextText | Contact | Experiment | I18NLocale | Logo | Main | MediaLink | Project | Resume | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | ViewsCounter;
+export type GenericMorph = About | ComponentIpIp | ComponentTechTech | ComponentTextText | Contact | Experiment | I18NLocale | Ip | Logo | Main | MediaLink | Project | Resume | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | ViewsCounter;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -358,6 +358,50 @@ export type IntFilterInput = {
   null?: InputMaybe<Scalars['Boolean']>;
   or?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
   startsWith?: InputMaybe<Scalars['Int']>;
+};
+
+export type Ip = {
+  __typename?: 'Ip';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  ip_address?: Maybe<Scalars['String']>;
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  visited?: Maybe<Scalars['DateTime']>;
+};
+
+export type IpEntity = {
+  __typename?: 'IpEntity';
+  attributes?: Maybe<Ip>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type IpEntityResponse = {
+  __typename?: 'IpEntityResponse';
+  data?: Maybe<IpEntity>;
+};
+
+export type IpEntityResponseCollection = {
+  __typename?: 'IpEntityResponseCollection';
+  data: Array<IpEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type IpFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<IpFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  ip_address?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<IpFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<IpFiltersInput>>>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+  visited?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type IpInput = {
+  ip_address?: InputMaybe<Scalars['String']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  visited?: InputMaybe<Scalars['DateTime']>;
 };
 
 export type JsonFilterInput = {
@@ -476,6 +520,7 @@ export type MediaLinkInput = {
 export type Mutation = {
   __typename?: 'Mutation';
   createExperiment?: Maybe<ExperimentEntityResponse>;
+  createIp?: Maybe<IpEntityResponse>;
   createProject?: Maybe<ProjectEntityResponse>;
   createUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Create a new role */
@@ -485,6 +530,7 @@ export type Mutation = {
   deleteAbout?: Maybe<AboutEntityResponse>;
   deleteContact?: Maybe<ContactEntityResponse>;
   deleteExperiment?: Maybe<ExperimentEntityResponse>;
+  deleteIp?: Maybe<IpEntityResponse>;
   deleteLogo?: Maybe<LogoEntityResponse>;
   deleteMain?: Maybe<MainEntityResponse>;
   deleteMediaLink?: Maybe<MediaLinkEntityResponse>;
@@ -511,6 +557,7 @@ export type Mutation = {
   updateContact?: Maybe<ContactEntityResponse>;
   updateExperiment?: Maybe<ExperimentEntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
+  updateIp?: Maybe<IpEntityResponse>;
   updateLogo?: Maybe<LogoEntityResponse>;
   updateMain?: Maybe<MainEntityResponse>;
   updateMediaLink?: Maybe<MediaLinkEntityResponse>;
@@ -528,6 +575,11 @@ export type Mutation = {
 
 export type MutationCreateExperimentArgs = {
   data: ExperimentInput;
+};
+
+
+export type MutationCreateIpArgs = {
+  data: IpInput;
 };
 
 
@@ -552,6 +604,11 @@ export type MutationCreateUsersPermissionsUserArgs = {
 
 
 export type MutationDeleteExperimentArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type MutationDeleteIpArgs = {
   id: Scalars['ID'];
 };
 
@@ -635,6 +692,12 @@ export type MutationUpdateExperimentArgs = {
 export type MutationUpdateFileInfoArgs = {
   id: Scalars['ID'];
   info?: InputMaybe<FileInfoInput>;
+};
+
+
+export type MutationUpdateIpArgs = {
+  data: IpInput;
+  id: Scalars['ID'];
 };
 
 
@@ -791,6 +854,8 @@ export type Query = {
   experiments?: Maybe<ExperimentEntityResponseCollection>;
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
+  ip?: Maybe<IpEntityResponse>;
+  ips?: Maybe<IpEntityResponseCollection>;
   logo?: Maybe<LogoEntityResponse>;
   main?: Maybe<MainEntityResponse>;
   me?: Maybe<UsersPermissionsMe>;
@@ -839,6 +904,19 @@ export type QueryI18NLocaleArgs = {
 export type QueryI18NLocalesArgs = {
   filters?: InputMaybe<I18NLocaleFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type QueryIpArgs = {
+  id?: InputMaybe<Scalars['ID']>;
+};
+
+
+export type QueryIpsArgs = {
+  filters?: InputMaybe<IpFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
@@ -1269,7 +1347,6 @@ export type ViewsCounter = {
   __typename?: 'ViewsCounter';
   count?: Maybe<Scalars['Int']>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  ip?: Maybe<Array<Maybe<ViewsCounterIpDynamicZone>>>;
   publishedAt?: Maybe<Scalars['DateTime']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
@@ -1287,8 +1364,5 @@ export type ViewsCounterEntityResponse = {
 
 export type ViewsCounterInput = {
   count?: InputMaybe<Scalars['Int']>;
-  ip?: InputMaybe<Array<Scalars['ViewsCounterIpDynamicZoneInput']>>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
 };
-
-export type ViewsCounterIpDynamicZone = ComponentIpIp | Error;

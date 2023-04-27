@@ -1,16 +1,5 @@
-query Counter {
-  viewsCounter {
-    data {
-      id
-      attributes {
-        count
-      }
-    }
-  }
-}
-
-mutation IncCounter($data: ViewsCounterInput!) {
-  updateViewsCounter(data: $data) {
+mutation AddIp($data: IpInput!) {
+  createIp(data: $data) {
     data {
       id
     }

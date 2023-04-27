@@ -15,6 +15,8 @@ export default async function handler(
 ) {
   try {
     const client = initializeApollo({});
+    const ip =
+      req.headers['x-real-ip'] || req.socket.remoteAddress;
 
     const {
       data: { viewsCounter },
@@ -31,15 +33,18 @@ export default async function handler(
         variables: {
           data: {
             count: (currentCount += 1),
+            ip: [
+              {
+                __typename: 'ComponentIpIp',
+                __component: 'ip.ip',
+                ip_address: ip,
+                visited: new Date(),
+              },
+            ],
           },
         },
       });
 
-    const ip =
-      req.headers['x-real-ip'] || req.socket.remoteAddress;
-
     res.status(200);
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 }

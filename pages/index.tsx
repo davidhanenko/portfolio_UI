@@ -63,9 +63,7 @@ const HomePage: NextPage<MainQuery> = ({
     window.history.scrollRestoration = 'manual';
 
     const countViews = async () => {
-      await fetch('/api/views', {
-        method: 'POST',
-      });
+      await fetch('/api/views');
     };
 
     countViews();

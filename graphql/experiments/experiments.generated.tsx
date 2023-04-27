@@ -6,9 +6,7 @@ const defaultOptions = {} as const;
 export type ExperimentsQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type ExperimentsQuery = {
-  attributes: any; __typename?: 'Query', experiments?: { __typename?: 'ExperimentEntityResponseCollection', data: Array<{ __typename?: 'ExperimentEntity', id?: string | null, attributes?: { __typename?: 'Experiment', title: string, link?: string | null, link_git?: string | null, description: string, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null }> } | null 
-};
+export type ExperimentsQuery = { __typename?: 'Query', experiments?: { __typename?: 'ExperimentEntityResponseCollection', data: Array<{ __typename?: 'ExperimentEntity', id?: string | null, attributes?: { __typename?: 'Experiment', title: string, link?: string | null, link_git?: string | null, description: string, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null }> } | null };
 
 
 export const ExperimentsDocument = gql`

@@ -156,7 +156,6 @@ const Links = styled.section`
       transition: all 0.25s;
     }
     &:hover svg {
-      color: var(--orange);
       transform: scale(1.3);
     }
     @media (hover: hover) {

@@ -81,8 +81,8 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
 
   useEffect(() => {
     setIsSlide(
-      data?.projects.data[0]?.attributes.images?.data
-        .length > 0
+      data?.projects?.data[0]?.attributes?.images?.data
+        .length! > 0
         ? true
         : false
     );
@@ -158,7 +158,7 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
             )
           )}
           <Links>
-            {project?.attributes?.link && (
+            {project?.attributes.link && (
               <a
                 href={project?.attributes?.link}
                 target='_blank'
@@ -168,9 +168,9 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
                 <FaExternalLinkAlt />
               </a>
             )}
-            {project?.attributes?.link_git && (
+            {project?.attributes.link_git && (
               <a
-                href={project?.attributes?.link_git}
+                href={project?.attributes.link_git}
                 target='_blank'
                 rel='noreferrer'
                 data-tooltip='Code'

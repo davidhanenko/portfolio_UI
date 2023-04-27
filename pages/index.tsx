@@ -58,10 +58,17 @@ const HomeWrapperStyles = styled.div`
 
 const HomePage: NextPage<MainQuery> = ({
   main,
-}: MainQuery ) => {
-  
+}: MainQuery) => {
   useEffect(() => {
     window.history.scrollRestoration = 'manual';
+
+    const countViews = async () => {
+      await fetch('/api/views', {
+        method: 'POST',
+      });
+    };
+
+    countViews();
   }, []);
 
   const { scrollWithModal } = useScroll();

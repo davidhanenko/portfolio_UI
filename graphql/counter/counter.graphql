@@ -1,0 +1,18 @@
+query Counter {
+  viewsCounter {
+    data {
+      id
+      attributes {
+        count
+      }
+    }
+  }
+}
+
+mutation IncCounter($data: ViewsCounterInput!) {
+  updateViewsCounter(data: $data) {
+    data {
+      id
+    }
+  }
+}

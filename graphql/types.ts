@@ -15,6 +15,7 @@ export type Scalars = {
   MainTechDynamicZoneInput: any;
   ProjectTechUsedDynamicZoneInput: any;
   Upload: any;
+  ViewsCounterIpDynamicZoneInput: any;
 };
 
 export type About = {
@@ -91,6 +92,12 @@ export type BooleanFilterInput = {
   null?: InputMaybe<Scalars['Boolean']>;
   or?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
   startsWith?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type ComponentIpIp = {
+  __typename?: 'ComponentIpIp';
+  id: Scalars['ID'];
+  ip_address?: Maybe<Scalars['String']>;
 };
 
 export type ComponentTechTech = {
@@ -269,7 +276,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = About | ComponentTechTech | ComponentTextText | Contact | Experiment | I18NLocale | Logo | Main | MediaLink | Project | Resume | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = About | ComponentIpIp | ComponentTechTech | ComponentTextText | Contact | Experiment | I18NLocale | Logo | Main | MediaLink | Project | Resume | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | ViewsCounter;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -468,12 +475,9 @@ export type MediaLinkInput = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  /** Change user password. Confirm with the current password. */
-  changePassword?: Maybe<UsersPermissionsLoginPayload>;
   createExperiment?: Maybe<ExperimentEntityResponse>;
   createProject?: Maybe<ProjectEntityResponse>;
   createUploadFile?: Maybe<UploadFileEntityResponse>;
-  createUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Create a new role */
   createUsersPermissionsRole?: Maybe<UsersPermissionsCreateRolePayload>;
   /** Create a new user */
@@ -487,11 +491,11 @@ export type Mutation = {
   deleteProject?: Maybe<ProjectEntityResponse>;
   deleteResume?: Maybe<ResumeEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
-  deleteUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Delete an existing role */
   deleteUsersPermissionsRole?: Maybe<UsersPermissionsDeleteRolePayload>;
-  /** Delete an existing user */
+  /** Update an existing user */
   deleteUsersPermissionsUser: UsersPermissionsUserEntityResponse;
+  deleteViewsCounter?: Maybe<ViewsCounterEntityResponse>;
   /** Confirm an email users email address */
   emailConfirmation?: Maybe<UsersPermissionsLoginPayload>;
   /** Request a reset password token */
@@ -513,19 +517,12 @@ export type Mutation = {
   updateProject?: Maybe<ProjectEntityResponse>;
   updateResume?: Maybe<ResumeEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
-  updateUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Update an existing role */
   updateUsersPermissionsRole?: Maybe<UsersPermissionsUpdateRolePayload>;
   /** Update an existing user */
   updateUsersPermissionsUser: UsersPermissionsUserEntityResponse;
+  updateViewsCounter?: Maybe<ViewsCounterEntityResponse>;
   upload: UploadFileEntityResponse;
-};
-
-
-export type MutationChangePasswordArgs = {
-  currentPassword: Scalars['String'];
-  password: Scalars['String'];
-  passwordConfirmation: Scalars['String'];
 };
 
 
@@ -541,11 +538,6 @@ export type MutationCreateProjectArgs = {
 
 export type MutationCreateUploadFileArgs = {
   data: UploadFileInput;
-};
-
-
-export type MutationCreateUploadFolderArgs = {
-  data: UploadFolderInput;
 };
 
 
@@ -570,11 +562,6 @@ export type MutationDeleteProjectArgs = {
 
 
 export type MutationDeleteUploadFileArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type MutationDeleteUploadFolderArgs = {
   id: Scalars['ID'];
 };
 
@@ -683,12 +670,6 @@ export type MutationUpdateUploadFileArgs = {
 };
 
 
-export type MutationUpdateUploadFolderArgs = {
-  data: UploadFolderInput;
-  id: Scalars['ID'];
-};
-
-
 export type MutationUpdateUsersPermissionsRoleArgs = {
   data: UsersPermissionsRoleInput;
   id: Scalars['ID'];
@@ -698,6 +679,11 @@ export type MutationUpdateUsersPermissionsRoleArgs = {
 export type MutationUpdateUsersPermissionsUserArgs = {
   data: UsersPermissionsUserInput;
   id: Scalars['ID'];
+};
+
+
+export type MutationUpdateViewsCounterArgs = {
+  data: ViewsCounterInput;
 };
 
 
@@ -728,7 +714,7 @@ export type Project = {
   __typename?: 'Project';
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
-  images: UploadFileRelationResponseCollection;
+  images?: Maybe<UploadFileRelationResponseCollection>;
   link?: Maybe<Scalars['String']>;
   link_git?: Maybe<Scalars['String']>;
   main_image: UploadFileEntityResponse;
@@ -814,12 +800,11 @@ export type Query = {
   resume?: Maybe<ResumeEntityResponse>;
   uploadFile?: Maybe<UploadFileEntityResponse>;
   uploadFiles?: Maybe<UploadFileEntityResponseCollection>;
-  uploadFolder?: Maybe<UploadFolderEntityResponse>;
-  uploadFolders?: Maybe<UploadFolderEntityResponseCollection>;
   usersPermissionsRole?: Maybe<UsersPermissionsRoleEntityResponse>;
   usersPermissionsRoles?: Maybe<UsersPermissionsRoleEntityResponseCollection>;
   usersPermissionsUser?: Maybe<UsersPermissionsUserEntityResponse>;
   usersPermissionsUsers?: Maybe<UsersPermissionsUserEntityResponseCollection>;
+  viewsCounter?: Maybe<ViewsCounterEntityResponse>;
 };
 
 
@@ -903,18 +888,6 @@ export type QueryUploadFilesArgs = {
 };
 
 
-export type QueryUploadFolderArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-};
-
-
-export type QueryUploadFoldersArgs = {
-  filters?: InputMaybe<UploadFolderFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
 export type QueryUsersPermissionsRoleArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
@@ -936,6 +909,11 @@ export type QueryUsersPermissionsUsersArgs = {
   filters?: InputMaybe<UsersPermissionsUserFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type QueryViewsCounterArgs = {
+  publicationState?: InputMaybe<PublicationState>;
 };
 
 export type ResponseCollectionMeta = {
@@ -1034,8 +1012,6 @@ export type UploadFileFiltersInput = {
   caption?: InputMaybe<StringFilterInput>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
   ext?: InputMaybe<StringFilterInput>;
-  folder?: InputMaybe<UploadFolderFiltersInput>;
-  folderPath?: InputMaybe<StringFilterInput>;
   formats?: InputMaybe<JsonFilterInput>;
   hash?: InputMaybe<StringFilterInput>;
   height?: InputMaybe<IntFilterInput>;
@@ -1057,8 +1033,6 @@ export type UploadFileInput = {
   alternativeText?: InputMaybe<Scalars['String']>;
   caption?: InputMaybe<Scalars['String']>;
   ext?: InputMaybe<Scalars['String']>;
-  folder?: InputMaybe<Scalars['ID']>;
-  folderPath?: InputMaybe<Scalars['String']>;
   formats?: InputMaybe<Scalars['JSON']>;
   hash?: InputMaybe<Scalars['String']>;
   height?: InputMaybe<Scalars['Int']>;
@@ -1075,78 +1049,6 @@ export type UploadFileInput = {
 export type UploadFileRelationResponseCollection = {
   __typename?: 'UploadFileRelationResponseCollection';
   data: Array<UploadFileEntity>;
-};
-
-export type UploadFolder = {
-  __typename?: 'UploadFolder';
-  children?: Maybe<UploadFolderRelationResponseCollection>;
-  createdAt?: Maybe<Scalars['DateTime']>;
-  files?: Maybe<UploadFileRelationResponseCollection>;
-  name: Scalars['String'];
-  parent?: Maybe<UploadFolderEntityResponse>;
-  path: Scalars['String'];
-  pathId: Scalars['Int'];
-  updatedAt?: Maybe<Scalars['DateTime']>;
-};
-
-
-export type UploadFolderChildrenArgs = {
-  filters?: InputMaybe<UploadFolderFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-export type UploadFolderFilesArgs = {
-  filters?: InputMaybe<UploadFileFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type UploadFolderEntity = {
-  __typename?: 'UploadFolderEntity';
-  attributes?: Maybe<UploadFolder>;
-  id?: Maybe<Scalars['ID']>;
-};
-
-export type UploadFolderEntityResponse = {
-  __typename?: 'UploadFolderEntityResponse';
-  data?: Maybe<UploadFolderEntity>;
-};
-
-export type UploadFolderEntityResponseCollection = {
-  __typename?: 'UploadFolderEntityResponseCollection';
-  data: Array<UploadFolderEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type UploadFolderFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<UploadFolderFiltersInput>>>;
-  children?: InputMaybe<UploadFolderFiltersInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  files?: InputMaybe<UploadFileFiltersInput>;
-  id?: InputMaybe<IdFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<UploadFolderFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<UploadFolderFiltersInput>>>;
-  parent?: InputMaybe<UploadFolderFiltersInput>;
-  path?: InputMaybe<StringFilterInput>;
-  pathId?: InputMaybe<IntFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-};
-
-export type UploadFolderInput = {
-  children?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
-  files?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
-  name?: InputMaybe<Scalars['String']>;
-  parent?: InputMaybe<Scalars['ID']>;
-  path?: InputMaybe<Scalars['String']>;
-  pathId?: InputMaybe<Scalars['Int']>;
-};
-
-export type UploadFolderRelationResponseCollection = {
-  __typename?: 'UploadFolderRelationResponseCollection';
-  data: Array<UploadFolderEntity>;
 };
 
 export type UsersPermissionsCreateRolePayload = {
@@ -1362,3 +1264,31 @@ export type UsersPermissionsUserRelationResponseCollection = {
   __typename?: 'UsersPermissionsUserRelationResponseCollection';
   data: Array<UsersPermissionsUserEntity>;
 };
+
+export type ViewsCounter = {
+  __typename?: 'ViewsCounter';
+  count?: Maybe<Scalars['Int']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  ip?: Maybe<Array<Maybe<ViewsCounterIpDynamicZone>>>;
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type ViewsCounterEntity = {
+  __typename?: 'ViewsCounterEntity';
+  attributes?: Maybe<ViewsCounter>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type ViewsCounterEntityResponse = {
+  __typename?: 'ViewsCounterEntityResponse';
+  data?: Maybe<ViewsCounterEntity>;
+};
+
+export type ViewsCounterInput = {
+  count?: InputMaybe<Scalars['Int']>;
+  ip?: InputMaybe<Array<Scalars['ViewsCounterIpDynamicZoneInput']>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type ViewsCounterIpDynamicZone = ComponentIpIp | Error;

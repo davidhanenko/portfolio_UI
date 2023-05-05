@@ -112,6 +112,7 @@ const ExperimentContainer = styled.div`
   margin: 2rem;
 
   max-width: var(--maxWidth);
+  box-shadow: 0 10px 15px -3px var(--bgDarkOpacity);
 
   opacity: 0;
   transform: translateY(10%);

@@ -51,6 +51,7 @@ const Description = styled.section<IProjectProps>`
   position: absolute;
 
   width: 70%;
+  border-radius: 0.5rem;
 
   color: var(--white);
   background: var(--dark2);
@@ -59,7 +60,7 @@ const Description = styled.section<IProjectProps>`
 
   padding: 2rem;
   opacity: 0;
-  letter-spacing: 0.07rem;
+  letter-spacing: 0.05rem;
 
   cursor: default;
 
@@ -93,7 +94,7 @@ const Description = styled.section<IProjectProps>`
     width: 100%;
     padding: 2rem 0;
 
-    @media (max-width: 768px) {
+    @media (max-width: 850px) {
       padding: 0;
     }
   }
@@ -191,18 +192,18 @@ const ImageOverlayText = styled.p`
     transform: translateY(-2rem);
     opacity: 1;
   }
-
   transition: all 0.3s;
 `;
 
-const ProjectContainer = styled.article<IProjectProps>`
+const ProjectContainer = styled.section<IProjectProps>`
   background: var(--gradient-gray2);
-  padding: 10rem 0;
+  padding: 12rem 0;
   margin: 8rem auto;
-  box-shadow: 0 -2px 25px -8px #000;
+  box-shadow: 0 -2px 25px -8px var(--dark);
   width: 94%;
+  border-radius: 0.5rem;
 
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     padding: 15rem 0;
     width: 100%;
   }
@@ -216,7 +217,7 @@ const ProjectContainer = styled.article<IProjectProps>`
 
     user-select: none;
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       margin-bottom: 25rem;
       padding: 0 1rem;
     }
@@ -225,9 +226,9 @@ const ProjectContainer = styled.article<IProjectProps>`
       position: absolute;
       top: -5rem;
 
-      color: var(--orange);
+      color: var(--brown);
       font-size: 3.3rem;
-      font-weight: 400;
+      font-weight: 600;
 
       transform: translateY(10%);
       opacity: 0;
@@ -277,25 +278,19 @@ const ProjectContainer = styled.article<IProjectProps>`
             }
           }
         }
+        @media (hover: none) and (pointer: coarse) {
+          ${ImageOverlayText} {
+            ${(props: IProjectProps) =>
+              !props.isSlide && `display: none;`};
+          }
+        }
       }
     }
   }
 
   &:nth-of-type(odd) {
-    @media (max-width: 600px) {
-      &::before,
-      &::after {
-        content: none;
-      }
-    }
-
     .project-body {
       margin-left: -20rem;
-
-      @media (max-width: 600px) {
-        margin-left: 0;
-        max-width: 95vw;
-      }
 
       ${ImageOverlayText} {
         left: 3rem;
@@ -304,10 +299,30 @@ const ProjectContainer = styled.article<IProjectProps>`
 
     .project-title {
       right: 20%;
+    }
 
-      @media (max-width: 600px) {
+    @media (max-width: 950px) {
+      .project-img {
+        margin-left: 4rem;
+      }
+    }
+    @media (max-width: 700px) {
+      &::before,
+      &::after {
+        content: none;
+      }
+
+      .project-body {
+        margin-left: 0;
+        max-width: 95vw;
+      }
+
+      .project-title {
         right: auto;
         top: -10rem;
+      }
+      .project-img {
+        margin-left: 0;
       }
     }
 
@@ -320,7 +335,7 @@ const ProjectContainer = styled.article<IProjectProps>`
         bottom: -5rem;
       }
 
-      @media (max-width: 600px) {
+      @media (max-width: 700px) {
         right: auto;
         left: 0;
         top: -3rem;
@@ -345,11 +360,11 @@ const ProjectContainer = styled.article<IProjectProps>`
         border: none;
       }
 
-      @media (max-width: 768px) {
-        width: 80%;
+      @media (max-width: 850px) {
+        width: 90%;
       }
 
-      @media (max-width: 600px) {
+      @media (max-width: 700px) {
         top: 100%;
         right: 0;
         width: 100%;
@@ -358,20 +373,8 @@ const ProjectContainer = styled.article<IProjectProps>`
   }
 
   &:nth-of-type(even) {
-    @media (max-width: 600px) {
-      &::before,
-      &::after {
-        content: none;
-      }
-    }
-
     .project-body {
       margin-left: 20rem;
-
-      @media (max-width: 600px) {
-        margin-left: 0;
-        max-width: 95vw;
-      }
 
       ${ImageOverlayText} {
         right: 3rem;
@@ -380,9 +383,30 @@ const ProjectContainer = styled.article<IProjectProps>`
 
     .project-title {
       left: 20%;
-      @media (max-width: 600px) {
+    }
+
+    @media (max-width: 950px) {
+      .project-img {
+        margin-right: 4rem;
+      }
+    }
+    @media (max-width: 700px) {
+      &::before,
+      &::after {
+        content: none;
+      }
+
+      .project-body {
+        margin-left: 0;
+        max-width: 95vw;
+      }
+
+      .project-title {
         left: auto;
         top: -10rem;
+      }
+      .project-img {
+        margin-right: 0;
       }
     }
 
@@ -395,7 +419,7 @@ const ProjectContainer = styled.article<IProjectProps>`
         bottom: -5rem;
       }
 
-      @media (max-width: 600px) {
+      @media (max-width: 700px) {
         left: auto;
         right: 0;
         top: -3rem;
@@ -418,11 +442,11 @@ const ProjectContainer = styled.article<IProjectProps>`
         border: none;
       }
 
-      @media (max-width: 768px) {
-        width: 80%;
+      @media (max-width: 850px) {
+        width: 90%;
       }
 
-      @media (max-width: 600px) {
+      @media (max-width: 700px) {
         top: 100%;
         left: 0;
         width: 100%;

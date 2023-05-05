@@ -17,10 +17,13 @@ const GlobalStyles = createGlobalStyle`
 
     --dark: #221F1E;
     --dark2: #343230;
-    --gray: #4b4b4b;
-    --lightGray: #c4c4c4;
+    --gray: #7a7979;
+    --lightGray: #bcbcbc;
     --lightOrange: #ff9001;
-    --orange: #ff6600;
+    --orange: #fe6601;
+    --paleOrange:#ed9e67;
+    --brown:#86370e;
+    --blue:#1d5191;
     
     --white: #f8f1f1;
     --offWhite: #f5f5f5;
@@ -33,7 +36,7 @@ const GlobalStyles = createGlobalStyle`
     var(--dark2) 90%
     );
 
-     --gradient-gray2: linear-gradient(169deg, rgba(52,50,48,1) 48%, rgba(255,102,0,1) 100%);
+     --gradient-gray2: linear-gradient(169deg, var(--gray) 60%, var(--paleOrange) 40%);
 
   }
 

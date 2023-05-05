@@ -43,6 +43,10 @@ const AboutImg = styled.section`
     display: flex;
     justify-content: center;
   }
+
+  span  {
+    box-shadow: 0 10px 15px -3px var(--bgDarkOpacity);
+  }
 `;
 
 export { AboutImg };

@@ -21,7 +21,12 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: #f47d28e9;
+  background: linear-gradient(
+    169deg,
+    #7a7979e6 60%,
+    #ed9f67e4 90%
+  );
+
   z-index: 2;
 
   padding: 0 2rem;
@@ -44,7 +49,7 @@ const Overlay = styled.div`
       position: relative;
 
       svg {
-        transition: all 0.3s;
+        transition: all 0.25s;
       }
 
       &:after {
@@ -65,7 +70,7 @@ const Overlay = styled.div`
       @media (hover: hover) {
         &:hover svg {
           color: var(--dark);
-          transform: scale(1.3);
+          transform: scale(1.1);
         }
         &:hover::after {
           display: block;
@@ -78,7 +83,7 @@ const Overlay = styled.div`
     padding-bottom: 3rem;
     user-select: none;
 
-    color: black;
+    color: var(--white);
     font-size: 1.5rem;
     text-align: justify;
     line-height: 1.6rem;

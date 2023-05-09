@@ -264,7 +264,7 @@ const ProjectContainer = styled.section<IProjectProps>`
       animation-delay: 0.3s;
 
       .project-img {
-        transition: all 0.3s;
+        transition: all 0.25s;
         position: relative;
 
         @media (hover: hover) {

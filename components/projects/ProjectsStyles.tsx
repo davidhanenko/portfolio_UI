@@ -32,8 +32,7 @@ const ProjectsContainer = styled.div`
     background: var(--gradient-gray1);
     padding: 5rem 3rem 25rem 3rem;
     margin-bottom: 8rem;
-    
-    
+
     h3 {
       display: flex;
       justify-content: end;

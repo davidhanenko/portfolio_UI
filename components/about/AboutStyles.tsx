@@ -28,6 +28,8 @@ const AboutWrapper = styled.div`
 
   .img-cv {
     position: relative;
+    display: flex;
+    justify-content: center;
   }
 
   @media (max-width: 992px) {

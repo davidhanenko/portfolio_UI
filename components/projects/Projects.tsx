@@ -12,7 +12,7 @@ const Projects: React.FC = () => {
   const experiments = experimentsData?.experiments?.data;
 
   return (
-    <ProjectsContainer>
+    <ProjectsContainer id='projects'>
       <h2>Projects</h2>
       <section className='projects-wrapper'>
         {projects !== undefined &&

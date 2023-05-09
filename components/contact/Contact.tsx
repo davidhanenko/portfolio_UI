@@ -21,9 +21,8 @@ const Contact: React.FC = () => {
       ?.url;
   const email = data?.contact?.data?.attributes?.email;
 
-
   return (
-    <ContactContainer>
+    <ContactContainer id='contacts'>
       <ToastContainer
         position='bottom-left'
         autoClose={5000}

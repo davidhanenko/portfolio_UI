@@ -23,7 +23,7 @@ const About: React.FC = () => {
     data?.about?.data?.attributes?.tech_learning;
 
   return (
-    <AboutContainer>
+    <AboutContainer id='about'>
       <AboutWrapper>
         <section className='text-stack'>
           {!loading && (

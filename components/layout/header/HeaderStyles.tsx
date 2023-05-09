@@ -29,6 +29,8 @@ const HeaderStyles = styled.header`
   align-items: center;
   padding: 1.5rem 1rem 1rem 1rem;
 
+  transition: all 0.5s;
+
   opacity: 0;
   ${props => props.displayHeader && `opacity: 1;`};
 
@@ -44,7 +46,7 @@ const HeaderStyles = styled.header`
 
   ${(props: HeaderProps) =>
     props.isScroll &&
-    `backdrop-filter: saturate(160%) blur(8px);`};
+    `backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.25);`};
 
   &:after {
     content: '';

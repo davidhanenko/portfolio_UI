@@ -18,10 +18,13 @@ const GlobalStyles = createGlobalStyle`
     --dark: #221F1E;
     --dark2: #343230;
     --gray: #7a7979;
+    --grayOp: #7a797987;
     --lightGray: #bcbcbc;
+    --lightGrayOp: #bcbcbcf1;
     --lightOrange: #ff9001;
     --orange: #fe6601;
     --paleOrange:#ed9e67;
+    --paleOrangeOp:#ed9f6792;
     --brown:#86370e;
     --blue:#1d5191;
     
@@ -36,7 +39,7 @@ const GlobalStyles = createGlobalStyle`
     var(--dark2) 90%
     );
 
-     --gradient-gray2: linear-gradient(169deg, var(--gray) 60%, var(--paleOrange) 40%);
+     --gradient-gray2: linear-gradient(169deg, var(--grayOp) 60%, var(--paleOrangeOp) 40%);
 
   }
 

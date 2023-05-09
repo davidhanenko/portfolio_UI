@@ -186,6 +186,8 @@ const ExperimentContainer = styled.div`
     overflow: hidden;
     background-color: var(--dark);
 
+    border-radius: 0.5rem;
+
     span {
       min-height: 100%;
     }

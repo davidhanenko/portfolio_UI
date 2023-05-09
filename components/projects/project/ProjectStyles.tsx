@@ -201,7 +201,7 @@ const ProjectContainer = styled.section<IProjectProps>`
   margin: 8rem auto;
   box-shadow: 0 -2px 25px -8px var(--dark);
   width: 94%;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
 
   @media (max-width: 700px) {
     padding: 15rem 0;
@@ -226,7 +226,7 @@ const ProjectContainer = styled.section<IProjectProps>`
       position: absolute;
       top: -5rem;
 
-      color: var(--brown);
+      color: var(--white);
       font-size: 3.3rem;
       font-weight: 600;
 

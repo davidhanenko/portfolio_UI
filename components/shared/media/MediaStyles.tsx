@@ -17,7 +17,7 @@ const MediaStyles = styled.article`
       background: var(--gray);
 
       display: none;
-      transition: all 0.3s;
+      transition: all 0.25s;
     }
 
     @media (hover: hover) {

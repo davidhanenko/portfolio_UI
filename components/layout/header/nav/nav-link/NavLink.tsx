@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 import { useNav } from '../../../../../lib/useNav';
 import { NavLinkStyles } from './NavLinkStyles';
@@ -17,19 +16,19 @@ const LinkBnt = React.forwardRef(
     { href, title, link }: Props,
     ref: React.LegacyRef<HTMLAnchorElement> | undefined
   ) => {
-    const router = useRouter();
-    const { closeNav } = useNav();
+    const { active, closeNav, setActive } = useNav();
+
+    const handleClick = () => {
+      setActive(title);
+      closeNav();
+    };
 
     return (
       <a
         href={href}
         ref={ref}
-        onClick={closeNav}
-        className={
-          router.asPath.split('/')[1] === title
-            ? 'active-link'
-            : ''
-        }
+        onClick={handleClick}
+        className={active === title ? 'active-link' : ''}
       >
         {title}
       </a>
@@ -43,7 +42,7 @@ export const NavLink: React.FC<Props> = ({
 }) => {
   return (
     <NavLinkStyles>
-      <Link href={`/${link}`} passHref>
+      <Link href={`#${link}`} passHref>
         <LinkBnt title={title} />
       </Link>
     </NavLinkStyles>

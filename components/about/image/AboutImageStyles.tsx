@@ -18,6 +18,8 @@ const fadeIn = keyframes`
 const AboutImg = styled.section`
   position: relative;
   display: block;
+  width: 300px;
+  height: 350px;
 
   opacity: 0;
   transform: translateY(10%);
@@ -36,16 +38,17 @@ const AboutImg = styled.section`
   }
 
   @media (max-width: 768px) {
-    padding: 7rem 1rem;
+    margin: 7rem 1rem;
   }
 
-  @media (max-width: 600px) {
-    display: flex;
-    justify-content: center;
-  }
-
-  span  {
+  span {
     box-shadow: 0 10px 15px -3px var(--bgDarkOpacity);
+    filter: drop-shadow(4px 4px 50px gray) invert(15%);
+    transition: filter 0.3s ease-in-out;
+
+    &:hover {
+      filter: none;
+    }
   }
 `;
 

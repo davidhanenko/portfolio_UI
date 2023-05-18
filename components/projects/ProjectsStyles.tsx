@@ -39,8 +39,11 @@ const ProjectsContainer = styled.div`
       color: var(--lightGray);
       margin: 0 10rem 10rem 0;
       font-size: 4rem;
+    }
 
-      @media (max-width: 768px) {
+    @media (max-width: 768px) {
+      padding: 5rem 1rem 15rem 1rem;
+      h3 {
         margin-right: 2rem;
       }
     }

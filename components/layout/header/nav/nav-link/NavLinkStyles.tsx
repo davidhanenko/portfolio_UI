@@ -13,8 +13,10 @@ const NavLinkStyles = styled.li`
     text-transform: capitalize;
     transition: color 0.25s;
 
-    &:hover {
-      color: var(--gray);
+    @media (pointer: fine) {
+      &:hover {
+        color: var(--gray);
+      }
     }
   }
 

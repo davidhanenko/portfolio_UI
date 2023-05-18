@@ -156,18 +156,20 @@ const Links = styled.section`
       display: none;
       transition: all 0.25s;
     }
-    &:hover svg {
-      transform: scale(1.3);
-    }
+
     @media (hover: hover) {
+      &:hover svg {
+        transform: scale(1.3);
+      }
+
       &:hover::after {
         display: block;
       }
-    }
 
-    &:active svg {
-      color: var(--orange);
-      transform: scale(1.3);
+      &:active svg {
+        color: var(--orange);
+        transform: scale(1.3);
+      }
     }
   }
 `;

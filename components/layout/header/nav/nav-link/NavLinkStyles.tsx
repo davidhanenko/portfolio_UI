@@ -20,9 +20,6 @@ const NavLinkStyles = styled.li`
     }
   }
 
-  .active-link {
-    color: var(--gray);
-  }
 
   @media (max-width: 768px) {
     margin: 0.75rem 0;

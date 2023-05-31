@@ -58,7 +58,6 @@ const Form = styled.form<PropsTypes>`
 
   .form {
     background: var(--darkOp);
-    /* border: 1px solid var(--white); */
     padding: 2rem;
     box-shadow: 3px 10px 15px -3px var(--darkOp);
 

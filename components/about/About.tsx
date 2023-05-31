@@ -4,7 +4,6 @@ import {
   AboutContainer,
   AboutWrapper,
 } from './AboutStyles';
-import { CvBtn } from './cv/CvBtn';
 import { AboutImage } from './image/AboutImage';
 import { AboutStack } from './stack/AboutStack';
 import { AboutText } from './text/AboutText';
@@ -41,7 +40,6 @@ const About: React.FC = () => {
         </section>
         <section className='img-cv'>
           {imgUrl && <AboutImage imgUrl={imgUrl!} />}
-          {/* <CvBtn inView={inView} /> */}
         </section>
       </AboutWrapper>
     </AboutContainer>

@@ -52,8 +52,6 @@ const GreetTxt = styled.section<GreetProps>`
   p {
     font-size: 2.3rem;
     font-weight: 300;
-
-    user-select: none;
   }
 
   @media (max-width: 768px) {

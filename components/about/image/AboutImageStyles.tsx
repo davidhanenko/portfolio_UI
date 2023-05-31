@@ -43,11 +43,16 @@ const AboutImg = styled.section`
 
   span {
     box-shadow: 0 10px 15px -3px var(--bgDarkOpacity);
-    filter: drop-shadow(4px 4px 50px gray) invert(15%);
-    transition: filter 0.3s ease-in-out;
+  }
 
-    &:hover {
-      filter: none;
+  @media (pointer: fine) and (hover: hover) {
+    span {
+      filter: drop-shadow(4px 4px 50px gray) invert(15%);
+      transition: filter 0.3s ease-in-out;
+
+      &:hover {
+        filter: none;
+      }
     }
   }
 `;

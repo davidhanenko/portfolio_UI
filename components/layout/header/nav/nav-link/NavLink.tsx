@@ -16,10 +16,21 @@ const LinkBnt = React.forwardRef(
     { href, title, link }: Props,
     ref: React.LegacyRef<HTMLAnchorElement> | undefined
   ) => {
-    const { active, closeNav, setActive } = useNav();
+    const {closeNav } = useNav();
 
-    const handleClick = () => {
-      setActive(title);
+    const handleClick = (
+      e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    ) => {
+      e.preventDefault();
+
+      const href = e.currentTarget.href;
+      const targetId = href.replace(/.*\#/, '');
+
+      const elem = document.getElementById(targetId);
+      elem?.scrollIntoView({
+        behavior: 'smooth',
+      });
+
       closeNav();
     };
 
@@ -28,7 +39,6 @@ const LinkBnt = React.forwardRef(
         href={href}
         ref={ref}
         onClick={handleClick}
-        className={active === title ? 'active-link' : ''}
       >
         {title}
       </a>

@@ -47,7 +47,6 @@ const SliderContainer = styled.section`
     z-index: 10;
     color: var(--white);
     font-size: 3rem;
-    user-select: none;
     cursor: pointer;
     transition: opacity 0.2s;
 

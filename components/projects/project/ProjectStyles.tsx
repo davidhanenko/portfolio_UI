@@ -101,7 +101,6 @@ const Description = styled.section<IProjectProps>`
 
   li {
     list-style: none;
-    user-select: none;
     cursor: default;
 
     display: inline-block;
@@ -216,8 +215,6 @@ const ProjectContainer = styled.section<IProjectProps>`
     flex-wrap: wrap;
     justify-content: center;
     margin: 0 auto;
-
-    user-select: none;
 
     @media (max-width: 700px) {
       margin-bottom: 25rem;

@@ -30,12 +30,12 @@ export const AboutStack: React.FC<IAboutStackProps> = ({
 
       <hr />
 
-      <div>
-        <h3>Currently learning...</h3>
+      <div className='learning'>
+        <h3>Looking forward to improve</h3>
         {techsLearning !== undefined &&
           techsLearning !== null &&
           techsLearning.map(tech => (
-            <p className='tech-l-title' key={tech.id}>
+            <p className='tech-title-learn' key={tech.id}>
               {tech.tech_title}
             </p>
           ))}
@@ -43,5 +43,3 @@ export const AboutStack: React.FC<IAboutStackProps> = ({
     </Stack>
   );
 };
-
-

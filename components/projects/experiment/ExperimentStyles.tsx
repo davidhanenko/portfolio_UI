@@ -21,12 +21,7 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    169deg,
-    #7a7979e6 60%,
-    #ed9f67e4 90%
-  );
-
+  background: var(--darkOp);
   z-index: 2;
 
   padding: 0 2rem;
@@ -69,7 +64,6 @@ const Overlay = styled.div`
       }
       @media (hover: hover) {
         &:hover svg {
-          color: var(--dark);
           transform: scale(1.1);
         }
         &:hover::after {
@@ -81,8 +75,6 @@ const Overlay = styled.div`
 
   p {
     padding-bottom: 3rem;
-    user-select: none;
-
     color: var(--white);
     font-size: 1.5rem;
     text-align: justify;
@@ -117,7 +109,6 @@ const ExperimentContainer = styled.div`
   margin: 2rem;
 
   max-width: var(--maxWidth);
-  box-shadow: 0 10px 15px -3px var(--bgDarkOpacity);
 
   opacity: 0;
   transform: translateY(10%);
@@ -196,6 +187,7 @@ const ExperimentContainer = styled.div`
     background-color: var(--dark);
 
     border-radius: 0.5rem;
+    box-shadow: 0 5px 12px -3px var(--lightGrayOp);
 
     span {
       min-height: 100%;

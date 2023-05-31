@@ -146,7 +146,6 @@ const NameContainer = styled.div<INameProps>`
 
   .name {
     font-family: 'Montserrat', sans-serif;
-    user-select: none;
 
     transform: ${(props: INameProps) =>
       !props.nameAnimationEnd

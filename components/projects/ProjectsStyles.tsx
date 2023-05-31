@@ -29,14 +29,14 @@ const ProjectsContainer = styled.div`
   }
 
   .experiments-container {
-    background: var(--gradient-gray1);
+    background: var(--offWhite);
     padding: 5rem 3rem 25rem 3rem;
     margin-bottom: 8rem;
 
     h3 {
       display: flex;
       justify-content: end;
-      color: var(--lightGray);
+      color: var(--gray);
       margin: 0 10rem 10rem 0;
       font-size: 4rem;
     }

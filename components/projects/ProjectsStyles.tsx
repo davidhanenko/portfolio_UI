@@ -25,7 +25,7 @@ const ProjectsContainer = styled.div`
   }
 
   .projects-wrapper {
-    min-height: 100vh;
+
   }
 
   .experiments-container {

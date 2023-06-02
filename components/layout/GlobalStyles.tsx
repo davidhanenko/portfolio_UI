@@ -61,7 +61,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Nunito', sans-serif;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    background: var(--dark);
+    background: #000000ff;
   }
 
   a {

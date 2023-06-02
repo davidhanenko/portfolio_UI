@@ -16,9 +16,8 @@ import {
 import Modal from './modal/Modal';
 import {
   Description,
-  ImageOverlayText,
-  Links,
   ProjectContainer,
+  ProjectHeader,
 } from './ProjectStyles';
 
 import { PlaceholderWrapper } from '../../shared/placeholder/PlaceholderWrapper';
@@ -37,40 +36,14 @@ interface IProjectProps {
   project: ProjectsQuery | any;
 }
 
-// project description section placeholder
-export const ProjectDescriptionPlaceholder = () => {
-  return (
-    <PlaceholderWrapper>
-      <HeaderPlaceholder />
-      <hr
-        style={{
-          color: 'orange',
-          width: '50%',
-          marginLeft: '5%',
-        }}
-      />
-      <TextPlaceholder />
-      <hr
-        style={{
-          color: 'orange',
-          width: '50%',
-          marginLeft: '5%',
-        }}
-      />
-      <TextPlLine />
-      <TextPlLine />
-    </PlaceholderWrapper>
-  );
-};
-
 const Project: React.FC<IProjectProps> = ({ project }) => {
   const [showModal, setShowModal] = useState(false);
   const [isSlide, setIsSlide] = useState(false);
   const { setScrollWithModal } = useScroll();
 
   const { ref, inView } = useInView({
-    threshold: 0.2,
-    triggerOnce: true,
+    threshold: 0.3,
+    // triggerOnce: true,
   });
 
   const { data, loading } = useProjectsImagesQuery({
@@ -105,88 +78,83 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
       isSlide={isSlide}
     >
       <div className='project-wrapper'>
-        {projectTitle && (
+        <ProjectHeader inView={inView}>
           <h4 className='project-title'>{projectTitle}</h4>
-        )}
+
+          <div className='project-links'>
+            <div className='view-more-btn'>View More</div>
+            <div className='outer-links'>
+              {project?.attributes.link && (
+                <a
+                  href={project?.attributes?.link}
+                  target='_blank'
+                  rel='noreferrer'
+                  data-tooltip='Visit'
+                >
+                  <FaExternalLinkAlt />
+                </a>
+              )}
+              {project?.attributes.link_git && (
+                <a
+                  href={project?.attributes.link_git}
+                  target='_blank'
+                  rel='noreferrer'
+                  data-tooltip='Code'
+                >
+                  <FaGithub />
+                </a>
+              )}
+            </div>
+          </div>
+        </ProjectHeader>
 
         <div className='project-body'>
-          <section
+          <div
             onClick={() => {
               isSlide && toggleModal();
             }}
             className='project-img'
           >
-            <ImageOverlayText>View more</ImageOverlayText>
             <Image
               src={imageUrl!}
               alt={projectTitle!}
-              width={700}
-              height={400}
-              objectFit='contain'
+              layout='fill'
               placeholder='blur'
               blurDataURL={IMAGE_PLACEHOLDER}
             />
-          </section>
 
-          {loading ? (
-            <Description inView={inView}>
-              <ProjectDescriptionPlaceholder />
-            </Description>
-          ) : (
-            imageUrl && (
+            {imageUrl && (
               <Description inView={inView}>
-                <h5 className='project-type'>
-                  {project?.attributes?.project_type}
-                </h5>
+                <div className='description-wrapper'>
+                  <h5 className='project-type'>
+                    {project?.attributes?.project_type}
+                  </h5>
 
-                <p className='project-description'>
-                  {project?.attributes?.description}
-                </p>
+                  <p className='project-description'>
+                    {project?.attributes?.description}
+                  </p>
 
-                <hr className='hr-project-description' />
-
-                <ul>
-                  {project?.attributes?.tech_used?.map(
-                    (tech: any) => (
-                      <li key={tech.id}>
-                        {tech.tech_title}
-                      </li>
-                    )
-                  )}
-                </ul>
+                  <ul>
+                    {project?.attributes?.tech_used?.map(
+                      (tech: any) => (
+                        <li key={tech.id}>
+                          {tech.tech_title}
+                        </li>
+                      )
+                    )}
+                  </ul>
+                </div>
               </Description>
-            )
-          )}
-          <Links>
-            {project?.attributes.link && (
-              <a
-                href={project?.attributes?.link}
-                target='_blank'
-                rel='noreferrer'
-                data-tooltip='Visit'
-              >
-                <FaExternalLinkAlt />
-              </a>
             )}
-            {project?.attributes.link_git && (
-              <a
-                href={project?.attributes.link_git}
-                target='_blank'
-                rel='noreferrer'
-                data-tooltip='Code'
-              >
-                <FaGithub />
-              </a>
-            )}
-          </Links>
+          </div>
         </div>
 
-        <Modal
+        {/* <Modal
           showModal={showModal}
           setShowModal={setShowModal}
           slides={data?.projects?.data[0].attributes}
           projectTitle={projectTitle!}
-        />
+        /> */}
       </div>
     </ProjectContainer>
   );

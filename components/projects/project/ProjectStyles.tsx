@@ -8,22 +8,9 @@ interface IProjectProps {
 const fadeIn = keyframes`
   0% {
     opacity: 0;
-    transform: translateY(10%);
   }
    100% {
      opacity: 1;
-     transform: translate(0%);
-  }
-`;
-
-const fadeInR = keyframes`
-  0% {
-    opacity: 0;
-    transform: translate(20%);
-  }
-   100% {
-     opacity: 1;
-     transform: translate(0%);
   }
 `;
 
@@ -57,6 +44,19 @@ const Description = styled.div<IProjectProps>`
     opacity: 0.7;
   }
 
+  right: 0;
+  transform: translate(20%);
+  animation: ${(props: IProjectProps) =>
+      props.inView && fadeInL}
+    1s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+
+  @media (max-width: 700px) {
+    padding: 2rem 1rem;
+    border: 1px solid var(--white);
+  }
+
   .description-wrapper {
     position: relative;
     color: #ffffff;
@@ -72,16 +72,19 @@ const Description = styled.div<IProjectProps>`
       display: flex;
       justify-content: end;
       margin-bottom: 3rem;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       font-weight: 400;
-      text-transform: uppercase;
       position: relative;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
 
       &::after {
         content: '';
         position: absolute;
-        bottom: -1rem;
-        width: 55%;
+        bottom: -1.5rem;
+        width: 75%;
         height: 1px;
         background-color: var(--orange);
       }
@@ -89,7 +92,6 @@ const Description = styled.div<IProjectProps>`
 
     .project-description {
       font-size: 1.5rem;
-      text-align: justify;
       line-height: 1.3;
       font-weight: 300;
       overflow-y: scroll;
@@ -99,15 +101,11 @@ const Description = styled.div<IProjectProps>`
       width: 100%;
       position: relative;
 
-      @media (max-width: 850px) {
-        padding: 0;
-      }
-
       &::before {
         content: '';
         position: absolute;
-        top: -1rem;
-        width: 55%;
+        top: -1.5rem;
+        width: 75%;
         height: 1px;
         background-color: var(--orange);
       }
@@ -125,7 +123,7 @@ const Description = styled.div<IProjectProps>`
       &::after {
         content: '|';
         padding: 0 0.75rem;
-        color: var(--lightOrange);
+        color: var(--orange);
       }
 
       &:last-of-type {
@@ -142,12 +140,15 @@ const Description = styled.div<IProjectProps>`
 `;
 
 const ProjectHeader = styled.div<IProjectProps>`
-  transform: translateY(10%);
+  transform: translateX(-20%);
   order: 2;
+
+  position: relative;
+  z-index: 0;
 
   opacity: 0;
   animation: ${(props: IProjectProps) =>
-      props.inView && fadeIn}
+      props.inView && fadeInL}
     1s;
   animation-fill-mode: forwards;
   animation-delay: 0.3s;
@@ -159,9 +160,24 @@ const ProjectHeader = styled.div<IProjectProps>`
   flex-direction: column;
   justify-content: space-around;
 
+  font-size: 14px;
+
+  @media (max-width: 1024px) {
+    order: 1;
+    justify-content: start;
+
+    .project-title {
+      margin-bottom: 3rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 12px;
+  }
+
   .project-title {
     color: var(--white);
-    font-size: 3rem;
+    font-size: 2em;
     font-weight: 600;
 
     &::first-letter {
@@ -169,7 +185,7 @@ const ProjectHeader = styled.div<IProjectProps>`
     }
 
     @media (max-width: 281px) {
-      font-size: 2.2rem;
+      font-size: 2em;
     }
   }
 
@@ -180,7 +196,7 @@ const ProjectHeader = styled.div<IProjectProps>`
 
   .view-more-btn {
     color: var(--white);
-    font-size: 2rem;
+    font-size: 1.5em;
     border: 1px solid var(--white);
     padding: 0.5rem 1rem;
     margin-right: 5rem;
@@ -194,7 +210,7 @@ const ProjectHeader = styled.div<IProjectProps>`
 
   .outer-links {
     a {
-      font-size: 2.2rem;
+      font-size: 1.5em;
       color: var(--white);
       padding: 1rem;
 
@@ -210,7 +226,7 @@ const ProjectHeader = styled.div<IProjectProps>`
         bottom: -4rem;
         right: 1rem;
         padding: 0.5rem 1rem;
-        font-size: 1.3rem;
+        font-size: 1.3em;
         color: var(--white);
         background: var(--gray);
         width: 5rem;
@@ -240,32 +256,39 @@ const ProjectHeader = styled.div<IProjectProps>`
 
 const ProjectContainer = styled.section<IProjectProps>`
   margin: 15rem auto;
-  padding: 0 5rem;
-
-  @media (max-width: 700px) {
-  }
 
   .project-wrapper {
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 2fr;
     gap: 5rem;
+    padding: 0 5rem;
+
+    @media (max-width: 1024px) {
+      display: flex;
+      flex-direction: column;
+    }
 
     @media (max-width: 700px) {
+      gap: 3rem;
+      padding: 0 1rem;
     }
 
     .project-body {
       display: flex;
       justify-content: end;
 
-      transform: translateY(10%);
       opacity: 0;
-
       animation: ${(props: IProjectProps) =>
           props.inView && fadeIn}
         1s;
       animation-fill-mode: forwards;
       animation-delay: 0.3s;
+
+      @media (max-width: 1024px) {
+        order: 2;
+        justify-content: center;
+      }
 
       .project-img {
         position: relative;
@@ -280,29 +303,15 @@ const ProjectContainer = styled.section<IProjectProps>`
             }
           }
         }
+
+        @media (max-width: 700px) {
+          span {
+            img {
+              object-fit: contain;
+            }
+          }
+        }
       }
-    }
-  }
-
-  &:nth-of-type(odd) {
-    ${Description} {
-      right: 0;
-      transform: translate(20%);
-      animation: ${(props: IProjectProps) =>
-          props.inView && fadeInR}
-        1s;
-      animation-fill-mode: forwards;
-      animation-delay: 0.5s;
-    }
-  }
-
-  &:nth-of-type(even) {
-    ${Description} {
-      animation: ${(props: IProjectProps) =>
-          props.inView && fadeInL}
-        1s;
-      animation-fill-mode: forwards;
-      animation-delay: 0.5s;
     }
   }
 `;

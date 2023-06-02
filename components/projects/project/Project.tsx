@@ -43,7 +43,7 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
 
   const { ref, inView } = useInView({
     threshold: 0.3,
-    // triggerOnce: true,
+    triggerOnce: true,
   });
 
   const { data, loading } = useProjectsImagesQuery({

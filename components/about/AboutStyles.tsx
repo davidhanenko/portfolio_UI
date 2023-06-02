@@ -4,7 +4,7 @@ interface IAboutProps {
   readonly nameAnimationDuration?: number | string;
 }
 
-const AboutContainer = styled.main<IAboutProps>`
+const AboutContainer = styled.section<IAboutProps>`
   min-height: 100vh;
 
   background: var(--dark2);

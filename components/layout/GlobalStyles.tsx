@@ -15,8 +15,8 @@ const GlobalStyles = createGlobalStyle`
     --headerHeight: 8rem;
 
 
-    --dark: #221F1E;
-    --darkOp: #221f1eea;
+    --dark: #010410;
+    --darkOp: #010410e5;
     --dark2: #343230;
     --gray: #7a7979;
     --grayOp: #7a797987;
@@ -61,7 +61,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Nunito', sans-serif;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    background: #000000ff;
+    background: var(--dark);
   }
 
   a {

@@ -16,7 +16,6 @@ interface IModalProps {
   showModal: boolean;
   setShowModal: (showModal: boolean) => void;
   slides: any;
-  projectTitle: string;
 }
 
 const ImagePlaceholder = () => {
@@ -31,7 +30,6 @@ const Modal = ({
   showModal,
   setShowModal,
   slides,
-  projectTitle,
 }: IModalProps) => {
   const slideRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
@@ -107,7 +105,6 @@ const Modal = ({
                 showModal={showModal}
                 slideRef={slideRef}
                 slides={slides?.images?.data}
-                projectTitle={projectTitle}
               />
             </ModalContent>
             <CloseModalButton

@@ -18,29 +18,36 @@ import {
 } from './SliderStyles';
 
 import { IMAGE_PLACEHOLDER as placeholderImg } from '../../../../../config';
+import { over } from 'lodash';
+import ScrollAnimated from '../../../../shared/ScrollAnimated';
 
 interface ISlidesProps {
   slides: any;
-  slideRef: RefObject<HTMLDivElement>;
   showModal: boolean;
-  projectTitle: string;
 }
 
 const Slider: React.FC<ISlidesProps> = ({
   showModal,
   slides,
-  slideRef,
-  projectTitle,
 }) => {
   const [current, setCurrent] = useState(0);
+  const [isOversized, setOversized] = useState(false);
 
-  const slideImgRef = useRef<HTMLDivElement>(null);
-
-  const { ref, inView } = useInView({
-    threshold: 1,
-  });
+  const slideImgRef = useRef(
+    null
+  ) as RefObject<HTMLImageElement>;
 
   const length = slides.length;
+
+  useEffect(() => {
+    if (slides[current].attributes.height > 1400) {
+      setOversized(true);
+    } else {
+      setOversized(false);
+    }
+  }, [current, slides]);
+
+  console.log(isOversized);
 
   // next slide
   const nextSlide = useCallback(() => {
@@ -51,15 +58,6 @@ const Slider: React.FC<ISlidesProps> = ({
   const prevSlide = useCallback(() => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   }, [current, length]);
-
-  useEffect(() => {
-    if (!inView) {
-      slideImgRef.current?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
-    }
-  }, [current, inView]);
 
   // change slide on arrow buttons click
   const keyPress = useCallback(
@@ -85,15 +83,18 @@ const Slider: React.FC<ISlidesProps> = ({
   }
 
   return (
-    <SliderContainer ref={slideRef}>
-      <FaChevronLeft
-        className='left-arrow'
-        onClick={prevSlide}
-      />
-      <FaChevronRight
-        className='right-arrow'
-        onClick={nextSlide}
-      />
+    <SliderContainer>
+      <div className='slider-controls'>
+        <FaChevronLeft
+          className='left-arrow'
+          onClick={prevSlide}
+        />
+        {isOversized && <ScrollAnimated />}
+        <FaChevronRight
+          className='right-arrow'
+          onClick={nextSlide}
+        />
+      </div>
       {slides.map((slide, index) => {
         if (!slide)
           return (
@@ -104,21 +105,21 @@ const Slider: React.FC<ISlidesProps> = ({
           );
         return (
           <div
-            ref={slideImgRef}
             className={
               index === current ? 'slide active' : 'slide'
             }
             key={index}
           >
-            {index === current && slide?.attributes?.url && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                ref={ref}
-                src={slide?.attributes?.url}
-                alt={`${projectTitle} - screenshot`}
-                className='image'
-              />
-            )}
+            {index === current &&
+              slide?.attributes?.url && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  ref={slideImgRef}
+                  src={slide?.attributes?.url}
+                  alt={`Project screenshot`}
+                  className='image'
+                />
+              )}
           </div>
         );
       })}

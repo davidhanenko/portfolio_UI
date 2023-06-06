@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ContactContainer = styled.div`
+const ContactContainer = styled.section`
   position: relative;
   overflow-y: hidden;
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ProjectsContainer = styled.div`
+const ProjectsContainer = styled.section`
   min-height: 100vh;
   max-width: var(--maxWidth);
   margin: 0 auto;
@@ -25,7 +25,7 @@ const ProjectsContainer = styled.div`
   }
 
   .projects-wrapper {
-    min-height: 100vh;
+
   }
 
   .experiments-container {

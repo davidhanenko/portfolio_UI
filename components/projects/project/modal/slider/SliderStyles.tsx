@@ -5,12 +5,10 @@ interface ImagePlaceholderProps {
 }
 
 const SliderContainer = styled.section`
-  z-index: 11;
-  position: relative;
-  top: 50%;
+  overflow-y: scroll;
+  height: 100%;
 
   .slide {
-    height: 100%;
     opacity: 0;
     margin: 0 auto;
     transition: all 0.4s;
@@ -22,7 +20,7 @@ const SliderContainer = styled.section`
       transform: scale(1.08);
     }
 
-    @media (hover: none) and (pointer: coarse) {
+    @media (hover: none) and (pointer: coarse) and (max-width: 600px) {
       opacity: 1;
     }
   }
@@ -31,20 +29,26 @@ const SliderContainer = styled.section`
     max-width: 900px;
     width: 100%;
     height: 100%;
-    position: relative;
 
     @media (max-with: 600px) {
       max-width: 550px;
     }
   }
 
+  .slider-controls {
+    position: absolute;
+    top: -50px;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+    
+  }
+
   .right-arrow,
   .left-arrow {
     box-sizing: content-box;
     padding: 0.6rem;
-    position: fixed;
-    top: 45%;
-    z-index: 10;
     color: var(--white);
     font-size: 3rem;
     cursor: pointer;
@@ -67,15 +71,20 @@ const SliderContainer = styled.section`
   }
 
   .right-arrow {
-    right: 5%;
+    /* right: 1rem; */
   }
 
   .left-arrow {
-    left: 5%;
+    /* left: 0; */
   }
 
-  @media (hover: none) and (pointer: coarse) {
+  @media (hover: none) and (pointer: coarse) and (max-width: 600px) {
+    .slider-controls {
+      position: relative;
+    }
+
     .right-arrow {
+      position: absolute;
       font-size: 4rem;
       padding: 1rem;
       right: 2rem;
@@ -86,6 +95,7 @@ const SliderContainer = styled.section`
     }
 
     .left-arrow {
+      position: absolute;
       font-size: 4rem;
       padding: 1rem;
       left: 2rem;

@@ -3,10 +3,7 @@ import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { useScroll } from '../../../lib/useScroll';
 
-import {
-  useProjectsImagesLazyQuery,
-  useProjectsImagesQuery,
-} from '../../../graphql/projects/projectImages.generated';
+
 
 import {
   FaExternalLinkAlt,
@@ -20,13 +17,7 @@ import {
   ProjectHeader,
 } from './ProjectStyles';
 
-import { PlaceholderWrapper } from '../../shared/placeholder/PlaceholderWrapper';
 import { IMAGE_PLACEHOLDER } from '../../../config';
-import { HeaderPlaceholder } from '../../shared/placeholder/HeaderPlaceholder';
-import {
-  TextPlaceholder,
-  TextPlLine,
-} from '../../shared/placeholder/TextPlaceholder';
 import { ProjectsQuery } from '../../../graphql/projects/projects.generated';
 
 interface IProjectProps {
@@ -43,23 +34,23 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
 
   const { ref, inView } = useInView({
     threshold: 0.3,
-    triggerOnce: true,
+    // triggerOnce: true,
   });
 
-  const { data, loading } = useProjectsImagesQuery({
-    variables: {
-      title: project.attributes.title,
-    },
-  });
+  // const { data, loading } = useProjectsImagesQuery({
+  //   variables: {
+  //     title: project.attributes.title,
+  //   },
+  // });
 
-  useEffect(() => {
-    setIsSlide(
-      data?.projects?.data[0]?.attributes?.images?.data
-        .length! > 0
-        ? true
-        : false
-    );
-  }, [data]);
+  // useEffect(() => {
+  //   setIsSlide(
+  //     data?.projects?.data[0]?.attributes?.images?.data
+  //       .length! > 0
+  //       ? true
+  //       : false
+  //   );
+  // }, [data]);
 
   const toggleModal = () => {
     setShowModal(prev => !prev);
@@ -82,7 +73,7 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
           <h4 className='project-title'>{projectTitle}</h4>
 
           <div className='project-links'>
-            <div className='view-more-btn'>View More</div>
+            <a href={`/${project.id}`} className='view-more-btn'>View More</a>
             <div className='outer-links'>
               {project?.attributes.link && (
                 <a

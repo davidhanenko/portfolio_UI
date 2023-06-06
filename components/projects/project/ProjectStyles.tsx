@@ -191,22 +191,24 @@ const ProjectHeader = styled.div<IProjectProps>`
 
   .project-links {
     display: flex;
-    align-items: end;
+    align-items: center;
   }
 
-  .view-more-btn {
-    color: var(--white);
-    font-size: 1.5em;
-    border: 1px solid var(--white);
-    padding: 0.5rem 1rem;
-    margin-right: 5rem;
-    transition: all 0.25s;
+  
+    .view-more-btn {
+      color: var(--white);
+      font-size: 1.5em;
+      border: 1px solid var(--white);
+      padding: 0.5rem 1rem;
+      margin-right: 5rem;
+      transition: all 0.25s;
 
-    &:hover {
-      color: var(--lightOrange);
-      border: 1px solid var(--lightOrange);
+      &:hover {
+        color: var(--lightOrange);
+        border: 1px solid var(--lightOrange);
+      }
     }
-  }
+  
 
   .outer-links {
     a {
@@ -226,7 +228,7 @@ const ProjectHeader = styled.div<IProjectProps>`
         bottom: -4rem;
         right: 1rem;
         padding: 0.5rem 1rem;
-        font-size: 1.3em;
+        font-size: 0.6em;
         color: var(--white);
         background: var(--gray);
         width: 5rem;

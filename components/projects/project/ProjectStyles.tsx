@@ -194,21 +194,19 @@ const ProjectHeader = styled.div<IProjectProps>`
     align-items: center;
   }
 
-  
-    .view-more-btn {
-      color: var(--white);
-      font-size: 1.5em;
-      border: 1px solid var(--white);
-      padding: 0.5rem 1rem;
-      margin-right: 5rem;
-      transition: all 0.25s;
+  .view-more-btn {
+    color: var(--white);
+    font-size: 1.5em;
+    border: 1px solid var(--white);
+    padding: 0.5rem 1rem;
+    margin-right: 5rem;
+    transition: all 0.25s;
 
-      &:hover {
-        color: var(--lightOrange);
-        border: 1px solid var(--lightOrange);
-      }
+    &:hover {
+      color: var(--lightOrange);
+      border: 1px solid var(--lightOrange);
     }
-  
+  }
 
   .outer-links {
     a {

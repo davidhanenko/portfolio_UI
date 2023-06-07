@@ -18,8 +18,8 @@ const fadeIn = keyframes`
 const AboutImg = styled.section`
   position: relative;
   display: block;
-  width: 300px;
-  height: 350px;
+  width: 350px;
+  height: 400px;
 
   opacity: 0;
   transform: translateY(10%);
@@ -47,7 +47,7 @@ const AboutImg = styled.section`
 
   @media (pointer: fine) and (hover: hover) {
     span {
-      filter: drop-shadow(4px 4px 50px gray) invert(15%);
+      filter: invert(15%);
       transition: filter 0.3s ease-in-out;
 
       &:hover {

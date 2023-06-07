@@ -7,17 +7,19 @@ interface ImagePlaceholderProps {
 const SliderContainer = styled.section`
   overflow-y: scroll;
   height: 100%;
+  position: relative;
 
   .slide {
     opacity: 0;
     margin: 0 auto;
+    transform: scale(0.9);
     transition: all 0.4s;
   }
 
   .slide.active {
     @media (hover: hover) {
       opacity: 1;
-      transform: scale(1.08);
+      transform: scale(1);
     }
 
     @media (hover: none) and (pointer: coarse) and (max-width: 600px) {
@@ -37,12 +39,20 @@ const SliderContainer = styled.section`
 
   .slider-controls {
     position: absolute;
-    top: -50px;
-    z-index: 5;
+    top: 0px;
+    z-index: 10;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    width: 150px;
-    
+    justify-content: end;
+
+    .slider-controls-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 150px;
+      background-color: #80808080;
+      padding: 1rem;
+    }
   }
 
   .right-arrow,

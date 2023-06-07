@@ -85,15 +85,17 @@ const Slider: React.FC<ISlidesProps> = ({
   return (
     <SliderContainer>
       <div className='slider-controls'>
-        <FaChevronLeft
-          className='left-arrow'
-          onClick={prevSlide}
-        />
-        {isOversized && <ScrollAnimated />}
-        <FaChevronRight
-          className='right-arrow'
-          onClick={nextSlide}
-        />
+        <div className='slider-controls-inner'>
+          <FaChevronLeft
+            className='left-arrow'
+            onClick={prevSlide}
+          />
+          {isOversized && <ScrollAnimated />}
+          <FaChevronRight
+            className='right-arrow'
+            onClick={nextSlide}
+          />
+        </div>
       </div>
       {slides.map((slide, index) => {
         if (!slide)

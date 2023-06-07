@@ -18,8 +18,14 @@ export const Name = () => {
     useAnimation();
 
   useEffect(() => {
-    // disable scroll during main animation
-    disableScroll.on();
+    // disable scroll during 1at main animation
+    const disableScrollValue =
+      sessionStorage.getItem('disableScroll');
+
+    if (disableScrollValue != 'true') {
+      disableScroll.on();
+      sessionStorage.setItem('disableScroll', 'true');
+    }
   }, []);
 
   const handleAnimationEnd = (
@@ -32,12 +38,16 @@ export const Name = () => {
       setNameAnimationEnd(true);
 
       // show navbar during current session
+      sessionStorage.setItem('nameAnimationDone', 'true');
+
+      // show navbar during current session
       sessionStorage.setItem('showNav', 'true');
 
       // enable scroll
       disableScroll.off();
     }
   };
+
   return (
     <NameContainer
       nameAnimationDuration={`${nameAnimationDuration}s`}

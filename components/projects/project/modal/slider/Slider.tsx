@@ -47,8 +47,6 @@ const Slider: React.FC<ISlidesProps> = ({
     }
   }, [current, slides]);
 
-  console.log(isOversized);
-
   // next slide
   const nextSlide = useCallback(() => {
     setCurrent(current === length - 1 ? 0 : current + 1);

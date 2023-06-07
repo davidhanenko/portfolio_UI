@@ -1,18 +1,27 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { Squash as Hamburger } from 'hamburger-react';
+import { useRouter } from 'next/router';
 
 import { useNav } from '../../../../lib/useNav';
+import { useScroll } from '../../../../lib/useScroll';
 
 import { NavLink } from './nav-link/NavLink';
-import { NavLogoStyles, NavStyles } from './NavStyles';
+import { BackButtonStyles, NavLogoStyles, NavStyles } from './NavStyles';
 import { Logo } from '../logo/Logo';
 import Media from '../../../shared/media/Media';
 import { MediaStylesWrapper } from './nav-link/NavLinkStyles';
 
 export const Nav: React.FC = () => {
   const { isOpen, toggleNav, closeNav } = useNav();
+  const router = useRouter();
+  const { scrollProjectsInView, setScrollProjectsInView } =
+    useScroll();
+
+  const currentPath = router.asPath as string;
 
   const navRef = useRef<HTMLDivElement>(null);
+
 
   // close nav on click outside
   useEffect(() => {
@@ -43,13 +52,23 @@ export const Nav: React.FC = () => {
 
   return (
     <NavStyles isOpen={isOpen} ref={navRef}>
-      <Hamburger
-        size={36}
-        hideOutline={false}
-        label='Open-Close navbar'
-        toggled={isOpen}
-        toggle={toggleNav}
-      />
+      {currentPath !== '/' ? (
+        <Link href='/' passHref>
+          <BackButtonStyles
+            onClick={() => setScrollProjectsInView(true)}
+          >
+            &lt; Back to Projects
+          </BackButtonStyles>
+        </Link>
+      ) : (
+        <Hamburger
+          size={36}
+          hideOutline={false}
+          label='Open-Close navbar'
+          toggled={isOpen}
+          toggle={toggleNav}
+        />
+      )}
       <div className='nav-container'>
         <NavLogoStyles>
           <Logo />

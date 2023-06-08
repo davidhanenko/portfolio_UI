@@ -107,10 +107,13 @@ const BackButtonStyles = styled.div`
   cursor: pointer;
   font-size: 2rem;
   margin: 2rem 1rem;
-  border: 1px solid var(--white);
   padding: 0.5rem 1rem;
   border-radius: 5px;
+  border: 1px solid var(--white);
   transition: background 0.25s;
+
+  position: relative;
+  z-index:5;
 
   &:hover {
     background: var(--dark2);

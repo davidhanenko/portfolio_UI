@@ -17,9 +17,9 @@ import {
   SliderContainer,
 } from './SliderStyles';
 
-import { IMAGE_PLACEHOLDER as placeholderImg } from '../../../../../config';
+import { IMAGE_PLACEHOLDER as placeholderImg } from '../../../config';
 import { over } from 'lodash';
-import ScrollAnimated from '../../../../shared/ScrollAnimated';
+import ScrollAnimated from '../../shared/ScrollAnimated';
 
 interface ISlidesProps {
   slides: any;
@@ -88,7 +88,11 @@ const Slider: React.FC<ISlidesProps> = ({
             className='left-arrow'
             onClick={prevSlide}
           />
-          {isOversized && <ScrollAnimated />}
+          {isOversized && (
+            <div className='oversized-image-scroll'>
+              <ScrollAnimated />
+            </div>
+          )}
           <FaChevronRight
             className='right-arrow'
             onClick={nextSlide}

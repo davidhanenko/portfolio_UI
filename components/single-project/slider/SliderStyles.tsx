@@ -38,8 +38,8 @@ const SliderContainer = styled.section`
   }
 
   .slider-controls {
-    position: absolute;
-    top: 0px;
+    position: sticky;
+    top: 80px;
     z-index: 10;
     width: 100%;
     display: flex;
@@ -50,6 +50,7 @@ const SliderContainer = styled.section`
       justify-content: space-between;
       align-items: center;
       width: 150px;
+      height: 80px;
       background-color: #80808080;
       padding: 1rem;
     }
@@ -89,8 +90,19 @@ const SliderContainer = styled.section`
   }
 
   @media (hover: none) and (pointer: coarse) and (max-width: 600px) {
+    margin-top: 0;
+
     .slider-controls {
       position: relative;
+      top: 0;
+
+      .slider-controls-inner {
+        width: 100%;
+      }
+
+      .oversized-image-scroll {
+        display: none;
+      }
     }
 
     .right-arrow {

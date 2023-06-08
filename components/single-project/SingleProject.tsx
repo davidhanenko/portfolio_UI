@@ -1,12 +1,12 @@
 import { SingleProjectQuery } from '../../graphql/projects/singleProject.generated';
-import { SingleProjectStyles } from './SingleProjectStyles';
-import Slider from '../projects/project/modal/slider/Slider';
-import {
-  FaExternalLinkAlt,
-  FaGithub,
-} from 'react-icons/fa';
 
-interface ISingleProjectProps {
+import { SingleProjectStyles } from './SingleProjectStyles';
+import ProjectDescription from './project-description/ProjectDescription';
+import ProjectHeader from './project-header/ProjectHeader';
+import Slider from './slider/Slider';
+import TechsUsed from './techs-used/TechsUsed';
+
+export interface ISingleProjectProps {
   project: SingleProjectQuery['project'];
 }
 
@@ -30,31 +30,22 @@ const SingleProject: React.FC<ISingleProjectProps> = ({
         </div>
       </section>
       <section className='project-description'>
-        <div className='project-header'>
-          <h2>{project?.data?.attributes?.title}</h2>
-          <div className='outer-links'>
-            {project?.data?.attributes?.link && (
-              <a
-                href={project?.data?.attributes.link}
-                target='_blank'
-                rel='noreferrer'
-                data-tooltip='Visit'
-              >
-                <FaExternalLinkAlt />
-              </a>
-            )}
-            {project?.data?.attributes?.link_git && (
-              <a
-                href={project?.data?.attributes.link_git}
-                target='_blank'
-                rel='noreferrer'
-                data-tooltip='Code'
-              >
-                <FaGithub />
-              </a>
-            )}
-          </div>
-        </div>
+        <ProjectHeader
+          title={project?.data?.attributes?.title!}
+          link={project?.data?.attributes?.link!}
+          linkGit={project?.data?.attributes?.link_git!}
+        />
+
+        <ProjectDescription
+          description={
+            project?.data?.attributes?.full_description
+          }
+          features={project?.data?.attributes?.features}
+        />
+
+        <TechsUsed
+          techs={project?.data?.attributes?.tech_used}
+        />
       </section>
     </SingleProjectStyles>
   );

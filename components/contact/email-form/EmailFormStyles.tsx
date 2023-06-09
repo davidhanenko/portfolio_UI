@@ -53,7 +53,7 @@ const Form = styled.form<PropsTypes>`
     text-align: center;
     font-size: 3rem;
     padding-bottom: 3rem;
-    color: var(--orange);
+    color: var(--lightOrange);
   }
 
   .form {
@@ -75,7 +75,7 @@ const Form = styled.form<PropsTypes>`
       padding: 0;
 
       &:focus-within label {
-        color: var(--orange);
+        color: var(--lightOrange);
         opacity: 1;
         transform: translateY(-2rem) scale(0.6);
         transform-origin: left;
@@ -98,7 +98,7 @@ const Form = styled.form<PropsTypes>`
         background: transparent;
 
         &:focus {
-          border-bottom: solid 1px orange;
+          border-bottom: solid 1px var(--lightOrange);
           outline: none;
           box-shadow: none;
           border-radius: none;
@@ -115,7 +115,7 @@ const Form = styled.form<PropsTypes>`
       }
 
       .label-dirty {
-        color: var(--orange);
+        color: var(--lightOrange);
         opacity: 1;
         transform: translateY(-2rem) scale(0.6);
         transform-origin: left;
@@ -143,7 +143,7 @@ const EmailSendBtn = styled.button`
   width: 20rem;
   cursor: pointer;
 
-  color: var(--orange);
+  color: var(--lightOrange);
   transition: all 0.3s;
   position: relative;
 

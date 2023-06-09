@@ -1,4 +1,9 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const bgMove = keyframes`
+    from { background-position: 0 0; }
+    to { background-position: 400% 0; }
+`;
 
 const TechsUsedStyles = styled.div`
   padding: 5rem 10rem 8rem 10rem;
@@ -6,18 +11,13 @@ const TechsUsedStyles = styled.div`
 
   h3 {
     font-size: 2.5rem;
-    color: var(--white);
     margin-bottom: 2rem;
-
-    color: #1c5ffe;
-    background: linear-gradient(
-      90deg,
-      rgba(34, 193, 195, 1) 100px,
-      rgba(253, 187, 45, 1) 500px
-    );
+    color: transparent;
+    background: var(--gradient-text1);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: inline-block;
   }
 
   .techs-list {
@@ -36,15 +36,28 @@ const TechsUsedStyles = styled.div`
 
   .tech-title {
     font-size: 1.7rem;
-    color: #1c5ffe;
+    color: transparent;
     background: linear-gradient(
-      90deg,
-      rgba(34, 193, 195, 1) 100px,
-      rgba(253, 187, 45, 1) 500px
+      120deg,
+      rgba(34, 193, 195, 1) 10%,
+      rgba(253, 187, 45, 1) 40%,
+      rgba(34, 193, 195, 1) 80%
     );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    background-size: 400%;
+    animation: ${bgMove} 8s linear infinite;
+  }
+
+  @media (max-width: 800px) {
+    padding: 5rem 2rem;
+
+    .techs-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 120px));
+    }
   }
 `;
 

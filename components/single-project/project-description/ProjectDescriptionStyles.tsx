@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const ProjectDescriptionStyles = styled.div`
-  padding: 5rem 10rem;
+  padding: 10rem;
 
   @media (max-width: 800px) {
     padding: 5rem;
@@ -31,6 +31,13 @@ const ProjectDescriptionStyles = styled.div`
 
     h3 {
       font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: transparent;
+      background: var(--gradient-text2);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
     }
 
     .feature-paragraph {
@@ -39,16 +46,18 @@ const ProjectDescriptionStyles = styled.div`
       grid-template-columns: 2fr 4fr;
       gap: 1rem;
 
-      margin: 0 auto;
+      margin: 1rem auto;
       padding: 3rem 0;
+
+      /* border-bottom: 1px solid var(--lightOrange); */
 
       .feature-header {
         position: relative;
 
         .marker {
-          font-size: 2rem;
+          font-size: 1.5rem;
           position: absolute;
-          left: -3rem;
+          left: -2rem;
           top: -1rem;
         }
       }

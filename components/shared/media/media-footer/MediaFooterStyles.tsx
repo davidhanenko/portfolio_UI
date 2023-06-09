@@ -36,7 +36,7 @@ const MediaFooterStyles = styled.footer`
       content: '';
       width: 135%;
       height: 1px;
-      background: white;
+      background: var(--white);
       position: absolute;
       left: 0;
       bottom: 0;

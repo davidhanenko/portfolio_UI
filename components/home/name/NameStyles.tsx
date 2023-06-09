@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components';
 export interface INameProps {
   readonly nameAnimationDuration?: number | string;
   readonly nameAnimationEnd?: boolean;
+
 }
 
 const nameX = keyframes`

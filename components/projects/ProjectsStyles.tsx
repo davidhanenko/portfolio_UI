@@ -36,7 +36,7 @@ const ProjectsContainer = styled.section`
     h3 {
       display: flex;
       justify-content: end;
-      color: var(--gray);
+      color: var(--lightOrange);
       margin: 0 10rem 10rem 0;
       font-size: 4rem;
     }

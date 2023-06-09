@@ -54,7 +54,7 @@ const MediaStylesWrapper = styled.aside`
       content: '';
       height: 150%;
       width: 1px;
-      background: white;
+      background: var(--white);
       position: absolute;
       right: 0;
       bottom: 0;
@@ -97,7 +97,7 @@ const MediaStylesWrapper = styled.aside`
         content: '';
         width: 35%;
         height: 1px;
-        background: white;
+        background: var(--white);
         position: absolute;
         left: 0;
         bottom: 0;

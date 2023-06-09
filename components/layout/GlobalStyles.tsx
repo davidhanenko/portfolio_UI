@@ -24,12 +24,13 @@ const GlobalStyles = createGlobalStyle`
     --grayOp: #7a797987;
     --lightGray: #bcbcbc;
     --lightGrayOp: #bcbcbcf1;
-    --lightOrange: #ff9001;
-    --orange: #fe6601;
+    --lightOrange: #0d9488;
+    --orange: #115e59;
     --paleOrange:#ed9e67;
     --paleOrangeOp:#ed9f6792;
     --brown:#86370e;
     --blue:#1d5191;
+    --teal: #06b6d4;
     
     --white: #f8f1f1;
     --offWhite: #f5f5f5;
@@ -44,7 +45,24 @@ const GlobalStyles = createGlobalStyle`
 
      --gradient-gray2: linear-gradient(169deg, var(--grayOp) 60%, var(--paleOrangeOp) 40%);
 
+       --gradient-text: linear-gradient(
+      90deg,var(--orange) 20%, var(--lightOrange) 95%
+    );
+
+     --gradient-text1: linear-gradient(
+      90deg,
+      rgba(34, 193, 195, 1) 20%,
+      rgba(253, 187, 45, 1) 95%
+    );
+
+    --gradient-text2: linear-gradient(
+      90deg,
+      #006061 20%,
+      #00393a 80%
+    );
+
   }
+
 
    @font-face {
     font-family: 'Montserrat', sans-serif;

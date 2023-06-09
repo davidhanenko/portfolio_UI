@@ -30,7 +30,7 @@ const MediaStyles = styled.article`
   svg {
     margin: 0.5rem 0;
     padding: 0.25rem;
-    color: var(--orange);
+    color: var(--lightOrange);
     transition: all 0.35s;
     cursor: pointer;
 
@@ -38,7 +38,7 @@ const MediaStyles = styled.article`
       &:hover {
         color: var(--white);
         transform: scale(1.2);
-        padding-top: .5rem;
+        padding-top: 0.5rem;
       }
       &:active {
         color: var(--white);

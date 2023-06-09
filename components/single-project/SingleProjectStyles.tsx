@@ -6,6 +6,7 @@ const SingleProjectStyles = styled.div`
   .image-slider-section {
     height: 80vh;
     width: 100%;
+    padding-bottom: 2rem;
 
     display: flex;
     justify-content: center;

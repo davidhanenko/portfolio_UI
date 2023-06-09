@@ -13,7 +13,7 @@ export const AboutStack: React.FC<IAboutStackProps> = ({
 }) => {
   const { ref, inView } = useInView({
     threshold: 0.3,
-    triggerOnce: true,
+    // triggerOnce: true,
   });
 
   return (

@@ -105,18 +105,19 @@ const NavLogoStyles = styled(LogoStyles)`
 
 const BackButtonStyles = styled.div`
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin: 2rem 1rem;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   border: 1px solid var(--white);
-  transition: background 0.25s;
+  transition: all 0.25s;
 
   position: relative;
-  z-index:5;
+  z-index: 5;
 
   &:hover {
-    background: var(--dark2);
+    color: var(--lightOrange);
+    border: 1px solid var(--lightOrange);
   }
 `;
 

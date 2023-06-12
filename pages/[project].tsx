@@ -1,7 +1,6 @@
 import { GetServerSidePropsContext, NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect } from 'react';
-import MediaFooter from '../components/shared/media/media-footer/MediaFooter';
 import SingleProject from '../components/single-project/SingleProject';
 import {
   addApolloState,
@@ -26,7 +25,6 @@ const SingleProjectPage: NextPage<SingleProjectQuery> = ({
         <title>David Hanenko | Projects</title>
       </Head>
       <SingleProject project={project} />
-      {/* <MediaFooter /> */}
     </>
   );
 };

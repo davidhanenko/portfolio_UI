@@ -6,7 +6,7 @@ const bgMove = keyframes`
 `;
 
 const TechsUsedStyles = styled.div`
-  padding: 5rem 10rem 8rem 10rem;
+  padding: 5rem 10rem 16rem 10rem;
   background: var(--dark4);
 
   h3 {
@@ -52,7 +52,7 @@ const TechsUsedStyles = styled.div`
   }
 
   @media (max-width: 800px) {
-    padding: 5rem 2rem;
+    padding: 5rem 2rem 16rem 2rem;
 
     .techs-list {
       display: grid;

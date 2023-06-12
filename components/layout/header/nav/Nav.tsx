@@ -1,16 +1,22 @@
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Squash as Hamburger } from 'hamburger-react';
 import { useRouter } from 'next/router';
+import { Squash as Hamburger } from 'hamburger-react';
 
 import { useNav } from '../../../../lib/useNav';
 import { useScroll } from '../../../../lib/useScroll';
 
 import { NavLink } from './nav-link/NavLink';
-import { BackButtonStyles, NavLogoStyles, NavStyles } from './NavStyles';
+
 import { Logo } from '../logo/Logo';
 import Media from '../../../shared/media/Media';
 import { MediaStylesWrapper } from './nav-link/NavLinkStyles';
+import { IoReturnUpBackOutline } from 'react-icons/io5';
+import {
+  BackButtonStyles,
+  NavLogoStyles,
+  NavStyles,
+} from './NavStyles';
 
 export const Nav: React.FC = () => {
   const { isOpen, toggleNav, closeNav } = useNav();
@@ -21,7 +27,6 @@ export const Nav: React.FC = () => {
   const currentPath = router.asPath as string;
 
   const navRef = useRef<HTMLDivElement>(null);
-
 
   // close nav on click outside
   useEffect(() => {
@@ -57,7 +62,10 @@ export const Nav: React.FC = () => {
           <BackButtonStyles
             onClick={() => setScrollProjectsInView(true)}
           >
-            &lt; Back to Projects
+            <span>
+              <IoReturnUpBackOutline />
+            </span>{' '}
+            Back to Projects
           </BackButtonStyles>
         </Link>
       ) : (

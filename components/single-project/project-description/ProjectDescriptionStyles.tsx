@@ -49,13 +49,12 @@ const ProjectDescriptionStyles = styled.div`
       margin: 1rem auto;
       padding: 3rem 0;
 
-      /* border-bottom: 1px solid var(--lightOrange); */
 
       .feature-header {
         position: relative;
 
         .marker {
-          font-size: 1.5rem;
+          font-size: 1.2rem;
           position: absolute;
           left: -2rem;
           top: -1rem;

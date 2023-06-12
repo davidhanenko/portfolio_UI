@@ -4,23 +4,18 @@ const ProjectHeaderStyles = styled.div`
   padding: 5rem 0;
   display: flex;
   justify-content: space-around;
-  background-color: var(--lightGray);
+  background: var(--gradient-gray1);
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 2.7rem;
     margin-bottom: 2rem;
-    color: transparent;
-    background: var(--gradient-text2);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
+    color: var(--teal);
   }
 
   .outer-links {
     a {
       font-size: 2.5rem;
-      color: var(--orange);
+      color: var(--teal);
       padding: 1rem;
 
       position: relative;

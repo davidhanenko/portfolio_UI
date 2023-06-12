@@ -31,7 +31,7 @@ const ProjectDescription: React.FC<
       </div>
 
       <div className='features'>
-        <h3>Some features</h3>
+        <h3>Key features</h3>
         {features &&
           features.map((feature: Paragraph) => (
             <div

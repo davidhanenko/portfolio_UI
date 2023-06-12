@@ -17,9 +17,9 @@ const MediaFooterStyles = styled.footer`
 
   transform: translateX(-200%);
 
-  animation: ${fadeIn};
+  animation: ${(props: { inView: boolean }) =>
+    props.inView && fadeIn};
   animation-duration: 0.5s;
-  animation-delay: 0.8s;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(
     0.17,

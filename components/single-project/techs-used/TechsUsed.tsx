@@ -1,9 +1,12 @@
 import Image from 'next/image';
 import { SingleProjectQuery } from '../../../graphql/projects/singleProject.generated';
+import { useInView } from 'react-intersection-observer';
 import { TechsUsedStyles } from './TechsUsedStyles';
+import MediaFooter from '../../shared/media/media-footer/MediaFooter';
 
 interface ITechsUsedProps {
   techs: SingleProjectQuery['project']['data']['attributes']['tech_used'];
+  inView: boolean;
 }
 
 type TechProps = {
@@ -15,8 +18,12 @@ type TechProps = {
 const TechsUsed: React.FC<ITechsUsedProps> = ({
   techs,
 }) => {
+  const { ref, inView } = useInView({
+    threshold: 1,
+  });
+
   return (
-    <TechsUsedStyles>
+    <TechsUsedStyles ref={ref}>
       <h3>Technologies used</h3>
       <ul className='techs-list'>
         {techs &&
@@ -29,10 +36,13 @@ const TechsUsed: React.FC<ITechsUsedProps> = ({
                 height={100}
                 objectFit='scale-down'
               />
-              <p className='tech-title'>{ tech.tech_title}</p>
+              <p className='tech-title'>
+                {tech.tech_title}
+              </p>
             </li>
           ))}
       </ul>
+      <MediaFooter inView={inView} />
     </TechsUsedStyles>
   );
 };

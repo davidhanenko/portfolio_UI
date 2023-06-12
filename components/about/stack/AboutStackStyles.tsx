@@ -55,7 +55,7 @@ const Stack = styled.section`
     &::after {
       content: '|';
       padding: 0 0.5rem;
-      color: var(--lightOrange);
+      color: var(--teal);
     }
 
     &:last-of-type {
@@ -69,7 +69,7 @@ const Stack = styled.section`
     margin: 3rem 0;
     height: 1px;
     border: none;
-    background: var(--lightOrange);
+    background: var(--teal);
   }
 `;
 

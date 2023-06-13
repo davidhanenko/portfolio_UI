@@ -14,15 +14,13 @@ const ProjectDescriptionStyles = styled.div`
   .description {
     .description-paragraph {
       padding: 1rem 0;
+      font-size: 1.5rem;
 
       h5 {
         font-size: 1.7rem;
         margin-bottom: 1rem;
       }
 
-      p {
-        font-size: 1.5rem;
-      }
     }
   }
 
@@ -49,7 +47,6 @@ const ProjectDescriptionStyles = styled.div`
       margin: 1rem auto;
       padding: 3rem 0;
 
-
       .feature-header {
         position: relative;
 
@@ -59,14 +56,18 @@ const ProjectDescriptionStyles = styled.div`
           left: -2rem;
           top: -1rem;
         }
+
+        h5 {
+          font-size: 1.7rem;
+        }
       }
 
-      h5 {
-        font-size: 1.7rem;
-      }
-
-      p {
+      .feature-text {
         font-size: 1.5rem;
+
+        ul {
+          padding-left: 2rem;
+        }
       }
 
       @media (max-width: 800px) {

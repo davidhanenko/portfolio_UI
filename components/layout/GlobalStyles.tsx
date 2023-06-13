@@ -38,7 +38,7 @@ const GlobalStyles = createGlobalStyle`
     --bgDarkOpacity: rgba(37, 37, 37, 0.7); 
 
     --gradient-gray1: linear-gradient(
-    333deg,
+    348deg,
     var(--gray) 0%,
     var(--dark) 90%
     );

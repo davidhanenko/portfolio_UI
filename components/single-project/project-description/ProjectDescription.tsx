@@ -1,5 +1,6 @@
 import { SingleProjectQuery } from '../../../graphql/projects/singleProject.generated';
 import { ProjectDescriptionStyles } from './ProjectDescriptionStyles';
+import ReactMarkdown from 'react-markdown';
 
 interface IProjectDescriptionProps {
   description: SingleProjectQuery['project']['data']['attributes']['full_description'];
@@ -25,7 +26,10 @@ const ProjectDescription: React.FC<
               className='description-paragraph'
             >
               <h5>{paragraph.header}</h5>
-              <p>{paragraph.text}</p>
+
+              <ReactMarkdown>
+                {paragraph.text}
+              </ReactMarkdown>
             </div>
           ))}
       </div>
@@ -42,7 +46,11 @@ const ProjectDescription: React.FC<
                 <span className='marker'>⭐️</span>
                 <h5>{feature.header}</h5>
               </div>
-              <p>{feature.text}</p>
+              <div className='feature-text'>
+                <ReactMarkdown>
+                  {feature.text}
+                </ReactMarkdown>
+              </div>
             </div>
           ))}
       </div>

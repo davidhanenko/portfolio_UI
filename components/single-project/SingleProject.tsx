@@ -45,6 +45,7 @@ const SingleProject: React.FC<ISingleProjectProps> = ({
 
         <TechsUsed
           techs={project?.data?.attributes?.tech_used}
+          inView={false}
         />
       </section>
     </SingleProjectStyles>

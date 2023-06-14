@@ -19,7 +19,7 @@ const TechsUsed: React.FC<ITechsUsedProps> = ({
   techs,
 }) => {
   const { ref, inView } = useInView({
-    threshold: 1,
+    threshold: 0.8,
   });
 
   return (

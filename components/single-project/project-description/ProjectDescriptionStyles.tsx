@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 const ProjectDescriptionStyles = styled.div`
-  padding: 10rem;
+  padding: 10rem 0;
+  max-width: 1100px;
+  margin: 0 auto;
 
   @media (max-width: 800px) {
     padding: 5rem;
@@ -20,7 +22,6 @@ const ProjectDescriptionStyles = styled.div`
         font-size: 1.7rem;
         margin-bottom: 1rem;
       }
-
     }
   }
 

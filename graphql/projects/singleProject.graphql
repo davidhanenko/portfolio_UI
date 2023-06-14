@@ -40,6 +40,14 @@ query SingleProject($id: ID!) {
             text
           }
         }
+
+        features {
+          ... on ComponentTextTextWithHeader {
+            id
+            header
+            text
+          }
+        }
       }
     }
   }

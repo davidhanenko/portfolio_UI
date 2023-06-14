@@ -103,4 +103,22 @@ const NavLogoStyles = styled(LogoStyles)`
   }
 `;
 
-export { NavStyles, NavLogoStyles };
+const BackButtonStyles = styled.div`
+  cursor: pointer;
+  font-size: 1.8rem;
+  margin: 2rem 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--white);
+  transition: all 0.25s;
+
+  position: relative;
+  z-index: 5;
+
+  &:hover {
+    color: var(--lightOrange);
+    border: 1px solid var(--lightOrange);
+  }
+`;
+
+export { NavStyles, NavLogoStyles, BackButtonStyles };

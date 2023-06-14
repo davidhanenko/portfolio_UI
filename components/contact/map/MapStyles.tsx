@@ -60,7 +60,7 @@ const MapImg = styled.div<IMapProps>`
     width: 30px;
     height: 30px;
     border-radius: 50% 50% 50% 0;
-    background: var(--orange);
+    background: var(--lightOrange);
     transform: rotate(-45deg);
     position: absolute;
     left: 70%;
@@ -121,7 +121,7 @@ const MapImg = styled.div<IMapProps>`
         ease-out;
       animation-iteration-count: infinite;
       opacity: 0;
-      box-shadow: 0 0 1px 2px var(--orange);
+      box-shadow: 0 0 1px 2px var(--lightOrange);
       animation-delay: 1.1s;
     }
 
@@ -133,7 +133,7 @@ const MapImg = styled.div<IMapProps>`
         height: 30px;
         width: 30px;
         margin: -10px 0 0 -10px;
-        box-shadow: 0 0 1px 2px var(--orange);
+        box-shadow: 0 0 1px 2px var(--lightOrange);
       }
     }
 

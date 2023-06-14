@@ -86,7 +86,7 @@ const Description = styled.div<IProjectProps>`
         bottom: -1.5rem;
         width: 75%;
         height: 1px;
-        background-color: var(--orange);
+        background-color: var(--teal);
       }
     }
 
@@ -107,7 +107,7 @@ const Description = styled.div<IProjectProps>`
         top: -1.5rem;
         width: 75%;
         height: 1px;
-        background-color: var(--orange);
+        background-color: var(--teal);
       }
     }
 
@@ -123,7 +123,7 @@ const Description = styled.div<IProjectProps>`
       &::after {
         content: '|';
         padding: 0 0.75rem;
-        color: var(--orange);
+        color: var(--teal);
       }
 
       &:last-of-type {
@@ -151,7 +151,6 @@ const ProjectHeader = styled.div<IProjectProps>`
       props.inView && fadeInL}
     1s;
   animation-fill-mode: forwards;
-  animation-delay: 0.3s;
 
   align-self: center;
 
@@ -194,21 +193,19 @@ const ProjectHeader = styled.div<IProjectProps>`
     align-items: center;
   }
 
-  
-    .view-more-btn {
-      color: var(--white);
-      font-size: 1.5em;
-      border: 1px solid var(--white);
-      padding: 0.5rem 1rem;
-      margin-right: 5rem;
-      transition: all 0.25s;
+  .view-more-btn {
+    color: var(--white);
+    font-size: 1.5em;
+    border: 1px solid var(--white);
+    padding: 0.5rem 1rem;
+    margin-right: 5rem;
+    transition: all 0.25s;
 
-      &:hover {
-        color: var(--lightOrange);
-        border: 1px solid var(--lightOrange);
-      }
+    &:hover {
+      color: var(--lightOrange);
+      border: 1px solid var(--lightOrange);
     }
-  
+  }
 
   .outer-links {
     a {
@@ -241,6 +238,7 @@ const ProjectHeader = styled.div<IProjectProps>`
       @media (hover: hover) {
         &:hover svg {
           transform: scale(1.3);
+          color: var(--lightOrange);
         }
 
         &:hover::after {
@@ -285,7 +283,6 @@ const ProjectContainer = styled.section<IProjectProps>`
           props.inView && fadeIn}
         1s;
       animation-fill-mode: forwards;
-      animation-delay: 0.3s;
 
       @media (max-width: 1024px) {
         order: 2;

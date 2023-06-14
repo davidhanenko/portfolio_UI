@@ -8,7 +8,7 @@ export type SingleProjectQueryVariables = Types.Exact<{
 }>;
 
 
-export type SingleProjectQuery = { __typename?: 'Query', project?: { __typename?: 'ProjectEntityResponse', data?: { __typename?: 'ProjectEntity', id?: string | null, attributes?: { __typename?: 'Project', title: string, project_type?: string | null, link?: string | null, link_git?: string | null, description: string, images?: { __typename?: 'UploadFileRelationResponseCollection', data: Array<{ __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, height?: number | null } | null }> } | null, tech_used?: Array<{ __typename?: 'ComponentTechTech', id: string, tech_title?: string | null, tech_logo?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | { __typename?: 'Error' } | null> | null, full_description?: Array<{ __typename?: 'ComponentTextTextWithHeader', id: string, header?: string | null, text?: string | null } | { __typename?: 'Error' } | null> | null } | null } | null } | null };
+export type SingleProjectQuery = { __typename?: 'Query', project?: { __typename?: 'ProjectEntityResponse', data?: { __typename?: 'ProjectEntity', id?: string | null, attributes?: { __typename?: 'Project', title: string, project_type?: string | null, link?: string | null, link_git?: string | null, description: string, images?: { __typename?: 'UploadFileRelationResponseCollection', data: Array<{ __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, height?: number | null } | null }> } | null, tech_used?: Array<{ __typename?: 'ComponentTechTech', id: string, tech_title?: string | null, tech_logo?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | { __typename?: 'Error' } | null> | null, full_description?: Array<{ __typename?: 'ComponentTextTextWithHeader', id: string, header?: string | null, text?: string | null } | { __typename?: 'Error' } | null> | null, features?: Array<{ __typename?: 'ComponentTextTextWithHeader', id: string, header?: string | null, text?: string | null } | { __typename?: 'Error' } | null> | null } | null } | null } | null };
 
 
 export const SingleProjectDocument = gql`
@@ -44,6 +44,13 @@ export const SingleProjectDocument = gql`
           }
         }
         full_description {
+          ... on ComponentTextTextWithHeader {
+            id
+            header
+            text
+          }
+        }
+        features {
           ... on ComponentTextTextWithHeader {
             id
             header

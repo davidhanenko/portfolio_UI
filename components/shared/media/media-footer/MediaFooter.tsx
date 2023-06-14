@@ -1,9 +1,9 @@
 import Media from '../Media';
 import { MediaFooterStyles } from './MediaFooterStyles';
 
-const MediaFooter: React.FC = () => {
+const MediaFooter = ({ inView }: { inView: boolean }) => {
   return (
-    <MediaFooterStyles>
+    <MediaFooterStyles inView={inView}>
       <Media />
     </MediaFooterStyles>
   );

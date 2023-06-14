@@ -13,6 +13,7 @@ export type Scalars = {
   DateTime: any;
   JSON: any;
   MainTechDynamicZoneInput: any;
+  ProjectFeaturesDynamicZoneInput: any;
   ProjectFullDescriptionDynamicZoneInput: any;
   ProjectTechUsedDynamicZoneInput: any;
   Upload: any;
@@ -778,6 +779,7 @@ export type Project = {
   __typename?: 'Project';
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['String'];
+  features?: Maybe<Array<Maybe<ProjectFeaturesDynamicZone>>>;
   full_description?: Maybe<Array<Maybe<ProjectFullDescriptionDynamicZone>>>;
   images?: Maybe<UploadFileRelationResponseCollection>;
   link?: Maybe<Scalars['String']>;
@@ -814,6 +816,8 @@ export type ProjectEntityResponseCollection = {
   meta: ResponseCollectionMeta;
 };
 
+export type ProjectFeaturesDynamicZone = ComponentTextTextWithHeader | Error;
+
 export type ProjectFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<ProjectFiltersInput>>>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
@@ -833,6 +837,7 @@ export type ProjectFullDescriptionDynamicZone = ComponentTextTextWithHeader | Er
 
 export type ProjectInput = {
   description?: InputMaybe<Scalars['String']>;
+  features?: InputMaybe<Array<Scalars['ProjectFeaturesDynamicZoneInput']>>;
   full_description?: InputMaybe<Array<Scalars['ProjectFullDescriptionDynamicZoneInput']>>;
   images?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
   link?: InputMaybe<Scalars['String']>;

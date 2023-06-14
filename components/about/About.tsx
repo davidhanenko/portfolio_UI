@@ -34,8 +34,7 @@ const About: React.FC = () => {
           {techs && (
             <AboutStack
               techs={techs}
-              techsLearning={techsLearning!}
-            />
+              techsLearning={techsLearning!} inView={false}            />
           )}
         </section>
         <section className='img-cv'>

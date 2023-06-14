@@ -1,30 +1,52 @@
 import { SingleProjectQuery } from '../../graphql/projects/singleProject.generated';
+
 import { SingleProjectStyles } from './SingleProjectStyles';
-import Slider from '../projects/project/modal/slider/Slider';
+import ProjectDescription from './project-description/ProjectDescription';
+import ProjectHeader from './project-header/ProjectHeader';
+import Slider from './slider/Slider';
+import TechsUsed from './techs-used/TechsUsed';
 
-
-interface ISingleProjectProps {
+export interface ISingleProjectProps {
   project: SingleProjectQuery['project'];
 }
 
 const SingleProject: React.FC<ISingleProjectProps> = ({
   project,
 }) => {
+  const sliderImages =
+    project?.data?.attributes?.images?.data;
+
   return (
     <SingleProjectStyles>
       <section className='image-slider-section'>
         <div className='image-slider'>
-        
-          <Slider
-            slides={project?.data?.attributes?.images?.data}
-            showModal={false}
-          />
+          {sliderImages !== undefined &&
+            sliderImages.length > 0 && (
+              <Slider
+                slides={sliderImages}
+                showModal={false}
+              />
+            )}
         </div>
       </section>
       <section className='project-description'>
-        <div>
-          <h2>{project?.data?.attributes?.title}</h2>
-        </div>
+        <ProjectHeader
+          title={project?.data?.attributes?.title!}
+          link={project?.data?.attributes?.link!}
+          linkGit={project?.data?.attributes?.link_git!}
+        />
+
+        <ProjectDescription
+          description={
+            project?.data?.attributes?.full_description
+          }
+          features={project?.data?.attributes?.features}
+        />
+
+        <TechsUsed
+          techs={project?.data?.attributes?.tech_used}
+          inView={false}
+        />
       </section>
     </SingleProjectStyles>
   );

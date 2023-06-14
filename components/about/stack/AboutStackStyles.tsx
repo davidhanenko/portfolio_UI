@@ -25,7 +25,6 @@ const Stack = styled.section`
   animation: ${(props: AboutStackProps) =>
       props.inView && fadeIn}
     0.6s;
-  animation-delay: 0.65s;
   animation-fill-mode: forwards;
 
   @media (pointer: coarse) {
@@ -56,7 +55,7 @@ const Stack = styled.section`
     &::after {
       content: '|';
       padding: 0 0.5rem;
-      color: var(--lightOrange);
+      color: var(--teal);
     }
 
     &:last-of-type {
@@ -70,7 +69,7 @@ const Stack = styled.section`
     margin: 3rem 0;
     height: 1px;
     border: none;
-    background: var(--lightOrange);
+    background: var(--teal);
   }
 `;
 

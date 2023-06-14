@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react';
 import { useScroll } from '../../../../lib/useScroll';
 
-import Slider from './slider/Slider';
+import Slider from '../../../single-project/slider/Slider';
 import {
   CloseModalButton,
   ModalContent,
@@ -9,7 +9,7 @@ import {
   ModalWrapper,
   BackgroundOverlay,
 } from './ModalStyles';
-import { ImagePlaceholderStyles } from './slider/SliderStyles';
+import { ImagePlaceholderStyles } from '../../../single-project/slider/SliderStyles';
 import { IMAGE_PLACEHOLDER as placeholderImg } from '../../../../config';
 
 interface IModalProps {

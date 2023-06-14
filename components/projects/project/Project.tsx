@@ -3,8 +3,6 @@ import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { useScroll } from '../../../lib/useScroll';
 
-
-
 import {
   FaExternalLinkAlt,
   FaGithub,
@@ -73,7 +71,12 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
           <h4 className='project-title'>{projectTitle}</h4>
 
           <div className='project-links'>
-            <a href={`/${project.id}`} className='view-more-btn'>View More</a>
+            <a
+              href={`/${project.id}`}
+              className='view-more-btn'
+            >
+              View More
+            </a>
             <div className='outer-links'>
               {project?.attributes.link && (
                 <a

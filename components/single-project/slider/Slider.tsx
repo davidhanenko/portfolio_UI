@@ -17,9 +17,9 @@ import {
   SliderContainer,
 } from './SliderStyles';
 
-import { IMAGE_PLACEHOLDER as placeholderImg } from '../../../../../config';
+import { IMAGE_PLACEHOLDER as placeholderImg } from '../../../config';
 import { over } from 'lodash';
-import ScrollAnimated from '../../../../shared/ScrollAnimated';
+import ScrollAnimated from '../../shared/ScrollAnimated';
 
 interface ISlidesProps {
   slides: any;
@@ -46,8 +46,6 @@ const Slider: React.FC<ISlidesProps> = ({
       setOversized(false);
     }
   }, [current, slides]);
-
-  console.log(isOversized);
 
   // next slide
   const nextSlide = useCallback(() => {
@@ -85,15 +83,21 @@ const Slider: React.FC<ISlidesProps> = ({
   return (
     <SliderContainer>
       <div className='slider-controls'>
-        <FaChevronLeft
-          className='left-arrow'
-          onClick={prevSlide}
-        />
-        {isOversized && <ScrollAnimated />}
-        <FaChevronRight
-          className='right-arrow'
-          onClick={nextSlide}
-        />
+        <div className='slider-controls-inner'>
+          <FaChevronLeft
+            className='left-arrow'
+            onClick={prevSlide}
+          />
+          {isOversized && (
+            <div className='oversized-image-scroll'>
+              <ScrollAnimated />
+            </div>
+          )}
+          <FaChevronRight
+            className='right-arrow'
+            onClick={nextSlide}
+          />
+        </div>
       </div>
       {slides.map((slide, index) => {
         if (!slide)

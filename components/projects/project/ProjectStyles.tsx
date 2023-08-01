@@ -2,7 +2,6 @@ import styled, { keyframes } from 'styled-components';
 
 interface IProjectProps {
   readonly inView: boolean;
-  readonly isSlide?: boolean;
 }
 
 const fadeIn = keyframes`

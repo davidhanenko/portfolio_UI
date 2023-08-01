@@ -1,14 +1,12 @@
-import { RefObject, useEffect, useState } from 'react';
+import { RefObject } from 'react';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
-import { useScroll } from '../../../lib/useScroll';
 
 import {
   FaExternalLinkAlt,
   FaGithub,
 } from 'react-icons/fa';
 
-import Modal from './modal/Modal';
 import {
   Description,
   ProjectContainer,
@@ -26,34 +24,14 @@ interface IProjectProps {
 }
 
 const Project: React.FC<IProjectProps> = ({ project }) => {
-  const [showModal, setShowModal] = useState(false);
-  const [isSlide, setIsSlide] = useState(false);
-  const { setScrollWithModal } = useScroll();
+
 
   const { ref, inView } = useInView({
     threshold: 0.3,
-    // triggerOnce: true,
+    triggerOnce: true,
   });
 
-  // const { data, loading } = useProjectsImagesQuery({
-  //   variables: {
-  //     title: project.attributes.title,
-  //   },
-  // });
-
-  // useEffect(() => {
-  //   setIsSlide(
-  //     data?.projects?.data[0]?.attributes?.images?.data
-  //       .length! > 0
-  //       ? true
-  //       : false
-  //   );
-  // }, [data]);
-
-  const toggleModal = () => {
-    setShowModal(prev => !prev);
-    setScrollWithModal((prev: boolean) => !prev);
-  };
+ 
 
   const imageUrl =
     project?.attributes?.main_image?.data?.attributes?.url;
@@ -64,7 +42,6 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
     <ProjectContainer
       ref={ref}
       inView={inView}
-      isSlide={isSlide}
     >
       <div className='project-wrapper'>
         <ProjectHeader inView={inView}>
@@ -104,9 +81,7 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
 
         <div className='project-body'>
           <div
-            onClick={() => {
-              isSlide && toggleModal();
-            }}
+       
             className='project-img'
           >
             <Image
@@ -143,12 +118,6 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
           </div>
         </div>
 
-        {/* <Modal
-          showModal={showModal}
-          setShowModal={setShowModal}
-          slides={data?.projects?.data[0].attributes}
-          projectTitle={projectTitle!}
-        /> */}
       </div>
     </ProjectContainer>
   );

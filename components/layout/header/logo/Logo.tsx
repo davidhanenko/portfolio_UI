@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { LogoStyles } from './LogoStyles';
-import logo from '../../../../public/hd.png';
+import logo from '../../../../public/logo.png';
 
 export const Logo: React.FC = () => {
   const router = useRouter();

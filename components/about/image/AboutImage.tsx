@@ -12,7 +12,7 @@ export const AboutImage: React.FC<IAboutImageProps> = ({
 }) => {
   const { ref, inView } = useInView({
     threshold: 0.3,
-    // triggerOnce: true,
+    triggerOnce: true,
   });
   return (
     <AboutImg ref={ref} inView={inView}>

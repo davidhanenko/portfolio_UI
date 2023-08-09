@@ -24,7 +24,7 @@ const fadeInL = keyframes`
   }
 `;
 
-const Description = styled.div<IProjectProps>`
+const ProjectDescriptionStyles = styled.div<IProjectProps>`
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -70,13 +70,15 @@ const Description = styled.div<IProjectProps>`
     .project-type {
       display: flex;
       justify-content: end;
-      margin-bottom: 3rem;
-      font-size: 1.8rem;
-      font-weight: 400;
       position: relative;
-
-      &::first-letter {
-        text-transform: uppercase;
+      margin-bottom: 3rem;
+      
+      p {
+        font-weight: 400;
+        font-size: 1.8rem;
+        &::first-letter {
+          text-transform: uppercase;
+        }
       }
 
       &::after {
@@ -138,7 +140,7 @@ const Description = styled.div<IProjectProps>`
   }
 `;
 
-const ProjectHeader = styled.div<IProjectProps>`
+const ProjectHeaderStyles = styled.div<IProjectProps>`
   transform: translateX(-20%);
   order: 2;
 
@@ -314,4 +316,8 @@ const ProjectContainer = styled.section<IProjectProps>`
   }
 `;
 
-export { ProjectContainer, ProjectHeader, Description };
+export {
+  ProjectContainer,
+  ProjectHeaderStyles,
+  ProjectDescriptionStyles,
+};

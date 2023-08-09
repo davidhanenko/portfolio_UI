@@ -138,7 +138,7 @@ const Description = styled.div<IProjectProps>`
   }
 `;
 
-const ProjectHeader = styled.div<IProjectProps>`
+const ProjectHeaderStyles = styled.div<IProjectProps>`
   transform: translateX(-20%);
   order: 2;
 
@@ -314,4 +314,4 @@ const ProjectContainer = styled.section<IProjectProps>`
   }
 `;
 
-export { ProjectContainer, ProjectHeader, Description };
+export { ProjectContainer, ProjectHeaderStyles, Description };

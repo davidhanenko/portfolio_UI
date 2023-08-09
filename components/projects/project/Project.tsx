@@ -2,19 +2,16 @@ import { RefObject } from 'react';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 
-import {
-  FaExternalLinkAlt,
-  FaGithub,
-} from 'react-icons/fa';
+
 
 import {
   Description,
   ProjectContainer,
-  ProjectHeader,
 } from './ProjectStyles';
-
 import { IMAGE_PLACEHOLDER } from '../../../config';
+
 import { ProjectsQuery } from '../../../graphql/projects/projects.generated';
+import ProjectHeader from './ProjectHeader';
 
 interface IProjectProps {
   inView: boolean;
@@ -32,58 +29,25 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
   });
 
  
-
   const imageUrl =
     project?.attributes?.main_image?.data?.attributes?.url;
-
+  
   const projectTitle = project?.attributes?.title;
 
   return (
-    <ProjectContainer
-      ref={ref}
-      inView={inView}
-    >
+    <ProjectContainer ref={ref} inView={inView}>
       <div className='project-wrapper'>
-        <ProjectHeader inView={inView}>
-          <h4 className='project-title'>{projectTitle}</h4>
+        <ProjectHeader
+          inView={inView}
+          projectTitle={projectTitle}
+          linkGit={project?.attributes?.link_git}
+          link={project?.attributes?.link}
+          projectId={project?.id}
+        />
 
-          <div className='project-links'>
-            <a
-              href={`/${project.id}`}
-              className='view-more-btn'
-            >
-              View More
-            </a>
-            <div className='outer-links'>
-              {project?.attributes.link && (
-                <a
-                  href={project?.attributes?.link}
-                  target='_blank'
-                  rel='noreferrer'
-                  data-tooltip='Visit'
-                >
-                  <FaExternalLinkAlt />
-                </a>
-              )}
-              {project?.attributes.link_git && (
-                <a
-                  href={project?.attributes.link_git}
-                  target='_blank'
-                  rel='noreferrer'
-                  data-tooltip='Code'
-                >
-                  <FaGithub />
-                </a>
-              )}
-            </div>
-          </div>
-        </ProjectHeader>
 
         <div className='project-body'>
-          <div
-       
-            className='project-img'
-          >
+          <div className='project-img'>
             <Image
               src={imageUrl!}
               alt={projectTitle!}
@@ -117,7 +81,6 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
             )}
           </div>
         </div>
-
       </div>
     </ProjectContainer>
   );

@@ -1,0 +1,36 @@
+query currentProject {
+  currentProject {
+    data {
+      id
+      attributes {
+        title
+        project_type
+        link
+        link_git
+        description
+        status
+        progress
+        main_image {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        tech_used {
+          ... on ComponentTechTech {
+            id
+            tech_logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            tech_title
+          }
+        }
+      }
+    }
+  }
+}

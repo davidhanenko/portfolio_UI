@@ -72,7 +72,7 @@ const ProjectDescriptionStyles = styled.div<IProjectProps>`
       justify-content: end;
       position: relative;
       margin-bottom: 3rem;
-      
+
       p {
         font-weight: 400;
         font-size: 1.8rem;
@@ -163,16 +163,12 @@ const ProjectHeaderStyles = styled.div<IProjectProps>`
   font-size: 14px;
 
   @media (max-width: 1024px) {
-    order: 1;
     justify-content: start;
+    font-size: 12px;
 
     .project-title {
       margin-bottom: 3rem;
     }
-  }
-
-  @media (max-width: 1024px) {
-    font-size: 12px;
   }
 
   .project-title {

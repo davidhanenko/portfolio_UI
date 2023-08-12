@@ -1,10 +1,11 @@
+import { CurrentProjectQuery } from '../../../graphql/current-project/current.generated';
 import { ProjectDescriptionStyles } from './ProjectStyles';
 
 interface IProjectDescriptionProps {
   inView: boolean;
-  projectType: string;
-  projectDescription: string;
-  techUsed: [id: number, tech_title: string];
+  projectType: CurrentProjectQuery['currentProject']['data']['attributes']['project_type'];
+  projectDescription: CurrentProjectQuery['currentProject']['data']['attributes']['description'];
+  techUsed: CurrentProjectQuery['currentProject']['data']['attributes']['tech_used'];
 }
 
 const ProjectDescription: React.FC<

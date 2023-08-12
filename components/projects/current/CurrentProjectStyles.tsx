@@ -1,5 +1,10 @@
 import styled, { keyframes } from 'styled-components';
 
+import {
+  ProjectDescriptionStyles,
+  ProjectHeaderStyles,
+} from '../project/ProjectStyles';
+
 interface ICurrentProjectProps {
   readonly inView: boolean;
 }
@@ -13,14 +18,14 @@ const fadeIn = keyframes`
   }
 `;
 
-const fadeInL = keyframes`
+const fadeInR = keyframes`
   0% {
     opacity: 0;
-    transform: translate(-20%);
+    transform: translateX(20%);
   }
    100% {
      opacity: 1;
-     transform: translate(0%);
+     transform: translateX(0%);
   }
 `;
 
@@ -30,7 +35,7 @@ const CurrentProjectStyles = styled.div<ICurrentProjectProps>`
   .project-wrapper {
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 2fr 3fr;
     gap: 5rem;
     padding: 0 5rem;
 
@@ -44,10 +49,18 @@ const CurrentProjectStyles = styled.div<ICurrentProjectProps>`
       padding: 0 1rem;
     }
 
-    .project-body {
+    .header-wrapper {
       display: flex;
-      justify-content: end;
+      justify-content: center;
 
+      @media (min-width: 1024px) {
+        justify-content: end;
+      }
+    }
+
+    .project-body {
+      order: 2;
+      display: flex;
       opacity: 0;
       animation: ${(props: ICurrentProjectProps) =>
           props.inView && fadeIn}
@@ -55,7 +68,6 @@ const CurrentProjectStyles = styled.div<ICurrentProjectProps>`
       animation-fill-mode: forwards;
 
       @media (max-width: 1024px) {
-        order: 2;
         justify-content: center;
       }
 
@@ -82,6 +94,28 @@ const CurrentProjectStyles = styled.div<ICurrentProjectProps>`
         }
       }
     }
+  }
+
+  /* adjust project header styles for current project */
+  ${ProjectHeaderStyles} {
+    order: 1;
+
+    transform: translateX(20%);
+    opacity: 0;
+    animation: ${(props: ICurrentProjectProps) =>
+        props.inView && fadeInR}
+      1s;
+    animation-fill-mode: forwards;
+  }
+
+  ${ProjectDescriptionStyles} {
+    opacity: 0;
+    transform: translateX(20%);
+    animation: ${(props: ICurrentProjectProps) =>
+        props.inView && fadeInR}
+      1s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
   }
 `;
 

@@ -34,7 +34,7 @@ const Projects: React.FC = () => {
   return (
     <ProjectsContainer id='projects'>
       <h2>Projects</h2>
-      <CurrentProject inView={false} />
+      <CurrentProject />
       <section className='projects-wrapper'>
         {projects !== undefined &&
           projects?.map(project => (

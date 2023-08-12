@@ -4,13 +4,14 @@ import {
 } from 'react-icons/fa';
 
 import { ProjectHeaderStyles } from './ProjectStyles';
+import { CurrentProjectQuery } from '../../../graphql/current-project/current.generated';
 
 interface IProjectHeaderProps {
   inView: boolean;
-  projectTitle: string;
-  link: string;
-  linkGit: string;
-  projectId: string;
+  projectTitle: CurrentProjectQuery['currentProject']['data']['attributes']['title'];
+  link: CurrentProjectQuery['currentProject']['data']['attributes']['link'];
+  linkGit: CurrentProjectQuery['currentProject']['data']['attributes']['link_git'];
+  projectId: CurrentProjectQuery['currentProject']['data']['id'];
 }
 
 const ProjectHeader: React.FC<IProjectHeaderProps> = ({

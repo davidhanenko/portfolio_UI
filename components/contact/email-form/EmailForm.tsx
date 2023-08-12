@@ -194,7 +194,7 @@ export const EmailForm: React.FC<Email> = ({
         <EmailSendBtn type='submit' disabled={isSubmitting}>
           {isSubmitting ? (
             <PulseLoader
-              color={'orange'}
+              color={'teal1'}
               loading={true}
               size={10}
             />

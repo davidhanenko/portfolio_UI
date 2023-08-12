@@ -44,7 +44,7 @@ const CvBtnStyles = styled.a`
 
   font-size: 2.7rem;
   font-weight: 700;
-  color: var(--orange);
+  color: var(--teal1);
 
   display: flex;
   justify-content: center;
@@ -75,7 +75,7 @@ const CvBtnStyles = styled.a`
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       color: var(--dark2);
-      border: 1px solid var(--lightOrange);
+      border: 1px solid var(--teal2);
       box-shadow: 0px 0px 29px -5px rgba(255, 102, 0, 0.98);
     }
 

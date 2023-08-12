@@ -199,8 +199,8 @@ const ProjectHeaderStyles = styled.div<IProjectProps>`
     transition: all 0.25s;
 
     &:hover {
-      color: var(--lightOrange);
-      border: 1px solid var(--lightOrange);
+      color: var(--teal2);
+      border: 1px solid var(--teal2);
     }
   }
 
@@ -235,7 +235,7 @@ const ProjectHeaderStyles = styled.div<IProjectProps>`
       @media (hover: hover) {
         &:hover svg {
           transform: scale(1.3);
-          color: var(--lightOrange);
+          color: var(--teal2);
         }
 
         &:hover::after {
@@ -243,7 +243,7 @@ const ProjectHeaderStyles = styled.div<IProjectProps>`
         }
 
         &:active svg {
-          color: var(--orange);
+          color: var(--teal1);
           transform: scale(1.3);
         }
       }

@@ -50,7 +50,7 @@ const ProjectHeaderStyles = styled.div`
         }
 
         &:active svg {
-          color: var(--orange);
+          color: var(--teal1);
           transform: scale(1.3);
         }
       }

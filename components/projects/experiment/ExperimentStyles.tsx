@@ -65,7 +65,7 @@ const Overlay = styled.div`
       @media (hover: hover) {
         &:hover svg {
           transform: scale(1.1);
-          color: var(--orange);
+          color: var(--teal1);
         }
         &:hover::after {
           display: block;

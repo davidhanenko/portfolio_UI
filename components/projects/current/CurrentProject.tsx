@@ -44,6 +44,18 @@ const CurrentProject: React.FC = () => {
             link={currentProject?.attributes?.link}
             projectId={currentProject?.id}
           />
+
+          <div className='project-status'>
+            <div>
+              <p>Project status:</p>
+              &nbsp;
+              <p>on-going ...</p>
+            </div>
+
+            <div className='project-progress'>
+              <div className='progress-bar'></div>
+            </div>
+          </div>
         </div>
 
         <div className='project-body'>

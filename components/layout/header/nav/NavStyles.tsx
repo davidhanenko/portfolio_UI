@@ -116,8 +116,8 @@ const BackButtonStyles = styled.div`
   z-index: 5;
 
   &:hover {
-    color: var(--lightOrange);
-    border: 1px solid var(--lightOrange);
+    color: var(--teal2);
+    border: 1px solid var(--teal2);
   }
 `;
 

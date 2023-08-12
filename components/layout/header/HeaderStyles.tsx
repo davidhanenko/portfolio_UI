@@ -60,7 +60,7 @@ const HeaderStyles = styled.header`
     z-index: 1;
     opacity: 0;
     transform: scale(0.1, 1);
-    border-bottom: 0.5px solid var(--orange);
+    border-bottom: 0.5px solid var(--teal1);
 
     transition: all 0.6s;
 

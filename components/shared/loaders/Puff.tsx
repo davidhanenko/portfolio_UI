@@ -12,7 +12,7 @@ export const LoaderPuff = () => {
     <LoaderWrapper>
       <PuffLoader
         size={100}
-        color={'orange'}
+        color={'teal1'}
         speedMultiplier={1.5}
       />
     </LoaderWrapper>

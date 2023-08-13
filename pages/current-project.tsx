@@ -1,30 +1,24 @@
 import { GetServerSidePropsContext, NextPage } from 'next';
 import Head from 'next/head';
-import { useEffect } from 'react';
 import SingleProject from '../components/single-project/SingleProject';
 import {
   addApolloState,
   initializeApollo,
 } from '../graphql/apollo';
 import {
-  SingleProjectDocument,
-  SingleProjectQuery,
-} from '../graphql/projects/singleProject.generated';
+  CurrentProjectDocument,
+  CurrentProjectQuery,
+} from '../graphql/current-project/current.generated';
 
-const SingleProjectPage: NextPage<SingleProjectQuery> = ({
-  project,
-}) => {
-  // // show navbar during current session
-  // useEffect(() => {
-  //   sessionStorage.setItem('showNav', 'true');
-  // }, []);
 
+const SingleProjectPage: NextPage<
+  CurrentProjectQuery
+> = () => {
   return (
     <>
       <Head>
         <title>David Hanenko | Current Project</title>
       </Head>
-      <SingleProject project={project} />
     </>
   );
 };
@@ -35,17 +29,14 @@ export const getServerSideProps = async (
   const client = initializeApollo({});
 
   const {
-    data: { project },
+    data: { currentProject },
   } = await client.query({
-    query: SingleProjectDocument,
-    variables: {
-      id: ctx.query.project,
-    },
+    query: CurrentProjectDocument,
   });
 
   return addApolloState(client, {
     props: {
-      project,
+      currentProject,
     },
   });
 };

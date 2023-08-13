@@ -45,7 +45,7 @@ const CurrentProject: React.FC = () => {
             projectTitle={projectTitle}
             linkGit={currentProject?.attributes?.link_git}
             link={currentProject?.attributes?.link}
-            projectId={currentProject?.id}
+            slug={'current-project'}
           >
             {' '}
             <div className='project-status'>

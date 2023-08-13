@@ -35,7 +35,7 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
           projectTitle={projectTitle}
           linkGit={project?.attributes?.link_git}
           link={project?.attributes?.link}
-          projectId={project?.id}
+          slug={project?.id}
         />
 
         <div className='project-body'>

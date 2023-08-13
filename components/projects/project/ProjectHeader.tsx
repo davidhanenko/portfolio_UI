@@ -11,7 +11,7 @@ interface IProjectHeaderProps {
   projectTitle: CurrentProjectQuery['currentProject']['data']['attributes']['title'];
   link: CurrentProjectQuery['currentProject']['data']['attributes']['link'];
   linkGit: CurrentProjectQuery['currentProject']['data']['attributes']['link_git'];
-  projectId: CurrentProjectQuery['currentProject']['data']['id'];
+  slug: CurrentProjectQuery['currentProject']['data']['id'];
   children?: React.ReactNode;
 }
 
@@ -20,7 +20,7 @@ const ProjectHeader: React.FC<IProjectHeaderProps> = ({
   projectTitle,
   link,
   linkGit,
-  projectId,
+  slug,
   children
 }) => {
   return (
@@ -28,7 +28,7 @@ const ProjectHeader: React.FC<IProjectHeaderProps> = ({
       <h4 className='project-title'>{projectTitle}</h4>
 
       <div className='project-links'>
-        <a href={`/${projectId}`} className='view-more-btn'>
+        <a href={`/${slug}`} className='view-more-btn'>
           View More
         </a>
         <div className='outer-links'>

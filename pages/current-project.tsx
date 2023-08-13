@@ -1,6 +1,6 @@
 import { GetServerSidePropsContext, NextPage } from 'next';
 import Head from 'next/head';
-
+import { useEffect } from 'react';
 import SingleProject from '../components/single-project/SingleProject';
 import {
   addApolloState,
@@ -14,12 +14,15 @@ import {
 const SingleProjectPage: NextPage<SingleProjectQuery> = ({
   project,
 }) => {
-
+  // // show navbar during current session
+  // useEffect(() => {
+  //   sessionStorage.setItem('showNav', 'true');
+  // }, []);
 
   return (
     <>
       <Head>
-        <title>David Hanenko | Projects</title>
+        <title>David Hanenko | Current Project</title>
       </Head>
       <SingleProject project={project} />
     </>

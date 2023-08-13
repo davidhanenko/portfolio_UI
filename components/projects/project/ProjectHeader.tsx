@@ -12,6 +12,7 @@ interface IProjectHeaderProps {
   link: CurrentProjectQuery['currentProject']['data']['attributes']['link'];
   linkGit: CurrentProjectQuery['currentProject']['data']['attributes']['link_git'];
   projectId: CurrentProjectQuery['currentProject']['data']['id'];
+  children?: React.ReactNode;
 }
 
 const ProjectHeader: React.FC<IProjectHeaderProps> = ({
@@ -20,6 +21,7 @@ const ProjectHeader: React.FC<IProjectHeaderProps> = ({
   link,
   linkGit,
   projectId,
+  children
 }) => {
   return (
     <ProjectHeaderStyles inView={inView}>
@@ -52,6 +54,8 @@ const ProjectHeader: React.FC<IProjectHeaderProps> = ({
           )}
         </div>
       </div>
+
+      {children}
     </ProjectHeaderStyles>
   );
 };

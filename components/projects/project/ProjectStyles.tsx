@@ -160,11 +160,11 @@ const ProjectHeaderStyles = styled.div<IProjectProps>`
   flex-direction: column;
   justify-content: space-around;
 
-  font-size: 14px;
+  font-size: 1.4rem;
 
   @media (max-width: 1024px) {
     justify-content: start;
-    font-size: 12px;
+    font-size: 1.2rem;
 
     .project-title {
       margin-bottom: 3rem;
@@ -172,7 +172,7 @@ const ProjectHeaderStyles = styled.div<IProjectProps>`
   }
 
   .project-title {
-    color: var(--white);
+    color: var(--teal);
     font-size: 2em;
     font-weight: 600;
 
@@ -316,4 +316,5 @@ export {
   ProjectContainer,
   ProjectHeaderStyles,
   ProjectDescriptionStyles,
+  fadeIn,
 };

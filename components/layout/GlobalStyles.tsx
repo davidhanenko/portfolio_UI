@@ -41,6 +41,8 @@ const GlobalStyles = createGlobalStyle`
 
      --gradient-gray2: linear-gradient(169deg, var(--grayOp) 60%, var(--paleteal1Op) 40%);
 
+     
+
        --gradient-text: linear-gradient(
       90deg,var(--teal1) 20%, var(--teal2) 95%
     );
@@ -56,6 +58,14 @@ const GlobalStyles = createGlobalStyle`
       #006061 20%,
       #00393a 80%
     );
+
+    --gradient-text3: linear-gradient(
+            120deg,
+            rgba(34, 193, 195, 1) 10%,
+            rgba(253, 187, 45, 1) 40%,
+            rgba(34, 193, 195, 1) 80%
+          );
+
 
   }
 

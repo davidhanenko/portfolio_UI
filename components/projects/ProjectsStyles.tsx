@@ -24,8 +24,6 @@ const ProjectsContainer = styled.section`
     }
   }
 
-  .projects-wrapper {
-  }
 
   .experiments-container {
     background: var(--offWhite);

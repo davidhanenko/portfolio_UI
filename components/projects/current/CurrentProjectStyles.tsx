@@ -3,20 +3,18 @@ import styled, { keyframes } from 'styled-components';
 import {
   ProjectDescriptionStyles,
   ProjectHeaderStyles,
+  fadeIn,
 } from '../project/ProjectStyles';
+
+const bgMove = keyframes`
+    from { background-position: 0 0; }
+    to { background-position: -400% 0; }
+`;
 
 interface ICurrentProjectProps {
   readonly inView: boolean;
+  readonly progress: number;
 }
-
-const fadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-   100% {
-     opacity: 1;
-  }
-`;
 
 const fadeInR = keyframes`
   0% {
@@ -31,6 +29,19 @@ const fadeInR = keyframes`
 
 const CurrentProjectStyles = styled.div<ICurrentProjectProps>`
   margin: 15rem auto;
+  padding: 8rem 0;
+  background-color: var(--dark4);
+  position: relative;
+
+  .top-line {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.5rem;
+    font-weight: 100;
+    color: var(--teal);
+    padding: 1rem 2rem;
+  }
 
   .project-wrapper {
     margin: 0 auto;
@@ -53,7 +64,6 @@ const CurrentProjectStyles = styled.div<ICurrentProjectProps>`
       order: 1;
 
       padding: 3rem 0;
-
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -70,32 +80,75 @@ const CurrentProjectStyles = styled.div<ICurrentProjectProps>`
         flex-direction: column;
         justify-content: end;
         align-items: center;
-
         margin-top: 6rem;
 
         p {
           display: inline-block;
-          font-size: 16px;
-          color: var(--teal1);
+          font-size: 1.6rem;
+          &:first-of-type {
+            color: var(--white);
+          }
+
+          &:nth-of-type(2) {
+            margin-left: 1rem;
+            color: var(--teal);
+          }
+
+          &:last-of-type {
+            font-size: 3rem;
+            margin-left: 0.5rem;
+
+            color: transparent;
+            background: var(--gradient-text3);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200%;
+            animation: ${bgMove} 4s alternate infinite;
+          }
         }
       }
 
       .project-progress {
         width: 100%;
-        height: 1rem;
-        background-color: var(--white);
-        border-radius: 0.5rem;
+        height: 1.75rem;
+        background-color: var(--lightGray);
+        border-radius: 1rem;
         margin-top: 3rem;
+
+        position: relative;
 
         @media (max-width: 1024px) {
           max-width: 400px;
         }
 
         .progress-bar {
-          width: 75%;
+          width: ${(props: ICurrentProjectProps) =>
+            props.progress}%;
           height: 100%;
-          background-color: var(--teal1);
-          border-radius: 0.5rem;
+          border-radius: ${(props: ICurrentProjectProps) =>
+            props?.progress > 97
+              ? '1rem'
+              : '1rem 0 0 1rem'};
+
+          color: transparent;
+          background: var(--gradient-text3);
+          background-clip: text;
+          -webkit-background-clip: border-box;
+          -webkit-text-fill-color: transparent;
+          background-size: 400%;
+          animation: ${bgMove} 8s linear infinite;
+        }
+
+        .progress {
+          color: var(--white);
+          font-size: 4rem;
+          font-weight: 700;
+
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
         }
       }
     }

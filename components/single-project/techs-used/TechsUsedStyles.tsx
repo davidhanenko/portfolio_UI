@@ -37,12 +37,7 @@ const TechsUsedStyles = styled.div`
   .tech-title {
     font-size: 1.7rem;
     color: transparent;
-    background: linear-gradient(
-      120deg,
-      rgba(34, 193, 195, 1) 10%,
-      rgba(253, 187, 45, 1) 40%,
-      rgba(34, 193, 195, 1) 80%
-    );
+    background: var(--gradient-text3);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -56,9 +51,12 @@ const TechsUsedStyles = styled.div`
 
     .techs-list {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(100px, 120px));
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax(100px, 120px)
+      );
     }
   }
 `;
 
-export { TechsUsedStyles };
+export { TechsUsedStyles, bgMove };

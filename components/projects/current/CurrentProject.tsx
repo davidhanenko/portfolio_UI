@@ -31,6 +31,8 @@ const CurrentProject: React.FC = () => {
     return <LoaderPuff />;
   }
 
+  if (!currentProject) return null;
+
   return (
     <CurrentProjectStyles
       ref={ref}

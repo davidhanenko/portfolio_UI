@@ -39,8 +39,15 @@ const CurrentProjectStyles = styled.div<ICurrentProjectProps>`
     right: 0;
     font-size: 1.5rem;
     font-weight: 100;
-    color: var(--teal);
     padding: 1rem 2rem;
+
+    color: transparent;
+    background: var(--gradient-text3);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200%;
+    animation: ${bgMove} 4s alternate infinite;
   }
 
   .project-wrapper {

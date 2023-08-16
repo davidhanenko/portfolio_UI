@@ -192,7 +192,7 @@ export type CurrentProject = {
   progress?: Maybe<Scalars['Int']>;
   project_type?: Maybe<Scalars['String']>;
   publishedAt?: Maybe<Scalars['DateTime']>;
-  status?: Maybe<Scalars['String']>;
+  status?: Maybe<Enum_Currentproject_Status>;
   tech_used?: Maybe<Array<Maybe<CurrentProjectTechUsedDynamicZone>>>;
   title?: Maybe<Scalars['String']>;
   todo_list?: Maybe<Array<Maybe<CurrentProjectTodoListDynamicZone>>>;
@@ -232,7 +232,7 @@ export type CurrentProjectInput = {
   progress?: InputMaybe<Scalars['Int']>;
   project_type?: InputMaybe<Scalars['String']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
-  status?: InputMaybe<Scalars['String']>;
+  status?: InputMaybe<Enum_Currentproject_Status>;
   tech_used?: InputMaybe<Array<Scalars['CurrentProjectTechUsedDynamicZoneInput']>>;
   title?: InputMaybe<Scalars['String']>;
   todo_list?: InputMaybe<Array<Scalars['CurrentProjectTodoListDynamicZoneInput']>>;
@@ -264,6 +264,15 @@ export type DateTimeFilterInput = {
   or?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   startsWith?: InputMaybe<Scalars['DateTime']>;
 };
+
+export enum Enum_Currentproject_Status {
+  Abandoned = 'abandoned',
+  AlmostDone = 'almost_done',
+  Done = 'done',
+  JustStarted = 'just_started',
+  OnProgress = 'on_progress',
+  UnderDesign = 'under_design'
+}
 
 export type Error = {
   __typename?: 'Error';

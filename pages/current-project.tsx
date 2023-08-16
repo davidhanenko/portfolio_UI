@@ -1,24 +1,24 @@
 import { GetServerSidePropsContext, NextPage } from 'next';
 import Head from 'next/head';
-import SingleProject from '../components/single-project/SingleProject';
 import {
   addApolloState,
   initializeApollo,
 } from '../graphql/apollo';
-import {
-  CurrentProjectDocument,
-  CurrentProjectQuery,
-} from '../graphql/current-project/current.generated';
 
+import CurrentSingleProject from '../components/single-project/CurrentSingleProject';
+import { CurrentSingleProjectDocument, CurrentSingleProjectQuery } from '../graphql/current-project/currentSingleProject.generated';
 
-const SingleProjectPage: NextPage<
-  CurrentProjectQuery
-> = () => {
+const CurrentSingleProjectPage: NextPage<
+  CurrentSingleProjectQuery
+> = ({ currentProject }) => {
   return (
     <>
       <Head>
         <title>David Hanenko | Current Project</title>
       </Head>
+      <CurrentSingleProject
+        currentProject={currentProject}
+      />
     </>
   );
 };
@@ -31,7 +31,7 @@ export const getServerSideProps = async (
   const {
     data: { currentProject },
   } = await client.query({
-    query: CurrentProjectDocument,
+    query: CurrentSingleProjectDocument,
   });
 
   return addApolloState(client, {
@@ -41,4 +41,4 @@ export const getServerSideProps = async (
   });
 };
 
-export default SingleProjectPage;
+export default CurrentSingleProjectPage;

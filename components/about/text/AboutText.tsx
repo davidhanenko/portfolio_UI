@@ -12,7 +12,7 @@ export const AboutText: React.FC<IAboutTextProps> = ({
 }) => {
   const { ref, inView } = useInView({
     threshold: 0.2,
-    // triggerOnce: true,
+    triggerOnce: true,
   });
 
   return (

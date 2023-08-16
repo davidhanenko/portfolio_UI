@@ -30,7 +30,7 @@ const MediaStyles = styled.article`
   svg {
     margin: 0.5rem 0;
     padding: 0.25rem;
-    color: var(--lightOrange);
+    color: var(--teal2);
     transition: all 0.35s;
     cursor: pointer;
 

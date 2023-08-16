@@ -1,0 +1,63 @@
+query CurrentSingleProject {
+  currentProject {
+    data {
+      id
+
+      attributes {
+        title
+        project_type
+        link
+        link_git
+        description
+        status
+        progress
+
+        images {
+          data {
+            attributes {
+              url
+              height
+            }
+          }
+        }
+
+        tech_used {
+          ... on ComponentTechTech {
+            id
+            tech_logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            tech_title
+          }
+        }
+
+        full_description {
+          ... on ComponentTextTextWithHeader {
+            id
+            header
+            text
+          }
+        }
+
+        features {
+          ... on ComponentTextTextWithHeader {
+            id
+            header
+            text
+          }
+        }
+
+        todo_list {
+          ... on ComponentTextText {
+            id
+            section
+          }
+        }
+      }
+    }
+  }
+}

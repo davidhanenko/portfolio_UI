@@ -13,7 +13,7 @@ import {
 import { ExperimentsQuery } from '../../../graphql/experiments/experiments.generated';
 
 interface IExperimentProps {
-  experiment: ExperimentsQuery | any;
+  experiment: ExperimentsQuery['experiments']['data'][0];
 }
 
 const Experiment: React.FC<IExperimentProps> = ({

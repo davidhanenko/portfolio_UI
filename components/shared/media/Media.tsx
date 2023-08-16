@@ -27,22 +27,22 @@ const Media: React.FC = () => {
     return (
       <MediaStyles>
         <ClipLoader
-          color={'orange'}
+          color={'teal1'}
           loading={true}
           speedMultiplier={0.5}
         />
         <ClipLoader
-          color={'orange'}
+          color={'teal1'}
           loading={true}
           speedMultiplier={0.5}
         />
         <ClipLoader
-          color={'orange'}
+          color={'teal1'}
           loading={true}
           speedMultiplier={0.5}
         />
         <ClipLoader
-          color={'orange'}
+          color={'teal1'}
           loading={true}
           speedMultiplier={0.5}
         />

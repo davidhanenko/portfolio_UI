@@ -3,7 +3,6 @@ import styled, { keyframes } from 'styled-components';
 export interface INameProps {
   readonly nameAnimationDuration?: number | string;
   readonly nameAnimationEnd?: boolean;
-
 }
 
 const nameX = keyframes`
@@ -127,7 +126,7 @@ const NameContainer = styled.div<INameProps>`
   margin: 0 auto;
   transform: translateX(-7.5%);
   font-size: 9vw;
-  color: var(--lightOrange);
+  color: var(--teal2);
   font-weight: 600;
 
   animation: ${nameX} 1s linear;

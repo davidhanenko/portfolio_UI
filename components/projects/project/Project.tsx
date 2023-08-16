@@ -13,7 +13,7 @@ interface IProjectProps {
   inView: boolean;
   isSlide: boolean;
   projectRef: RefObject<HTMLDivElement> | undefined;
-  project: ProjectsQuery | any;
+  project: ProjectsQuery['projects']['data'][0];
 }
 
 const Project: React.FC<IProjectProps> = ({ project }) => {
@@ -35,7 +35,7 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
           projectTitle={projectTitle}
           linkGit={project?.attributes?.link_git}
           link={project?.attributes?.link}
-          projectId={project?.id}
+          slug={project?.id}
         />
 
         <div className='project-body'>

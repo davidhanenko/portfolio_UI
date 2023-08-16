@@ -4,13 +4,15 @@ import {
 } from 'react-icons/fa';
 
 import { ProjectHeaderStyles } from './ProjectStyles';
+import { CurrentProjectQuery } from '../../../graphql/current-project/current.generated';
 
 interface IProjectHeaderProps {
   inView: boolean;
-  projectTitle: string;
-  link: string;
-  linkGit: string;
-  projectId: string;
+  projectTitle: CurrentProjectQuery['currentProject']['data']['attributes']['title'];
+  link: CurrentProjectQuery['currentProject']['data']['attributes']['link'];
+  linkGit: CurrentProjectQuery['currentProject']['data']['attributes']['link_git'];
+  slug: CurrentProjectQuery['currentProject']['data']['id'];
+  children?: React.ReactNode;
 }
 
 const ProjectHeader: React.FC<IProjectHeaderProps> = ({
@@ -18,14 +20,15 @@ const ProjectHeader: React.FC<IProjectHeaderProps> = ({
   projectTitle,
   link,
   linkGit,
-  projectId,
+  slug,
+  children
 }) => {
   return (
     <ProjectHeaderStyles inView={inView}>
       <h4 className='project-title'>{projectTitle}</h4>
 
       <div className='project-links'>
-        <a href={`/${projectId}`} className='view-more-btn'>
+        <a href={`/${slug}`} className='view-more-btn'>
           View More
         </a>
         <div className='outer-links'>
@@ -51,6 +54,8 @@ const ProjectHeader: React.FC<IProjectHeaderProps> = ({
           )}
         </div>
       </div>
+
+      {children}
     </ProjectHeaderStyles>
   );
 };

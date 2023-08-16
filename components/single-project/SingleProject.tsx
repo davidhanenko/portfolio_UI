@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { SingleProjectQuery } from '../../graphql/projects/singleProject.generated';
 
 import { SingleProjectStyles } from './SingleProjectStyles';
@@ -13,6 +14,11 @@ export interface ISingleProjectProps {
 const SingleProject: React.FC<ISingleProjectProps> = ({
   project,
 }) => {
+  // show navbar during current session
+  useEffect(() => {
+    sessionStorage.setItem('showNav', 'true');
+  }, []);
+
   const sliderImages =
     project?.data?.attributes?.images?.data;
 

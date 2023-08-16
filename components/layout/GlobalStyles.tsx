@@ -24,13 +24,9 @@ const GlobalStyles = createGlobalStyle`
     --grayOp: #7a797987;
     --lightGray: #bcbcbc;
     --lightGrayOp: #bcbcbcf1;
-    --lightOrange: #0d9488;
-    --orange: #115e59;
-    --paleOrange:#ed9e67;
-    --paleOrangeOp:#ed9f6792;
-    --brown:#86370e;
-    --blue:#1d5191;
     --teal: #06b6d4;
+    --teal1: #115e59;
+    --teal2: #0d9488;
     
     --white: #f8f1f1;
     --offWhite: #f5f5f5;
@@ -43,10 +39,12 @@ const GlobalStyles = createGlobalStyle`
     var(--dark) 90%
     );
 
-     --gradient-gray2: linear-gradient(169deg, var(--grayOp) 60%, var(--paleOrangeOp) 40%);
+     --gradient-gray2: linear-gradient(169deg, var(--grayOp) 60%, var(--paleteal1Op) 40%);
+
+     
 
        --gradient-text: linear-gradient(
-      90deg,var(--orange) 20%, var(--lightOrange) 95%
+      90deg,var(--teal1) 20%, var(--teal2) 95%
     );
 
      --gradient-text1: linear-gradient(
@@ -60,6 +58,14 @@ const GlobalStyles = createGlobalStyle`
       #006061 20%,
       #00393a 80%
     );
+
+    --gradient-text3: linear-gradient(
+            120deg,
+            rgba(34, 193, 195, 1) 10%,
+            rgba(253, 187, 45, 1) 40%,
+            rgba(34, 193, 195, 1) 80%
+          );
+
 
   }
 

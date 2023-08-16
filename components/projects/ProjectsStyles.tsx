@@ -24,9 +24,6 @@ const ProjectsContainer = styled.section`
     }
   }
 
-  .projects-wrapper {
-
-  }
 
   .experiments-container {
     background: var(--offWhite);
@@ -36,7 +33,7 @@ const ProjectsContainer = styled.section`
     h3 {
       display: flex;
       justify-content: end;
-      color: var(--lightOrange);
+      color: var(--teal2);
       margin: 0 10rem 10rem 0;
       font-size: 4rem;
     }

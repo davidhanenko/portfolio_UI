@@ -72,7 +72,7 @@ const ProjectDescriptionStyles = styled.div<IProjectProps>`
       justify-content: end;
       position: relative;
       margin-bottom: 3rem;
-      
+
       p {
         font-weight: 400;
         font-size: 1.8rem;
@@ -160,23 +160,19 @@ const ProjectHeaderStyles = styled.div<IProjectProps>`
   flex-direction: column;
   justify-content: space-around;
 
-  font-size: 14px;
+  font-size: 1.4rem;
 
   @media (max-width: 1024px) {
-    order: 1;
     justify-content: start;
+    font-size: 1.2rem;
 
     .project-title {
       margin-bottom: 3rem;
     }
   }
 
-  @media (max-width: 1024px) {
-    font-size: 12px;
-  }
-
   .project-title {
-    color: var(--white);
+    color: var(--teal);
     font-size: 2em;
     font-weight: 600;
 
@@ -203,8 +199,8 @@ const ProjectHeaderStyles = styled.div<IProjectProps>`
     transition: all 0.25s;
 
     &:hover {
-      color: var(--lightOrange);
-      border: 1px solid var(--lightOrange);
+      color: var(--teal2);
+      border: 1px solid var(--teal2);
     }
   }
 
@@ -239,7 +235,7 @@ const ProjectHeaderStyles = styled.div<IProjectProps>`
       @media (hover: hover) {
         &:hover svg {
           transform: scale(1.3);
-          color: var(--lightOrange);
+          color: var(--teal2);
         }
 
         &:hover::after {
@@ -247,7 +243,7 @@ const ProjectHeaderStyles = styled.div<IProjectProps>`
         }
 
         &:active svg {
-          color: var(--orange);
+          color: var(--teal1);
           transform: scale(1.3);
         }
       }
@@ -320,4 +316,5 @@ export {
   ProjectContainer,
   ProjectHeaderStyles,
   ProjectDescriptionStyles,
+  fadeIn,
 };

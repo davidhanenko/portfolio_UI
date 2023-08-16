@@ -5,6 +5,7 @@ import { useScroll } from '../../lib/useScroll';
 import Experiment from './experiment/Experiment';
 import Project from './project/Project';
 import { ProjectsContainer } from './ProjectsStyles';
+import CurrentProject from './current/CurrentProject';
 
 const Projects: React.FC = () => {
   const { data: projectsData } = useProjectsQuery();
@@ -33,6 +34,7 @@ const Projects: React.FC = () => {
   return (
     <ProjectsContainer id='projects'>
       <h2>Projects</h2>
+      <CurrentProject />
       <section className='projects-wrapper'>
         {projects !== undefined &&
           projects?.map(project => (

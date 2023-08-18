@@ -4,17 +4,23 @@ import Slider from './slider/Slider';
 import ProjectDescription from './project-description/ProjectDescription';
 import ProjectHeader from './project-header/ProjectHeader';
 import TechsUsed from './techs-used/TechsUsed';
-import { CurrentProjectQuery } from '../../graphql/current-project/current.generated';
+
 import { CurrentSingleProjectStyles } from './CurrentSingleProjectStyles';
+import { CurrentSingleProjectQuery } from '../../graphql/current-project/currentSingle.generated';
 
 export interface ICurrentSingleProjectProps {
-  currentProject: CurrentProjectQuery['currentProject'];
+  currentProject: CurrentSingleProjectQuery['currentProject'];
 }
+
+type ParagraphProps = {
+  id: string;
+  header: string;
+  text: string;
+};
 
 const CurrentSingleProject: React.FC<
   ICurrentSingleProjectProps
-  > = ( { currentProject } ) => {
-  
+> = ({ currentProject }) => {
   // show navbar during current session
   useEffect(() => {
     sessionStorage.setItem('showNav', 'true');
@@ -23,6 +29,7 @@ const CurrentSingleProject: React.FC<
   const sliderImages =
     currentProject?.data?.attributes?.images?.data;
 
+  const todoList = currentProject?.data?.attributes?.todo;
 
   return (
     <CurrentSingleProjectStyles>
@@ -54,7 +61,19 @@ const CurrentSingleProject: React.FC<
           features={
             currentProject?.data?.attributes?.features
           }
-        />
+        >
+          <h3 className='todo-head'>Todo list</h3>
+
+          <ul>
+            {todoList &&
+              todoList?.length > 0 &&
+              todoList?.map(todo => (
+                <li className='todo-item' key={todo?.id}>
+                  <p className='todo-text'>{todo?.text}</p>
+                </li>
+              ))}
+          </ul>
+        </ProjectDescription>
 
         <TechsUsed
           techs={

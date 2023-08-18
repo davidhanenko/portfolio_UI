@@ -51,10 +51,11 @@ query CurrentSingleProject {
           }
         }
 
-        todo_list {
-          ... on ComponentTextText {
+        todo {
+          ... on ComponentTextTextWithHeader {
             id
-            section
+            header
+            text
           }
         }
       }

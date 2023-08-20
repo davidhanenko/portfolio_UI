@@ -6,7 +6,7 @@ import {
 } from '../graphql/apollo';
 
 import CurrentSingleProject from '../components/single-project/CurrentSingleProject';
-import { CurrentSingleProjectDocument, CurrentSingleProjectQuery } from '../graphql/current-project/currentSingleProject.generated';
+import { CurrentSingleProjectDocument, CurrentSingleProjectQuery } from '../graphql/current-project/currentSingle.generated';
 
 const CurrentSingleProjectPage: NextPage<
   CurrentSingleProjectQuery

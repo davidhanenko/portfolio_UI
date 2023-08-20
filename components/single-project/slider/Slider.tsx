@@ -5,12 +5,10 @@ import {
   useRef,
   useState,
 } from 'react';
-
 import {
   FaChevronRight,
   FaChevronLeft,
 } from 'react-icons/fa';
-import { useInView } from 'react-intersection-observer';
 
 import {
   ImagePlaceholderStyles,
@@ -18,18 +16,16 @@ import {
 } from './SliderStyles';
 
 import { IMAGE_PLACEHOLDER as placeholderImg } from '../../../config';
-import { over } from 'lodash';
 import ScrollAnimated from '../../shared/ScrollAnimated';
 
-interface ISlidesProps {
-  slides: any;
-  showModal: boolean;
+ interface ISlidesProps {
+  slides: {
+      url: string;
+      height: number;
+  }[];
 }
 
-const Slider: React.FC<ISlidesProps> = ({
-  showModal,
-  slides,
-}) => {
+const Slider: React.FC<ISlidesProps> = ({ slides }) => {
   const [current, setCurrent] = useState(0);
   const [isOversized, setOversized] = useState(false);
 
@@ -40,7 +36,7 @@ const Slider: React.FC<ISlidesProps> = ({
   const length = slides.length;
 
   useEffect(() => {
-    if (slides[current].attributes.height > 1400) {
+    if (slides[current].height > 1400) {
       setOversized(true);
     } else {
       setOversized(false);
@@ -60,14 +56,14 @@ const Slider: React.FC<ISlidesProps> = ({
   // change slide on arrow buttons click
   const keyPress = useCallback(
     (event: KeyboardEvent): void => {
-      if (event.key === 'ArrowRight' && showModal) {
+      if (event.key === 'ArrowRight') {
         nextSlide();
       }
-      if (event.key === 'ArrowLeft' && showModal) {
+      if (event.key === 'ArrowLeft') {
         prevSlide();
       }
     },
-    [nextSlide, prevSlide, showModal]
+    [nextSlide, prevSlide]
   );
 
   useEffect(() => {
@@ -115,11 +111,11 @@ const Slider: React.FC<ISlidesProps> = ({
             key={index}
           >
             {index === current &&
-              slide?.attributes?.url && (
+              slide?.url && (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   ref={slideImgRef}
-                  src={slide?.attributes?.url}
+                  src={slide?.url}
                   alt={`Project screenshot`}
                   className='image'
                 />

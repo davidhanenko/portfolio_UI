@@ -2,12 +2,12 @@ import { RefObject } from 'react';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 
+import { LoaderPuff } from '../../shared/loaders/Puff';
 import ProjectDescription from '../project/ProjectDescription';
 import ProjectHeader from '../project/ProjectHeader';
 import { CurrentProjectStyles } from './CurrentProjectStyles';
 import { useCurrentProjectQuery } from '../../../graphql/current-project/current.generated';
 import { IMAGE_PLACEHOLDER } from '../../../config';
-import { LoaderPuff } from '../../shared/loaders/Puff';
 
 const CurrentProject: React.FC = () => {
   const { data, loading } = useCurrentProjectQuery();

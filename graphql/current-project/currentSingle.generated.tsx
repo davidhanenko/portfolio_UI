@@ -6,7 +6,7 @@ const defaultOptions = {} as const;
 export type CurrentSingleProjectQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type CurrentSingleProjectQuery = { __typename?: 'Query', currentProject?: { __typename?: 'CurrentProjectEntityResponse', data?: { __typename?: 'CurrentProjectEntity', id?: string | null, attributes?: { __typename?: 'CurrentProject', title?: string | null, project_type?: string | null, link?: string | null, link_git?: string | null, description?: string | null, status?: Types.Enum_Currentproject_Status | null, progress?: number | null, images?: { __typename?: 'UploadFileRelationResponseCollection', data: Array<{ __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, height?: number | null } | null }> } | null, tech_used?: Array<{ __typename?: 'ComponentTechTech', id: string, tech_title?: string | null, tech_logo?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | { __typename?: 'Error' } | null> | null, full_description?: Array<{ __typename?: 'ComponentTextTextWithHeader', id: string, header?: string | null, text?: string | null } | { __typename?: 'Error' } | null> | null, features?: Array<{ __typename?: 'ComponentTextTextWithHeader', id: string, header?: string | null, text?: string | null } | { __typename?: 'Error' } | null> | null, todo_list?: Array<{ __typename?: 'ComponentTextText', id: string, section?: string | null } | { __typename?: 'Error' } | null> | null } | null } | null } | null };
+export type CurrentSingleProjectQuery = { __typename?: 'Query', currentProject?: { __typename?: 'CurrentProjectEntityResponse', data?: { __typename?: 'CurrentProjectEntity', id?: string | null, attributes?: { __typename?: 'CurrentProject', title?: string | null, project_type?: string | null, link?: string | null, link_git?: string | null, description?: string | null, status?: Types.Enum_Currentproject_Status | null, progress?: number | null, images?: { __typename?: 'UploadFileRelationResponseCollection', data: Array<{ __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, height?: number | null } | null }> } | null, tech_used?: Array<{ __typename?: 'ComponentTechTech', id: string, tech_title?: string | null, tech_logo?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | { __typename?: 'Error' } | null> | null, full_description?: Array<{ __typename?: 'ComponentTextTextWithHeader', id: string, header?: string | null, text?: string | null } | { __typename?: 'Error' } | null> | null, features?: Array<{ __typename?: 'ComponentTextTextWithHeader', id: string, header?: string | null, text?: string | null } | { __typename?: 'Error' } | null> | null, todo?: Array<{ __typename?: 'ComponentTextTextWithHeader', id: string, header?: string | null, text?: string | null } | { __typename?: 'Error' } | null> | null } | null } | null } | null };
 
 
 export const CurrentSingleProjectDocument = gql`
@@ -57,10 +57,11 @@ export const CurrentSingleProjectDocument = gql`
             text
           }
         }
-        todo_list {
-          ... on ComponentTextText {
+        todo {
+          ... on ComponentTextTextWithHeader {
             id
-            section
+            header
+            text
           }
         }
       }

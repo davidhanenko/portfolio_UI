@@ -13,7 +13,7 @@ export type Scalars = {
   CurrentProjectFeaturesDynamicZoneInput: any;
   CurrentProjectFullDescriptionDynamicZoneInput: any;
   CurrentProjectTechUsedDynamicZoneInput: any;
-  CurrentProjectTodoListDynamicZoneInput: any;
+  CurrentProjectTodoDynamicZoneInput: any;
   DateTime: any;
   JSON: any;
   MainTechDynamicZoneInput: any;
@@ -195,7 +195,7 @@ export type CurrentProject = {
   status?: Maybe<Enum_Currentproject_Status>;
   tech_used?: Maybe<Array<Maybe<CurrentProjectTechUsedDynamicZone>>>;
   title?: Maybe<Scalars['String']>;
-  todo_list?: Maybe<Array<Maybe<CurrentProjectTodoListDynamicZone>>>;
+  todo?: Maybe<Array<Maybe<CurrentProjectTodoDynamicZone>>>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
@@ -235,12 +235,12 @@ export type CurrentProjectInput = {
   status?: InputMaybe<Enum_Currentproject_Status>;
   tech_used?: InputMaybe<Array<Scalars['CurrentProjectTechUsedDynamicZoneInput']>>;
   title?: InputMaybe<Scalars['String']>;
-  todo_list?: InputMaybe<Array<Scalars['CurrentProjectTodoListDynamicZoneInput']>>;
+  todo?: InputMaybe<Array<Scalars['CurrentProjectTodoDynamicZoneInput']>>;
 };
 
 export type CurrentProjectTechUsedDynamicZone = ComponentTechTech | Error;
 
-export type CurrentProjectTodoListDynamicZone = ComponentTextText | Error;
+export type CurrentProjectTodoDynamicZone = ComponentTextTextWithHeader | Error;
 
 export type DateTimeFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;

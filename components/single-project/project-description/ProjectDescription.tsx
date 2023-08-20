@@ -1,13 +1,15 @@
+import ReactMarkdown from 'react-markdown';
+
 import { SingleProjectQuery } from '../../../graphql/projects/singleProject.generated';
 import { ProjectDescriptionStyles } from './ProjectDescriptionStyles';
-import ReactMarkdown from 'react-markdown';
 
 interface IProjectDescriptionProps {
   description: SingleProjectQuery['project']['data']['attributes']['full_description'];
   features: SingleProjectQuery['project']['data']['attributes']['features'];
+  children?: React.ReactNode;
 }
 
-type Paragraph = {
+type ParagraphProps = {
   id: string;
   header: string;
   text: string;
@@ -15,12 +17,13 @@ type Paragraph = {
 
 const ProjectDescription: React.FC<
   IProjectDescriptionProps
-> = ({ description, features }) => {
+> = ({ description, features, children }) => {
   return (
     <ProjectDescriptionStyles>
       <div className='description'>
         {description &&
-          description.map((paragraph: Paragraph) => (
+          description.length > 0 &&
+          description.map((paragraph: ParagraphProps) => (
             <div
               key={paragraph.id}
               className='description-paragraph'
@@ -37,7 +40,8 @@ const ProjectDescription: React.FC<
       <div className='features'>
         <h3>Key features</h3>
         {features &&
-          features.map((feature: Paragraph) => (
+          features.length > 0 &&
+          features.map((feature: ParagraphProps) => (
             <div
               key={feature.id}
               className='feature-paragraph'
@@ -54,6 +58,8 @@ const ProjectDescription: React.FC<
             </div>
           ))}
       </div>
+
+      {children}
     </ProjectDescriptionStyles>
   );
 };

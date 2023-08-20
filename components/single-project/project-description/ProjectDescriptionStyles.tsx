@@ -16,7 +16,7 @@ const ProjectDescriptionStyles = styled.div`
   .description {
     .description-paragraph {
       padding: 1rem 0;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
 
       h5 {
         font-size: 1.7rem;
@@ -64,7 +64,7 @@ const ProjectDescriptionStyles = styled.div`
       }
 
       .feature-text {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
 
         ul {
           padding-left: 2rem;

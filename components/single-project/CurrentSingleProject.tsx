@@ -70,15 +70,17 @@ const CurrentSingleProject: React.FC<
           }
         >
           <div className='todo-section'>
-            <h3 className='todo-headline'>Todo list</h3>
+            <h3>Todo list</h3>
             <ul className='todo-list'>
               {todoList &&
                 todoList?.length > 0 &&
                 todoList?.map(todo => (
-                  <li className='todo-item' key={todo?.id}>
-                    <p className='todo-text'>
-                      {todo?.text}
-                    </p>
+                  <li key={todo?.id}>
+                    <div className='todo-header'>
+                      <span className='marker'>🟩</span>
+                      <h5>{todo?.header}</h5>
+                    </div>
+                    <p>{todo?.text}</p>
                   </li>
                 ))}
             </ul>

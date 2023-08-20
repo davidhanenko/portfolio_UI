@@ -34,14 +34,17 @@ const CurrentSingleProjectStyles = styled.div`
   ${ProjectDescriptionStyles} {
     .todo-section {
       width: 80%;
-      margin: 0 auto;
-      padding: 2rem;
+      margin: 8rem auto;
+      padding: 4rem 2rem;
       border: 1px solid var(--gray);
       border-radius: 5px;
-      box-shadow: 0 0 10px 1px var(--gray);
+      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
 
+      @media (max-width: 800px) {
+        width: 100%;
+      }
     }
-    .todo-headline {
+    h3 {
       font-size: 2.5rem;
       margin-bottom: 2rem;
       color: transparent;
@@ -52,13 +55,25 @@ const CurrentSingleProjectStyles = styled.div`
       display: inline-block;
     }
 
-    .todo-item {
-      width: 80%;
-      margin: 0 auto;
-      list-style: '✅';
+    li {
+      width: 90%;
+      margin: 2rem auto;
+      list-style: none;
+
+      .todo-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 1.8rem;
+
+        .marker {
+          font-size: 1.2rem;
+        }
+      }
 
       p {
         font-size: 1.5rem;
+        margin-left: 2rem;
       }
     }
   }

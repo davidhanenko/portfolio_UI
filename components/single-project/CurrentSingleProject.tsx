@@ -29,29 +29,36 @@ const CurrentSingleProject: React.FC<
   const sliderImages =
     currentProject?.data?.attributes?.images?.data;
 
-  const todoList = currentProject?.data?.attributes?.todo;
+  // Transform the sliderImages to match the structure expected by ISlidesProps
+  const transformedSliderImages = sliderImages
+    ? sliderImages.map(slide => ({
+        url: slide.attributes?.url || '',
+        height: slide.attributes?.height || 0,
+      }))
+    : [];
+
+  const todoList = currentProject?.data?.attributes
+    ?.todo as ParagraphProps[];
 
   return (
     <CurrentSingleProjectStyles>
       <section className='image-slider-section'>
         <div className='image-slider'>
-          {sliderImages !== undefined &&
-            sliderImages.length > 0 && (
-              <Slider
-                slides={sliderImages}
-                showModal={false}
-              />
-            )}
+          {sliderImages && sliderImages.length > 0 && (
+            <Slider slides={transformedSliderImages} />
+          )}
         </div>
       </section>
       <section className='project-description'>
-        <ProjectHeader
-          title={currentProject?.data?.attributes?.title!}
-          link={currentProject?.data?.attributes?.link!}
-          linkGit={
-            currentProject?.data?.attributes?.link_git!
-          }
-        />
+        {currentProject && (
+          <ProjectHeader
+            title={currentProject?.data?.attributes?.title!}
+            link={currentProject?.data?.attributes?.link!}
+            linkGit={
+              currentProject?.data?.attributes?.link_git!
+            }
+          />
+        )}
 
         <ProjectDescription
           description={
@@ -62,7 +69,7 @@ const CurrentSingleProject: React.FC<
             currentProject?.data?.attributes?.features
           }
         >
-          <h3 className='todo-head'>Todo list</h3>
+          <h3 className='todo-headline'>Todo list</h3>
 
           <ul>
             {todoList &&

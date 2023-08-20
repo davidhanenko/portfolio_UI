@@ -32,7 +32,7 @@ const CurrentSingleProjectStyles = styled.div`
   }
 
   ${ProjectDescriptionStyles} {
-    .todo-head {
+    .todo-headline {
       font-size: 2.5rem;
       margin-bottom: 2rem;
       color: transparent;
@@ -41,6 +41,16 @@ const CurrentSingleProjectStyles = styled.div`
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       display: inline-block;
+    }
+
+    .todo-item {
+      width: 80%;
+      margin: 0 auto;
+      list-style: '✅';
+
+      p {
+        font-size: 1.5rem;
+      }
     }
   }
 `;

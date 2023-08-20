@@ -22,16 +22,21 @@ const SingleProject: React.FC<ISingleProjectProps> = ({
   const sliderImages =
     project?.data?.attributes?.images?.data;
 
+  // Transform the sliderImages to match the structure expected by ISlidesProps
+  const transformedSliderImages = sliderImages
+    ? sliderImages.map(slide => ({
+        url: slide.attributes?.url || '',
+        height: slide.attributes?.height || 0,
+      }))
+    : [];
+
   return (
     <SingleProjectStyles>
       <section className='image-slider-section'>
         <div className='image-slider'>
           {sliderImages !== undefined &&
             sliderImages.length > 0 && (
-              <Slider
-                slides={sliderImages}
-                showModal={false}
-              />
+              <Slider slides={transformedSliderImages} />
             )}
         </div>
       </section>

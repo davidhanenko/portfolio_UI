@@ -32,6 +32,15 @@ const CurrentSingleProjectStyles = styled.div`
   }
 
   ${ProjectDescriptionStyles} {
+    .todo-section {
+      width: 80%;
+      margin: 0 auto;
+      padding: 2rem;
+      border: 1px solid var(--gray);
+      border-radius: 5px;
+      box-shadow: 0 0 10px 1px var(--gray);
+
+    }
     .todo-headline {
       font-size: 2.5rem;
       margin-bottom: 2rem;

@@ -69,17 +69,20 @@ const CurrentSingleProject: React.FC<
             currentProject?.data?.attributes?.features
           }
         >
-          <h3 className='todo-headline'>Todo list</h3>
-
-          <ul>
-            {todoList &&
-              todoList?.length > 0 &&
-              todoList?.map(todo => (
-                <li className='todo-item' key={todo?.id}>
-                  <p className='todo-text'>{todo?.text}</p>
-                </li>
-              ))}
-          </ul>
+          <div className='todo-section'>
+            <h3 className='todo-headline'>Todo list</h3>
+            <ul className='todo-list'>
+              {todoList &&
+                todoList?.length > 0 &&
+                todoList?.map(todo => (
+                  <li className='todo-item' key={todo?.id}>
+                    <p className='todo-text'>
+                      {todo?.text}
+                    </p>
+                  </li>
+                ))}
+            </ul>
+          </div>
         </ProjectDescription>
 
         <TechsUsed

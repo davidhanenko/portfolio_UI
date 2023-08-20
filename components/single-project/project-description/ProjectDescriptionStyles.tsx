@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const ProjectDescriptionStyles = styled.div`
-  padding: 10rem 0;
+  padding: 10rem 5rem;
   max-width: 1100px;
   margin: 0 auto;
 

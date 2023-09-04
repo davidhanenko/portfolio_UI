@@ -20,7 +20,7 @@ const ProjectHeader = ({
     <ProjectHeaderStyles>
       <h2>{title}</h2>
       <div className='outer-links'>
-        {link && (
+        {!!link && (
           <a
             href={link}
             target='_blank'
@@ -30,7 +30,7 @@ const ProjectHeader = ({
             <FaExternalLinkAlt />
           </a>
         )}
-        {linkGit && (
+        {!!linkGit && (
           <a
             href={linkGit}
             target='_blank'

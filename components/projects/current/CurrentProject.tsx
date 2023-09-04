@@ -75,7 +75,7 @@ const CurrentProject: React.FC = () => {
               blurDataURL={IMAGE_PLACEHOLDER}
             />
 
-            {imageUrl && (
+            {!!imageUrl ? (
               <ProjectDescription
                 inView={inView}
                 projectType={
@@ -88,7 +88,7 @@ const CurrentProject: React.FC = () => {
                   currentProject?.attributes?.tech_used
                 }
               />
-            )}
+            ) : null}
           </div>
         </div>
       </div>

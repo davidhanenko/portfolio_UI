@@ -20,25 +20,26 @@ export const AboutStack: React.FC<IAboutStackProps> = ({
     <Stack ref={ref} inView={inView}>
       <div>
         <h3>Experienced with</h3>
-        {techs &&
-          techs.map(tech => (
-            <p className='tech-title' key={tech.id}>
-              {tech.tech_title}
-            </p>
-          ))}
+        {!!techs?.length
+          ? techs.map(tech => (
+              <p className='tech-title' key={tech.id}>
+                {tech.tech_title}
+              </p>
+            ))
+          : null}
       </div>
 
       <hr />
 
       <div className='learning'>
         <h3>Looking forward to improve</h3>
-        {techsLearning !== undefined &&
-          techsLearning !== null &&
-          techsLearning.map(tech => (
-            <p className='tech-title-learn' key={tech.id}>
-              {tech.tech_title}
-            </p>
-          ))}
+        {!!techsLearning?.length
+          ? techsLearning.map(tech => (
+              <p className='tech-title-learn' key={tech.id}>
+                {tech.tech_title}
+              </p>
+            ))
+          : null}
       </div>
     </Stack>
   );

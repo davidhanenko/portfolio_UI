@@ -48,7 +48,7 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
               blurDataURL={IMAGE_PLACEHOLDER}
             />
 
-            {imageUrl && (
+            {!!imageUrl ? (
               <ProjectDescription
                 inView={inView}
                 projectType={
@@ -59,7 +59,7 @@ const Project: React.FC<IProjectProps> = ({ project }) => {
                 }
                 techUsed={project?.attributes?.tech_used}
               />
-            )}
+            ) : null}
           </div>
         </div>
       </div>

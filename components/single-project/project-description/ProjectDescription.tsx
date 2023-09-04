@@ -21,42 +21,42 @@ const ProjectDescription: React.FC<
   return (
     <ProjectDescriptionStyles>
       <div className='description'>
-        {description &&
-          description.length > 0 &&
-          description.map((paragraph: ParagraphProps) => (
-            <div
-              key={paragraph.id}
-              className='description-paragraph'
-            >
-              <h5>{paragraph.header}</h5>
+        {description.length
+          ? description.map((paragraph: ParagraphProps) => (
+              <div
+                key={paragraph.id}
+                className='description-paragraph'
+              >
+                <h5>{paragraph.header}</h5>
 
-              <ReactMarkdown>
-                {paragraph.text}
-              </ReactMarkdown>
-            </div>
-          ))}
+                <ReactMarkdown>
+                  {paragraph.text}
+                </ReactMarkdown>
+              </div>
+            ))
+          : null}
       </div>
 
       <div className='features'>
         <h3>Key features</h3>
-        {features &&
-          features.length > 0 &&
-          features.map((feature: ParagraphProps) => (
-            <div
-              key={feature.id}
-              className='feature-paragraph'
-            >
-              <div className='feature-header'>
-                <span className='marker'>⭐️</span>
-                <h5>{feature.header}</h5>
+        {features.length
+          ? features.map((feature: ParagraphProps) => (
+              <div
+                key={feature.id}
+                className='feature-paragraph'
+              >
+                <div className='feature-header'>
+                  <span className='marker'>⭐️</span>
+                  <h5>{feature.header}</h5>
+                </div>
+                <div className='feature-text'>
+                  <ReactMarkdown>
+                    {feature.text}
+                  </ReactMarkdown>
+                </div>
               </div>
-              <div className='feature-text'>
-                <ReactMarkdown>
-                  {feature.text}
-                </ReactMarkdown>
-              </div>
-            </div>
-          ))}
+            ))
+          : null}
       </div>
 
       {children}

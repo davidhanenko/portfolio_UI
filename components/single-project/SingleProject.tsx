@@ -34,10 +34,9 @@ const SingleProject: React.FC<ISingleProjectProps> = ({
     <SingleProjectStyles>
       <section className='image-slider-section'>
         <div className='image-slider'>
-          {sliderImages !== undefined &&
-            sliderImages.length > 0 && (
+          {sliderImages?.length ? (
               <Slider slides={transformedSliderImages} />
-            )}
+            ) : null}
         </div>
       </section>
       <section className='project-description'>

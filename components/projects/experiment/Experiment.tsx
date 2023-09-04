@@ -33,7 +33,7 @@ const Experiment: React.FC<IExperimentProps> = ({
       <div className='image-wrapper'>
         <Overlay>
           <div className='links'>
-            {experiment?.attributes?.link && (
+            {!!experiment?.attributes?.link ? (
               <a
                 href={experiment?.attributes?.link}
                 target='_blank'
@@ -42,8 +42,8 @@ const Experiment: React.FC<IExperimentProps> = ({
               >
                 <FaExternalLinkAlt />
               </a>
-            )}
-            {experiment?.attributes?.link_git && (
+            ) : null}
+            {!!experiment?.attributes?.link_git ? (
               <a
                 href={experiment?.attributes?.link_git}
                 target='_blank'
@@ -52,7 +52,7 @@ const Experiment: React.FC<IExperimentProps> = ({
               >
                 <FaGithub />
               </a>
-            )}
+            ) : null}
           </div>
           <p>{experiment?.attributes?.description}</p>
         </Overlay>

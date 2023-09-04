@@ -51,34 +51,34 @@ const Media: React.FC = () => {
 
   return (
     <MediaStyles>
-      {linkedin && (
+      {!!linkedin ? (
         <Link href={linkedin}>
           <a target='_blank' data-tooltip='LinkedIn'>
             <FaLinkedin />
           </a>
         </Link>
-      )}
-      {github && (
+      ) : null}
+      {!!github ? (
         <Link href={github}>
           <a target='_blank' data-tooltip='GitHub'>
             <FaGithub />
           </a>
         </Link>
-      )}
-      {facebook && (
+      ) : null}
+      {!!facebook ? (
         <Link href={facebook}>
           <a target='_blank' data-tooltip='Facebook'>
             <FaFacebookSquare />
           </a>
         </Link>
-      )}
-      {resume && (
+      ) : null}
+      {!!resume ? (
         <Link href={resume}>
           <a download target='_blank' data-tooltip='Resume'>
             <CgFileDocument />
           </a>
         </Link>
-      )}
+      ) : null}
     </MediaStyles>
   );
 };

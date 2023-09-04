@@ -44,17 +44,6 @@ const AboutImg = styled.section`
   span {
     box-shadow: 0 10px 15px -3px var(--bgDarkOpacity);
   }
-
-  @media (pointer: fine) and (hover: hover) {
-    span {
-      filter: invert(15%);
-      transition: filter 0.3s ease-in-out;
-
-      &:hover {
-        filter: none;
-      }
-    }
-  }
 `;
 
 export { AboutImg };

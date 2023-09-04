@@ -19,7 +19,7 @@ const AboutImg = styled.section`
   position: relative;
   display: block;
   width: 350px;
-  height: 400px;
+  height: 530px;
 
   opacity: 0;
   transform: translateY(10%);

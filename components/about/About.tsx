@@ -31,14 +31,16 @@ const About: React.FC = () => {
               paragraphs={paragraphs!}
             />
           )}
-          {techs && (
+          {!!techs?.length ? (
             <AboutStack
               techs={techs}
-              techsLearning={techsLearning!} inView={false}            />
-          )}
+              techsLearning={techsLearning!}
+              inView={false}
+            />
+          ) : null}
         </section>
         <section className='img-cv'>
-          {imgUrl && <AboutImage imgUrl={imgUrl!} />}
+          {!!imgUrl && <AboutImage imgUrl={imgUrl!} />}
         </section>
       </AboutWrapper>
     </AboutContainer>

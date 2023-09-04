@@ -26,7 +26,7 @@ export const BgElement: React.FC<IBgEl> = ({
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (bgRef && bgRef.current !== null && bgInView) {
+      if (!!bgRef && bgRef.current !== null && !!bgInView) {
         setTop(Math.random() * bgRef.current?.offsetHeight);
         setLeft(Math.random() * bgRef.current?.offsetWidth);
       }
@@ -42,14 +42,14 @@ export const BgElement: React.FC<IBgEl> = ({
       left={`${left}px`}
     >
       <div className='tech-img'>
-        {el && (
+        {!!el ? (
           <Image
             src={el?.tech_logo?.data?.attributes?.url}
             alt={''}
             layout='fill'
             objectFit='scale-down'
           />
-        )}
+        ) : null}
       </div>
     </Element>
   );

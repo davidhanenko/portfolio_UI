@@ -36,16 +36,17 @@ const Projects: React.FC = () => {
       <h2>Projects</h2>
       <CurrentProject />
       <section className='projects-wrapper'>
-        {projects !== undefined &&
-          projects?.map(project => (
-            <Project
-              key={project.id}
-              project={project}
-              inView={false}
-              projectRef={undefined}
-              isSlide={false}
-            />
-          ))}
+        {!!projects?.length
+          ? projects?.map(project => (
+              <Project
+                key={project.id}
+                project={project}
+                inView={false}
+                projectRef={undefined}
+                isSlide={false}
+              />
+            ))
+          : null}
       </section>
 
       <section className='experiments-container'>

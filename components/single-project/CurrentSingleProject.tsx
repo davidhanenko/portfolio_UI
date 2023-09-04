@@ -39,18 +39,20 @@ const CurrentSingleProject: React.FC<
 
   const todoList = currentProject?.data?.attributes
     ?.todo as ParagraphProps[];
+  
+  if(!currentProject) return null;
 
   return (
     <CurrentSingleProjectStyles>
       <section className='image-slider-section'>
         <div className='image-slider'>
-          {sliderImages && sliderImages.length > 0 && (
+          {sliderImages?.length ? (
             <Slider slides={transformedSliderImages} />
-          )}
+          ) : null}
         </div>
       </section>
       <section className='project-description'>
-        {currentProject && (
+        {currentProject ? (
           <ProjectHeader
             title={currentProject?.data?.attributes?.title!}
             link={currentProject?.data?.attributes?.link!}
@@ -58,7 +60,7 @@ const CurrentSingleProject: React.FC<
               currentProject?.data?.attributes?.link_git!
             }
           />
-        )}
+        ) : null}
 
         <ProjectDescription
           description={
@@ -72,17 +74,17 @@ const CurrentSingleProject: React.FC<
           <div className='todo-section'>
             <h3>Todo list</h3>
             <ul className='todo-list'>
-              {todoList &&
-                todoList?.length > 0 &&
-                todoList?.map(todo => (
-                  <li key={todo?.id}>
-                    <div className='todo-header'>
-                      <span className='marker'>🟩</span>
-                      <h5>{todo?.header}</h5>
-                    </div>
-                    <p>{todo?.text}</p>
-                  </li>
-                ))}
+              {todoList?.length
+                ? todoList?.map(todo => (
+                    <li key={todo?.id}>
+                      <div className='todo-header'>
+                        <span className='marker'>🟩</span>
+                        <h5>{todo?.header}</h5>
+                      </div>
+                      <p>{todo?.text}</p>
+                    </li>
+                  ))
+                : null}
             </ul>
           </div>
         </ProjectDescription>

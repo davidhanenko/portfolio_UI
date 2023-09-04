@@ -15,13 +15,13 @@ export const Map: React.FC<IMap> = ({
 }) => {
   return (
     <MapImg inView={inView} ref={mapRef}>
-      {map && (
+      {!!map ? (
         <Image
           src={map}
           alt='New York area map'
           layout='fill'
         />
-      )}
+      ) : null}
       <div className='pin'></div>
       <div className='pulse'></div>
     </MapImg>

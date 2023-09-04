@@ -18,8 +18,9 @@ export const AboutText: React.FC<IAboutTextProps> = ({
   return (
     <Text ref={ref} inView={inView}>
       <h2>{header}</h2>
-      {paragraphs &&
-        paragraphs.map(p => <p key={p.id}>{p.section}</p>)}
+      {!!paragraphs?.length
+        ? paragraphs.map(p => <p key={p.id}>{p.section}</p>)
+        : null}
     </Text>
   );
 };

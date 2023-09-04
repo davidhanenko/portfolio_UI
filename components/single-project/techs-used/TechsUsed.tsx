@@ -26,21 +26,24 @@ const TechsUsed: React.FC<ITechsUsedProps> = ({
     <TechsUsedStyles ref={ref}>
       <h3>Technologies used</h3>
       <ul className='techs-list'>
-        {techs &&
-          techs.map((tech: TechProps) => (
-            <li key={tech.id} className='tech-item'>
-              <Image
-                src={tech?.tech_logo?.data?.attributes?.url}
-                alt='tech logo'
-                width={50}
-                height={100}
-                objectFit='scale-down'
-              />
-              <p className='tech-title'>
-                {tech.tech_title}
-              </p>
-            </li>
-          ))}
+        {techs.length
+          ? techs.map((tech: TechProps) => (
+              <li key={tech.id} className='tech-item'>
+                <Image
+                  src={
+                    tech?.tech_logo?.data?.attributes?.url
+                  }
+                  alt='tech logo'
+                  width={50}
+                  height={100}
+                  objectFit='scale-down'
+                />
+                <p className='tech-title'>
+                  {tech.tech_title}
+                </p>
+              </li>
+            ))
+          : null}
       </ul>
       <MediaFooter inView={inView} />
     </TechsUsedStyles>

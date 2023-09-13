@@ -21,18 +21,20 @@ const ProjectHeader: React.FC<IProjectHeaderProps> = ({
   link,
   linkGit,
   slug,
-  children
+  children,
 }) => {
   return (
     <ProjectHeaderStyles inView={inView}>
       <h4 className='project-title'>{projectTitle}</h4>
 
       <div className='project-links'>
-        <a href={`/${slug}`} className='view-more-btn'>
-          View More
-        </a>
+        {!!link && (
+          <a href={`/${slug}`} className='view-more-btn'>
+            View More
+          </a>
+        )}
         <div className='outer-links'>
-          {link && (
+          {!!link && (
             <a
               href={link}
               target='_blank'
@@ -42,7 +44,7 @@ const ProjectHeader: React.FC<IProjectHeaderProps> = ({
               <FaExternalLinkAlt />
             </a>
           )}
-          {linkGit && (
+          {!!linkGit && (
             <a
               href={linkGit}
               target='_blank'

@@ -1,17 +1,20 @@
-import { GreetTxt, GreetProps } from './GreetStyles';
 
-import { NAME_ANIMATION_DURATION as nameAnimationDuration } from '../../../config';
 import { useAnimation } from '../../../lib/useAnimation';
+import { GreetTxt, GreetProps } from './GreetStyles';
 
 interface IGreetProps extends GreetProps {
   greetText: string;
+  
 }
 
 export const Greet: React.FC<IGreetProps> = ({
   greetText,
-} ) => {
-  
-   const { nameAnimationEnd } = useAnimation();
+}) => {
+  const { nameAnimationEnd } = useAnimation();
+
+  if (!greetText) {
+    return null;
+  }
 
   return (
     <GreetTxt nameAnimationEnd={nameAnimationEnd}>

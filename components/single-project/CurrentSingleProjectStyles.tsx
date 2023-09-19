@@ -36,8 +36,6 @@ const CurrentSingleProjectStyles = styled.div`
       width: 80%;
       margin: 8rem auto;
       padding: 4rem 2rem;
-      border: 1px solid var(--gray);
-      border-radius: 5px;
       box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
 
       @media (max-width: 800px) {
@@ -71,9 +69,14 @@ const CurrentSingleProjectStyles = styled.div`
         }
       }
 
-      p {
-        font-size: 1.5rem;
+      .todo-text {
+        font-size: 1.6rem;
         margin-left: 2rem;
+
+        li {
+          list-style: disc;
+          margin: 0.5rem 0 0.5rem 1rem;
+        }
       }
     }
   }

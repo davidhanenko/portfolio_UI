@@ -18,10 +18,10 @@ import {
 import { IMAGE_PLACEHOLDER as placeholderImg } from '../../../config';
 import ScrollAnimated from '../../shared/ScrollAnimated';
 
- interface ISlidesProps {
+interface ISlidesProps {
   slides: {
-      url: string;
-      height: number;
+    url: string;
+    height: number;
   }[];
 }
 
@@ -36,12 +36,14 @@ const Slider: React.FC<ISlidesProps> = ({ slides }) => {
   const length = slides.length;
 
   useEffect(() => {
-    if (slides[current].height > 1400) {
+    if (slides[current].height > 1500) {
       setOversized(true);
     } else {
       setOversized(false);
     }
   }, [current, slides]);
+
+
 
   // next slide
   const nextSlide = useCallback(() => {
@@ -110,16 +112,15 @@ const Slider: React.FC<ISlidesProps> = ({ slides }) => {
             }
             key={index}
           >
-            {index === current &&
-              !!slide?.url && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  ref={slideImgRef}
-                  src={slide?.url}
-                  alt={`Project screenshot`}
-                  className='image'
-                />
-              )}
+            {index === current && !!slide?.url && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                ref={slideImgRef}
+                src={slide?.url}
+                alt={`Project screenshot`}
+                className='image'
+              />
+            )}
           </div>
         );
       })}

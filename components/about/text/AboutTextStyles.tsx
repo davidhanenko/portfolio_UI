@@ -47,7 +47,7 @@ const Text = styled.article`
     text-align: justify;
 
     &:last-child {
-      color: var(--lightGray);
+      color: var(--gray);
     }
   }
 

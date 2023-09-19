@@ -42,7 +42,7 @@ const Stack = styled.section`
   }
 
   .learning {
-    color: var(--lightGray);
+    color: var(--gray);
   }
 
   .tech-title,

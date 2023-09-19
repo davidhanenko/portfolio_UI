@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 import Slider from './slider/Slider';
 import ProjectDescription from './project-description/ProjectDescription';
@@ -37,10 +38,11 @@ const CurrentSingleProject: React.FC<
       }))
     : [];
 
+  
   const todoList = currentProject?.data?.attributes
     ?.todo as ParagraphProps[];
-  
-  if(!currentProject) return null;
+
+  if (!currentProject) return null;
 
   return (
     <CurrentSingleProjectStyles>
@@ -72,7 +74,7 @@ const CurrentSingleProject: React.FC<
           }
         >
           <div className='todo-section'>
-            <h3>Todo list</h3>
+            <h3>Upcoming features</h3>
             <ul className='todo-list'>
               {todoList?.length
                 ? todoList?.map(todo => (
@@ -81,7 +83,11 @@ const CurrentSingleProject: React.FC<
                         <span className='marker'>🟩</span>
                         <h5>{todo?.header}</h5>
                       </div>
-                      <p>{todo?.text}</p>
+                      <div className='todo-text'>
+                        <ReactMarkdown>
+                          {todo?.text}
+                        </ReactMarkdown>
+                      </div>
                     </li>
                   ))
                 : null}

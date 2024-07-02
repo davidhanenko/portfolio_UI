@@ -19,7 +19,7 @@ export const AboutStack: React.FC<IAboutStackProps> = ({
   return (
     <Stack ref={ref} inView={inView}>
       <div>
-        <h3>Experienced with</h3>
+        <h3>Experienced with:</h3>
         {!!techs?.length
           ? techs.map(tech => (
               <p className='tech-title' key={tech.id}>
@@ -32,7 +32,7 @@ export const AboutStack: React.FC<IAboutStackProps> = ({
       <hr />
 
       <div className='learning'>
-        <h3>Looking forward to improve</h3>
+        <h3>Looking forward to improve:</h3>
         {!!techsLearning?.length
           ? techsLearning.map(tech => (
               <p className='tech-title-learn' key={tech.id}>

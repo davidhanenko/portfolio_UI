@@ -41,6 +41,7 @@ class MyDocument extends Document {
       <Html lang='en'>
         <Head>
           <meta name='robots' content='all'></meta>
+          <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         </Head>
         <body>
           <Main />

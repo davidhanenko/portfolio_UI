@@ -21,6 +21,8 @@ const About: React.FC = () => {
   const techsLearning =
     data?.about?.data?.attributes?.tech_learning;
 
+  if (!data || error) return null;
+
   return (
     <AboutContainer id='about'>
       <AboutWrapper>

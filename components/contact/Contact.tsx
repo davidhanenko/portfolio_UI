@@ -10,7 +10,7 @@ import { Map } from './map/Map';
 import { MediaStylesWrapper } from './media/MediaStylesWrapper';
 
 const Contact: React.FC = () => {
-  const { data, loading } = useContactQuery();
+  const { data, loading, error } = useContactQuery();
 
   const { ref, inView } = useInView({
     threshold: 0.8,
@@ -20,6 +20,8 @@ const Contact: React.FC = () => {
     data?.contact?.data?.attributes?.map?.data?.attributes
       ?.url;
   const email = data?.contact?.data?.attributes?.email;
+
+  if (!data || error) return null;
 
   return (
     <ContactContainer id='contacts'>

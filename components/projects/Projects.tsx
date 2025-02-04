@@ -31,6 +31,8 @@ const Projects: React.FC = () => {
     }
   }, [scrollProjectsInView, setScrollProjectsInView]);
 
+  if (!projectsData || !experimentsData) return null;
+
   return (
     <ProjectsContainer id='projects'>
       <h2>Projects</h2>
